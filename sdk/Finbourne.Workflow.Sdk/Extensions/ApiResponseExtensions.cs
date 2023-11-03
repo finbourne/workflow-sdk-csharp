@@ -18,7 +18,7 @@ namespace Finbourne.Workflow.Sdk.Extensions
         /// <summary>
         /// The header that the request id is contained within.
         /// </summary>
-        public const string RequestIdHeader = "lusid-meta-requestid";
+        public const string RequestIdHeader = "workflow-meta-requestid";
         
         /// <summary>
         /// The header that the Date Time Offset is contained within.
