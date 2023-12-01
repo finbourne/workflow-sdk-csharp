@@ -6,6 +6,7 @@
  */
 
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 
 namespace Finbourne.Workflow.Sdk.Extensions
 {
@@ -42,6 +43,7 @@ namespace Finbourne.Workflow.Sdk.Extensions
         /// <summary>
         /// Finbourne-workflow Api Url
         /// </summary>
+        [ConfigurationKeyName("finbourne-workflowUrl")]
         public string BaseUrl { get; set; }
 
         /// <summary>
