@@ -104,7 +104,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// Number of Tasks in the Stack
         /// </summary>
         /// <value>Number of Tasks in the Stack</value>
-        [DataMember(Name = "tasksInStack", EmitDefaultValue = false)]
+        [DataMember(Name = "tasksInStack", EmitDefaultValue = true)]
         public int TasksInStack { get; set; }
 
         /// <summary>
