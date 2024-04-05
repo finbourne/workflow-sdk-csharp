@@ -6,6 +6,7 @@
  */
 
 using System.Collections.Generic;
+using Finbourne.Workflow.Sdk.Extensions;
 
 namespace Finbourne.Workflow.Sdk.Client
 {

@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using Finbourne.Workflow.Sdk.Extensions;
 using Finbourne.Workflow.Sdk.Client.Auth;
 
 namespace Finbourne.Workflow.Sdk.Client

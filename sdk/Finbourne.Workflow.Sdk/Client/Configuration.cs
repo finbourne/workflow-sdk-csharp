@@ -15,6 +15,7 @@ using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Net.Http;
+using Finbourne.Workflow.Sdk.Extensions;
 using Finbourne.Workflow.Sdk.Client.Auth;
 
 namespace Finbourne.Workflow.Sdk.Client
@@ -543,7 +544,7 @@ namespace Finbourne.Workflow.Sdk.Client
             string report = "C# SDK (Finbourne.Workflow.Sdk) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
-            report += "    Version of the API: 0.1.810\n";
+            report += "    Version of the API: 0.1.857\n";
             report += "    SDK Package Version: 2.0.0\n";
 
             return report;
