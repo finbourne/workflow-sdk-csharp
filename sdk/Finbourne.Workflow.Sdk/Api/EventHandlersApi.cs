@@ -25,278 +25,288 @@ namespace Finbourne.Workflow.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITasksApiSync : IApiAccessor
+    public interface IEventHandlersApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task
+        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTaskRequest">Request to create Task</param>
-        /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
+        /// <param name="createEventHandlerRequest">The data to create an Event Handler</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Task</returns>
-        Task CreateTask(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0);
+        /// <returns>EventHandler</returns>
+        EventHandler CreateEventHandler(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task
+        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTaskRequest">Request to create Task</param>
-        /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
+        /// <param name="createEventHandlerRequest">The data to create an Event Handler</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Task</returns>
-        ApiResponse<Task> CreateTaskWithHttpInfo(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of EventHandler</returns>
+        ApiResponse<EventHandler> CreateEventHandlerWithHttpInfo(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task
+        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
         /// </summary>
+        /// <remarks>
+        /// If the Event Handler does not exist a failure will be returned
+        /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The identifier for the Task to be deleted.</param>
+        /// <param name="scope">Scope of the event handler to be deleted</param>
+        /// <param name="code">Code of the event handler to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteTask(string id, int operationIndex = 0);
+        DeletedEntityResponse DeleteEventHandler(string scope, string code, int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task
+        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
         /// </summary>
         /// <remarks>
-        /// 
+        /// If the Event Handler does not exist a failure will be returned
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The identifier for the Task to be deleted.</param>
+        /// <param name="scope">Scope of the event handler to be deleted</param>
+        /// <param name="code">Code of the event handler to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteTaskWithHttpInfo(string id, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteEventHandlerWithHttpInfo(string scope, string code, int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task
-        /// </summary>
-        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to retrieve</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Task</returns>
-        Task GetTask(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
-
-        /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task
+        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler
         /// </summary>
         /// <remarks>
-        /// 
+        /// Will return a NotFound failure if the event handler does not exist
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to retrieve</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="scope">Scope of the event handler</param>
+        /// <param name="code">Code of the event handler</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the event handler. Defaults to returning the latest version of the event handler if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Task</returns>
-        ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        /// <returns>EventHandler</returns>
+        EventHandler GetEventHandler(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks
+        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler
+        /// </summary>
+        /// <remarks>
+        /// Will return a NotFound failure if the event handler does not exist
+        /// </remarks>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">Scope of the event handler</param>
+        /// <param name="code">Code of the event handler</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the event handler. Defaults to returning the latest version of the event handler if not specified. (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of EventHandler</returns>
+        ApiResponse<EventHandler> GetEventHandlerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
-        /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing event handlers from a previous call to list event handlers. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PagedResourceListOfTask</returns>
-        PagedResourceListOfTask ListTasks(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+        /// <returns>PagedResourceListOfEventHandler</returns>
+        PagedResourceListOfEventHandler ListEventHandlers(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks
+        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
-        /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing event handlers from a previous call to list event handlers. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PagedResourceListOfTask</returns>
-        ApiResponse<PagedResourceListOfTask> ListTasksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+        /// <returns>ApiResponse of PagedResourceListOfEventHandler</returns>
+        ApiResponse<PagedResourceListOfEventHandler> ListEventHandlersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task
+        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Task Definition
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to act upon</param>
-        /// <param name="trigger"> (optional)</param>
-        /// <param name="updateTaskRequest">The details of the request (optional)</param>
+        /// <param name="scope">The scope that identifies a Task Definition</param>
+        /// <param name="code">The code that identifies a Task Definition</param>
+        /// <param name="updateEventHandlerRequest">The data to update a Task Definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Task</returns>
-        Task UpdateTask(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0);
+        /// <returns>EventHandler</returns>
+        EventHandler UpdateEventHandler(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task
+        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Task Definition
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to act upon</param>
-        /// <param name="trigger"> (optional)</param>
-        /// <param name="updateTaskRequest">The details of the request (optional)</param>
+        /// <param name="scope">The scope that identifies a Task Definition</param>
+        /// <param name="code">The code that identifies a Task Definition</param>
+        /// <param name="updateEventHandlerRequest">The data to update a Task Definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Task</returns>
-        ApiResponse<Task> UpdateTaskWithHttpInfo(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0);
+        /// <returns>ApiResponse of EventHandler</returns>
+        ApiResponse<EventHandler> UpdateEventHandlerWithHttpInfo(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITasksApiAsync : IApiAccessor
+    public interface IEventHandlersApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task
+        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTaskRequest">Request to create Task</param>
-        /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
+        /// <param name="createEventHandlerRequest">The data to create an Event Handler</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Task</returns>
-        System.Threading.Tasks.Task<Task> CreateTaskAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of EventHandler</returns>
+        System.Threading.Tasks.Task<EventHandler> CreateEventHandlerAsync(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task
+        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTaskRequest">Request to create Task</param>
-        /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
+        /// <param name="createEventHandlerRequest">The data to create an Event Handler</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Task)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Task>> CreateTaskWithHttpInfoAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (EventHandler)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EventHandler>> CreateEventHandlerWithHttpInfoAsync(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task
+        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
         /// </summary>
         /// <remarks>
-        /// 
+        /// If the Event Handler does not exist a failure will be returned
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The identifier for the Task to be deleted.</param>
+        /// <param name="scope">Scope of the event handler to be deleted</param>
+        /// <param name="code">Code of the event handler to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTaskAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteEventHandlerAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task
+        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
         /// </summary>
         /// <remarks>
-        /// 
+        /// If the Event Handler does not exist a failure will be returned
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The identifier for the Task to be deleted.</param>
+        /// <param name="scope">Scope of the event handler to be deleted</param>
+        /// <param name="code">Code of the event handler to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTaskWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteEventHandlerWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task
+        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler
         /// </summary>
         /// <remarks>
-        /// 
+        /// Will return a NotFound failure if the event handler does not exist
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to retrieve</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="scope">Scope of the event handler</param>
+        /// <param name="code">Code of the event handler</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the event handler. Defaults to returning the latest version of the event handler if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Task</returns>
-        System.Threading.Tasks.Task<Task> GetTaskAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of EventHandler</returns>
+        System.Threading.Tasks.Task<EventHandler> GetEventHandlerAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task
+        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler
         /// </summary>
         /// <remarks>
-        /// 
+        /// Will return a NotFound failure if the event handler does not exist
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to retrieve</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="scope">Scope of the event handler</param>
+        /// <param name="code">Code of the event handler</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the event handler. Defaults to returning the latest version of the event handler if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Task)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (EventHandler)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EventHandler>> GetEventHandlerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks
+        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
-        /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing event handlers from a previous call to list event handlers. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PagedResourceListOfTask</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfTask> ListTasksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of PagedResourceListOfEventHandler</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfEventHandler> ListEventHandlersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks
+        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
-        /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing event handlers from a previous call to list event handlers. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PagedResourceListOfTask)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfTask>> ListTasksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (PagedResourceListOfEventHandler)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfEventHandler>> ListEventHandlersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task
+        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Task Definition
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to act upon</param>
-        /// <param name="trigger"> (optional)</param>
-        /// <param name="updateTaskRequest">The details of the request (optional)</param>
+        /// <param name="scope">The scope that identifies a Task Definition</param>
+        /// <param name="code">The code that identifies a Task Definition</param>
+        /// <param name="updateEventHandlerRequest">The data to update a Task Definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Task</returns>
-        System.Threading.Tasks.Task<Task> UpdateTaskAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of EventHandler</returns>
+        System.Threading.Tasks.Task<EventHandler> UpdateEventHandlerAsync(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task
+        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Task Definition
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to act upon</param>
-        /// <param name="trigger"> (optional)</param>
-        /// <param name="updateTaskRequest">The details of the request (optional)</param>
+        /// <param name="scope">The scope that identifies a Task Definition</param>
+        /// <param name="code">The code that identifies a Task Definition</param>
+        /// <param name="updateEventHandlerRequest">The data to update a Task Definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Task)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Task>> UpdateTaskWithHttpInfoAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (EventHandler)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EventHandler>> UpdateEventHandlerWithHttpInfoAsync(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITasksApi : ITasksApiSync, ITasksApiAsync
+    public interface IEventHandlersApi : IEventHandlersApiSync, IEventHandlersApiAsync
     {
 
     }
@@ -304,23 +314,23 @@ namespace Finbourne.Workflow.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class TasksApi : ITasksApi
+    public partial class EventHandlersApi : IEventHandlersApi
     {
         private Finbourne.Workflow.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TasksApi"/> class.
+        /// Initializes a new instance of the <see cref="EventHandlersApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public TasksApi() : this((string)null)
+        public EventHandlersApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TasksApi"/> class.
+        /// Initializes a new instance of the <see cref="EventHandlersApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public TasksApi(string basePath)
+        public EventHandlersApi(string basePath)
         {
             this.Configuration = Finbourne.Workflow.Sdk.Client.Configuration.MergeConfigurations(
                 Finbourne.Workflow.Sdk.Client.GlobalConfiguration.Instance,
@@ -332,12 +342,12 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TasksApi"/> class
+        /// Initializes a new instance of the <see cref="EventHandlersApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public TasksApi(Finbourne.Workflow.Sdk.Client.Configuration configuration)
+        public EventHandlersApi(Finbourne.Workflow.Sdk.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -348,13 +358,13 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TasksApi"/> class
+        /// Initializes a new instance of the <see cref="EventHandlersApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public TasksApi(Finbourne.Workflow.Sdk.Client.ISynchronousClient client, Finbourne.Workflow.Sdk.Client.IAsynchronousClient asyncClient, Finbourne.Workflow.Sdk.Client.IReadableConfiguration configuration)
+        public EventHandlersApi(Finbourne.Workflow.Sdk.Client.ISynchronousClient client, Finbourne.Workflow.Sdk.Client.IAsynchronousClient asyncClient, Finbourne.Workflow.Sdk.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -408,33 +418,31 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task 
+        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTaskRequest">Request to create Task</param>
-        /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
+        /// <param name="createEventHandlerRequest">The data to create an Event Handler</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Task</returns>
-        public Task CreateTask(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0)
+        /// <returns>EventHandler</returns>
+        public EventHandler CreateEventHandler(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = CreateTaskWithHttpInfo(createTaskRequest, trigger);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> localVarResponse = CreateEventHandlerWithHttpInfo(createEventHandlerRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task 
+        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTaskRequest">Request to create Task</param>
-        /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
+        /// <param name="createEventHandlerRequest">The data to create an Event Handler</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Task</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<Task> CreateTaskWithHttpInfo(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of EventHandler</returns>
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> CreateEventHandlerWithHttpInfo(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0)
         {
-            // verify the required parameter 'createTaskRequest' is set
-            if (createTaskRequest == null)
+            // verify the required parameter 'createEventHandlerRequest' is set
+            if (createEventHandlerRequest == null)
             {
-                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'createTaskRequest' when calling TasksApi->CreateTask");
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'createEventHandlerRequest' when calling EventHandlersApi->CreateEventHandler");
             }
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
@@ -463,13 +471,9 @@ namespace Finbourne.Workflow.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (trigger != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "trigger", trigger));
-            }
-            localVarRequestOptions.Data = createTaskRequest;
+            localVarRequestOptions.Data = createEventHandlerRequest;
 
-            localVarRequestOptions.Operation = "TasksApi.CreateTask";
+            localVarRequestOptions.Operation = "EventHandlersApi.CreateEventHandler";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -490,10 +494,10 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Task>("/api/tasks", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<EventHandler>("/api/eventhandlers", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateTask", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateEventHandler", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -504,35 +508,33 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task 
+        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTaskRequest">Request to create Task</param>
-        /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
+        /// <param name="createEventHandlerRequest">The data to create an Event Handler</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Task</returns>
-        public async System.Threading.Tasks.Task<Task> CreateTaskAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of EventHandler</returns>
+        public async System.Threading.Tasks.Task<EventHandler> CreateEventHandlerAsync(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = await CreateTaskWithHttpInfoAsync(createTaskRequest, trigger, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> localVarResponse = await CreateEventHandlerWithHttpInfoAsync(createEventHandlerRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task 
+        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createTaskRequest">Request to create Task</param>
-        /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
+        /// <param name="createEventHandlerRequest">The data to create an Event Handler</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Task)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> CreateTaskWithHttpInfoAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (EventHandler)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler>> CreateEventHandlerWithHttpInfoAsync(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'createTaskRequest' is set
-            if (createTaskRequest == null)
+            // verify the required parameter 'createEventHandlerRequest' is set
+            if (createEventHandlerRequest == null)
             {
-                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'createTaskRequest' when calling TasksApi->CreateTask");
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'createEventHandlerRequest' when calling EventHandlersApi->CreateEventHandler");
             }
 
 
@@ -562,13 +564,9 @@ namespace Finbourne.Workflow.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            if (trigger != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "trigger", trigger));
-            }
-            localVarRequestOptions.Data = createTaskRequest;
+            localVarRequestOptions.Data = createEventHandlerRequest;
 
-            localVarRequestOptions.Operation = "TasksApi.CreateTask";
+            localVarRequestOptions.Operation = "EventHandlersApi.CreateEventHandler";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -589,11 +587,11 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Task>("/api/tasks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<EventHandler>("/api/eventhandlers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("CreateTask", localVarResponse);
+                Exception _exception = this.ExceptionFactory("CreateEventHandler", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -604,31 +602,39 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task 
+        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler If the Event Handler does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The identifier for the Task to be deleted.</param>
+        /// <param name="scope">Scope of the event handler to be deleted</param>
+        /// <param name="code">Code of the event handler to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteTask(string id, int operationIndex = 0)
+        public DeletedEntityResponse DeleteEventHandler(string scope, string code, int operationIndex = 0)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteTaskWithHttpInfo(id);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteEventHandlerWithHttpInfo(scope, code);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task 
+        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler If the Event Handler does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The identifier for the Task to be deleted.</param>
+        /// <param name="scope">Scope of the event handler to be deleted</param>
+        /// <param name="code">Code of the event handler to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTaskWithHttpInfo(string id, int operationIndex = 0)
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteEventHandlerWithHttpInfo(string scope, string code, int operationIndex = 0)
         {
-            // verify the required parameter 'id' is set
-            if (id == null)
+            // verify the required parameter 'scope' is set
+            if (scope == null)
             {
-                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling TasksApi->DeleteTask");
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling EventHandlersApi->DeleteEventHandler");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling EventHandlersApi->DeleteEventHandler");
             }
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
@@ -653,9 +659,10 @@ namespace Finbourne.Workflow.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("scope", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
 
-            localVarRequestOptions.Operation = "TasksApi.DeleteTask";
+            localVarRequestOptions.Operation = "EventHandlersApi.DeleteEventHandler";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -676,10 +683,10 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/tasks/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Delete<DeletedEntityResponse>("/api/eventhandlers/{scope}/{code}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteTask", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteEventHandler", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -690,33 +697,41 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task 
+        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler If the Event Handler does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The identifier for the Task to be deleted.</param>
+        /// <param name="scope">Scope of the event handler to be deleted</param>
+        /// <param name="code">Code of the event handler to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTaskAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteEventHandlerAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteTaskWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteEventHandlerWithHttpInfoAsync(scope, code, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task 
+        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler If the Event Handler does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The identifier for the Task to be deleted.</param>
+        /// <param name="scope">Scope of the event handler to be deleted</param>
+        /// <param name="code">Code of the event handler to be deleted</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTaskWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteEventHandlerWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'id' is set
-            if (id == null)
+            // verify the required parameter 'scope' is set
+            if (scope == null)
             {
-                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling TasksApi->DeleteTask");
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling EventHandlersApi->DeleteEventHandler");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling EventHandlersApi->DeleteEventHandler");
             }
 
 
@@ -742,9 +757,10 @@ namespace Finbourne.Workflow.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("scope", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
 
-            localVarRequestOptions.Operation = "TasksApi.DeleteTask";
+            localVarRequestOptions.Operation = "EventHandlersApi.DeleteEventHandler";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -765,11 +781,11 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/tasks/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<DeletedEntityResponse>("/api/eventhandlers/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("DeleteTask", localVarResponse);
+                Exception _exception = this.ExceptionFactory("DeleteEventHandler", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -780,33 +796,41 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task 
+        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler Will return a NotFound failure if the event handler does not exist
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to retrieve</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="scope">Scope of the event handler</param>
+        /// <param name="code">Code of the event handler</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the event handler. Defaults to returning the latest version of the event handler if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Task</returns>
-        public Task GetTask(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        /// <returns>EventHandler</returns>
+        public EventHandler GetEventHandler(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = GetTaskWithHttpInfo(id, asAt);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> localVarResponse = GetEventHandlerWithHttpInfo(scope, code, asAt);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task 
+        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler Will return a NotFound failure if the event handler does not exist
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to retrieve</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="scope">Scope of the event handler</param>
+        /// <param name="code">Code of the event handler</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the event handler. Defaults to returning the latest version of the event handler if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Task</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        /// <returns>ApiResponse of EventHandler</returns>
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> GetEventHandlerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
         {
-            // verify the required parameter 'id' is set
-            if (id == null)
+            // verify the required parameter 'scope' is set
+            if (scope == null)
             {
-                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling TasksApi->GetTask");
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling EventHandlersApi->GetEventHandler");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling EventHandlersApi->GetEventHandler");
             }
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
@@ -831,13 +855,14 @@ namespace Finbourne.Workflow.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("scope", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
 
-            localVarRequestOptions.Operation = "TasksApi.GetTask";
+            localVarRequestOptions.Operation = "EventHandlersApi.GetEventHandler";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -858,10 +883,10 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Task>("/api/tasks/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<EventHandler>("/api/eventhandlers/{scope}/{code}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTask", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetEventHandler", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -872,35 +897,43 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task 
+        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler Will return a NotFound failure if the event handler does not exist
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to retrieve</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="scope">Scope of the event handler</param>
+        /// <param name="code">Code of the event handler</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the event handler. Defaults to returning the latest version of the event handler if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Task</returns>
-        public async System.Threading.Tasks.Task<Task> GetTaskAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of EventHandler</returns>
+        public async System.Threading.Tasks.Task<EventHandler> GetEventHandlerAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = await GetTaskWithHttpInfoAsync(id, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> localVarResponse = await GetEventHandlerWithHttpInfoAsync(scope, code, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task 
+        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler Will return a NotFound failure if the event handler does not exist
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to retrieve</param>
-        /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="scope">Scope of the event handler</param>
+        /// <param name="code">Code of the event handler</param>
+        /// <param name="asAt">The asAt datetime at which to retrieve the event handler. Defaults to returning the latest version of the event handler if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Task)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (EventHandler)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler>> GetEventHandlerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'id' is set
-            if (id == null)
+            // verify the required parameter 'scope' is set
+            if (scope == null)
             {
-                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling TasksApi->GetTask");
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling EventHandlersApi->GetEventHandler");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling EventHandlersApi->GetEventHandler");
             }
 
 
@@ -926,13 +959,14 @@ namespace Finbourne.Workflow.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
+            localVarRequestOptions.PathParameters.Add("scope", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
 
-            localVarRequestOptions.Operation = "TasksApi.GetTask";
+            localVarRequestOptions.Operation = "EventHandlersApi.GetEventHandler";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -953,11 +987,11 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Task>("/api/tasks/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<EventHandler>("/api/eventhandlers/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetTask", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetEventHandler", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -968,137 +1002,33 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks 
+        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
-        /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing event handlers from a previous call to list event handlers. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>PagedResourceListOfTask</returns>
-        public PagedResourceListOfTask ListTasks(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        /// <returns>PagedResourceListOfEventHandler</returns>
+        public PagedResourceListOfEventHandler ListEventHandlers(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> localVarResponse = ListTasksWithHttpInfo(asAt, filter, limit, page);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfEventHandler> localVarResponse = ListEventHandlersWithHttpInfo(asAt, filter, limit, page);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks 
+        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
-        /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
+        /// <param name="page">The pagination token to use to continue listing event handlers from a previous call to list event handlers. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of PagedResourceListOfTask</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> ListTasksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        /// <returns>ApiResponse of PagedResourceListOfEventHandler</returns>
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfEventHandler> ListEventHandlersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
         {
-            Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = Finbourne.Workflow.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Finbourne.Workflow.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            if (asAt != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
-            }
-            if (filter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
-            }
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-
-            localVarRequestOptions.Operation = "TasksApi.ListTasks";
-            localVarRequestOptions.OperationIndex = operationIndex;
-
-            // authentication (oauth2) required
-            // oauth required
-            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
-                {
-                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
-                }
-                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
-                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
-                         this.Configuration.OAuthFlow != null)
-                {
-                    localVarRequestOptions.OAuth = true;
-                }
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedResourceListOfTask>("/api/tasks", localVarRequestOptions, this.Configuration);
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListTasks", localVarResponse);
-                if (_exception != null)
-                {
-                    throw _exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks 
-        /// </summary>
-        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
-        /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PagedResourceListOfTask</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfTask> ListTasksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> localVarResponse = await ListTasksWithHttpInfoAsync(asAt, filter, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks 
-        /// </summary>
-        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
-        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
-        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
-        /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
-        /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PagedResourceListOfTask)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask>> ListTasksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -1138,7 +1068,7 @@ namespace Finbourne.Workflow.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
 
-            localVarRequestOptions.Operation = "TasksApi.ListTasks";
+            localVarRequestOptions.Operation = "EventHandlersApi.ListEventHandlers";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1159,11 +1089,10 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfTask>("/api/tasks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
+            var localVarResponse = this.Client.Get<PagedResourceListOfEventHandler>("/api/eventhandlers", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ListTasks", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ListEventHandlers", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1174,35 +1103,152 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task 
+        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to act upon</param>
-        /// <param name="trigger"> (optional)</param>
-        /// <param name="updateTaskRequest">The details of the request (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
+        /// <param name="page">The pagination token to use to continue listing event handlers from a previous call to list event handlers. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Task</returns>
-        public Task UpdateTask(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0)
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of PagedResourceListOfEventHandler</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfEventHandler> ListEventHandlersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = UpdateTaskWithHttpInfo(id, trigger, updateTaskRequest);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfEventHandler> localVarResponse = await ListEventHandlersWithHttpInfoAsync(asAt, filter, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task 
+        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to act upon</param>
-        /// <param name="trigger"> (optional)</param>
-        /// <param name="updateTaskRequest">The details of the request (optional)</param>
+        /// <param name="asAt">The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional)</param>
+        /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
+        /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
+        /// <param name="page">The pagination token to use to continue listing event handlers from a previous call to list event handlers. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Task</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<Task> UpdateTaskWithHttpInfo(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0)
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (PagedResourceListOfEventHandler)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfEventHandler>> ListEventHandlersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'id' is set
-            if (id == null)
+
+            Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Workflow.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
             {
-                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling TasksApi->UpdateTask");
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Workflow.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            if (asAt != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+
+            localVarRequestOptions.Operation = "EventHandlersApi.ListEventHandlers";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfEventHandler>("/api/eventhandlers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListEventHandlers", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Task Definition 
+        /// </summary>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope that identifies a Task Definition</param>
+        /// <param name="code">The code that identifies a Task Definition</param>
+        /// <param name="updateEventHandlerRequest">The data to update a Task Definition</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>EventHandler</returns>
+        public EventHandler UpdateEventHandler(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0)
+        {
+            Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> localVarResponse = UpdateEventHandlerWithHttpInfo(scope, code, updateEventHandlerRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Task Definition 
+        /// </summary>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope that identifies a Task Definition</param>
+        /// <param name="code">The code that identifies a Task Definition</param>
+        /// <param name="updateEventHandlerRequest">The data to update a Task Definition</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of EventHandler</returns>
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> UpdateEventHandlerWithHttpInfo(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling EventHandlersApi->UpdateEventHandler");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling EventHandlersApi->UpdateEventHandler");
+            }
+
+            // verify the required parameter 'updateEventHandlerRequest' is set
+            if (updateEventHandlerRequest == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'updateEventHandlerRequest' when calling EventHandlersApi->UpdateEventHandler");
             }
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
@@ -1231,14 +1277,11 @@ namespace Finbourne.Workflow.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
-            if (trigger != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "trigger", trigger));
-            }
-            localVarRequestOptions.Data = updateTaskRequest;
+            localVarRequestOptions.PathParameters.Add("scope", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = updateEventHandlerRequest;
 
-            localVarRequestOptions.Operation = "TasksApi.UpdateTask";
+            localVarRequestOptions.Operation = "EventHandlersApi.UpdateEventHandler";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1259,10 +1302,10 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Task>("/api/tasks/{id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<EventHandler>("/api/eventhandlers/{scope}/{code}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTask", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateEventHandler", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -1273,37 +1316,49 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task 
+        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to act upon</param>
-        /// <param name="trigger"> (optional)</param>
-        /// <param name="updateTaskRequest">The details of the request (optional)</param>
+        /// <param name="scope">The scope that identifies a Task Definition</param>
+        /// <param name="code">The code that identifies a Task Definition</param>
+        /// <param name="updateEventHandlerRequest">The data to update a Task Definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Task</returns>
-        public async System.Threading.Tasks.Task<Task> UpdateTaskAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of EventHandler</returns>
+        public async System.Threading.Tasks.Task<EventHandler> UpdateEventHandlerAsync(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = await UpdateTaskWithHttpInfoAsync(id, trigger, updateTaskRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> localVarResponse = await UpdateEventHandlerWithHttpInfoAsync(scope, code, updateEventHandlerRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task 
+        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">Id of the Task to act upon</param>
-        /// <param name="trigger"> (optional)</param>
-        /// <param name="updateTaskRequest">The details of the request (optional)</param>
+        /// <param name="scope">The scope that identifies a Task Definition</param>
+        /// <param name="code">The code that identifies a Task Definition</param>
+        /// <param name="updateEventHandlerRequest">The data to update a Task Definition</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Task)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> UpdateTaskWithHttpInfoAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (EventHandler)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler>> UpdateEventHandlerWithHttpInfoAsync(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'id' is set
-            if (id == null)
+            // verify the required parameter 'scope' is set
+            if (scope == null)
             {
-                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'id' when calling TasksApi->UpdateTask");
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling EventHandlersApi->UpdateEventHandler");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling EventHandlersApi->UpdateEventHandler");
+            }
+
+            // verify the required parameter 'updateEventHandlerRequest' is set
+            if (updateEventHandlerRequest == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'updateEventHandlerRequest' when calling EventHandlersApi->UpdateEventHandler");
             }
 
 
@@ -1333,14 +1388,11 @@ namespace Finbourne.Workflow.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("id", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(id)); // path parameter
-            if (trigger != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "trigger", trigger));
-            }
-            localVarRequestOptions.Data = updateTaskRequest;
+            localVarRequestOptions.PathParameters.Add("scope", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = updateEventHandlerRequest;
 
-            localVarRequestOptions.Operation = "TasksApi.UpdateTask";
+            localVarRequestOptions.Operation = "EventHandlersApi.UpdateEventHandler";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -1361,11 +1413,11 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Task>("/api/tasks/{id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<EventHandler>("/api/eventhandlers/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateTask", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateEventHandler", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
