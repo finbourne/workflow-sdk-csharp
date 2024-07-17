@@ -309,7 +309,7 @@ catch (ApiException e)
 
 <a id="getworkerresult"></a>
 # **GetWorkerResult**
-> GetWorkerResultResponse GetWorkerResult (long runId)
+> GetWorkerResultResponse GetWorkerResult (Guid runId)
 
 [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results
 
@@ -333,7 +333,7 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new WorkersApi(config);
-            var runId = 789L;  // long | The ID returned when calling Run Worker
+            var runId = "runId_example";  // Guid | The ID returned when calling Run Worker
 
             try
             {
@@ -376,7 +376,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **runId** | **long** | The ID returned when calling Run Worker |  |
+| **runId** | **Guid** | The ID returned when calling Run Worker |  |
 
 ### Return type
 
