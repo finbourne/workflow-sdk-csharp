@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **ChildTaskFields** | [**Dictionary&lt;string, FieldMapping&gt;**](FieldMapping.md) | Field Mappings | [optional] 
 **MapStackingKeyFrom** | **string** | If present, the value of this field on the parent task will be the Stacking Key on any created child tasks | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

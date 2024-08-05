@@ -11,5 +11,5 @@ Name | Type | Description | Notes
 **FailedToStart** | **string** | Trigger to invoke when the Worker has Failed to Start | [optional] 
 **FailedToComplete** | **string** | Trigger to invoke when the Worker has Failed to Complete | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

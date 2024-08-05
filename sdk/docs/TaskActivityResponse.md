@@ -12,5 +12,5 @@ Name | Type | Description | Notes
 **Filter** | **string** | The filter that matches on existing tasks | [optional] 
 **Trigger** | **string** | Trigger to supply to all tasks that have been matched | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **ValueSourceType** | **string** | The source of the acceptable values (e.g. AcceptableValues) | 
 **AcceptableValues** | **List&lt;Object&gt;** | The acceptable values for the field | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

@@ -65,7 +65,7 @@ namespace Finbourne.Workflow.Sdk.Extensions
                 if (string.IsNullOrWhiteSpace(apiConfiguration.BaseUrl))
                     throw new ArgumentNullException(
                         nameof(apiConfiguration.BaseUrl),
-                        $"BaseUrl Uri missing. Please specify either FBN_FINBOURNE-WORKFLOW_API_URL environment variable or finbourne-workflowUrl in secrets.json.");
+                        $"BaseUrl Uri missing. Please specify either FBN_WORKFLOW_URL environment variable or workflowUrl in secrets.json.");
 
                 throw new UriFormatException($"Invalid Uri: {apiConfiguration.BaseUrl}");
             }
