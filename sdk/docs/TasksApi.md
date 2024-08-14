@@ -7,7 +7,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 | [**CreateTask**](TasksApi.md#createtask) | **POST** /api/tasks | [EXPERIMENTAL] CreateTask: Create a new Task |
 | [**DeleteTask**](TasksApi.md#deletetask) | **DELETE** /api/tasks/{id} | [EXPERIMENTAL] DeleteTask: Delete a Task |
 | [**GetTask**](TasksApi.md#gettask) | **GET** /api/tasks/{id} | [EXPERIMENTAL] GetTask: Get a Task |
-| [**ListTasks**](TasksApi.md#listtasks) | **GET** /api/tasks | [EXPERIMENTAL] ListTasks: List Tasks |
+| [**ListTasks**](TasksApi.md#listtasks) | **GET** /api/tasks | ListTasks: List Tasks |
 | [**UpdateTask**](TasksApi.md#updatetask) | **POST** /api/tasks/{id} | [EXPERIMENTAL] UpdateTask: Update a Task |
 
 <a id="createtask"></a>
@@ -323,7 +323,7 @@ catch (ApiException e)
 # **ListTasks**
 > PagedResourceListOfTask ListTasks (DateTimeOffset? asAt = null, string? filter = null, List<string>? sortBy = null, int? limit = null, string? page = null)
 
-[EXPERIMENTAL] ListTasks: List Tasks
+ListTasks: List Tasks
 
 ### Example
 ```csharp
@@ -364,7 +364,7 @@ namespace Examples
 
             try
             {
-                // [EXPERIMENTAL] ListTasks: List Tasks
+                // ListTasks: List Tasks
                 PagedResourceListOfTask result = apiInstance.ListTasks(asAt, filter, sortBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -385,7 +385,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListTasks: List Tasks
+    // ListTasks: List Tasks
     ApiResponse<PagedResourceListOfTask> response = apiInstance.ListTasksWithHttpInfo(asAt, filter, sortBy, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

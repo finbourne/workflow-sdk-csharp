@@ -95,7 +95,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of Task</returns>
         ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks
+        /// ListTasks: List Tasks
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
@@ -108,7 +108,7 @@ namespace Finbourne.Workflow.Sdk.Api
         PagedResourceListOfTask ListTasks(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks
+        /// ListTasks: List Tasks
         /// </summary>
         /// <remarks>
         /// 
@@ -235,7 +235,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (Task)</returns>
         System.Threading.Tasks.Task<ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks
+        /// ListTasks: List Tasks
         /// </summary>
         /// <remarks>
         /// 
@@ -252,7 +252,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfTask> ListTasksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks
+        /// ListTasks: List Tasks
         /// </summary>
         /// <remarks>
         /// 
@@ -974,7 +974,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks 
+        /// ListTasks: List Tasks 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
@@ -991,7 +991,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks 
+        /// ListTasks: List Tasks 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
@@ -1081,7 +1081,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks 
+        /// ListTasks: List Tasks 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
@@ -1099,7 +1099,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasks: List Tasks 
+        /// ListTasks: List Tasks 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
