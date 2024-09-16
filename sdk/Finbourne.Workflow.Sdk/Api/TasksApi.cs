@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Finbourne.Workflow.Sdk.Client;
+using Finbourne.Workflow.Sdk.Extensions;
 using Finbourne.Workflow.Sdk.Client.Auth;
 using Finbourne.Workflow.Sdk.Model;
 
@@ -37,8 +38,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="createTaskRequest">Request to create Task</param>
         /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task</returns>
-        Task CreateTask(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0);
+        Task CreateTask(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateTask: Create a new Task
@@ -50,16 +52,18 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="createTaskRequest">Request to create Task</param>
         /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Task</returns>
-        ApiResponse<Task> CreateTaskWithHttpInfo(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0);
+        ApiResponse<Task> CreateTaskWithHttpInfo(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteTask: Delete a Task
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier for the Task to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        DeletedEntityResponse DeleteTask(string id, int operationIndex = 0);
+        DeletedEntityResponse DeleteTask(string id, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteTask: Delete a Task
@@ -70,8 +74,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier for the Task to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteTaskWithHttpInfo(string id, int operationIndex = 0);
+        ApiResponse<DeletedEntityResponse> DeleteTaskWithHttpInfo(string id, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTask: Get a Task
         /// </summary>
@@ -79,8 +84,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task</returns>
-        Task GetTask(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        Task GetTask(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetTask: Get a Task
@@ -92,8 +98,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Task</returns>
-        ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
         /// </summary>
@@ -101,8 +108,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="id">The Task Id for which to get the history</param>
         /// <param name="asAt">The asAt datetime of the oldest change to retrieve. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfChangeItem</returns>
-        ResourceListOfChangeItem GetTaskHistory(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ResourceListOfChangeItem GetTaskHistory(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
@@ -114,8 +122,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="id">The Task Id for which to get the history</param>
         /// <param name="asAt">The asAt datetime of the oldest change to retrieve. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfChangeItem</returns>
-        ApiResponse<ResourceListOfChangeItem> GetTaskHistoryWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0);
+        ApiResponse<ResourceListOfChangeItem> GetTaskHistoryWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListTasks: List Tasks
         /// </summary>
@@ -126,8 +135,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTask</returns>
-        PagedResourceListOfTask ListTasks(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+        PagedResourceListOfTask ListTasks(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListTasks: List Tasks
@@ -142,8 +152,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTask</returns>
-        ApiResponse<PagedResourceListOfTask> ListTasksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfTask> ListTasksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateTask: Update a Task
         /// </summary>
@@ -152,8 +163,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="trigger"> (optional)</param>
         /// <param name="updateTaskRequest">The details of the request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task</returns>
-        Task UpdateTask(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0);
+        Task UpdateTask(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateTask: Update a Task
@@ -166,8 +178,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="trigger"> (optional)</param>
         /// <param name="updateTaskRequest">The details of the request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Task</returns>
-        ApiResponse<Task> UpdateTaskWithHttpInfo(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0);
+        ApiResponse<Task> UpdateTaskWithHttpInfo(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -188,8 +201,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Task</returns>
-        System.Threading.Tasks.Task<Task> CreateTaskAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Task> CreateTaskAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateTask: Create a new Task
@@ -202,8 +216,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Task)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Task>> CreateTaskWithHttpInfoAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Task>> CreateTaskWithHttpInfoAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteTask: Delete a Task
         /// </summary>
@@ -214,8 +229,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="id">The identifier for the Task to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTaskAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTaskAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] DeleteTask: Delete a Task
@@ -227,8 +243,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="id">The identifier for the Task to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTaskWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTaskWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTask: Get a Task
         /// </summary>
@@ -240,8 +257,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Task</returns>
-        System.Threading.Tasks.Task<Task> GetTaskAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Task> GetTaskAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetTask: Get a Task
@@ -254,8 +272,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Task)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
         /// </summary>
@@ -267,8 +286,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime of the oldest change to retrieve. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfChangeItem</returns>
-        System.Threading.Tasks.Task<ResourceListOfChangeItem> GetTaskHistoryAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ResourceListOfChangeItem> GetTaskHistoryAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
@@ -281,8 +301,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime of the oldest change to retrieve. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfChangeItem)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfChangeItem>> GetTaskHistoryWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ResourceListOfChangeItem>> GetTaskHistoryWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListTasks: List Tasks
         /// </summary>
@@ -297,8 +318,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfTask</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfTask> ListTasksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfTask> ListTasksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListTasks: List Tasks
@@ -314,8 +336,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTask)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfTask>> ListTasksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfTask>> ListTasksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateTask: Update a Task
         /// </summary>
@@ -328,8 +351,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="updateTaskRequest">The details of the request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Task</returns>
-        System.Threading.Tasks.Task<Task> UpdateTaskAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Task> UpdateTaskAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateTask: Update a Task
@@ -343,8 +367,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="updateTaskRequest">The details of the request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Task)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Task>> UpdateTaskWithHttpInfoAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Task>> UpdateTaskWithHttpInfoAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -377,9 +402,15 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns></returns>
         public TasksApi(string basePath)
         {
+            var globalConfiguration = Finbourne.Workflow.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Workflow.Sdk.Client.Configuration.MergeConfigurations(
-                Finbourne.Workflow.Sdk.Client.GlobalConfiguration.Instance,
-                new Finbourne.Workflow.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Finbourne.Workflow.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Finbourne.Workflow.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Finbourne.Workflow.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -469,10 +500,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="createTaskRequest">Request to create Task</param>
         /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task</returns>
-        public Task CreateTask(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0)
+        public Task CreateTask(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = CreateTaskWithHttpInfo(createTaskRequest, trigger);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = CreateTaskWithHttpInfo(createTaskRequest, trigger, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -483,8 +515,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="createTaskRequest">Request to create Task</param>
         /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Task</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<Task> CreateTaskWithHttpInfo(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0)
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<Task> CreateTaskWithHttpInfo(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'createTaskRequest' is set
             if (createTaskRequest == null)
@@ -493,6 +526,16 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -566,10 +609,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Task</returns>
-        public async System.Threading.Tasks.Task<Task> CreateTaskAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Task> CreateTaskAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = await CreateTaskWithHttpInfoAsync(createTaskRequest, trigger, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = await CreateTaskWithHttpInfoAsync(createTaskRequest, trigger, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -581,8 +625,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="trigger">The name of the Trigger to invoke (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Task)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> CreateTaskWithHttpInfoAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> CreateTaskWithHttpInfoAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'createTaskRequest' is set
             if (createTaskRequest == null)
@@ -592,6 +637,16 @@ namespace Finbourne.Workflow.Sdk.Api
 
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -664,10 +719,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier for the Task to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>DeletedEntityResponse</returns>
-        public DeletedEntityResponse DeleteTask(string id, int operationIndex = 0)
+        public DeletedEntityResponse DeleteTask(string id, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteTaskWithHttpInfo(id);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = DeleteTaskWithHttpInfo(id, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -677,8 +733,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier for the Task to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTaskWithHttpInfo(string id, int operationIndex = 0)
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTaskWithHttpInfo(string id, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -687,6 +744,16 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -751,10 +818,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="id">The identifier for the Task to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of DeletedEntityResponse</returns>
-        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTaskAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTaskAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteTaskWithHttpInfoAsync(id, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> localVarResponse = await DeleteTaskWithHttpInfoAsync(id, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -765,8 +833,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="id">The identifier for the Task to be deleted.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTaskWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTaskWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -776,6 +845,16 @@ namespace Finbourne.Workflow.Sdk.Api
 
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -841,10 +920,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task</returns>
-        public Task GetTask(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Task GetTask(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = GetTaskWithHttpInfo(id, asAt);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = GetTaskWithHttpInfo(id, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -855,8 +935,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Task</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -865,6 +946,16 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -934,10 +1025,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Task</returns>
-        public async System.Threading.Tasks.Task<Task> GetTaskAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Task> GetTaskAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = await GetTaskWithHttpInfoAsync(id, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = await GetTaskWithHttpInfoAsync(id, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -949,8 +1041,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Task)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -960,6 +1053,16 @@ namespace Finbourne.Workflow.Sdk.Api
 
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1029,10 +1132,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="id">The Task Id for which to get the history</param>
         /// <param name="asAt">The asAt datetime of the oldest change to retrieve. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ResourceListOfChangeItem</returns>
-        public ResourceListOfChangeItem GetTaskHistory(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public ResourceListOfChangeItem GetTaskHistory(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfChangeItem> localVarResponse = GetTaskHistoryWithHttpInfo(id, asAt);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfChangeItem> localVarResponse = GetTaskHistoryWithHttpInfo(id, asAt, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1043,8 +1147,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="id">The Task Id for which to get the history</param>
         /// <param name="asAt">The asAt datetime of the oldest change to retrieve. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfChangeItem</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfChangeItem> GetTaskHistoryWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0)
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfChangeItem> GetTaskHistoryWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1053,6 +1158,16 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1122,10 +1237,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime of the oldest change to retrieve. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ResourceListOfChangeItem</returns>
-        public async System.Threading.Tasks.Task<ResourceListOfChangeItem> GetTaskHistoryAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ResourceListOfChangeItem> GetTaskHistoryAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfChangeItem> localVarResponse = await GetTaskHistoryWithHttpInfoAsync(id, asAt, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfChangeItem> localVarResponse = await GetTaskHistoryWithHttpInfoAsync(id, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1137,8 +1253,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime of the oldest change to retrieve. Defaults to returning the latest version of the Task if not specified. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfChangeItem)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfChangeItem>> GetTaskHistoryWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfChangeItem>> GetTaskHistoryWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1148,6 +1265,16 @@ namespace Finbourne.Workflow.Sdk.Api
 
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1220,10 +1347,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTask</returns>
-        public PagedResourceListOfTask ListTasks(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        public PagedResourceListOfTask ListTasks(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> localVarResponse = ListTasksWithHttpInfo(asAt, filter, sortBy, limit, page);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> localVarResponse = ListTasksWithHttpInfo(asAt, filter, sortBy, limit, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1237,10 +1365,21 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTask</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> ListTasksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0)
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> ListTasksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1328,10 +1467,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfTask</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfTask> ListTasksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfTask> ListTasksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> localVarResponse = await ListTasksWithHttpInfoAsync(asAt, filter, sortBy, limit, page, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> localVarResponse = await ListTasksWithHttpInfoAsync(asAt, filter, sortBy, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1346,11 +1486,22 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTask)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask>> ListTasksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask>> ListTasksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -1436,10 +1587,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="trigger"> (optional)</param>
         /// <param name="updateTaskRequest">The details of the request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task</returns>
-        public Task UpdateTask(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0)
+        public Task UpdateTask(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = UpdateTaskWithHttpInfo(id, trigger, updateTaskRequest);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = UpdateTaskWithHttpInfo(id, trigger, updateTaskRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1451,8 +1603,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="trigger"> (optional)</param>
         /// <param name="updateTaskRequest">The details of the request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Task</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<Task> UpdateTaskWithHttpInfo(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0)
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<Task> UpdateTaskWithHttpInfo(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1461,6 +1614,16 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1536,10 +1699,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="updateTaskRequest">The details of the request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Task</returns>
-        public async System.Threading.Tasks.Task<Task> UpdateTaskAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Task> UpdateTaskAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = await UpdateTaskWithHttpInfoAsync(id, trigger, updateTaskRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = await UpdateTaskWithHttpInfoAsync(id, trigger, updateTaskRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1552,8 +1716,9 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="updateTaskRequest">The details of the request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Task)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> UpdateTaskWithHttpInfoAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> UpdateTaskWithHttpInfoAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1563,6 +1728,16 @@ namespace Finbourne.Workflow.Sdk.Api
 
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

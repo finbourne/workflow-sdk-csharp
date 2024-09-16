@@ -50,11 +50,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkersApi>();
             var createWorkerRequest = new CreateWorkerRequest(); // CreateWorkerRequest | Worker to be created
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Worker result = apiInstance.CreateWorker(createWorkerRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateWorker: Create a new Worker
                 Worker result = apiInstance.CreateWorker(createWorkerRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -153,12 +164,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkersApi>();
             var scope = "scope_example";  // string | Scope of the worker to be deleted
             var code = "code_example";  // string | Code of the worker to be deleted
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteWorker(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeleteWorker: Delete a Worker
                 DeletedEntityResponse result = apiInstance.DeleteWorker(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -259,6 +281,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkersApi>();
             var scope = "scope_example";  // string | Scope of the worker
             var code = "code_example";  // string | Code of the worker
@@ -266,6 +296,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Worker result = apiInstance.GetWorker(scope, code, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetWorker: Get a Worker
                 Worker result = apiInstance.GetWorker(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -364,11 +397,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkersApi>();
             var runId = "runId_example";  // Guid | The ID returned when calling Run Worker
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // GetWorkerResultResponse result = apiInstance.GetWorkerResult(runId, opts: opts);
+
                 // [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results
                 GetWorkerResultResponse result = apiInstance.GetWorkerResult(runId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -465,6 +509,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkersApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Workers. Defaults to return the latest version of each Worker if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional) 
@@ -474,6 +526,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfWorker result = apiInstance.ListWorkers(asAt, filter, sortBy, limit, page, opts: opts);
+
                 // [EXPERIMENTAL] ListWorkers: List Workers
                 PagedResourceListOfWorker result = apiInstance.ListWorkers(asAt, filter, sortBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -574,6 +629,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkersApi>();
             var scope = "scope_example";  // string | Scope of the worker
             var code = "code_example";  // string | Code of the worker
@@ -582,6 +645,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // RunWorkerResponse result = apiInstance.RunWorker(scope, code, runWorkerRequest, asAt, opts: opts);
+
                 // [EXPERIMENTAL] RunWorker: Run a Worker
                 RunWorkerResponse result = apiInstance.RunWorker(scope, code, runWorkerRequest, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -683,6 +749,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkersApi>();
             var scope = "scope_example";  // string | Scope of the worker to be updated
             var code = "code_example";  // string | Code of the worker to be updated
@@ -690,6 +764,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Worker result = apiInstance.UpdateWorker(scope, code, updateWorkerRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpdateWorker: Update a Worker
                 Worker result = apiInstance.UpdateWorker(scope, code, updateWorkerRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

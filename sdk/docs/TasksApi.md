@@ -47,12 +47,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TasksApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TasksApi>();
             var createTaskRequest = new CreateTaskRequest(); // CreateTaskRequest | Request to create Task
             var trigger = "trigger_example";  // string? | The name of the Trigger to invoke (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Task result = apiInstance.CreateTask(createTaskRequest, trigger, opts: opts);
+
                 // [EXPERIMENTAL] CreateTask: Create a new Task
                 Task result = apiInstance.CreateTask(createTaskRequest, trigger);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -150,11 +161,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TasksApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TasksApi>();
             var id = "id_example";  // string | The identifier for the Task to be deleted.
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteTask(id, opts: opts);
+
                 // [EXPERIMENTAL] DeleteTask: Delete a Task
                 DeletedEntityResponse result = apiInstance.DeleteTask(id);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -252,12 +274,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TasksApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TasksApi>();
             var id = "id_example";  // string | Id of the Task to retrieve
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Task result = apiInstance.GetTask(id, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetTask: Get a Task
                 Task result = apiInstance.GetTask(id, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -356,12 +389,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TasksApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TasksApi>();
             var id = "id_example";  // string | The Task Id for which to get the history
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime of the oldest change to retrieve. Defaults to returning the latest version of the Task if not specified. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ResourceListOfChangeItem result = apiInstance.GetTaskHistory(id, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
                 ResourceListOfChangeItem result = apiInstance.GetTaskHistory(id, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -460,6 +504,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TasksApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TasksApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional) 
@@ -469,6 +521,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfTask result = apiInstance.ListTasks(asAt, filter, sortBy, limit, page, opts: opts);
+
                 // ListTasks: List Tasks
                 PagedResourceListOfTask result = apiInstance.ListTasks(asAt, filter, sortBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -570,6 +625,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TasksApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TasksApi>();
             var id = "id_example";  // string | Id of the Task to act upon
             var trigger = "trigger_example";  // string? |  (optional) 
@@ -577,6 +640,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Task result = apiInstance.UpdateTask(id, trigger, updateTaskRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpdateTask: Update a Task
                 Task result = apiInstance.UpdateTask(id, trigger, updateTaskRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

@@ -46,11 +46,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EventHandlersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EventHandlersApi>();
             var createEventHandlerRequest = new CreateEventHandlerRequest(); // CreateEventHandlerRequest | The data to create an Event Handler
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // EventHandler result = apiInstance.CreateEventHandler(createEventHandlerRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler
                 EventHandler result = apiInstance.CreateEventHandler(createEventHandlerRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -149,12 +160,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EventHandlersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EventHandlersApi>();
             var scope = "scope_example";  // string | Scope of the event handler to be deleted
             var code = "code_example";  // string | Code of the event handler to be deleted
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteEventHandler(scope, code, opts: opts);
+
                 // [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
                 DeletedEntityResponse result = apiInstance.DeleteEventHandler(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -255,6 +277,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EventHandlersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EventHandlersApi>();
             var scope = "scope_example";  // string | Scope of the event handler
             var code = "code_example";  // string | Code of the event handler
@@ -262,6 +292,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // EventHandler result = apiInstance.GetEventHandler(scope, code, asAt, opts: opts);
+
                 // [EXPERIMENTAL] GetEventHandler: Get an Event Handler
                 EventHandler result = apiInstance.GetEventHandler(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -360,6 +393,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EventHandlersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EventHandlersApi>();
             var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional) 
@@ -368,6 +409,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfEventHandler result = apiInstance.ListEventHandlers(asAt, filter, limit, page, opts: opts);
+
                 // [EXPERIMENTAL] ListEventHandlers: List Event Handlers
                 PagedResourceListOfEventHandler result = apiInstance.ListEventHandlers(asAt, filter, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -467,6 +511,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EventHandlersApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EventHandlersApi>();
             var scope = "scope_example";  // string | The scope that identifies an Event Handler
             var code = "code_example";  // string | The code that identifies an Event Handler
@@ -474,6 +526,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // EventHandler result = apiInstance.UpdateEventHandler(scope, code, updateEventHandlerRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler
                 EventHandler result = apiInstance.UpdateEventHandler(scope, code, updateEventHandlerRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
