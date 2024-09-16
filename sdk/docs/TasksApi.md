@@ -7,6 +7,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 | [**CreateTask**](TasksApi.md#createtask) | **POST** /api/tasks | [EXPERIMENTAL] CreateTask: Create a new Task |
 | [**DeleteTask**](TasksApi.md#deletetask) | **DELETE** /api/tasks/{id} | [EXPERIMENTAL] DeleteTask: Delete a Task |
 | [**GetTask**](TasksApi.md#gettask) | **GET** /api/tasks/{id} | [EXPERIMENTAL] GetTask: Get a Task |
+| [**GetTaskHistory**](TasksApi.md#gettaskhistory) | **GET** /api/tasks/{id}/history | [EXPERIMENTAL] GetTaskHistory: Get the history of a Task |
 | [**ListTasks**](TasksApi.md#listtasks) | **GET** /api/tasks | ListTasks: List Tasks |
 | [**UpdateTask**](TasksApi.md#updatetask) | **POST** /api/tasks/{id} | [EXPERIMENTAL] UpdateTask: Update a Task |
 
@@ -302,6 +303,110 @@ catch (ApiException e)
 ### Return type
 
 [**Task**](Task.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | Task not found. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="gettaskhistory"></a>
+# **GetTaskHistory**
+> ResourceListOfChangeItem GetTaskHistory (string id, DateTimeOffset? asAt = null)
+
+[EXPERIMENTAL] GetTaskHistory: Get the history of a Task
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Workflow.Sdk.Api;
+using Finbourne.Workflow.Sdk.Client;
+using Finbourne.Workflow.Sdk.Extensions;
+using Finbourne.Workflow.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""workflowUrl"": ""https://<your-domain>.lusid.com/workflow"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TasksApi>();
+            var id = "id_example";  // string | The Task Id for which to get the history
+            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime of the oldest change to retrieve. Defaults to returning the latest version of the Task if not specified. (optional) 
+
+            try
+            {
+                // [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
+                ResourceListOfChangeItem result = apiInstance.GetTaskHistory(id, asAt);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TasksApi.GetTaskHistory: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetTaskHistoryWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
+    ApiResponse<ResourceListOfChangeItem> response = apiInstance.GetTaskHistoryWithHttpInfo(id, asAt);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TasksApi.GetTaskHistoryWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **string** | The Task Id for which to get the history |  |
+| **asAt** | **DateTimeOffset?** | The asAt datetime of the oldest change to retrieve. Defaults to returning the latest version of the Task if not specified. | [optional]  |
+
+### Return type
+
+[**ResourceListOfChangeItem**](ResourceListOfChangeItem.md)
 
 ### HTTP request headers
 
