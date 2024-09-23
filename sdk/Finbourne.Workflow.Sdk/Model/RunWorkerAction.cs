@@ -64,7 +64,8 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="workerParameters">Parameters for this Worker.</param>
         /// <param name="workerStatusTriggers">workerStatusTriggers.</param>
         /// <param name="childTaskConfigurations">Tasks can be generated from run worker results; this is the configuration.</param>
-        public RunWorkerAction(TypeEnum type = default(TypeEnum), ResourceId workerId = default(ResourceId), DateTimeOffset? workerAsAt = default(DateTimeOffset?), Dictionary<string, FieldMapping> workerParameters = default(Dictionary<string, FieldMapping>), WorkerStatusTriggers workerStatusTriggers = default(WorkerStatusTriggers), List<ResultantChildTaskConfiguration> childTaskConfigurations = default(List<ResultantChildTaskConfiguration>))
+        /// <param name="workerTimeout">Worker WorkerTimeout in seconds.</param>
+        public RunWorkerAction(TypeEnum type = default(TypeEnum), ResourceId workerId = default(ResourceId), DateTimeOffset? workerAsAt = default(DateTimeOffset?), Dictionary<string, FieldMapping> workerParameters = default(Dictionary<string, FieldMapping>), WorkerStatusTriggers workerStatusTriggers = default(WorkerStatusTriggers), List<ResultantChildTaskConfiguration> childTaskConfigurations = default(List<ResultantChildTaskConfiguration>), int? workerTimeout = default(int?))
         {
             this.Type = type;
             // to ensure "workerId" is required (not null)
@@ -77,6 +78,7 @@ namespace Finbourne.Workflow.Sdk.Model
             this.WorkerParameters = workerParameters;
             this.WorkerStatusTriggers = workerStatusTriggers;
             this.ChildTaskConfigurations = childTaskConfigurations;
+            this.WorkerTimeout = workerTimeout;
         }
 
         /// <summary>
@@ -113,6 +115,13 @@ namespace Finbourne.Workflow.Sdk.Model
         public List<ResultantChildTaskConfiguration> ChildTaskConfigurations { get; set; }
 
         /// <summary>
+        /// Worker WorkerTimeout in seconds
+        /// </summary>
+        /// <value>Worker WorkerTimeout in seconds</value>
+        [DataMember(Name = "workerTimeout", EmitDefaultValue = true)]
+        public int? WorkerTimeout { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -126,6 +135,7 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  WorkerParameters: ").Append(WorkerParameters).Append("\n");
             sb.Append("  WorkerStatusTriggers: ").Append(WorkerStatusTriggers).Append("\n");
             sb.Append("  ChildTaskConfigurations: ").Append(ChildTaskConfigurations).Append("\n");
+            sb.Append("  WorkerTimeout: ").Append(WorkerTimeout).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -191,6 +201,11 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.ChildTaskConfigurations != null &&
                     input.ChildTaskConfigurations != null &&
                     this.ChildTaskConfigurations.SequenceEqual(input.ChildTaskConfigurations)
+                ) && 
+                (
+                    this.WorkerTimeout == input.WorkerTimeout ||
+                    (this.WorkerTimeout != null &&
+                    this.WorkerTimeout.Equals(input.WorkerTimeout))
                 );
         }
 
@@ -223,6 +238,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.ChildTaskConfigurations != null)
                 {
                     hashCode = (hashCode * 59) + this.ChildTaskConfigurations.GetHashCode();
+                }
+                if (this.WorkerTimeout != null)
+                {
+                    hashCode = (hashCode * 59) + this.WorkerTimeout.GetHashCode();
                 }
                 return hashCode;
             }

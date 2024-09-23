@@ -6,6 +6,7 @@ Request to Create a new worker
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Parameters** | [**List&lt;ParameterValue&gt;**](ParameterValue.md) | The Parameter and their values. | 
+**WorkerTimeout** | **int?** | The timeout in seconds for the worker | [optional] 
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
