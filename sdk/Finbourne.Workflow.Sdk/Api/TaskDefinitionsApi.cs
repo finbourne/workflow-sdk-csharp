@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Finbourne.Workflow.Sdk.Client;
+using IApiAccessor = Finbourne.Workflow.Sdk.Client.IApiAccessor;
 using Finbourne.Workflow.Sdk.Extensions;
 using Finbourne.Workflow.Sdk.Client.Auth;
 using Finbourne.Workflow.Sdk.Model;
@@ -52,7 +52,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TaskDefinition</returns>
-        ApiResponse<TaskDefinition> CreateTaskDefinitionWithHttpInfo(CreateTaskDefinitionRequest createTaskDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<TaskDefinition> CreateTaskDefinitionWithHttpInfo(CreateTaskDefinitionRequest createTaskDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition
         /// </summary>
@@ -76,7 +76,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteTaskDefinitionWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTaskDefinitionWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTaskDefinition: Get a Task Definition
         /// </summary>
@@ -102,7 +102,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TaskDefinition</returns>
-        ApiResponse<TaskDefinition> GetTaskDefinitionWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<TaskDefinition> GetTaskDefinitionWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListTaskDefinitions: List Task Definitions
         /// </summary>
@@ -132,7 +132,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTaskDefinition</returns>
-        ApiResponse<PagedResourceListOfTaskDefinition> ListTaskDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTaskDefinition> ListTaskDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition
         /// </summary>
@@ -158,7 +158,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfTask</returns>
-        ApiResponse<ResourceListOfTask> ListTasksForTaskDefinitionWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfTask> ListTasksForTaskDefinitionWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition
         /// </summary>
@@ -184,7 +184,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TaskDefinition</returns>
-        ApiResponse<TaskDefinition> UpdateTaskDefinitionWithHttpInfo(string scope, string code, UpdateTaskDefinitionRequest updateTaskDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<TaskDefinition> UpdateTaskDefinitionWithHttpInfo(string scope, string code, UpdateTaskDefinitionRequest updateTaskDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -220,7 +220,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TaskDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskDefinition>> CreateTaskDefinitionWithHttpInfoAsync(CreateTaskDefinitionRequest createTaskDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<TaskDefinition>> CreateTaskDefinitionWithHttpInfoAsync(CreateTaskDefinitionRequest createTaskDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition
         /// </summary>
@@ -249,7 +249,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTaskDefinitionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTaskDefinitionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTaskDefinition: Get a Task Definition
         /// </summary>
@@ -280,7 +280,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TaskDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskDefinition>> GetTaskDefinitionWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<TaskDefinition>> GetTaskDefinitionWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListTaskDefinitions: List Task Definitions
         /// </summary>
@@ -315,7 +315,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTaskDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfTaskDefinition>> ListTaskDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTaskDefinition>> ListTaskDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition
         /// </summary>
@@ -346,7 +346,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfTask)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfTask>> ListTasksForTaskDefinitionWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfTask>> ListTasksForTaskDefinitionWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition
         /// </summary>
@@ -377,7 +377,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TaskDefinition)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TaskDefinition>> UpdateTaskDefinitionWithHttpInfoAsync(string scope, string code, UpdateTaskDefinitionRequest updateTaskDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<TaskDefinition>> UpdateTaskDefinitionWithHttpInfoAsync(string scope, string code, UpdateTaskDefinitionRequest updateTaskDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

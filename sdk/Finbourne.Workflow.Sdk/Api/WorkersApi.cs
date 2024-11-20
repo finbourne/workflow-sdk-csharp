@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Finbourne.Workflow.Sdk.Client;
+using IApiAccessor = Finbourne.Workflow.Sdk.Client.IApiAccessor;
 using Finbourne.Workflow.Sdk.Extensions;
 using Finbourne.Workflow.Sdk.Client.Auth;
 using Finbourne.Workflow.Sdk.Model;
@@ -55,7 +55,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Worker</returns>
-        ApiResponse<Worker> CreateWorkerWithHttpInfo(CreateWorkerRequest createWorkerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<Worker> CreateWorkerWithHttpInfo(CreateWorkerRequest createWorkerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteWorker: Delete a Worker
         /// </summary>
@@ -82,7 +82,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteWorkerWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteWorkerWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetWorker: Get a Worker
         /// </summary>
@@ -111,7 +111,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Worker</returns>
-        ApiResponse<Worker> GetWorkerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<Worker> GetWorkerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results
         /// </summary>
@@ -133,7 +133,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of GetWorkerResultResponse</returns>
-        ApiResponse<GetWorkerResultResponse> GetWorkerResultWithHttpInfo(Guid runId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<GetWorkerResultResponse> GetWorkerResultWithHttpInfo(Guid runId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListWorkers: List Workers
         /// </summary>
@@ -163,7 +163,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfWorker</returns>
-        ApiResponse<PagedResourceListOfWorker> ListWorkersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfWorker> ListWorkersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RunWorker: Run a Worker
         /// </summary>
@@ -191,7 +191,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of RunWorkerResponse</returns>
-        ApiResponse<RunWorkerResponse> RunWorkerWithHttpInfo(string scope, string code, RunWorkerRequest runWorkerRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<RunWorkerResponse> RunWorkerWithHttpInfo(string scope, string code, RunWorkerRequest runWorkerRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateWorker: Update a Worker
         /// </summary>
@@ -220,7 +220,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Worker</returns>
-        ApiResponse<Worker> UpdateWorkerWithHttpInfo(string scope, string code, UpdateWorkerRequest updateWorkerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<Worker> UpdateWorkerWithHttpInfo(string scope, string code, UpdateWorkerRequest updateWorkerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -256,7 +256,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Worker)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Worker>> CreateWorkerWithHttpInfoAsync(CreateWorkerRequest createWorkerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Worker>> CreateWorkerWithHttpInfoAsync(CreateWorkerRequest createWorkerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteWorker: Delete a Worker
         /// </summary>
@@ -285,7 +285,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteWorkerWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteWorkerWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetWorker: Get a Worker
         /// </summary>
@@ -316,7 +316,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Worker)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Worker>> GetWorkerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Worker>> GetWorkerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results
         /// </summary>
@@ -343,7 +343,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (GetWorkerResultResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetWorkerResultResponse>> GetWorkerResultWithHttpInfoAsync(Guid runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<GetWorkerResultResponse>> GetWorkerResultWithHttpInfoAsync(Guid runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListWorkers: List Workers
         /// </summary>
@@ -378,7 +378,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfWorker)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfWorker>> ListWorkersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfWorker>> ListWorkersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RunWorker: Run a Worker
         /// </summary>
@@ -411,7 +411,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (RunWorkerResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RunWorkerResponse>> RunWorkerWithHttpInfoAsync(string scope, string code, RunWorkerRequest runWorkerRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<RunWorkerResponse>> RunWorkerWithHttpInfoAsync(string scope, string code, RunWorkerRequest runWorkerRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateWorker: Update a Worker
         /// </summary>
@@ -442,7 +442,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Worker)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Worker>> UpdateWorkerWithHttpInfoAsync(string scope, string code, UpdateWorkerRequest updateWorkerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Worker>> UpdateWorkerWithHttpInfoAsync(string scope, string code, UpdateWorkerRequest updateWorkerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Finbourne.Workflow.Sdk.Client;
+using IApiAccessor = Finbourne.Workflow.Sdk.Client.IApiAccessor;
 using Finbourne.Workflow.Sdk.Extensions;
 using Finbourne.Workflow.Sdk.Client.Auth;
 using Finbourne.Workflow.Sdk.Model;
@@ -52,7 +52,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of EventHandler</returns>
-        ApiResponse<EventHandler> CreateEventHandlerWithHttpInfo(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> CreateEventHandlerWithHttpInfo(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
         /// </summary>
@@ -79,7 +79,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteEventHandlerWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteEventHandlerWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler
         /// </summary>
@@ -108,7 +108,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of EventHandler</returns>
-        ApiResponse<EventHandler> GetEventHandlerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> GetEventHandlerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers
         /// </summary>
@@ -136,7 +136,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfEventHandler</returns>
-        ApiResponse<PagedResourceListOfEventHandler> ListEventHandlersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfEventHandler> ListEventHandlersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler
         /// </summary>
@@ -162,7 +162,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of EventHandler</returns>
-        ApiResponse<EventHandler> UpdateEventHandlerWithHttpInfo(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> UpdateEventHandlerWithHttpInfo(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -198,7 +198,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (EventHandler)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EventHandler>> CreateEventHandlerWithHttpInfoAsync(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler>> CreateEventHandlerWithHttpInfoAsync(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
         /// </summary>
@@ -227,7 +227,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteEventHandlerWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteEventHandlerWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler
         /// </summary>
@@ -258,7 +258,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (EventHandler)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EventHandler>> GetEventHandlerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler>> GetEventHandlerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers
         /// </summary>
@@ -291,7 +291,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfEventHandler)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfEventHandler>> ListEventHandlersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfEventHandler>> ListEventHandlersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler
         /// </summary>
@@ -322,7 +322,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (EventHandler)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EventHandler>> UpdateEventHandlerWithHttpInfoAsync(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler>> UpdateEventHandlerWithHttpInfoAsync(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

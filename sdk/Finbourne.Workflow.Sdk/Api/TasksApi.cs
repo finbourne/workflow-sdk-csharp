@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Finbourne.Workflow.Sdk.Client;
+using IApiAccessor = Finbourne.Workflow.Sdk.Client.IApiAccessor;
 using Finbourne.Workflow.Sdk.Extensions;
 using Finbourne.Workflow.Sdk.Client.Auth;
 using Finbourne.Workflow.Sdk.Model;
@@ -54,7 +54,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Task</returns>
-        ApiResponse<Task> CreateTaskWithHttpInfo(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<Task> CreateTaskWithHttpInfo(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteTask: Delete a Task
         /// </summary>
@@ -76,7 +76,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteTaskWithHttpInfo(string id, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTaskWithHttpInfo(string id, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteTasks: Batch Delete Tasks
         /// </summary>
@@ -98,7 +98,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
-        ApiResponse<DeletedEntityResponse> DeleteTasksWithHttpInfo(DeleteTasksRequest? deleteTasksRequest = default(DeleteTasksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTasksWithHttpInfo(DeleteTasksRequest? deleteTasksRequest = default(DeleteTasksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTask: Get a Task
         /// </summary>
@@ -122,7 +122,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Task</returns>
-        ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
         /// </summary>
@@ -146,7 +146,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ResourceListOfChangeItem</returns>
-        ApiResponse<ResourceListOfChangeItem> GetTaskHistoryWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfChangeItem> GetTaskHistoryWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListTasks: List Tasks
         /// </summary>
@@ -176,7 +176,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTask</returns>
-        ApiResponse<PagedResourceListOfTask> ListTasksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> ListTasksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateTask: Update a Task
         /// </summary>
@@ -202,7 +202,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Task</returns>
-        ApiResponse<Task> UpdateTaskWithHttpInfo(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<Task> UpdateTaskWithHttpInfo(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -240,7 +240,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Task)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Task>> CreateTaskWithHttpInfoAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> CreateTaskWithHttpInfoAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteTask: Delete a Task
         /// </summary>
@@ -267,7 +267,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTaskWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTaskWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteTasks: Batch Delete Tasks
         /// </summary>
@@ -294,7 +294,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<DeletedEntityResponse>> DeleteTasksWithHttpInfoAsync(DeleteTasksRequest? deleteTasksRequest = default(DeleteTasksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTasksWithHttpInfoAsync(DeleteTasksRequest? deleteTasksRequest = default(DeleteTasksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTask: Get a Task
         /// </summary>
@@ -323,7 +323,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Task)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
         /// </summary>
@@ -352,7 +352,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ResourceListOfChangeItem)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ResourceListOfChangeItem>> GetTaskHistoryWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfChangeItem>> GetTaskHistoryWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListTasks: List Tasks
         /// </summary>
@@ -387,7 +387,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTask)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfTask>> ListTasksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask>> ListTasksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateTask: Update a Task
         /// </summary>
@@ -418,7 +418,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Task)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Task>> UpdateTaskWithHttpInfoAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> UpdateTaskWithHttpInfoAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
