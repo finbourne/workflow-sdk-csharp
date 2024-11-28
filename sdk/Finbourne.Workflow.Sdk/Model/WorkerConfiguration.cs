@@ -44,6 +44,18 @@ namespace Finbourne.Workflow.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkerConfiguration" /> class
+        /// with the <see cref="GroupReconciliation" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of GroupReconciliation.</param>
+        public WorkerConfiguration(GroupReconciliation actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkerConfiguration" /> class
         /// with the <see cref="HealthCheck" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of HealthCheck.</param>
@@ -108,6 +120,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(GroupReconciliation))
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(HealthCheck))
                 {
                     this._actualInstance = value;
@@ -126,7 +142,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Fail, HealthCheck, LuminesceView, SchedulerJob, Sleep");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Fail, GroupReconciliation, HealthCheck, LuminesceView, SchedulerJob, Sleep");
                 }
             }
         }
@@ -139,6 +155,16 @@ namespace Finbourne.Workflow.Sdk.Model
         public Fail GetFail()
         {
             return (Fail)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `GroupReconciliation`. If the actual instance is not `GroupReconciliation`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of GroupReconciliation</returns>
+        public GroupReconciliation GetGroupReconciliation()
+        {
+            return (GroupReconciliation)this.ActualInstance;
         }
 
         /// <summary>
@@ -237,6 +263,26 @@ namespace Finbourne.Workflow.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Fail: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(GroupReconciliation).GetProperty("AdditionalProperties") == null)
+                {
+                    newWorkerConfiguration = new WorkerConfiguration(JsonConvert.DeserializeObject<GroupReconciliation>(jsonString, WorkerConfiguration.SerializerSettings));
+                }
+                else
+                {
+                    newWorkerConfiguration = new WorkerConfiguration(JsonConvert.DeserializeObject<GroupReconciliation>(jsonString, WorkerConfiguration.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("GroupReconciliation");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into GroupReconciliation: {1}", jsonString, exception.ToString()));
             }
 
             try

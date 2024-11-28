@@ -44,6 +44,18 @@ namespace Finbourne.Workflow.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkerConfigurationResponse" /> class
+        /// with the <see cref="GroupReconciliationResponse" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of GroupReconciliationResponse.</param>
+        public WorkerConfigurationResponse(GroupReconciliationResponse actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkerConfigurationResponse" /> class
         /// with the <see cref="HealthCheckResponse" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of HealthCheckResponse.</param>
@@ -108,6 +120,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(GroupReconciliationResponse))
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(HealthCheckResponse))
                 {
                     this._actualInstance = value;
@@ -126,7 +142,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: FailResponse, HealthCheckResponse, LuminesceViewResponse, SchedulerJobResponse, SleepResponse");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: FailResponse, GroupReconciliationResponse, HealthCheckResponse, LuminesceViewResponse, SchedulerJobResponse, SleepResponse");
                 }
             }
         }
@@ -139,6 +155,16 @@ namespace Finbourne.Workflow.Sdk.Model
         public FailResponse GetFailResponse()
         {
             return (FailResponse)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `GroupReconciliationResponse`. If the actual instance is not `GroupReconciliationResponse`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of GroupReconciliationResponse</returns>
+        public GroupReconciliationResponse GetGroupReconciliationResponse()
+        {
+            return (GroupReconciliationResponse)this.ActualInstance;
         }
 
         /// <summary>
@@ -237,6 +263,26 @@ namespace Finbourne.Workflow.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into FailResponse: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(GroupReconciliationResponse).GetProperty("AdditionalProperties") == null)
+                {
+                    newWorkerConfigurationResponse = new WorkerConfigurationResponse(JsonConvert.DeserializeObject<GroupReconciliationResponse>(jsonString, WorkerConfigurationResponse.SerializerSettings));
+                }
+                else
+                {
+                    newWorkerConfigurationResponse = new WorkerConfigurationResponse(JsonConvert.DeserializeObject<GroupReconciliationResponse>(jsonString, WorkerConfigurationResponse.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("GroupReconciliationResponse");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into GroupReconciliationResponse: {1}", jsonString, exception.ToString()));
             }
 
             try
