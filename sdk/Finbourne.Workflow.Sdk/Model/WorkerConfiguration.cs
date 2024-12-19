@@ -28,7 +28,7 @@ namespace Finbourne.Workflow.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(WorkerConfigurationJsonConverter))]
     [DataContract(Name = "WorkerConfiguration")]
-    public partial class WorkerConfiguration : AbstractOpenAPISchema, IEquatable<WorkerConfiguration>, IValidatableObject
+    public partial class WorkerConfiguration : AbstractOpenAPISchema, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkerConfiguration" /> class
@@ -116,27 +116,27 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             set
             {
-                if (value.GetType() == typeof(Fail))
+                if (value.GetType() == typeof(Fail) || value is Fail)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(GroupReconciliation))
+                else if (value.GetType() == typeof(GroupReconciliation) || value is GroupReconciliation)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(HealthCheck))
+                else if (value.GetType() == typeof(HealthCheck) || value is HealthCheck)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(LuminesceView))
+                else if (value.GetType() == typeof(LuminesceView) || value is LuminesceView)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(SchedulerJob))
+                else if (value.GetType() == typeof(SchedulerJob) || value is SchedulerJob)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(Sleep))
+                else if (value.GetType() == typeof(Sleep) || value is Sleep)
                 {
                     this._actualInstance = value;
                 }
@@ -371,50 +371,13 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             else if (match > 1)
             {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + matchedTypes);
+                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + String.Join(",", matchedTypes));
             }
 
             // deserialization is considered successful at this point if no exception has been thrown.
             return newWorkerConfiguration;
         }
 
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as WorkerConfiguration);
-        }
-
-        /// <summary>
-        /// Returns true if WorkerConfiguration instances are equal
-        /// </summary>
-        /// <param name="input">Instance of WorkerConfiguration to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(WorkerConfiguration input)
-        {
-            if (input == null)
-                return false;
-
-            return this.ActualInstance.Equals(input.ActualInstance);
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ActualInstance != null)
-                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
-                return hashCode;
-            }
-        }
 
         /// <summary>
         /// To validate all properties of the instance
@@ -453,11 +416,15 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if(reader.TokenType != JsonToken.Null)
+            switch(reader.TokenType) 
             {
-                return WorkerConfiguration.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartObject:
+                    return WorkerConfiguration.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return WorkerConfiguration.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
             }
-            return null;
         }
 
         /// <summary>

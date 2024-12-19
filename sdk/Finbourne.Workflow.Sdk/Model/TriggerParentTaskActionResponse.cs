@@ -40,7 +40,6 @@ namespace Finbourne.Workflow.Sdk.Model
             /// </summary>
             [EnumMember(Value = "TriggerParentTask")]
             TriggerParentTask = 1
-
         }
 
 

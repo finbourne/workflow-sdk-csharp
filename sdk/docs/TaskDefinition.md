@@ -6,7 +6,7 @@ Task Definition
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | [**ResourceId**](ResourceId.md) |  | 
-**_Version** | [**VersionInfo**](VersionInfo.md) |  | [optional] 
+**VarVersion** | [**VersionInfo**](VersionInfo.md) |  | [optional] 
 **DisplayName** | **string** | Human readable name | 
 **Description** | **string** | Human readable description | [optional] 
 **States** | [**List&lt;TaskStateDefinition&gt;**](TaskStateDefinition.md) | The states this Task Definition operates over | 

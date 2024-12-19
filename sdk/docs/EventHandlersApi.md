@@ -288,7 +288,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EventHandlersApi>();
             var scope = "scope_example";  // string | Scope of the event handler
             var code = "code_example";  // string | Code of the event handler
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the event handler. Defaults to returning the latest version of the event handler if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the event handler. Defaults to returning the latest version of the event handler if not specified. (optional) 
 
             try
             {
@@ -402,7 +402,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<EventHandlersApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<EventHandlersApi>();
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var limit = 10;  // int? | When paginating, limit the number of returned results to this many. (optional)  (default to 10)
             var page = "page_example";  // string? | The pagination token to use to continue listing event handlers from a previous call to list event handlers. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional) 

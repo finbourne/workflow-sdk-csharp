@@ -45,7 +45,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="parentTask">parentTask.</param>
         /// <param name="childTasks">This Task&#39;s child tasks.</param>
         /// <param name="correlationIds">User-provided ID used to link entities and tasks.</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="terminalState">True if no onward transitions are possible (required).</param>
         /// <param name="asAtLastTransition">Last Transition timestamp.</param>
         /// <param name="fields">Fields and their latest values - should correspond with the Task Definition field schema.</param>
@@ -54,7 +54,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="actionLogIdCreated">The Id of the Action that created this Task.</param>
         /// <param name="actionLogIdModified">The Id of the Action that last modified this Task.</param>
         /// <param name="actionLogIdSubmitted">The Id of the last Action submitted by this Task.</param>
-        public Task(Guid id = default(Guid), ResourceId taskDefinitionId = default(ResourceId), TaskDefinitionVersion taskDefinitionVersion = default(TaskDefinitionVersion), string taskDefinitionDisplayName = default(string), string state = default(string), TaskSummary ultimateParentTask = default(TaskSummary), TaskSummary parentTask = default(TaskSummary), List<TaskSummary> childTasks = default(List<TaskSummary>), List<string> correlationIds = default(List<string>), VersionInfo version = default(VersionInfo), bool terminalState = default(bool), DateTimeOffset? asAtLastTransition = default(DateTimeOffset?), List<TaskInstanceField> fields = default(List<TaskInstanceField>), string stackingKey = default(string), Stack stack = default(Stack), Guid? actionLogIdCreated = default(Guid?), Guid? actionLogIdModified = default(Guid?), Guid? actionLogIdSubmitted = default(Guid?))
+        public Task(Guid id = default(Guid), ResourceId taskDefinitionId = default(ResourceId), TaskDefinitionVersion taskDefinitionVersion = default(TaskDefinitionVersion), string taskDefinitionDisplayName = default(string), string state = default(string), TaskSummary ultimateParentTask = default(TaskSummary), TaskSummary parentTask = default(TaskSummary), List<TaskSummary> childTasks = default(List<TaskSummary>), List<string> correlationIds = default(List<string>), VersionInfo varVersion = default(VersionInfo), bool terminalState = default(bool), DateTimeOffset? asAtLastTransition = default(DateTimeOffset?), List<TaskInstanceField> fields = default(List<TaskInstanceField>), string stackingKey = default(string), Stack stack = default(Stack), Guid? actionLogIdCreated = default(Guid?), Guid? actionLogIdModified = default(Guid?), Guid? actionLogIdSubmitted = default(Guid?))
         {
             this.Id = id;
             // to ensure "taskDefinitionId" is required (not null)
@@ -91,7 +91,7 @@ namespace Finbourne.Workflow.Sdk.Model
             this.ParentTask = parentTask;
             this.ChildTasks = childTasks;
             this.CorrelationIds = correlationIds;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.AsAtLastTransition = asAtLastTransition;
             this.Fields = fields;
             this.StackingKey = stackingKey;
@@ -161,10 +161,10 @@ namespace Finbourne.Workflow.Sdk.Model
         public List<string> CorrelationIds { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public VersionInfo _Version { get; set; }
+        public VersionInfo VarVersion { get; set; }
 
         /// <summary>
         /// True if no onward transitions are possible
@@ -238,7 +238,7 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  ParentTask: ").Append(ParentTask).Append("\n");
             sb.Append("  ChildTasks: ").Append(ChildTasks).Append("\n");
             sb.Append("  CorrelationIds: ").Append(CorrelationIds).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  TerminalState: ").Append(TerminalState).Append("\n");
             sb.Append("  AsAtLastTransition: ").Append(AsAtLastTransition).Append("\n");
             sb.Append("  Fields: ").Append(Fields).Append("\n");
@@ -330,9 +330,9 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.CorrelationIds.SequenceEqual(input.CorrelationIds)
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.TerminalState == input.TerminalState ||
@@ -421,9 +421,9 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.CorrelationIds.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.TerminalState.GetHashCode();
                 if (this.AsAtLastTransition != null)

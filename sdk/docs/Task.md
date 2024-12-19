@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **ParentTask** | [**TaskSummary**](TaskSummary.md) |  | [optional] 
 **ChildTasks** | [**List&lt;TaskSummary&gt;**](TaskSummary.md) | This Task&#39;s child tasks | [optional] 
 **CorrelationIds** | **List&lt;string&gt;** | User-provided ID used to link entities and tasks | [optional] 
-**_Version** | [**VersionInfo**](VersionInfo.md) |  | [optional] 
+**VarVersion** | [**VersionInfo**](VersionInfo.md) |  | [optional] 
 **TerminalState** | **bool** | True if no onward transitions are possible | 
 **AsAtLastTransition** | **DateTimeOffset?** | Last Transition timestamp | [optional] 
 **Fields** | [**List&lt;TaskInstanceField&gt;**](TaskInstanceField.md) | Fields and their latest values - should correspond with the Task Definition field schema | [optional] 

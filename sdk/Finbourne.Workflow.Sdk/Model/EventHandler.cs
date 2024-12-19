@@ -37,7 +37,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// Initializes a new instance of the <see cref="EventHandler" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="displayName">Human readable name (required).</param>
         /// <param name="description">Human readable description.</param>
         /// <param name="status">The current status of the event handler (required).</param>
@@ -46,7 +46,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="taskDefinitionId">taskDefinitionId (required).</param>
         /// <param name="taskDefinitionAsAt">AsAt of the required task definition.</param>
         /// <param name="taskActivity">taskActivity (required).</param>
-        public EventHandler(ResourceId id = default(ResourceId), VersionInfo version = default(VersionInfo), string displayName = default(string), string description = default(string), string status = default(string), EventMatchingPattern eventMatchingPattern = default(EventMatchingPattern), EventHandlerMapping runAsUserId = default(EventHandlerMapping), ResourceId taskDefinitionId = default(ResourceId), DateTimeOffset? taskDefinitionAsAt = default(DateTimeOffset?), TaskActivityResponse taskActivity = default(TaskActivityResponse))
+        public EventHandler(ResourceId id = default(ResourceId), VersionInfo varVersion = default(VersionInfo), string displayName = default(string), string description = default(string), string status = default(string), EventMatchingPattern eventMatchingPattern = default(EventMatchingPattern), EventHandlerMapping runAsUserId = default(EventHandlerMapping), ResourceId taskDefinitionId = default(ResourceId), DateTimeOffset? taskDefinitionAsAt = default(DateTimeOffset?), TaskActivityResponse taskActivity = default(TaskActivityResponse))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -90,7 +90,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 throw new ArgumentNullException("taskActivity is a required property for EventHandler and cannot be null");
             }
             this.TaskActivity = taskActivity;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Description = description;
             this.TaskDefinitionAsAt = taskDefinitionAsAt;
         }
@@ -102,10 +102,10 @@ namespace Finbourne.Workflow.Sdk.Model
         public ResourceId Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public VersionInfo _Version { get; set; }
+        public VersionInfo VarVersion { get; set; }
 
         /// <summary>
         /// Human readable name
@@ -168,7 +168,7 @@ namespace Finbourne.Workflow.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class EventHandler {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -218,9 +218,9 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.DisplayName == input.DisplayName ||
@@ -277,9 +277,9 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.DisplayName != null)
                 {

@@ -28,7 +28,7 @@ namespace Finbourne.Workflow.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(ActionDetailsResponseJsonConverter))]
     [DataContract(Name = "ActionDetailsResponse")]
-    public partial class ActionDetailsResponse : AbstractOpenAPISchema, IEquatable<ActionDetailsResponse>, IValidatableObject
+    public partial class ActionDetailsResponse : AbstractOpenAPISchema, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ActionDetailsResponse" /> class
@@ -80,15 +80,15 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             set
             {
-                if (value.GetType() == typeof(CreateChildTasksActionResponse))
+                if (value.GetType() == typeof(CreateChildTasksActionResponse) || value is CreateChildTasksActionResponse)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(RunWorkerActionResponse))
+                else if (value.GetType() == typeof(RunWorkerActionResponse) || value is RunWorkerActionResponse)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(TriggerParentTaskActionResponse))
+                else if (value.GetType() == typeof(TriggerParentTaskActionResponse) || value is TriggerParentTaskActionResponse)
                 {
                     this._actualInstance = value;
                 }
@@ -233,50 +233,13 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             else if (match > 1)
             {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + matchedTypes);
+                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + String.Join(",", matchedTypes));
             }
 
             // deserialization is considered successful at this point if no exception has been thrown.
             return newActionDetailsResponse;
         }
 
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ActionDetailsResponse);
-        }
-
-        /// <summary>
-        /// Returns true if ActionDetailsResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ActionDetailsResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ActionDetailsResponse input)
-        {
-            if (input == null)
-                return false;
-
-            return this.ActualInstance.Equals(input.ActualInstance);
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ActualInstance != null)
-                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
-                return hashCode;
-            }
-        }
 
         /// <summary>
         /// To validate all properties of the instance
@@ -315,11 +278,15 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if(reader.TokenType != JsonToken.Null)
+            switch(reader.TokenType) 
             {
-                return ActionDetailsResponse.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartObject:
+                    return ActionDetailsResponse.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return ActionDetailsResponse.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
             }
-            return null;
         }
 
         /// <summary>

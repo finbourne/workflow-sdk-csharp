@@ -37,7 +37,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// Initializes a new instance of the <see cref="TaskDefinition" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="displayName">Human readable name (required).</param>
         /// <param name="description">Human readable description.</param>
         /// <param name="states">The states this Task Definition operates over (required).</param>
@@ -46,7 +46,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="triggers">The Triggers for State transition.</param>
         /// <param name="actions">The Actions of this Task - executed after a Transition completion.</param>
         /// <param name="transitions">The Transitions between States.</param>
-        public TaskDefinition(ResourceId id = default(ResourceId), VersionInfo version = default(VersionInfo), string displayName = default(string), string description = default(string), List<TaskStateDefinition> states = default(List<TaskStateDefinition>), List<TaskFieldDefinition> fieldSchema = default(List<TaskFieldDefinition>), InitialState initialState = default(InitialState), List<TransitionTriggerDefinition> triggers = default(List<TransitionTriggerDefinition>), List<ActionDefinitionResponse> actions = default(List<ActionDefinitionResponse>), List<TaskTransitionDefinition> transitions = default(List<TaskTransitionDefinition>))
+        public TaskDefinition(ResourceId id = default(ResourceId), VersionInfo varVersion = default(VersionInfo), string displayName = default(string), string description = default(string), List<TaskStateDefinition> states = default(List<TaskStateDefinition>), List<TaskFieldDefinition> fieldSchema = default(List<TaskFieldDefinition>), InitialState initialState = default(InitialState), List<TransitionTriggerDefinition> triggers = default(List<TransitionTriggerDefinition>), List<ActionDefinitionResponse> actions = default(List<ActionDefinitionResponse>), List<TaskTransitionDefinition> transitions = default(List<TaskTransitionDefinition>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -72,7 +72,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 throw new ArgumentNullException("initialState is a required property for TaskDefinition and cannot be null");
             }
             this.InitialState = initialState;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Description = description;
             this.FieldSchema = fieldSchema;
             this.Triggers = triggers;
@@ -87,10 +87,10 @@ namespace Finbourne.Workflow.Sdk.Model
         public ResourceId Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public VersionInfo _Version { get; set; }
+        public VersionInfo VarVersion { get; set; }
 
         /// <summary>
         /// Human readable name
@@ -156,7 +156,7 @@ namespace Finbourne.Workflow.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class TaskDefinition {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  States: ").Append(States).Append("\n");
@@ -206,9 +206,9 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.DisplayName == input.DisplayName ||
@@ -270,9 +270,9 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.DisplayName != null)
                 {

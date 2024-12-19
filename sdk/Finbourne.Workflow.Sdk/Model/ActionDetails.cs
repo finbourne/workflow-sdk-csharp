@@ -28,7 +28,7 @@ namespace Finbourne.Workflow.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(ActionDetailsJsonConverter))]
     [DataContract(Name = "ActionDetails")]
-    public partial class ActionDetails : AbstractOpenAPISchema, IEquatable<ActionDetails>, IValidatableObject
+    public partial class ActionDetails : AbstractOpenAPISchema, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ActionDetails" /> class
@@ -80,15 +80,15 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             set
             {
-                if (value.GetType() == typeof(CreateChildTasksAction))
+                if (value.GetType() == typeof(CreateChildTasksAction) || value is CreateChildTasksAction)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(RunWorkerAction))
+                else if (value.GetType() == typeof(RunWorkerAction) || value is RunWorkerAction)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(TriggerParentTaskAction))
+                else if (value.GetType() == typeof(TriggerParentTaskAction) || value is TriggerParentTaskAction)
                 {
                     this._actualInstance = value;
                 }
@@ -233,50 +233,13 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             else if (match > 1)
             {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + matchedTypes);
+                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + String.Join(",", matchedTypes));
             }
 
             // deserialization is considered successful at this point if no exception has been thrown.
             return newActionDetails;
         }
 
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as ActionDetails);
-        }
-
-        /// <summary>
-        /// Returns true if ActionDetails instances are equal
-        /// </summary>
-        /// <param name="input">Instance of ActionDetails to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(ActionDetails input)
-        {
-            if (input == null)
-                return false;
-
-            return this.ActualInstance.Equals(input.ActualInstance);
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ActualInstance != null)
-                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
-                return hashCode;
-            }
-        }
 
         /// <summary>
         /// To validate all properties of the instance
@@ -315,11 +278,15 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if(reader.TokenType != JsonToken.Null)
+            switch(reader.TokenType) 
             {
-                return ActionDetails.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartObject:
+                    return ActionDetails.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return ActionDetails.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
             }
-            return null;
         }
 
         /// <summary>

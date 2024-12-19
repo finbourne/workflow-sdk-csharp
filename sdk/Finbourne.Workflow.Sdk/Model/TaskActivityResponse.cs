@@ -28,7 +28,7 @@ namespace Finbourne.Workflow.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(TaskActivityResponseJsonConverter))]
     [DataContract(Name = "TaskActivityResponse")]
-    public partial class TaskActivityResponse : AbstractOpenAPISchema, IEquatable<TaskActivityResponse>, IValidatableObject
+    public partial class TaskActivityResponse : AbstractOpenAPISchema, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TaskActivityResponse" /> class
@@ -68,11 +68,11 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             set
             {
-                if (value.GetType() == typeof(CreateNewTaskActivityResponse))
+                if (value.GetType() == typeof(CreateNewTaskActivityResponse) || value is CreateNewTaskActivityResponse)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(UpdateMatchingTasksActivityResponse))
+                else if (value.GetType() == typeof(UpdateMatchingTasksActivityResponse) || value is UpdateMatchingTasksActivityResponse)
                 {
                     this._actualInstance = value;
                 }
@@ -187,50 +187,13 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             else if (match > 1)
             {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + matchedTypes);
+                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + String.Join(",", matchedTypes));
             }
 
             // deserialization is considered successful at this point if no exception has been thrown.
             return newTaskActivityResponse;
         }
 
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TaskActivityResponse);
-        }
-
-        /// <summary>
-        /// Returns true if TaskActivityResponse instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TaskActivityResponse to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TaskActivityResponse input)
-        {
-            if (input == null)
-                return false;
-
-            return this.ActualInstance.Equals(input.ActualInstance);
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ActualInstance != null)
-                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
-                return hashCode;
-            }
-        }
 
         /// <summary>
         /// To validate all properties of the instance
@@ -269,11 +232,15 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if(reader.TokenType != JsonToken.Null)
+            switch(reader.TokenType) 
             {
-                return TaskActivityResponse.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartObject:
+                    return TaskActivityResponse.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return TaskActivityResponse.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
             }
-            return null;
         }
 
         /// <summary>

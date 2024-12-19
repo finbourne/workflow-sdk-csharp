@@ -28,7 +28,7 @@ namespace Finbourne.Workflow.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(TaskActivityJsonConverter))]
     [DataContract(Name = "TaskActivity")]
-    public partial class TaskActivity : AbstractOpenAPISchema, IEquatable<TaskActivity>, IValidatableObject
+    public partial class TaskActivity : AbstractOpenAPISchema, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TaskActivity" /> class
@@ -68,11 +68,11 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             set
             {
-                if (value.GetType() == typeof(CreateNewTaskActivity))
+                if (value.GetType() == typeof(CreateNewTaskActivity) || value is CreateNewTaskActivity)
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(UpdateMatchingTasksActivity))
+                else if (value.GetType() == typeof(UpdateMatchingTasksActivity) || value is UpdateMatchingTasksActivity)
                 {
                     this._actualInstance = value;
                 }
@@ -187,50 +187,13 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             else if (match > 1)
             {
-                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + matchedTypes);
+                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + String.Join(",", matchedTypes));
             }
 
             // deserialization is considered successful at this point if no exception has been thrown.
             return newTaskActivity;
         }
 
-        /// <summary>
-        /// Returns true if objects are equal
-        /// </summary>
-        /// <param name="input">Object to be compared</param>
-        /// <returns>Boolean</returns>
-        public override bool Equals(object input)
-        {
-            return this.Equals(input as TaskActivity);
-        }
-
-        /// <summary>
-        /// Returns true if TaskActivity instances are equal
-        /// </summary>
-        /// <param name="input">Instance of TaskActivity to be compared</param>
-        /// <returns>Boolean</returns>
-        public bool Equals(TaskActivity input)
-        {
-            if (input == null)
-                return false;
-
-            return this.ActualInstance.Equals(input.ActualInstance);
-        }
-
-        /// <summary>
-        /// Gets the hash code
-        /// </summary>
-        /// <returns>Hash code</returns>
-        public override int GetHashCode()
-        {
-            unchecked // Overflow is fine, just wrap
-            {
-                int hashCode = 41;
-                if (this.ActualInstance != null)
-                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
-                return hashCode;
-            }
-        }
 
         /// <summary>
         /// To validate all properties of the instance
@@ -269,11 +232,15 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>The object converted from the JSON string</returns>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if(reader.TokenType != JsonToken.Null)
+            switch(reader.TokenType) 
             {
-                return TaskActivity.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartObject:
+                    return TaskActivity.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return TaskActivity.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
             }
-            return null;
         }
 
         /// <summary>

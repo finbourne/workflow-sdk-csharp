@@ -292,7 +292,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkersApi>();
             var scope = "scope_example";  // string | Scope of the worker
             var code = "code_example";  // string | Code of the worker
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Worker. Defaults to returning the latest version of the Worker if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Worker. Defaults to returning the latest version of the Worker if not specified. (optional) 
 
             try
             {
@@ -518,7 +518,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkersApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkersApi>();
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Workers. Defaults to return the latest version of each Worker if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Workers. Defaults to return the latest version of each Worker if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each optionally suffixed by \" ASC\" or \" DESC\" (optional) 
             var limit = 10;  // int? | When paginating, limit the number of returned results to this many. (optional)  (default to 10)
@@ -641,7 +641,7 @@ namespace Examples
             var scope = "scope_example";  // string | Scope of the worker
             var code = "code_example";  // string | Code of the worker
             var runWorkerRequest = new RunWorkerRequest(); // RunWorkerRequest | 
-            var asAt = DateTime.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Worker. Defaults to returning the latest version of the Worker if not specified. (optional) 
+            var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Worker. Defaults to returning the latest version of the Worker if not specified. (optional) 
 
             try
             {

@@ -40,11 +40,11 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="displayName">Human readable name (required).</param>
         /// <param name="description">Human readable description.</param>
         /// <param name="workerConfiguration">workerConfiguration (required).</param>
-        /// <param name="version">version.</param>
+        /// <param name="varVersion">varVersion.</param>
         /// <param name="parameters">The Parameters this Worker accepts or requires..</param>
         /// <param name="resultFields">The Fields that the Worker results will come back with..</param>
         /// <param name="links">links.</param>
-        public Worker(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), WorkerConfigurationResponse workerConfiguration = default(WorkerConfigurationResponse), VersionInfo version = default(VersionInfo), List<Parameter> parameters = default(List<Parameter>), List<ResultField> resultFields = default(List<ResultField>), List<Link> links = default(List<Link>))
+        public Worker(ResourceId id = default(ResourceId), string displayName = default(string), string description = default(string), WorkerConfigurationResponse workerConfiguration = default(WorkerConfigurationResponse), VersionInfo varVersion = default(VersionInfo), List<Parameter> parameters = default(List<Parameter>), List<ResultField> resultFields = default(List<ResultField>), List<Link> links = default(List<Link>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -65,7 +65,7 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             this.WorkerConfiguration = workerConfiguration;
             this.Description = description;
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.Parameters = parameters;
             this.ResultFields = resultFields;
             this.Links = links;
@@ -98,10 +98,10 @@ namespace Finbourne.Workflow.Sdk.Model
         public WorkerConfigurationResponse WorkerConfiguration { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public VersionInfo _Version { get; set; }
+        public VersionInfo VarVersion { get; set; }
 
         /// <summary>
         /// The Parameters this Worker accepts or requires.
@@ -135,7 +135,7 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  WorkerConfiguration: ").Append(WorkerConfiguration).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  Parameters: ").Append(Parameters).Append("\n");
             sb.Append("  ResultFields: ").Append(ResultFields).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
@@ -195,9 +195,9 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.WorkerConfiguration.Equals(input.WorkerConfiguration))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.Parameters == input.Parameters ||
@@ -244,9 +244,9 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.WorkerConfiguration.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.Parameters != null)
                 {
