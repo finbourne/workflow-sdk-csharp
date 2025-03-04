@@ -4,19 +4,19 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateWorker**](WorkersApi.md#createworker) | **POST** /api/workers | [EXPERIMENTAL] CreateWorker: Create a new Worker |
-| [**DeleteWorker**](WorkersApi.md#deleteworker) | **DELETE** /api/workers/{scope}/{code} | [EXPERIMENTAL] DeleteWorker: Delete a Worker |
-| [**GetWorker**](WorkersApi.md#getworker) | **GET** /api/workers/{scope}/{code} | [EXPERIMENTAL] GetWorker: Get a Worker |
-| [**GetWorkerResult**](WorkersApi.md#getworkerresult) | **GET** /api/workers/{runId}/$result | [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results |
-| [**ListWorkers**](WorkersApi.md#listworkers) | **GET** /api/workers | [EXPERIMENTAL] ListWorkers: List Workers |
-| [**RunWorker**](WorkersApi.md#runworker) | **POST** /api/workers/{scope}/{code}/$run | [EXPERIMENTAL] RunWorker: Run a Worker |
-| [**UpdateWorker**](WorkersApi.md#updateworker) | **PUT** /api/workers/{scope}/{code} | [EXPERIMENTAL] UpdateWorker: Update a Worker |
+| [**CreateWorker**](WorkersApi.md#createworker) | **POST** /api/workers | CreateWorker: Create a new Worker |
+| [**DeleteWorker**](WorkersApi.md#deleteworker) | **DELETE** /api/workers/{scope}/{code} | DeleteWorker: Delete a Worker |
+| [**GetWorker**](WorkersApi.md#getworker) | **GET** /api/workers/{scope}/{code} | GetWorker: Get a Worker |
+| [**GetWorkerResult**](WorkersApi.md#getworkerresult) | **GET** /api/workers/{runId}/$result | GetWorkerResult: Get the status of a specific run of a worker with any relevant results |
+| [**ListWorkers**](WorkersApi.md#listworkers) | **GET** /api/workers | ListWorkers: List Workers |
+| [**RunWorker**](WorkersApi.md#runworker) | **POST** /api/workers/{scope}/{code}/$run | RunWorker: Run a Worker |
+| [**UpdateWorker**](WorkersApi.md#updateworker) | **PUT** /api/workers/{scope}/{code} | UpdateWorker: Update a Worker |
 
 <a id="createworker"></a>
 # **CreateWorker**
 > Worker CreateWorker (CreateWorkerRequest createWorkerRequest)
 
-[EXPERIMENTAL] CreateWorker: Create a new Worker
+CreateWorker: Create a new Worker
 
 If the Worker already exists a failure will be returned
 
@@ -66,7 +66,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Worker result = apiInstance.CreateWorker(createWorkerRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateWorker: Create a new Worker
+                // CreateWorker: Create a new Worker
                 Worker result = apiInstance.CreateWorker(createWorkerRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -87,7 +87,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateWorker: Create a new Worker
+    // CreateWorker: Create a new Worker
     ApiResponse<Worker> response = apiInstance.CreateWorkerWithHttpInfo(createWorkerRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -130,7 +130,7 @@ catch (ApiException e)
 # **DeleteWorker**
 > DeletedEntityResponse DeleteWorker (string scope, string code)
 
-[EXPERIMENTAL] DeleteWorker: Delete a Worker
+DeleteWorker: Delete a Worker
 
 If the Worker does not exist a failure will be returned
 
@@ -181,7 +181,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteWorker(scope, code, opts: opts);
 
-                // [EXPERIMENTAL] DeleteWorker: Delete a Worker
+                // DeleteWorker: Delete a Worker
                 DeletedEntityResponse result = apiInstance.DeleteWorker(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -202,7 +202,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteWorker: Delete a Worker
+    // DeleteWorker: Delete a Worker
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteWorkerWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -247,7 +247,7 @@ catch (ApiException e)
 # **GetWorker**
 > Worker GetWorker (string scope, string code, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetWorker: Get a Worker
+GetWorker: Get a Worker
 
 Will return a NotFound failure if the Worker does not exist
 
@@ -299,7 +299,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Worker result = apiInstance.GetWorker(scope, code, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetWorker: Get a Worker
+                // GetWorker: Get a Worker
                 Worker result = apiInstance.GetWorker(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -320,7 +320,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetWorker: Get a Worker
+    // GetWorker: Get a Worker
     ApiResponse<Worker> response = apiInstance.GetWorkerWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -365,7 +365,7 @@ catch (ApiException e)
 # **GetWorkerResult**
 > GetWorkerResultResponse GetWorkerResult (Guid runId)
 
-[EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results
+GetWorkerResult: Get the status of a specific run of a worker with any relevant results
 
 ### Example
 ```csharp
@@ -413,7 +413,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // GetWorkerResultResponse result = apiInstance.GetWorkerResult(runId, opts: opts);
 
-                // [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results
+                // GetWorkerResult: Get the status of a specific run of a worker with any relevant results
                 GetWorkerResultResponse result = apiInstance.GetWorkerResult(runId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -434,7 +434,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results
+    // GetWorkerResult: Get the status of a specific run of a worker with any relevant results
     ApiResponse<GetWorkerResultResponse> response = apiInstance.GetWorkerResultWithHttpInfo(runId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -477,7 +477,7 @@ catch (ApiException e)
 # **ListWorkers**
 > PagedResourceListOfWorker ListWorkers (DateTimeOffset? asAt = null, string? filter = null, List<string>? sortBy = null, int? limit = null, string? page = null)
 
-[EXPERIMENTAL] ListWorkers: List Workers
+ListWorkers: List Workers
 
 ### Example
 ```csharp
@@ -529,7 +529,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfWorker result = apiInstance.ListWorkers(asAt, filter, sortBy, limit, page, opts: opts);
 
-                // [EXPERIMENTAL] ListWorkers: List Workers
+                // ListWorkers: List Workers
                 PagedResourceListOfWorker result = apiInstance.ListWorkers(asAt, filter, sortBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -550,7 +550,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListWorkers: List Workers
+    // ListWorkers: List Workers
     ApiResponse<PagedResourceListOfWorker> response = apiInstance.ListWorkersWithHttpInfo(asAt, filter, sortBy, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -597,7 +597,7 @@ catch (ApiException e)
 # **RunWorker**
 > RunWorkerResponse RunWorker (string scope, string code, RunWorkerRequest runWorkerRequest, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] RunWorker: Run a Worker
+RunWorker: Run a Worker
 
 ### Example
 ```csharp
@@ -648,7 +648,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // RunWorkerResponse result = apiInstance.RunWorker(scope, code, runWorkerRequest, asAt, opts: opts);
 
-                // [EXPERIMENTAL] RunWorker: Run a Worker
+                // RunWorker: Run a Worker
                 RunWorkerResponse result = apiInstance.RunWorker(scope, code, runWorkerRequest, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -669,7 +669,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] RunWorker: Run a Worker
+    // RunWorker: Run a Worker
     ApiResponse<RunWorkerResponse> response = apiInstance.RunWorkerWithHttpInfo(scope, code, runWorkerRequest, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -715,7 +715,7 @@ catch (ApiException e)
 # **UpdateWorker**
 > Worker UpdateWorker (string scope, string code, UpdateWorkerRequest updateWorkerRequest)
 
-[EXPERIMENTAL] UpdateWorker: Update a Worker
+UpdateWorker: Update a Worker
 
 If the Worker does not exist a failure will be returned
 
@@ -767,7 +767,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Worker result = apiInstance.UpdateWorker(scope, code, updateWorkerRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpdateWorker: Update a Worker
+                // UpdateWorker: Update a Worker
                 Worker result = apiInstance.UpdateWorker(scope, code, updateWorkerRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -788,7 +788,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpdateWorker: Update a Worker
+    // UpdateWorker: Update a Worker
     ApiResponse<Worker> response = apiInstance.UpdateWorkerWithHttpInfo(scope, code, updateWorkerRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

@@ -4,19 +4,19 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateTask**](TasksApi.md#createtask) | **POST** /api/tasks | [EXPERIMENTAL] CreateTask: Create a new Task |
-| [**DeleteTask**](TasksApi.md#deletetask) | **DELETE** /api/tasks/{id} | [EXPERIMENTAL] DeleteTask: Delete a Task |
-| [**DeleteTasks**](TasksApi.md#deletetasks) | **POST** /api/tasks/$delete | [EXPERIMENTAL] DeleteTasks: Batch Delete Tasks |
-| [**GetTask**](TasksApi.md#gettask) | **GET** /api/tasks/{id} | [EXPERIMENTAL] GetTask: Get a Task |
-| [**GetTaskHistory**](TasksApi.md#gettaskhistory) | **GET** /api/tasks/{id}/history | [EXPERIMENTAL] GetTaskHistory: Get the history of a Task |
+| [**CreateTask**](TasksApi.md#createtask) | **POST** /api/tasks | CreateTask: Create a new Task |
+| [**DeleteTask**](TasksApi.md#deletetask) | **DELETE** /api/tasks/{id} | DeleteTask: Delete a Task |
+| [**DeleteTasks**](TasksApi.md#deletetasks) | **POST** /api/tasks/$delete | DeleteTasks: Batch Delete Tasks |
+| [**GetTask**](TasksApi.md#gettask) | **GET** /api/tasks/{id} | GetTask: Get a Task |
+| [**GetTaskHistory**](TasksApi.md#gettaskhistory) | **GET** /api/tasks/{id}/history | GetTaskHistory: Get the history of a Task |
 | [**ListTasks**](TasksApi.md#listtasks) | **GET** /api/tasks | ListTasks: List Tasks |
-| [**UpdateTask**](TasksApi.md#updatetask) | **POST** /api/tasks/{id} | [EXPERIMENTAL] UpdateTask: Update a Task |
+| [**UpdateTask**](TasksApi.md#updatetask) | **POST** /api/tasks/{id} | UpdateTask: Update a Task |
 
 <a id="createtask"></a>
 # **CreateTask**
 > Task CreateTask (CreateTaskRequest createTaskRequest, string? trigger = null)
 
-[EXPERIMENTAL] CreateTask: Create a new Task
+CreateTask: Create a new Task
 
 ### Example
 ```csharp
@@ -65,7 +65,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Task result = apiInstance.CreateTask(createTaskRequest, trigger, opts: opts);
 
-                // [EXPERIMENTAL] CreateTask: Create a new Task
+                // CreateTask: Create a new Task
                 Task result = apiInstance.CreateTask(createTaskRequest, trigger);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -86,7 +86,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateTask: Create a new Task
+    // CreateTask: Create a new Task
     ApiResponse<Task> response = apiInstance.CreateTaskWithHttpInfo(createTaskRequest, trigger);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -130,7 +130,7 @@ catch (ApiException e)
 # **DeleteTask**
 > DeletedEntityResponse DeleteTask (string id)
 
-[EXPERIMENTAL] DeleteTask: Delete a Task
+DeleteTask: Delete a Task
 
 ### Example
 ```csharp
@@ -178,7 +178,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteTask(id, opts: opts);
 
-                // [EXPERIMENTAL] DeleteTask: Delete a Task
+                // DeleteTask: Delete a Task
                 DeletedEntityResponse result = apiInstance.DeleteTask(id);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -199,7 +199,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteTask: Delete a Task
+    // DeleteTask: Delete a Task
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteTaskWithHttpInfo(id);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -243,7 +243,7 @@ catch (ApiException e)
 # **DeleteTasks**
 > DeletedEntityResponse DeleteTasks (DeleteTasksRequest? deleteTasksRequest = null)
 
-[EXPERIMENTAL] DeleteTasks: Batch Delete Tasks
+DeleteTasks: Batch Delete Tasks
 
 ### Example
 ```csharp
@@ -291,7 +291,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteTasks(deleteTasksRequest, opts: opts);
 
-                // [EXPERIMENTAL] DeleteTasks: Batch Delete Tasks
+                // DeleteTasks: Batch Delete Tasks
                 DeletedEntityResponse result = apiInstance.DeleteTasks(deleteTasksRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -312,7 +312,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteTasks: Batch Delete Tasks
+    // DeleteTasks: Batch Delete Tasks
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteTasksWithHttpInfo(deleteTasksRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -356,7 +356,7 @@ catch (ApiException e)
 # **GetTask**
 > Task GetTask (string id, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetTask: Get a Task
+GetTask: Get a Task
 
 ### Example
 ```csharp
@@ -405,7 +405,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Task result = apiInstance.GetTask(id, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetTask: Get a Task
+                // GetTask: Get a Task
                 Task result = apiInstance.GetTask(id, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -426,7 +426,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetTask: Get a Task
+    // GetTask: Get a Task
     ApiResponse<Task> response = apiInstance.GetTaskWithHttpInfo(id, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -471,7 +471,7 @@ catch (ApiException e)
 # **GetTaskHistory**
 > ResourceListOfChangeItem GetTaskHistory (string id, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetTaskHistory: Get the history of a Task
+GetTaskHistory: Get the history of a Task
 
 ### Example
 ```csharp
@@ -520,7 +520,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfChangeItem result = apiInstance.GetTaskHistory(id, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
+                // GetTaskHistory: Get the history of a Task
                 ResourceListOfChangeItem result = apiInstance.GetTaskHistory(id, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -541,7 +541,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
+    // GetTaskHistory: Get the history of a Task
     ApiResponse<ResourceListOfChangeItem> response = apiInstance.GetTaskHistoryWithHttpInfo(id, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -707,7 +707,7 @@ catch (ApiException e)
 # **UpdateTask**
 > Task UpdateTask (string id, string? trigger = null, UpdateTaskRequest? updateTaskRequest = null)
 
-[EXPERIMENTAL] UpdateTask: Update a Task
+UpdateTask: Update a Task
 
 ### Example
 ```csharp
@@ -757,7 +757,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Task result = apiInstance.UpdateTask(id, trigger, updateTaskRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpdateTask: Update a Task
+                // UpdateTask: Update a Task
                 Task result = apiInstance.UpdateTask(id, trigger, updateTaskRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -778,7 +778,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpdateTask: Update a Task
+    // UpdateTask: Update a Task
     ApiResponse<Task> response = apiInstance.UpdateTaskWithHttpInfo(id, trigger, updateTaskRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

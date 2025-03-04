@@ -4,18 +4,18 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateTaskDefinition**](TaskDefinitionsApi.md#createtaskdefinition) | **POST** /api/taskdefinitions | [EXPERIMENTAL] CreateTaskDefinition: Create a new Task Definition |
-| [**DeleteTaskDefinition**](TaskDefinitionsApi.md#deletetaskdefinition) | **DELETE** /api/taskdefinitions/{scope}/{code} | [EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition |
-| [**GetTaskDefinition**](TaskDefinitionsApi.md#gettaskdefinition) | **GET** /api/taskdefinitions/{scope}/{code} | [EXPERIMENTAL] GetTaskDefinition: Get a Task Definition |
-| [**ListTaskDefinitions**](TaskDefinitionsApi.md#listtaskdefinitions) | **GET** /api/taskdefinitions | [EXPERIMENTAL] ListTaskDefinitions: List Task Definitions |
-| [**ListTasksForTaskDefinition**](TaskDefinitionsApi.md#listtasksfortaskdefinition) | **GET** /api/taskdefinitions/{scope}/{code}/tasks | [EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition |
-| [**UpdateTaskDefinition**](TaskDefinitionsApi.md#updatetaskdefinition) | **PUT** /api/taskdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition |
+| [**CreateTaskDefinition**](TaskDefinitionsApi.md#createtaskdefinition) | **POST** /api/taskdefinitions | CreateTaskDefinition: Create a new Task Definition |
+| [**DeleteTaskDefinition**](TaskDefinitionsApi.md#deletetaskdefinition) | **DELETE** /api/taskdefinitions/{scope}/{code} | DeleteTaskDefinition: Delete a Task Definition |
+| [**GetTaskDefinition**](TaskDefinitionsApi.md#gettaskdefinition) | **GET** /api/taskdefinitions/{scope}/{code} | GetTaskDefinition: Get a Task Definition |
+| [**ListTaskDefinitions**](TaskDefinitionsApi.md#listtaskdefinitions) | **GET** /api/taskdefinitions | ListTaskDefinitions: List Task Definitions |
+| [**ListTasksForTaskDefinition**](TaskDefinitionsApi.md#listtasksfortaskdefinition) | **GET** /api/taskdefinitions/{scope}/{code}/tasks | ListTasksForTaskDefinition: List Tasks for a Task Definition |
+| [**UpdateTaskDefinition**](TaskDefinitionsApi.md#updatetaskdefinition) | **PUT** /api/taskdefinitions/{scope}/{code} | UpdateTaskDefinition: Update an existing Task Definition |
 
 <a id="createtaskdefinition"></a>
 # **CreateTaskDefinition**
 > TaskDefinition CreateTaskDefinition (CreateTaskDefinitionRequest createTaskDefinitionRequest)
 
-[EXPERIMENTAL] CreateTaskDefinition: Create a new Task Definition
+CreateTaskDefinition: Create a new Task Definition
 
 ### Example
 ```csharp
@@ -63,7 +63,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // TaskDefinition result = apiInstance.CreateTaskDefinition(createTaskDefinitionRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateTaskDefinition: Create a new Task Definition
+                // CreateTaskDefinition: Create a new Task Definition
                 TaskDefinition result = apiInstance.CreateTaskDefinition(createTaskDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -84,7 +84,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateTaskDefinition: Create a new Task Definition
+    // CreateTaskDefinition: Create a new Task Definition
     ApiResponse<TaskDefinition> response = apiInstance.CreateTaskDefinitionWithHttpInfo(createTaskDefinitionRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -127,7 +127,7 @@ catch (ApiException e)
 # **DeleteTaskDefinition**
 > DeletedEntityResponse DeleteTaskDefinition (string scope, string code)
 
-[EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition
+DeleteTaskDefinition: Delete a Task Definition
 
 ### Example
 ```csharp
@@ -176,7 +176,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteTaskDefinition(scope, code, opts: opts);
 
-                // [EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition
+                // DeleteTaskDefinition: Delete a Task Definition
                 DeletedEntityResponse result = apiInstance.DeleteTaskDefinition(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -197,7 +197,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition
+    // DeleteTaskDefinition: Delete a Task Definition
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteTaskDefinitionWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -242,7 +242,7 @@ catch (ApiException e)
 # **GetTaskDefinition**
 > TaskDefinition GetTaskDefinition (string scope, string code, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetTaskDefinition: Get a Task Definition
+GetTaskDefinition: Get a Task Definition
 
 ### Example
 ```csharp
@@ -292,7 +292,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // TaskDefinition result = apiInstance.GetTaskDefinition(scope, code, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetTaskDefinition: Get a Task Definition
+                // GetTaskDefinition: Get a Task Definition
                 TaskDefinition result = apiInstance.GetTaskDefinition(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -313,7 +313,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetTaskDefinition: Get a Task Definition
+    // GetTaskDefinition: Get a Task Definition
     ApiResponse<TaskDefinition> response = apiInstance.GetTaskDefinitionWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -359,7 +359,7 @@ catch (ApiException e)
 # **ListTaskDefinitions**
 > PagedResourceListOfTaskDefinition ListTaskDefinitions (DateTimeOffset? asAt = null, string? filter = null, List<string>? sortBy = null, int? limit = null, string? page = null)
 
-[EXPERIMENTAL] ListTaskDefinitions: List Task Definitions
+ListTaskDefinitions: List Task Definitions
 
 ### Example
 ```csharp
@@ -411,7 +411,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfTaskDefinition result = apiInstance.ListTaskDefinitions(asAt, filter, sortBy, limit, page, opts: opts);
 
-                // [EXPERIMENTAL] ListTaskDefinitions: List Task Definitions
+                // ListTaskDefinitions: List Task Definitions
                 PagedResourceListOfTaskDefinition result = apiInstance.ListTaskDefinitions(asAt, filter, sortBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -432,7 +432,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListTaskDefinitions: List Task Definitions
+    // ListTaskDefinitions: List Task Definitions
     ApiResponse<PagedResourceListOfTaskDefinition> response = apiInstance.ListTaskDefinitionsWithHttpInfo(asAt, filter, sortBy, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -480,7 +480,7 @@ catch (ApiException e)
 # **ListTasksForTaskDefinition**
 > ResourceListOfTask ListTasksForTaskDefinition (string scope, string code, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition
+ListTasksForTaskDefinition: List Tasks for a Task Definition
 
 ### Example
 ```csharp
@@ -530,7 +530,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ResourceListOfTask result = apiInstance.ListTasksForTaskDefinition(scope, code, asAt, opts: opts);
 
-                // [EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition
+                // ListTasksForTaskDefinition: List Tasks for a Task Definition
                 ResourceListOfTask result = apiInstance.ListTasksForTaskDefinition(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -551,7 +551,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition
+    // ListTasksForTaskDefinition: List Tasks for a Task Definition
     ApiResponse<ResourceListOfTask> response = apiInstance.ListTasksForTaskDefinitionWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -597,7 +597,7 @@ catch (ApiException e)
 # **UpdateTaskDefinition**
 > TaskDefinition UpdateTaskDefinition (string scope, string code, UpdateTaskDefinitionRequest updateTaskDefinitionRequest)
 
-[EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition
+UpdateTaskDefinition: Update an existing Task Definition
 
 ### Example
 ```csharp
@@ -647,7 +647,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // TaskDefinition result = apiInstance.UpdateTaskDefinition(scope, code, updateTaskDefinitionRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition
+                // UpdateTaskDefinition: Update an existing Task Definition
                 TaskDefinition result = apiInstance.UpdateTaskDefinition(scope, code, updateTaskDefinitionRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -668,7 +668,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition
+    // UpdateTaskDefinition: Update an existing Task Definition
     ApiResponse<TaskDefinition> response = apiInstance.UpdateTaskDefinitionWithHttpInfo(scope, code, updateTaskDefinitionRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

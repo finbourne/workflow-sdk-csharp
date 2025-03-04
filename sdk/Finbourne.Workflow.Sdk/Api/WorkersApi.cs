@@ -32,7 +32,7 @@ namespace Finbourne.Workflow.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorker: Create a new Worker
+        /// CreateWorker: Create a new Worker
         /// </summary>
         /// <remarks>
         /// If the Worker already exists a failure will be returned
@@ -45,7 +45,7 @@ namespace Finbourne.Workflow.Sdk.Api
         Worker CreateWorker(CreateWorkerRequest createWorkerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorker: Create a new Worker
+        /// CreateWorker: Create a new Worker
         /// </summary>
         /// <remarks>
         /// If the Worker already exists a failure will be returned
@@ -57,7 +57,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of Worker</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<Worker> CreateWorkerWithHttpInfo(CreateWorkerRequest createWorkerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorker: Delete a Worker
+        /// DeleteWorker: Delete a Worker
         /// </summary>
         /// <remarks>
         /// If the Worker does not exist a failure will be returned
@@ -71,7 +71,7 @@ namespace Finbourne.Workflow.Sdk.Api
         DeletedEntityResponse DeleteWorker(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorker: Delete a Worker
+        /// DeleteWorker: Delete a Worker
         /// </summary>
         /// <remarks>
         /// If the Worker does not exist a failure will be returned
@@ -84,7 +84,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteWorkerWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetWorker: Get a Worker
+        /// GetWorker: Get a Worker
         /// </summary>
         /// <remarks>
         /// Will return a NotFound failure if the Worker does not exist
@@ -99,7 +99,7 @@ namespace Finbourne.Workflow.Sdk.Api
         Worker GetWorker(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorker: Get a Worker
+        /// GetWorker: Get a Worker
         /// </summary>
         /// <remarks>
         /// Will return a NotFound failure if the Worker does not exist
@@ -113,7 +113,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of Worker</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<Worker> GetWorkerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results
+        /// GetWorkerResult: Get the status of a specific run of a worker with any relevant results
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">The ID returned when calling Run Worker</param>
@@ -123,7 +123,7 @@ namespace Finbourne.Workflow.Sdk.Api
         GetWorkerResultResponse GetWorkerResult(Guid runId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results
+        /// GetWorkerResult: Get the status of a specific run of a worker with any relevant results
         /// </summary>
         /// <remarks>
         /// 
@@ -135,7 +135,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of GetWorkerResultResponse</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<GetWorkerResultResponse> GetWorkerResultWithHttpInfo(Guid runId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkers: List Workers
+        /// ListWorkers: List Workers
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Workers. Defaults to return the latest version of each Worker if not specified. (optional)</param>
@@ -149,7 +149,7 @@ namespace Finbourne.Workflow.Sdk.Api
         PagedResourceListOfWorker ListWorkers(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkers: List Workers
+        /// ListWorkers: List Workers
         /// </summary>
         /// <remarks>
         /// 
@@ -165,7 +165,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfWorker</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfWorker> ListWorkersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RunWorker: Run a Worker
+        /// RunWorker: Run a Worker
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker</param>
@@ -178,7 +178,7 @@ namespace Finbourne.Workflow.Sdk.Api
         RunWorkerResponse RunWorker(string scope, string code, RunWorkerRequest runWorkerRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RunWorker: Run a Worker
+        /// RunWorker: Run a Worker
         /// </summary>
         /// <remarks>
         /// 
@@ -193,7 +193,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of RunWorkerResponse</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<RunWorkerResponse> RunWorkerWithHttpInfo(string scope, string code, RunWorkerRequest runWorkerRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorker: Update a Worker
+        /// UpdateWorker: Update a Worker
         /// </summary>
         /// <remarks>
         /// If the Worker does not exist a failure will be returned
@@ -208,7 +208,7 @@ namespace Finbourne.Workflow.Sdk.Api
         Worker UpdateWorker(string scope, string code, UpdateWorkerRequest updateWorkerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorker: Update a Worker
+        /// UpdateWorker: Update a Worker
         /// </summary>
         /// <remarks>
         /// If the Worker does not exist a failure will be returned
@@ -231,7 +231,7 @@ namespace Finbourne.Workflow.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorker: Create a new Worker
+        /// CreateWorker: Create a new Worker
         /// </summary>
         /// <remarks>
         /// If the Worker already exists a failure will be returned
@@ -245,7 +245,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<Worker> CreateWorkerAsync(CreateWorkerRequest createWorkerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorker: Create a new Worker
+        /// CreateWorker: Create a new Worker
         /// </summary>
         /// <remarks>
         /// If the Worker already exists a failure will be returned
@@ -258,7 +258,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (Worker)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Worker>> CreateWorkerWithHttpInfoAsync(CreateWorkerRequest createWorkerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorker: Delete a Worker
+        /// DeleteWorker: Delete a Worker
         /// </summary>
         /// <remarks>
         /// If the Worker does not exist a failure will be returned
@@ -273,7 +273,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteWorkerAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorker: Delete a Worker
+        /// DeleteWorker: Delete a Worker
         /// </summary>
         /// <remarks>
         /// If the Worker does not exist a failure will be returned
@@ -287,7 +287,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteWorkerWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetWorker: Get a Worker
+        /// GetWorker: Get a Worker
         /// </summary>
         /// <remarks>
         /// Will return a NotFound failure if the Worker does not exist
@@ -303,7 +303,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<Worker> GetWorkerAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorker: Get a Worker
+        /// GetWorker: Get a Worker
         /// </summary>
         /// <remarks>
         /// Will return a NotFound failure if the Worker does not exist
@@ -318,7 +318,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (Worker)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Worker>> GetWorkerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results
+        /// GetWorkerResult: Get the status of a specific run of a worker with any relevant results
         /// </summary>
         /// <remarks>
         /// 
@@ -332,7 +332,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<GetWorkerResultResponse> GetWorkerResultAsync(Guid runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results
+        /// GetWorkerResult: Get the status of a specific run of a worker with any relevant results
         /// </summary>
         /// <remarks>
         /// 
@@ -345,7 +345,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (GetWorkerResultResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<GetWorkerResultResponse>> GetWorkerResultWithHttpInfoAsync(Guid runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkers: List Workers
+        /// ListWorkers: List Workers
         /// </summary>
         /// <remarks>
         /// 
@@ -363,7 +363,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfWorker> ListWorkersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkers: List Workers
+        /// ListWorkers: List Workers
         /// </summary>
         /// <remarks>
         /// 
@@ -380,7 +380,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfWorker)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfWorker>> ListWorkersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] RunWorker: Run a Worker
+        /// RunWorker: Run a Worker
         /// </summary>
         /// <remarks>
         /// 
@@ -397,7 +397,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<RunWorkerResponse> RunWorkerAsync(string scope, string code, RunWorkerRequest runWorkerRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] RunWorker: Run a Worker
+        /// RunWorker: Run a Worker
         /// </summary>
         /// <remarks>
         /// 
@@ -413,7 +413,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (RunWorkerResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<RunWorkerResponse>> RunWorkerWithHttpInfoAsync(string scope, string code, RunWorkerRequest runWorkerRequest, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorker: Update a Worker
+        /// UpdateWorker: Update a Worker
         /// </summary>
         /// <remarks>
         /// If the Worker does not exist a failure will be returned
@@ -429,7 +429,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<Worker> UpdateWorkerAsync(string scope, string code, UpdateWorkerRequest updateWorkerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorker: Update a Worker
+        /// UpdateWorker: Update a Worker
         /// </summary>
         /// <remarks>
         /// If the Worker does not exist a failure will be returned
@@ -567,7 +567,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorker: Create a new Worker If the Worker already exists a failure will be returned
+        /// CreateWorker: Create a new Worker If the Worker already exists a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWorkerRequest">Worker to be created</param>
@@ -581,7 +581,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorker: Create a new Worker If the Worker already exists a failure will be returned
+        /// CreateWorker: Create a new Worker If the Worker already exists a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWorkerRequest">Worker to be created</param>
@@ -671,7 +671,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorker: Create a new Worker If the Worker already exists a failure will be returned
+        /// CreateWorker: Create a new Worker If the Worker already exists a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWorkerRequest">Worker to be created</param>
@@ -686,7 +686,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateWorker: Create a new Worker If the Worker already exists a failure will be returned
+        /// CreateWorker: Create a new Worker If the Worker already exists a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createWorkerRequest">Worker to be created</param>
@@ -779,7 +779,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorker: Delete a Worker If the Worker does not exist a failure will be returned
+        /// DeleteWorker: Delete a Worker If the Worker does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker to be deleted</param>
@@ -794,7 +794,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorker: Delete a Worker If the Worker does not exist a failure will be returned
+        /// DeleteWorker: Delete a Worker If the Worker does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker to be deleted</param>
@@ -888,7 +888,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorker: Delete a Worker If the Worker does not exist a failure will be returned
+        /// DeleteWorker: Delete a Worker If the Worker does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker to be deleted</param>
@@ -904,7 +904,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteWorker: Delete a Worker If the Worker does not exist a failure will be returned
+        /// DeleteWorker: Delete a Worker If the Worker does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker to be deleted</param>
@@ -1001,7 +1001,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorker: Get a Worker Will return a NotFound failure if the Worker does not exist
+        /// GetWorker: Get a Worker Will return a NotFound failure if the Worker does not exist
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker</param>
@@ -1017,7 +1017,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorker: Get a Worker Will return a NotFound failure if the Worker does not exist
+        /// GetWorker: Get a Worker Will return a NotFound failure if the Worker does not exist
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker</param>
@@ -1116,7 +1116,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorker: Get a Worker Will return a NotFound failure if the Worker does not exist
+        /// GetWorker: Get a Worker Will return a NotFound failure if the Worker does not exist
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker</param>
@@ -1133,7 +1133,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorker: Get a Worker Will return a NotFound failure if the Worker does not exist
+        /// GetWorker: Get a Worker Will return a NotFound failure if the Worker does not exist
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker</param>
@@ -1235,7 +1235,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results 
+        /// GetWorkerResult: Get the status of a specific run of a worker with any relevant results 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">The ID returned when calling Run Worker</param>
@@ -1249,7 +1249,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results 
+        /// GetWorkerResult: Get the status of a specific run of a worker with any relevant results 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">The ID returned when calling Run Worker</param>
@@ -1329,7 +1329,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results 
+        /// GetWorkerResult: Get the status of a specific run of a worker with any relevant results 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">The ID returned when calling Run Worker</param>
@@ -1344,7 +1344,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetWorkerResult: Get the status of a specific run of a worker with any relevant results 
+        /// GetWorkerResult: Get the status of a specific run of a worker with any relevant results 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">The ID returned when calling Run Worker</param>
@@ -1427,7 +1427,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkers: List Workers 
+        /// ListWorkers: List Workers 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Workers. Defaults to return the latest version of each Worker if not specified. (optional)</param>
@@ -1445,7 +1445,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkers: List Workers 
+        /// ListWorkers: List Workers 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Workers. Defaults to return the latest version of each Worker if not specified. (optional)</param>
@@ -1548,7 +1548,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkers: List Workers 
+        /// ListWorkers: List Workers 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Workers. Defaults to return the latest version of each Worker if not specified. (optional)</param>
@@ -1567,7 +1567,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListWorkers: List Workers 
+        /// ListWorkers: List Workers 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Workers. Defaults to return the latest version of each Worker if not specified. (optional)</param>
@@ -1673,7 +1673,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunWorker: Run a Worker 
+        /// RunWorker: Run a Worker 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker</param>
@@ -1690,7 +1690,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunWorker: Run a Worker 
+        /// RunWorker: Run a Worker 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker</param>
@@ -1801,7 +1801,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunWorker: Run a Worker 
+        /// RunWorker: Run a Worker 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker</param>
@@ -1819,7 +1819,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RunWorker: Run a Worker 
+        /// RunWorker: Run a Worker 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker</param>
@@ -1933,7 +1933,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorker: Update a Worker If the Worker does not exist a failure will be returned
+        /// UpdateWorker: Update a Worker If the Worker does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker to be updated</param>
@@ -1949,7 +1949,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorker: Update a Worker If the Worker does not exist a failure will be returned
+        /// UpdateWorker: Update a Worker If the Worker does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker to be updated</param>
@@ -2055,7 +2055,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorker: Update a Worker If the Worker does not exist a failure will be returned
+        /// UpdateWorker: Update a Worker If the Worker does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker to be updated</param>
@@ -2072,7 +2072,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateWorker: Update a Worker If the Worker does not exist a failure will be returned
+        /// UpdateWorker: Update a Worker If the Worker does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the worker to be updated</param>

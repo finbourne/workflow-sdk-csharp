@@ -32,7 +32,7 @@ namespace Finbourne.Workflow.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task
+        /// CreateTask: Create a new Task
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaskRequest">Request to create Task</param>
@@ -43,7 +43,7 @@ namespace Finbourne.Workflow.Sdk.Api
         Task CreateTask(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task
+        /// CreateTask: Create a new Task
         /// </summary>
         /// <remarks>
         /// 
@@ -56,7 +56,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of Task</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<Task> CreateTaskWithHttpInfo(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task
+        /// DeleteTask: Delete a Task
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier for the Task to be deleted.</param>
@@ -66,7 +66,7 @@ namespace Finbourne.Workflow.Sdk.Api
         DeletedEntityResponse DeleteTask(string id, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task
+        /// DeleteTask: Delete a Task
         /// </summary>
         /// <remarks>
         /// 
@@ -78,7 +78,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTaskWithHttpInfo(string id, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTasks: Batch Delete Tasks
+        /// DeleteTasks: Batch Delete Tasks
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteTasksRequest">Request with the task instance ids to delete. (optional)</param>
@@ -88,7 +88,7 @@ namespace Finbourne.Workflow.Sdk.Api
         DeletedEntityResponse DeleteTasks(DeleteTasksRequest? deleteTasksRequest = default(DeleteTasksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTasks: Batch Delete Tasks
+        /// DeleteTasks: Batch Delete Tasks
         /// </summary>
         /// <remarks>
         /// 
@@ -100,7 +100,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTasksWithHttpInfo(DeleteTasksRequest? deleteTasksRequest = default(DeleteTasksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task
+        /// GetTask: Get a Task
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
@@ -111,7 +111,7 @@ namespace Finbourne.Workflow.Sdk.Api
         Task GetTask(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task
+        /// GetTask: Get a Task
         /// </summary>
         /// <remarks>
         /// 
@@ -124,7 +124,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of Task</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
+        /// GetTaskHistory: Get the history of a Task
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The Task Id for which to get the history</param>
@@ -135,7 +135,7 @@ namespace Finbourne.Workflow.Sdk.Api
         ResourceListOfChangeItem GetTaskHistory(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
+        /// GetTaskHistory: Get the history of a Task
         /// </summary>
         /// <remarks>
         /// 
@@ -178,7 +178,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfTask</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> ListTasksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task
+        /// UpdateTask: Update a Task
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to act upon</param>
@@ -190,7 +190,7 @@ namespace Finbourne.Workflow.Sdk.Api
         Task UpdateTask(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task
+        /// UpdateTask: Update a Task
         /// </summary>
         /// <remarks>
         /// 
@@ -213,7 +213,7 @@ namespace Finbourne.Workflow.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task
+        /// CreateTask: Create a new Task
         /// </summary>
         /// <remarks>
         /// 
@@ -228,7 +228,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<Task> CreateTaskAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task
+        /// CreateTask: Create a new Task
         /// </summary>
         /// <remarks>
         /// 
@@ -242,7 +242,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (Task)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> CreateTaskWithHttpInfoAsync(CreateTaskRequest createTaskRequest, string? trigger = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task
+        /// DeleteTask: Delete a Task
         /// </summary>
         /// <remarks>
         /// 
@@ -256,7 +256,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTaskAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task
+        /// DeleteTask: Delete a Task
         /// </summary>
         /// <remarks>
         /// 
@@ -269,7 +269,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTaskWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTasks: Batch Delete Tasks
+        /// DeleteTasks: Batch Delete Tasks
         /// </summary>
         /// <remarks>
         /// 
@@ -283,7 +283,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTasksAsync(DeleteTasksRequest? deleteTasksRequest = default(DeleteTasksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTasks: Batch Delete Tasks
+        /// DeleteTasks: Batch Delete Tasks
         /// </summary>
         /// <remarks>
         /// 
@@ -296,7 +296,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTasksWithHttpInfoAsync(DeleteTasksRequest? deleteTasksRequest = default(DeleteTasksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task
+        /// GetTask: Get a Task
         /// </summary>
         /// <remarks>
         /// 
@@ -311,7 +311,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<Task> GetTaskAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task
+        /// GetTask: Get a Task
         /// </summary>
         /// <remarks>
         /// 
@@ -325,7 +325,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (Task)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
+        /// GetTaskHistory: Get the history of a Task
         /// </summary>
         /// <remarks>
         /// 
@@ -340,7 +340,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfChangeItem> GetTaskHistoryAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task
+        /// GetTaskHistory: Get the history of a Task
         /// </summary>
         /// <remarks>
         /// 
@@ -389,7 +389,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfTask)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask>> ListTasksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task
+        /// UpdateTask: Update a Task
         /// </summary>
         /// <remarks>
         /// 
@@ -405,7 +405,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<Task> UpdateTaskAsync(string id, string? trigger = default(string?), UpdateTaskRequest? updateTaskRequest = default(UpdateTaskRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task
+        /// UpdateTask: Update a Task
         /// </summary>
         /// <remarks>
         /// 
@@ -543,7 +543,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task 
+        /// CreateTask: Create a new Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaskRequest">Request to create Task</param>
@@ -558,7 +558,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task 
+        /// CreateTask: Create a new Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaskRequest">Request to create Task</param>
@@ -651,7 +651,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task 
+        /// CreateTask: Create a new Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaskRequest">Request to create Task</param>
@@ -667,7 +667,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTask: Create a new Task 
+        /// CreateTask: Create a new Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaskRequest">Request to create Task</param>
@@ -763,7 +763,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task 
+        /// DeleteTask: Delete a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier for the Task to be deleted.</param>
@@ -777,7 +777,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task 
+        /// DeleteTask: Delete a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier for the Task to be deleted.</param>
@@ -861,7 +861,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task 
+        /// DeleteTask: Delete a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier for the Task to be deleted.</param>
@@ -876,7 +876,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTask: Delete a Task 
+        /// DeleteTask: Delete a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The identifier for the Task to be deleted.</param>
@@ -963,7 +963,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTasks: Batch Delete Tasks 
+        /// DeleteTasks: Batch Delete Tasks 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteTasksRequest">Request with the task instance ids to delete. (optional)</param>
@@ -977,7 +977,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTasks: Batch Delete Tasks 
+        /// DeleteTasks: Batch Delete Tasks 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteTasksRequest">Request with the task instance ids to delete. (optional)</param>
@@ -1059,7 +1059,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTasks: Batch Delete Tasks 
+        /// DeleteTasks: Batch Delete Tasks 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteTasksRequest">Request with the task instance ids to delete. (optional)</param>
@@ -1074,7 +1074,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTasks: Batch Delete Tasks 
+        /// DeleteTasks: Batch Delete Tasks 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteTasksRequest">Request with the task instance ids to delete. (optional)</param>
@@ -1159,7 +1159,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task 
+        /// GetTask: Get a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
@@ -1174,7 +1174,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task 
+        /// GetTask: Get a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
@@ -1263,7 +1263,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task 
+        /// GetTask: Get a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
@@ -1279,7 +1279,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTask: Get a Task 
+        /// GetTask: Get a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
@@ -1371,7 +1371,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task 
+        /// GetTaskHistory: Get the history of a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The Task Id for which to get the history</param>
@@ -1386,7 +1386,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task 
+        /// GetTaskHistory: Get the history of a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The Task Id for which to get the history</param>
@@ -1475,7 +1475,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task 
+        /// GetTaskHistory: Get the history of a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The Task Id for which to get the history</param>
@@ -1491,7 +1491,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskHistory: Get the history of a Task 
+        /// GetTaskHistory: Get the history of a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The Task Id for which to get the history</param>
@@ -1825,7 +1825,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task 
+        /// UpdateTask: Update a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to act upon</param>
@@ -1841,7 +1841,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task 
+        /// UpdateTask: Update a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to act upon</param>
@@ -1936,7 +1936,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task 
+        /// UpdateTask: Update a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to act upon</param>
@@ -1953,7 +1953,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTask: Update a Task 
+        /// UpdateTask: Update a Task 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to act upon</param>

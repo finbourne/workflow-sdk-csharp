@@ -32,7 +32,7 @@ namespace Finbourne.Workflow.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateTaskDefinition: Create a new Task Definition
+        /// CreateTaskDefinition: Create a new Task Definition
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaskDefinitionRequest">The data to create a Task Definition</param>
@@ -42,7 +42,7 @@ namespace Finbourne.Workflow.Sdk.Api
         TaskDefinition CreateTaskDefinition(CreateTaskDefinitionRequest createTaskDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTaskDefinition: Create a new Task Definition
+        /// CreateTaskDefinition: Create a new Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -54,7 +54,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of TaskDefinition</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<TaskDefinition> CreateTaskDefinitionWithHttpInfo(CreateTaskDefinitionRequest createTaskDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition
+        /// DeleteTaskDefinition: Delete a Task Definition
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -65,7 +65,7 @@ namespace Finbourne.Workflow.Sdk.Api
         DeletedEntityResponse DeleteTaskDefinition(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition
+        /// DeleteTaskDefinition: Delete a Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -78,7 +78,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteTaskDefinitionWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskDefinition: Get a Task Definition
+        /// GetTaskDefinition: Get a Task Definition
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -90,7 +90,7 @@ namespace Finbourne.Workflow.Sdk.Api
         TaskDefinition GetTaskDefinition(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskDefinition: Get a Task Definition
+        /// GetTaskDefinition: Get a Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -104,7 +104,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of TaskDefinition</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<TaskDefinition> GetTaskDefinitionWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListTaskDefinitions: List Task Definitions
+        /// ListTaskDefinitions: List Task Definitions
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Task Definitions. Defaults to return the latest version of each Task Definition if not specified. (optional)</param>
@@ -118,7 +118,7 @@ namespace Finbourne.Workflow.Sdk.Api
         PagedResourceListOfTaskDefinition ListTaskDefinitions(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTaskDefinitions: List Task Definitions
+        /// ListTaskDefinitions: List Task Definitions
         /// </summary>
         /// <remarks>
         /// 
@@ -134,7 +134,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfTaskDefinition</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTaskDefinition> ListTaskDefinitionsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition
+        /// ListTasksForTaskDefinition: List Tasks for a Task Definition
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -146,7 +146,7 @@ namespace Finbourne.Workflow.Sdk.Api
         ResourceListOfTask ListTasksForTaskDefinition(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition
+        /// ListTasksForTaskDefinition: List Tasks for a Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -160,7 +160,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of ResourceListOfTask</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfTask> ListTasksForTaskDefinitionWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition
+        /// UpdateTaskDefinition: Update an existing Task Definition
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -172,7 +172,7 @@ namespace Finbourne.Workflow.Sdk.Api
         TaskDefinition UpdateTaskDefinition(string scope, string code, UpdateTaskDefinitionRequest updateTaskDefinitionRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition
+        /// UpdateTaskDefinition: Update an existing Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -195,7 +195,7 @@ namespace Finbourne.Workflow.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateTaskDefinition: Create a new Task Definition
+        /// CreateTaskDefinition: Create a new Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -209,7 +209,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<TaskDefinition> CreateTaskDefinitionAsync(CreateTaskDefinitionRequest createTaskDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTaskDefinition: Create a new Task Definition
+        /// CreateTaskDefinition: Create a new Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -222,7 +222,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (TaskDefinition)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<TaskDefinition>> CreateTaskDefinitionWithHttpInfoAsync(CreateTaskDefinitionRequest createTaskDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition
+        /// DeleteTaskDefinition: Delete a Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -237,7 +237,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteTaskDefinitionAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition
+        /// DeleteTaskDefinition: Delete a Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -251,7 +251,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteTaskDefinitionWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskDefinition: Get a Task Definition
+        /// GetTaskDefinition: Get a Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -267,7 +267,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<TaskDefinition> GetTaskDefinitionAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskDefinition: Get a Task Definition
+        /// GetTaskDefinition: Get a Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -282,7 +282,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (TaskDefinition)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<TaskDefinition>> GetTaskDefinitionWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListTaskDefinitions: List Task Definitions
+        /// ListTaskDefinitions: List Task Definitions
         /// </summary>
         /// <remarks>
         /// 
@@ -300,7 +300,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfTaskDefinition> ListTaskDefinitionsAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTaskDefinitions: List Task Definitions
+        /// ListTaskDefinitions: List Task Definitions
         /// </summary>
         /// <remarks>
         /// 
@@ -317,7 +317,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfTaskDefinition)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTaskDefinition>> ListTaskDefinitionsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition
+        /// ListTasksForTaskDefinition: List Tasks for a Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -333,7 +333,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<ResourceListOfTask> ListTasksForTaskDefinitionAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition
+        /// ListTasksForTaskDefinition: List Tasks for a Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -348,7 +348,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (ResourceListOfTask)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<ResourceListOfTask>> ListTasksForTaskDefinitionWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition
+        /// UpdateTaskDefinition: Update an existing Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -364,7 +364,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<TaskDefinition> UpdateTaskDefinitionAsync(string scope, string code, UpdateTaskDefinitionRequest updateTaskDefinitionRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition
+        /// UpdateTaskDefinition: Update an existing Task Definition
         /// </summary>
         /// <remarks>
         /// 
@@ -502,7 +502,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTaskDefinition: Create a new Task Definition 
+        /// CreateTaskDefinition: Create a new Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaskDefinitionRequest">The data to create a Task Definition</param>
@@ -516,7 +516,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTaskDefinition: Create a new Task Definition 
+        /// CreateTaskDefinition: Create a new Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaskDefinitionRequest">The data to create a Task Definition</param>
@@ -604,7 +604,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTaskDefinition: Create a new Task Definition 
+        /// CreateTaskDefinition: Create a new Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaskDefinitionRequest">The data to create a Task Definition</param>
@@ -619,7 +619,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateTaskDefinition: Create a new Task Definition 
+        /// CreateTaskDefinition: Create a new Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTaskDefinitionRequest">The data to create a Task Definition</param>
@@ -710,7 +710,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition 
+        /// DeleteTaskDefinition: Delete a Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -725,7 +725,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition 
+        /// DeleteTaskDefinition: Delete a Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -817,7 +817,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition 
+        /// DeleteTaskDefinition: Delete a Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -833,7 +833,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteTaskDefinition: Delete a Task Definition 
+        /// DeleteTaskDefinition: Delete a Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -928,7 +928,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskDefinition: Get a Task Definition 
+        /// GetTaskDefinition: Get a Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -944,7 +944,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskDefinition: Get a Task Definition 
+        /// GetTaskDefinition: Get a Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -1041,7 +1041,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskDefinition: Get a Task Definition 
+        /// GetTaskDefinition: Get a Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -1058,7 +1058,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTaskDefinition: Get a Task Definition 
+        /// GetTaskDefinition: Get a Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -1158,7 +1158,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTaskDefinitions: List Task Definitions 
+        /// ListTaskDefinitions: List Task Definitions 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Task Definitions. Defaults to return the latest version of each Task Definition if not specified. (optional)</param>
@@ -1176,7 +1176,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTaskDefinitions: List Task Definitions 
+        /// ListTaskDefinitions: List Task Definitions 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Task Definitions. Defaults to return the latest version of each Task Definition if not specified. (optional)</param>
@@ -1277,7 +1277,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTaskDefinitions: List Task Definitions 
+        /// ListTaskDefinitions: List Task Definitions 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Task Definitions. Defaults to return the latest version of each Task Definition if not specified. (optional)</param>
@@ -1296,7 +1296,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTaskDefinitions: List Task Definitions 
+        /// ListTaskDefinitions: List Task Definitions 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Task Definitions. Defaults to return the latest version of each Task Definition if not specified. (optional)</param>
@@ -1400,7 +1400,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition 
+        /// ListTasksForTaskDefinition: List Tasks for a Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -1416,7 +1416,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition 
+        /// ListTasksForTaskDefinition: List Tasks for a Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -1513,7 +1513,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition 
+        /// ListTasksForTaskDefinition: List Tasks for a Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -1530,7 +1530,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListTasksForTaskDefinition: List Tasks for a Task Definition 
+        /// ListTasksForTaskDefinition: List Tasks for a Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -1630,7 +1630,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition 
+        /// UpdateTaskDefinition: Update an existing Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -1646,7 +1646,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition 
+        /// UpdateTaskDefinition: Update an existing Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -1750,7 +1750,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition 
+        /// UpdateTaskDefinition: Update an existing Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
@@ -1767,7 +1767,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateTaskDefinition: Update an existing Task Definition 
+        /// UpdateTaskDefinition: Update an existing Task Definition 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies a Task Definition</param>
