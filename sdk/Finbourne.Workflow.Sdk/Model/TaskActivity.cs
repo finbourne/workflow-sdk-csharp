@@ -28,7 +28,7 @@ namespace Finbourne.Workflow.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(TaskActivityJsonConverter))]
     [DataContract(Name = "TaskActivity")]
-    public partial class TaskActivity : AbstractOpenAPISchema, IValidatableObject
+    public partial class TaskActivity : AbstractOpenAPISchema, IEquatable<TaskActivity>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TaskActivity" /> class
@@ -194,6 +194,44 @@ namespace Finbourne.Workflow.Sdk.Model
             return newTaskActivity;
         }
 
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as TaskActivity);
+        }
+
+        /// <summary>
+        /// Returns true if TaskActivity instances are equal
+        /// </summary>
+        /// <param name="input">Instance of TaskActivity to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(TaskActivity input)
+        {
+            if (input == null)
+                return false;
+
+            return this.ActualInstance.Equals(input.ActualInstance);
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.ActualInstance != null)
+                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
+                return hashCode;
+            }
+        }
+    
 
         /// <summary>
         /// To validate all properties of the instance

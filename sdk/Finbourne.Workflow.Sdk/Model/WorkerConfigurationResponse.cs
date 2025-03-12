@@ -28,7 +28,7 @@ namespace Finbourne.Workflow.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(WorkerConfigurationResponseJsonConverter))]
     [DataContract(Name = "WorkerConfigurationResponse")]
-    public partial class WorkerConfigurationResponse : AbstractOpenAPISchema, IValidatableObject
+    public partial class WorkerConfigurationResponse : AbstractOpenAPISchema, IEquatable<WorkerConfigurationResponse>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkerConfigurationResponse" /> class
@@ -378,6 +378,44 @@ namespace Finbourne.Workflow.Sdk.Model
             return newWorkerConfigurationResponse;
         }
 
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as WorkerConfigurationResponse);
+        }
+
+        /// <summary>
+        /// Returns true if WorkerConfigurationResponse instances are equal
+        /// </summary>
+        /// <param name="input">Instance of WorkerConfigurationResponse to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(WorkerConfigurationResponse input)
+        {
+            if (input == null)
+                return false;
+
+            return this.ActualInstance.Equals(input.ActualInstance);
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.ActualInstance != null)
+                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
+                return hashCode;
+            }
+        }
+    
 
         /// <summary>
         /// To validate all properties of the instance

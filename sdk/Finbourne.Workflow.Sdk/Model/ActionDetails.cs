@@ -28,7 +28,7 @@ namespace Finbourne.Workflow.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(ActionDetailsJsonConverter))]
     [DataContract(Name = "ActionDetails")]
-    public partial class ActionDetails : AbstractOpenAPISchema, IValidatableObject
+    public partial class ActionDetails : AbstractOpenAPISchema, IEquatable<ActionDetails>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ActionDetails" /> class
@@ -240,6 +240,44 @@ namespace Finbourne.Workflow.Sdk.Model
             return newActionDetails;
         }
 
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as ActionDetails);
+        }
+
+        /// <summary>
+        /// Returns true if ActionDetails instances are equal
+        /// </summary>
+        /// <param name="input">Instance of ActionDetails to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(ActionDetails input)
+        {
+            if (input == null)
+                return false;
+
+            return this.ActualInstance.Equals(input.ActualInstance);
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.ActualInstance != null)
+                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
+                return hashCode;
+            }
+        }
+    
 
         /// <summary>
         /// To validate all properties of the instance
