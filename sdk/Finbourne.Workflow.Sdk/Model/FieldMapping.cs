@@ -150,13 +150,6 @@ namespace Finbourne.Workflow.Sdk.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MapFrom, length must be greater than 1.", new [] { "MapFrom" });
             }
 
-            // MapFrom (string) pattern
-            Regex regexMapFrom = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexMapFrom.Match(this.MapFrom).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MapFrom, must match a pattern of " + regexMapFrom, new [] { "MapFrom" });
-            }
-
             yield break;
         }
     }
