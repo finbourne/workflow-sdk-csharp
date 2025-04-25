@@ -54,7 +54,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// </summary>
         /// <param name="type">The type of worker.</param>
         /// <param name="name">Name of the view in Luminesce.</param>
-        public LuminesceViewResponse(TypeEnum? type = default(TypeEnum?), string name = default(string))
+        public LuminesceViewResponse(TypeEnum ?type = default(TypeEnum?), string name = default(string))
         {
             this.Type = type;
             this.Name = name;

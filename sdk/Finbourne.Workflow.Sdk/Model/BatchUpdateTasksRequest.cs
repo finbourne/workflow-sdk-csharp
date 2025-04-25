@@ -23,40 +23,26 @@ using OpenAPIDateConverter = Finbourne.Workflow.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Workflow.Sdk.Model
 {
     /// <summary>
-    /// Readonly configuration for the Group Reconciliation Worker
+    /// A request to update multiple Tasks
     /// </summary>
-    [DataContract(Name = "GroupReconciliationResponse")]
-    public partial class GroupReconciliationResponse : IEquatable<GroupReconciliationResponse>, IValidatableObject
+    [DataContract(Name = "BatchUpdateTasksRequest")]
+    public partial class BatchUpdateTasksRequest : IEquatable<BatchUpdateTasksRequest>, IValidatableObject
     {
         /// <summary>
-        /// The type of worker
+        /// Initializes a new instance of the <see cref="BatchUpdateTasksRequest" /> class.
         /// </summary>
-        /// <value>The type of worker</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypeEnum
+        /// <param name="updateTasks">A Dictionary of task IDs to UpdateTaskRequest.</param>
+        public BatchUpdateTasksRequest(List<UpdateTaskWithIdAndTriggerRequest> updateTasks = default(List<UpdateTaskWithIdAndTriggerRequest>))
         {
-            /// <summary>
-            /// Enum GroupReconciliation for value: GroupReconciliation
-            /// </summary>
-            [EnumMember(Value = "GroupReconciliation")]
-            GroupReconciliation = 1
+            this.UpdateTasks = updateTasks;
         }
 
-
         /// <summary>
-        /// The type of worker
+        /// A Dictionary of task IDs to UpdateTaskRequest
         /// </summary>
-        /// <value>The type of worker</value>
-        [DataMember(Name = "type", EmitDefaultValue = true)]
-        public TypeEnum? Type { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GroupReconciliationResponse" /> class.
-        /// </summary>
-        /// <param name="type">The type of worker.</param>
-        public GroupReconciliationResponse(TypeEnum ?type = default(TypeEnum?))
-        {
-            this.Type = type;
-        }
+        /// <value>A Dictionary of task IDs to UpdateTaskRequest</value>
+        [DataMember(Name = "updateTasks", EmitDefaultValue = true)]
+        public List<UpdateTaskWithIdAndTriggerRequest> UpdateTasks { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +51,8 @@ namespace Finbourne.Workflow.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GroupReconciliationResponse {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("class BatchUpdateTasksRequest {\n");
+            sb.Append("  UpdateTasks: ").Append(UpdateTasks).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,15 +73,15 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GroupReconciliationResponse);
+            return this.Equals(input as BatchUpdateTasksRequest);
         }
 
         /// <summary>
-        /// Returns true if GroupReconciliationResponse instances are equal
+        /// Returns true if BatchUpdateTasksRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of GroupReconciliationResponse to be compared</param>
+        /// <param name="input">Instance of BatchUpdateTasksRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GroupReconciliationResponse input)
+        public bool Equals(BatchUpdateTasksRequest input)
         {
             if (input == null)
             {
@@ -103,8 +89,10 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             return 
                 (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    this.UpdateTasks == input.UpdateTasks ||
+                    this.UpdateTasks != null &&
+                    input.UpdateTasks != null &&
+                    this.UpdateTasks.SequenceEqual(input.UpdateTasks)
                 );
         }
 
@@ -117,7 +105,10 @@ namespace Finbourne.Workflow.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.UpdateTasks != null)
+                {
+                    hashCode = (hashCode * 59) + this.UpdateTasks.GetHashCode();
+                }
                 return hashCode;
             }
         }

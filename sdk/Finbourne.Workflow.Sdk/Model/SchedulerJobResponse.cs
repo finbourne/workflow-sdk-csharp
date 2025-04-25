@@ -54,7 +54,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// </summary>
         /// <param name="type">The type of worker.</param>
         /// <param name="jobId">jobId.</param>
-        public SchedulerJobResponse(TypeEnum? type = default(TypeEnum?), ResourceId jobId = default(ResourceId))
+        public SchedulerJobResponse(TypeEnum ?type = default(TypeEnum?), ResourceId jobId = default(ResourceId))
         {
             this.Type = type;
             this.JobId = jobId;

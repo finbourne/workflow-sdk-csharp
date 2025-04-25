@@ -32,6 +32,28 @@ namespace Finbourne.Workflow.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+        /// </summary>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpdateTasksRequest">The details of the request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>BatchUpdateTasksResponse</returns>
+        BatchUpdateTasksResponse BatchUpdateTasks(BatchUpdateTasksRequest? batchUpdateTasksRequest = default(BatchUpdateTasksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpdateTasksRequest">The details of the request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of BatchUpdateTasksResponse</returns>
+        Finbourne.Workflow.Sdk.Client.ApiResponse<BatchUpdateTasksResponse> BatchUpdateTasksWithHttpInfo(BatchUpdateTasksRequest? batchUpdateTasksRequest = default(BatchUpdateTasksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// CreateTask: Create a new Task
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -212,6 +234,33 @@ namespace Finbourne.Workflow.Sdk.Api
     public interface ITasksApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpdateTasksRequest">The details of the request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of BatchUpdateTasksResponse</returns>
+        System.Threading.Tasks.Task<BatchUpdateTasksResponse> BatchUpdateTasksAsync(BatchUpdateTasksRequest? batchUpdateTasksRequest = default(BatchUpdateTasksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpdateTasksRequest">The details of the request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (BatchUpdateTasksResponse)</returns>
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<BatchUpdateTasksResponse>> BatchUpdateTasksWithHttpInfoAsync(BatchUpdateTasksRequest? batchUpdateTasksRequest = default(BatchUpdateTasksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// CreateTask: Create a new Task
         /// </summary>
@@ -540,6 +589,202 @@ namespace Finbourne.Workflow.Sdk.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks 
+        /// </summary>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpdateTasksRequest">The details of the request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>BatchUpdateTasksResponse</returns>
+        public BatchUpdateTasksResponse BatchUpdateTasks(BatchUpdateTasksRequest? batchUpdateTasksRequest = default(BatchUpdateTasksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Workflow.Sdk.Client.ApiResponse<BatchUpdateTasksResponse> localVarResponse = BatchUpdateTasksWithHttpInfo(batchUpdateTasksRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks 
+        /// </summary>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpdateTasksRequest">The details of the request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of BatchUpdateTasksResponse</returns>
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<BatchUpdateTasksResponse> BatchUpdateTasksWithHttpInfo(BatchUpdateTasksRequest? batchUpdateTasksRequest = default(BatchUpdateTasksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Workflow.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Workflow.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = batchUpdateTasksRequest;
+
+            localVarRequestOptions.Operation = "TasksApi.BatchUpdateTasks";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch<BatchUpdateTasksResponse>("/api/tasks/$update", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BatchUpdateTasks", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks 
+        /// </summary>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpdateTasksRequest">The details of the request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of BatchUpdateTasksResponse</returns>
+        public async System.Threading.Tasks.Task<BatchUpdateTasksResponse> BatchUpdateTasksAsync(BatchUpdateTasksRequest? batchUpdateTasksRequest = default(BatchUpdateTasksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Workflow.Sdk.Client.ApiResponse<BatchUpdateTasksResponse> localVarResponse = await BatchUpdateTasksWithHttpInfoAsync(batchUpdateTasksRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks 
+        /// </summary>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="batchUpdateTasksRequest">The details of the request (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (BatchUpdateTasksResponse)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<BatchUpdateTasksResponse>> BatchUpdateTasksWithHttpInfoAsync(BatchUpdateTasksRequest? batchUpdateTasksRequest = default(BatchUpdateTasksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+
+            Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Workflow.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Workflow.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.Data = batchUpdateTasksRequest;
+
+            localVarRequestOptions.Operation = "TasksApi.BatchUpdateTasks";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<BatchUpdateTasksResponse>("/api/tasks/$update", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BatchUpdateTasks", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

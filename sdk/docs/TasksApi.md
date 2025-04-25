@@ -4,6 +4,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**BatchUpdateTasks**](TasksApi.md#batchupdatetasks) | **PATCH** /api/tasks/$update | [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks |
 | [**CreateTask**](TasksApi.md#createtask) | **POST** /api/tasks | CreateTask: Create a new Task |
 | [**DeleteTask**](TasksApi.md#deletetask) | **DELETE** /api/tasks/{id} | DeleteTask: Delete a Task |
 | [**DeleteTasks**](TasksApi.md#deletetasks) | **POST** /api/tasks/$delete | DeleteTasks: Batch Delete Tasks |
@@ -11,6 +12,118 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 | [**GetTaskHistory**](TasksApi.md#gettaskhistory) | **GET** /api/tasks/{id}/history | GetTaskHistory: Get the history of a Task |
 | [**ListTasks**](TasksApi.md#listtasks) | **GET** /api/tasks | ListTasks: List Tasks |
 | [**UpdateTask**](TasksApi.md#updatetask) | **POST** /api/tasks/{id} | UpdateTask: Update a Task |
+
+<a id="batchupdatetasks"></a>
+# **BatchUpdateTasks**
+> BatchUpdateTasksResponse BatchUpdateTasks (BatchUpdateTasksRequest? batchUpdateTasksRequest = null)
+
+[EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Workflow.Sdk.Api;
+using Finbourne.Workflow.Sdk.Client;
+using Finbourne.Workflow.Sdk.Extensions;
+using Finbourne.Workflow.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""workflowUrl"": ""https://<your-domain>.lusid.com/workflow"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TasksApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TasksApi>();
+            var batchUpdateTasksRequest = new BatchUpdateTasksRequest?(); // BatchUpdateTasksRequest? | The details of the request (optional) 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // BatchUpdateTasksResponse result = apiInstance.BatchUpdateTasks(batchUpdateTasksRequest, opts: opts);
+
+                // [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+                BatchUpdateTasksResponse result = apiInstance.BatchUpdateTasks(batchUpdateTasksRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TasksApi.BatchUpdateTasks: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the BatchUpdateTasksWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+    ApiResponse<BatchUpdateTasksResponse> response = apiInstance.BatchUpdateTasksWithHttpInfo(batchUpdateTasksRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TasksApi.BatchUpdateTasksWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **batchUpdateTasksRequest** | [**BatchUpdateTasksRequest?**](BatchUpdateTasksRequest?.md) | The details of the request | [optional]  |
+
+### Return type
+
+[**BatchUpdateTasksResponse**](BatchUpdateTasksResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="createtask"></a>
 # **CreateTask**
@@ -815,7 +928,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | The details of the input related failure |  -  |
-| **404** | Task not found. |  -  |
+| **404** | Tasks not found. |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)

@@ -53,7 +53,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// Initializes a new instance of the <see cref="FailResponse" /> class.
         /// </summary>
         /// <param name="type">The type of worker.</param>
-        public FailResponse(TypeEnum? type = default(TypeEnum?))
+        public FailResponse(TypeEnum ?type = default(TypeEnum?))
         {
             this.Type = type;
         }

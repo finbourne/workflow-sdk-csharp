@@ -54,7 +54,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// </summary>
         /// <param name="type">Type name for this Action.</param>
         /// <param name="childTaskConfigurations">The Child Task Configurations.</param>
-        public CreateChildTasksActionResponse(TypeEnum? type = default(TypeEnum?), List<CreateChildTaskConfiguration> childTaskConfigurations = default(List<CreateChildTaskConfiguration>))
+        public CreateChildTasksActionResponse(TypeEnum ?type = default(TypeEnum?), List<CreateChildTaskConfiguration> childTaskConfigurations = default(List<CreateChildTaskConfiguration>))
         {
             this.Type = type;
             this.ChildTaskConfigurations = childTaskConfigurations;

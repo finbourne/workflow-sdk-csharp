@@ -54,7 +54,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// </summary>
         /// <param name="type">Type name for this Action.</param>
         /// <param name="trigger">Trigger on parent task to be invoked.</param>
-        public TriggerParentTaskActionResponse(TypeEnum? type = default(TypeEnum?), string trigger = default(string))
+        public TriggerParentTaskActionResponse(TypeEnum ?type = default(TypeEnum?), string trigger = default(string))
         {
             this.Type = type;
             this.Trigger = trigger;

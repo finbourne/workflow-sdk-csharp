@@ -54,7 +54,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// </summary>
         /// <param name="type">The type of worker.</param>
         /// <param name="url">The URL to check, eg: https://www.google.com/.</param>
-        public HealthCheckResponse(TypeEnum? type = default(TypeEnum?), string url = default(string))
+        public HealthCheckResponse(TypeEnum ?type = default(TypeEnum?), string url = default(string))
         {
             this.Type = type;
             this.Url = url;

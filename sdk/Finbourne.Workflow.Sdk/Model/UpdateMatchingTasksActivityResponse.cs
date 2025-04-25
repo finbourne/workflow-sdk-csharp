@@ -57,7 +57,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="trigger">Trigger to supply to all tasks that have been matched.</param>
         /// <param name="correlationIds">The event to correlation ID mappings.</param>
         /// <param name="taskFields">The event to task field mappings.</param>
-        public UpdateMatchingTasksActivityResponse(TypeEnum? type = default(TypeEnum?), string filter = default(string), string trigger = default(string), List<EventHandlerMapping> correlationIds = default(List<EventHandlerMapping>), Dictionary<string, FieldMapping> taskFields = default(Dictionary<string, FieldMapping>))
+        public UpdateMatchingTasksActivityResponse(TypeEnum ?type = default(TypeEnum?), string filter = default(string), string trigger = default(string), List<EventHandlerMapping> correlationIds = default(List<EventHandlerMapping>), Dictionary<string, FieldMapping> taskFields = default(Dictionary<string, FieldMapping>))
         {
             this.Type = type;
             this.Filter = filter;

@@ -56,7 +56,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="initialTrigger">Trigger to supply to all tasks to be made.</param>
         /// <param name="correlationIds">The event to correlation ID mappings.</param>
         /// <param name="taskFields">The event to task field mappings.</param>
-        public CreateNewTaskActivityResponse(TypeEnum? type = default(TypeEnum?), string initialTrigger = default(string), List<EventHandlerMapping> correlationIds = default(List<EventHandlerMapping>), Dictionary<string, FieldMapping> taskFields = default(Dictionary<string, FieldMapping>))
+        public CreateNewTaskActivityResponse(TypeEnum ?type = default(TypeEnum?), string initialTrigger = default(string), List<EventHandlerMapping> correlationIds = default(List<EventHandlerMapping>), Dictionary<string, FieldMapping> taskFields = default(Dictionary<string, FieldMapping>))
         {
             this.Type = type;
             this.InitialTrigger = initialTrigger;

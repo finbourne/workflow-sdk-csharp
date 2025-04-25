@@ -59,7 +59,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="workerStatusTriggers">workerStatusTriggers.</param>
         /// <param name="childTaskConfigurations">Tasks can be generated from run worker results; this is the configuration.</param>
         /// <param name="workerTimeout">Worker timeout in seconds.</param>
-        public RunWorkerActionResponse(TypeEnum? type = default(TypeEnum?), ResourceId workerId = default(ResourceId), DateTimeOffset? workerAsAt = default(DateTimeOffset?), Dictionary<string, FieldMapping> workerParameters = default(Dictionary<string, FieldMapping>), WorkerStatusTriggers workerStatusTriggers = default(WorkerStatusTriggers), List<ResultantChildTaskConfiguration> childTaskConfigurations = default(List<ResultantChildTaskConfiguration>), int? workerTimeout = default(int?))
+        public RunWorkerActionResponse(TypeEnum ?type = default(TypeEnum?), ResourceId workerId = default(ResourceId), DateTimeOffset? workerAsAt = default(DateTimeOffset?), Dictionary<string, FieldMapping> workerParameters = default(Dictionary<string, FieldMapping>), WorkerStatusTriggers workerStatusTriggers = default(WorkerStatusTriggers), List<ResultantChildTaskConfiguration> childTaskConfigurations = default(List<ResultantChildTaskConfiguration>), int? workerTimeout = default(int?))
         {
             this.Type = type;
             this.WorkerId = workerId;
