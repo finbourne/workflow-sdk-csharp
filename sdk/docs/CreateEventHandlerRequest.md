@@ -9,7 +9,8 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | Human readable name | 
 **Description** | **string** | Human readable description | [optional] 
 **Status** | **string** | The current status of the event handler | 
-**EventMatchingPattern** | [**EventMatchingPattern**](EventMatchingPattern.md) |  | 
+**EventMatchingPattern** | [**EventMatchingPattern**](EventMatchingPattern.md) |  | [optional] 
+**ScheduleMatchingPattern** | [**ScheduleMatchingPattern**](ScheduleMatchingPattern.md) |  | [optional] 
 **RunAsUserId** | [**EventHandlerMapping**](EventHandlerMapping.md) |  | 
 **TaskDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
 **TaskDefinitionAsAt** | **DateTimeOffset?** | AsAt of the required task definition | [optional] 
