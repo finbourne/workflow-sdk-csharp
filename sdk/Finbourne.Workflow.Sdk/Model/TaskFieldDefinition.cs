@@ -40,7 +40,11 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="type">The value type for the field. Available values are: \&quot;String\&quot;, \&quot;Decimal\&quot;, \&quot;DateTime\&quot;, \&quot;Boolean\&quot;) (required).</param>
         /// <param name="readOnlyStates">readOnlyStates.</param>
         /// <param name="valueConstraints">valueConstraints.</param>
-        public TaskFieldDefinition(string name = default(string), string type = default(string), ReadOnlyStates readOnlyStates = default(ReadOnlyStates), ValueConstraints valueConstraints = default(ValueConstraints))
+        /// <param name="displayName">Display name for field definition.</param>
+        /// <param name="description">Description for field definition.</param>
+        /// <param name="category">Category for field definition.</param>
+        /// <param name="containsUrl">Field contains url.</param>
+        public TaskFieldDefinition(string name = default(string), string type = default(string), ReadOnlyStates readOnlyStates = default(ReadOnlyStates), ValueConstraints valueConstraints = default(ValueConstraints), string displayName = default(string), string description = default(string), string category = default(string), bool? containsUrl = default(bool?))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -56,6 +60,10 @@ namespace Finbourne.Workflow.Sdk.Model
             this.Type = type;
             this.ReadOnlyStates = readOnlyStates;
             this.ValueConstraints = valueConstraints;
+            this.DisplayName = displayName;
+            this.Description = description;
+            this.Category = category;
+            this.ContainsUrl = containsUrl;
         }
 
         /// <summary>
@@ -85,6 +93,34 @@ namespace Finbourne.Workflow.Sdk.Model
         public ValueConstraints ValueConstraints { get; set; }
 
         /// <summary>
+        /// Display name for field definition
+        /// </summary>
+        /// <value>Display name for field definition</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Description for field definition
+        /// </summary>
+        /// <value>Description for field definition</value>
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Category for field definition
+        /// </summary>
+        /// <value>Category for field definition</value>
+        [DataMember(Name = "category", EmitDefaultValue = true)]
+        public string Category { get; set; }
+
+        /// <summary>
+        /// Field contains url
+        /// </summary>
+        /// <value>Field contains url</value>
+        [DataMember(Name = "containsUrl", EmitDefaultValue = true)]
+        public bool? ContainsUrl { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -96,6 +132,10 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  ReadOnlyStates: ").Append(ReadOnlyStates).Append("\n");
             sb.Append("  ValueConstraints: ").Append(ValueConstraints).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Category: ").Append(Category).Append("\n");
+            sb.Append("  ContainsUrl: ").Append(ContainsUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,6 +190,26 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.ValueConstraints == input.ValueConstraints ||
                     (this.ValueConstraints != null &&
                     this.ValueConstraints.Equals(input.ValueConstraints))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Category == input.Category ||
+                    (this.Category != null &&
+                    this.Category.Equals(input.Category))
+                ) && 
+                (
+                    this.ContainsUrl == input.ContainsUrl ||
+                    (this.ContainsUrl != null &&
+                    this.ContainsUrl.Equals(input.ContainsUrl))
                 );
         }
 
@@ -177,6 +237,22 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.ValueConstraints != null)
                 {
                     hashCode = (hashCode * 59) + this.ValueConstraints.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.Category != null)
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
+                if (this.ContainsUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContainsUrl.GetHashCode();
                 }
                 return hashCode;
             }
@@ -212,6 +288,37 @@ namespace Finbourne.Workflow.Sdk.Model
             if (this.Type != null && this.Type.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
+            }
+
+            // DisplayName (string) maxLength
+            if (this.DisplayName != null && this.DisplayName.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 1024.", new [] { "DisplayName" });
+            }
+
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
+            }
+
+            // Description (string) maxLength
+            if (this.Description != null && this.Description.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 1024.", new [] { "Description" });
+            }
+
+            // Description (string) minLength
+            if (this.Description != null && this.Description.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
+            }
+
+            // Description (string) pattern
+            Regex regexDescription = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexDescription.Match(this.Description).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
             }
 
             yield break;

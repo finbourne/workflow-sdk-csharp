@@ -34,11 +34,17 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="name">The Name of this Action.</param>
         /// <param name="runAsUserId">The ID of the user that this action will be performed by. If not specified, the actions will be performed by the \&quot;current user\&quot;..</param>
         /// <param name="actionDetails">actionDetails.</param>
-        public ActionDefinitionResponse(string name = default(string), string runAsUserId = default(string), ActionDetailsResponse actionDetails = default(ActionDetailsResponse))
+        /// <param name="displayName">Schema for the Action.</param>
+        /// <param name="description">Schema for the Action.</param>
+        /// <param name="category">Schema for the Action.</param>
+        public ActionDefinitionResponse(string name = default(string), string runAsUserId = default(string), ActionDetailsResponse actionDetails = default(ActionDetailsResponse), string displayName = default(string), string description = default(string), string category = default(string))
         {
             this.Name = name;
             this.RunAsUserId = runAsUserId;
             this.ActionDetails = actionDetails;
+            this.DisplayName = displayName;
+            this.Description = description;
+            this.Category = category;
         }
 
         /// <summary>
@@ -62,6 +68,27 @@ namespace Finbourne.Workflow.Sdk.Model
         public ActionDetailsResponse ActionDetails { get; set; }
 
         /// <summary>
+        /// Schema for the Action
+        /// </summary>
+        /// <value>Schema for the Action</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Schema for the Action
+        /// </summary>
+        /// <value>Schema for the Action</value>
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Schema for the Action
+        /// </summary>
+        /// <value>Schema for the Action</value>
+        [DataMember(Name = "category", EmitDefaultValue = true)]
+        public string Category { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +99,9 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  RunAsUserId: ").Append(RunAsUserId).Append("\n");
             sb.Append("  ActionDetails: ").Append(ActionDetails).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,6 +151,21 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.ActionDetails == input.ActionDetails ||
                     (this.ActionDetails != null &&
                     this.ActionDetails.Equals(input.ActionDetails))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Category == input.Category ||
+                    (this.Category != null &&
+                    this.Category.Equals(input.Category))
                 );
         }
 
@@ -145,6 +190,18 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ActionDetails.GetHashCode();
                 }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.Category != null)
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -156,6 +213,37 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // DisplayName (string) maxLength
+            if (this.DisplayName != null && this.DisplayName.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 1024.", new [] { "DisplayName" });
+            }
+
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
+            }
+
+            // Description (string) maxLength
+            if (this.Description != null && this.Description.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 1024.", new [] { "Description" });
+            }
+
+            // Description (string) minLength
+            if (this.Description != null && this.Description.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
+            }
+
+            // Description (string) pattern
+            Regex regexDescription = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexDescription.Match(this.Description).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
+            }
+
             yield break;
         }
     }

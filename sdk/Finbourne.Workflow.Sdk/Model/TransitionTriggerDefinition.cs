@@ -38,7 +38,9 @@ namespace Finbourne.Workflow.Sdk.Model
         /// </summary>
         /// <param name="name">The key/Name of this Trigger (required).</param>
         /// <param name="trigger">trigger (required).</param>
-        public TransitionTriggerDefinition(string name = default(string), TriggerSchema trigger = default(TriggerSchema))
+        /// <param name="displayName">Display name for trigger.</param>
+        /// <param name="description">Description of trigger.</param>
+        public TransitionTriggerDefinition(string name = default(string), TriggerSchema trigger = default(TriggerSchema), string displayName = default(string), string description = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -52,6 +54,8 @@ namespace Finbourne.Workflow.Sdk.Model
                 throw new ArgumentNullException("trigger is a required property for TransitionTriggerDefinition and cannot be null");
             }
             this.Trigger = trigger;
+            this.DisplayName = displayName;
+            this.Description = description;
         }
 
         /// <summary>
@@ -68,6 +72,20 @@ namespace Finbourne.Workflow.Sdk.Model
         public TriggerSchema Trigger { get; set; }
 
         /// <summary>
+        /// Display name for trigger
+        /// </summary>
+        /// <value>Display name for trigger</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Description of trigger
+        /// </summary>
+        /// <value>Description of trigger</value>
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,6 +95,8 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("class TransitionTriggerDefinition {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Trigger: ").Append(Trigger).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,6 +141,16 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.Trigger == input.Trigger ||
                     (this.Trigger != null &&
                     this.Trigger.Equals(input.Trigger))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 );
         }
 
@@ -140,6 +170,14 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.Trigger != null)
                 {
                     hashCode = (hashCode * 59) + this.Trigger.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
                 return hashCode;
             }
@@ -169,6 +207,37 @@ namespace Finbourne.Workflow.Sdk.Model
             if (false == regexName.Match(this.Name).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, must match a pattern of " + regexName, new [] { "Name" });
+            }
+
+            // DisplayName (string) maxLength
+            if (this.DisplayName != null && this.DisplayName.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 1024.", new [] { "DisplayName" });
+            }
+
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
+            }
+
+            // Description (string) maxLength
+            if (this.Description != null && this.Description.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 1024.", new [] { "Description" });
+            }
+
+            // Description (string) minLength
+            if (this.Description != null && this.Description.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
+            }
+
+            // Description (string) pattern
+            Regex regexDescription = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexDescription.Match(this.Description).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
             }
 
             yield break;

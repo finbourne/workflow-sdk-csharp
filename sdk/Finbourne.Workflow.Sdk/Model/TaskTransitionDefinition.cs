@@ -41,7 +41,11 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="trigger">The Trigger for this Transition (required).</param>
         /// <param name="guard">The Guard for this Transition, if any.</param>
         /// <param name="action">The Action to invoke on successful Transition.</param>
-        public TaskTransitionDefinition(string fromState = default(string), string toState = default(string), string trigger = default(string), string guard = default(string), string action = default(string))
+        /// <param name="displayName">Display name for transition.</param>
+        /// <param name="description">Description for transition.</param>
+        /// <param name="guardDescription">Guard description for transition.</param>
+        /// <param name="guardConditionNotMetMessage">Message when guard has not been met.</param>
+        public TaskTransitionDefinition(string fromState = default(string), string toState = default(string), string trigger = default(string), string guard = default(string), string action = default(string), string displayName = default(string), string description = default(string), string guardDescription = default(string), string guardConditionNotMetMessage = default(string))
         {
             // to ensure "fromState" is required (not null)
             if (fromState == null)
@@ -63,6 +67,10 @@ namespace Finbourne.Workflow.Sdk.Model
             this.Trigger = trigger;
             this.Guard = guard;
             this.Action = action;
+            this.DisplayName = displayName;
+            this.Description = description;
+            this.GuardDescription = guardDescription;
+            this.GuardConditionNotMetMessage = guardConditionNotMetMessage;
         }
 
         /// <summary>
@@ -101,6 +109,34 @@ namespace Finbourne.Workflow.Sdk.Model
         public string Action { get; set; }
 
         /// <summary>
+        /// Display name for transition
+        /// </summary>
+        /// <value>Display name for transition</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Description for transition
+        /// </summary>
+        /// <value>Description for transition</value>
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Guard description for transition
+        /// </summary>
+        /// <value>Guard description for transition</value>
+        [DataMember(Name = "guardDescription", EmitDefaultValue = true)]
+        public string GuardDescription { get; set; }
+
+        /// <summary>
+        /// Message when guard has not been met
+        /// </summary>
+        /// <value>Message when guard has not been met</value>
+        [DataMember(Name = "guardConditionNotMetMessage", EmitDefaultValue = true)]
+        public string GuardConditionNotMetMessage { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +149,10 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  Trigger: ").Append(Trigger).Append("\n");
             sb.Append("  Guard: ").Append(Guard).Append("\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  GuardDescription: ").Append(GuardDescription).Append("\n");
+            sb.Append("  GuardConditionNotMetMessage: ").Append(GuardConditionNotMetMessage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -172,6 +212,26 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.Action == input.Action ||
                     (this.Action != null &&
                     this.Action.Equals(input.Action))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.GuardDescription == input.GuardDescription ||
+                    (this.GuardDescription != null &&
+                    this.GuardDescription.Equals(input.GuardDescription))
+                ) && 
+                (
+                    this.GuardConditionNotMetMessage == input.GuardConditionNotMetMessage ||
+                    (this.GuardConditionNotMetMessage != null &&
+                    this.GuardConditionNotMetMessage.Equals(input.GuardConditionNotMetMessage))
                 );
         }
 
@@ -203,6 +263,22 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.Action != null)
                 {
                     hashCode = (hashCode * 59) + this.Action.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.GuardDescription != null)
+                {
+                    hashCode = (hashCode * 59) + this.GuardDescription.GetHashCode();
+                }
+                if (this.GuardConditionNotMetMessage != null)
+                {
+                    hashCode = (hashCode * 59) + this.GuardConditionNotMetMessage.GetHashCode();
                 }
                 return hashCode;
             }
@@ -308,6 +384,68 @@ namespace Finbourne.Workflow.Sdk.Model
             if (false == regexAction.Match(this.Action).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Action, must match a pattern of " + regexAction, new [] { "Action" });
+            }
+
+            // DisplayName (string) maxLength
+            if (this.DisplayName != null && this.DisplayName.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 1024.", new [] { "DisplayName" });
+            }
+
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
+            }
+
+            // Description (string) maxLength
+            if (this.Description != null && this.Description.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 1024.", new [] { "Description" });
+            }
+
+            // Description (string) minLength
+            if (this.Description != null && this.Description.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
+            }
+
+            // Description (string) pattern
+            Regex regexDescription = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexDescription.Match(this.Description).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
+            }
+
+            // GuardDescription (string) maxLength
+            if (this.GuardDescription != null && this.GuardDescription.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GuardDescription, length must be less than 1024.", new [] { "GuardDescription" });
+            }
+
+            // GuardDescription (string) minLength
+            if (this.GuardDescription != null && this.GuardDescription.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GuardDescription, length must be greater than 0.", new [] { "GuardDescription" });
+            }
+
+            // GuardDescription (string) pattern
+            Regex regexGuardDescription = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexGuardDescription.Match(this.GuardDescription).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GuardDescription, must match a pattern of " + regexGuardDescription, new [] { "GuardDescription" });
+            }
+
+            // GuardConditionNotMetMessage (string) maxLength
+            if (this.GuardConditionNotMetMessage != null && this.GuardConditionNotMetMessage.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GuardConditionNotMetMessage, length must be less than 1024.", new [] { "GuardConditionNotMetMessage" });
+            }
+
+            // GuardConditionNotMetMessage (string) minLength
+            if (this.GuardConditionNotMetMessage != null && this.GuardConditionNotMetMessage.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GuardConditionNotMetMessage, length must be greater than 1.", new [] { "GuardConditionNotMetMessage" });
             }
 
             yield break;
