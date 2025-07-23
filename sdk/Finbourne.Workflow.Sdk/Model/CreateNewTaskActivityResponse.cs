@@ -56,12 +56,14 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="initialTrigger">Trigger to supply to all tasks to be made.</param>
         /// <param name="correlationIds">The event to correlation ID mappings.</param>
         /// <param name="taskFields">The event to task field mappings.</param>
-        public CreateNewTaskActivityResponse(TypeEnum ?type = default(TypeEnum?), string initialTrigger = default(string), List<EventHandlerMapping> correlationIds = default(List<EventHandlerMapping>), Dictionary<string, FieldMapping> taskFields = default(Dictionary<string, FieldMapping>))
+        /// <param name="scheduleDependentTaskFields">The Schedule dependent task field mappings. Only relevant if a Finbourne.Workflow.WebApi.Common.Dto.Json.EventHandlers.ScheduleMatchingPattern is  specified.</param>
+        public CreateNewTaskActivityResponse(TypeEnum ?type = default(TypeEnum?), string initialTrigger = default(string), List<EventHandlerMapping> correlationIds = default(List<EventHandlerMapping>), Dictionary<string, FieldMapping> taskFields = default(Dictionary<string, FieldMapping>), Dictionary<string, ScheduledTimeAdjustment> scheduleDependentTaskFields = default(Dictionary<string, ScheduledTimeAdjustment>))
         {
             this.Type = type;
             this.InitialTrigger = initialTrigger;
             this.CorrelationIds = correlationIds;
             this.TaskFields = taskFields;
+            this.ScheduleDependentTaskFields = scheduleDependentTaskFields;
         }
 
         /// <summary>
@@ -86,6 +88,13 @@ namespace Finbourne.Workflow.Sdk.Model
         public Dictionary<string, FieldMapping> TaskFields { get; set; }
 
         /// <summary>
+        /// The Schedule dependent task field mappings. Only relevant if a Finbourne.Workflow.WebApi.Common.Dto.Json.EventHandlers.ScheduleMatchingPattern is  specified
+        /// </summary>
+        /// <value>The Schedule dependent task field mappings. Only relevant if a Finbourne.Workflow.WebApi.Common.Dto.Json.EventHandlers.ScheduleMatchingPattern is  specified</value>
+        [DataMember(Name = "scheduleDependentTaskFields", EmitDefaultValue = true)]
+        public Dictionary<string, ScheduledTimeAdjustment> ScheduleDependentTaskFields { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -97,6 +106,7 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  InitialTrigger: ").Append(InitialTrigger).Append("\n");
             sb.Append("  CorrelationIds: ").Append(CorrelationIds).Append("\n");
             sb.Append("  TaskFields: ").Append(TaskFields).Append("\n");
+            sb.Append("  ScheduleDependentTaskFields: ").Append(ScheduleDependentTaskFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,6 +162,12 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.TaskFields != null &&
                     input.TaskFields != null &&
                     this.TaskFields.SequenceEqual(input.TaskFields)
+                ) && 
+                (
+                    this.ScheduleDependentTaskFields == input.ScheduleDependentTaskFields ||
+                    this.ScheduleDependentTaskFields != null &&
+                    input.ScheduleDependentTaskFields != null &&
+                    this.ScheduleDependentTaskFields.SequenceEqual(input.ScheduleDependentTaskFields)
                 );
         }
 
@@ -176,6 +192,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.TaskFields != null)
                 {
                     hashCode = (hashCode * 59) + this.TaskFields.GetHashCode();
+                }
+                if (this.ScheduleDependentTaskFields != null)
+                {
+                    hashCode = (hashCode * 59) + this.ScheduleDependentTaskFields.GetHashCode();
                 }
                 return hashCode;
             }
