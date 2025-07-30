@@ -68,6 +68,18 @@ namespace Finbourne.Workflow.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkerConfigurationResponse" /> class
+        /// with the <see cref="LibraryResponse" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of LibraryResponse.</param>
+        public WorkerConfigurationResponse(LibraryResponse actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkerConfigurationResponse" /> class
         /// with the <see cref="LuminesceViewResponse" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of LuminesceViewResponse.</param>
@@ -128,6 +140,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(LibraryResponse) || value is LibraryResponse)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(LuminesceViewResponse) || value is LuminesceViewResponse)
                 {
                     this._actualInstance = value;
@@ -142,7 +158,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: FailResponse, GroupReconciliationResponse, HealthCheckResponse, LuminesceViewResponse, SchedulerJobResponse, SleepResponse");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: FailResponse, GroupReconciliationResponse, HealthCheckResponse, LibraryResponse, LuminesceViewResponse, SchedulerJobResponse, SleepResponse");
                 }
             }
         }
@@ -175,6 +191,16 @@ namespace Finbourne.Workflow.Sdk.Model
         public HealthCheckResponse GetHealthCheckResponse()
         {
             return (HealthCheckResponse)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `LibraryResponse`. If the actual instance is not `LibraryResponse`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of LibraryResponse</returns>
+        public LibraryResponse GetLibraryResponse()
+        {
+            return (LibraryResponse)this.ActualInstance;
         }
 
         /// <summary>
@@ -303,6 +329,26 @@ namespace Finbourne.Workflow.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into HealthCheckResponse: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(LibraryResponse).GetProperty("AdditionalProperties") == null)
+                {
+                    newWorkerConfigurationResponse = new WorkerConfigurationResponse(JsonConvert.DeserializeObject<LibraryResponse>(jsonString, WorkerConfigurationResponse.SerializerSettings));
+                }
+                else
+                {
+                    newWorkerConfigurationResponse = new WorkerConfigurationResponse(JsonConvert.DeserializeObject<LibraryResponse>(jsonString, WorkerConfigurationResponse.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("LibraryResponse");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into LibraryResponse: {1}", jsonString, exception.ToString()));
             }
 
             try
