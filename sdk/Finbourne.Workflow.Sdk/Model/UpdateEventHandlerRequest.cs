@@ -39,12 +39,13 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="displayName">Human readable name (required).</param>
         /// <param name="description">Human readable description.</param>
         /// <param name="status">The current status of the event handler (required).</param>
-        /// <param name="eventMatchingPattern">eventMatchingPattern (required).</param>
+        /// <param name="eventMatchingPattern">eventMatchingPattern.</param>
+        /// <param name="scheduleMatchingPattern">scheduleMatchingPattern.</param>
         /// <param name="runAsUserId">runAsUserId (required).</param>
         /// <param name="taskDefinitionId">taskDefinitionId (required).</param>
         /// <param name="taskDefinitionAsAt">AsAt of the required task definition.</param>
         /// <param name="taskActivity">taskActivity (required).</param>
-        public UpdateEventHandlerRequest(string displayName = default(string), string description = default(string), string status = default(string), EventMatchingPattern eventMatchingPattern = default(EventMatchingPattern), EventHandlerMapping runAsUserId = default(EventHandlerMapping), ResourceId taskDefinitionId = default(ResourceId), DateTimeOffset? taskDefinitionAsAt = default(DateTimeOffset?), TaskActivity taskActivity = default(TaskActivity))
+        public UpdateEventHandlerRequest(string displayName = default(string), string description = default(string), string status = default(string), EventMatchingPattern eventMatchingPattern = default(EventMatchingPattern), ScheduleMatchingPattern scheduleMatchingPattern = default(ScheduleMatchingPattern), EventHandlerMapping runAsUserId = default(EventHandlerMapping), ResourceId taskDefinitionId = default(ResourceId), DateTimeOffset? taskDefinitionAsAt = default(DateTimeOffset?), TaskActivity taskActivity = default(TaskActivity))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -58,12 +59,6 @@ namespace Finbourne.Workflow.Sdk.Model
                 throw new ArgumentNullException("status is a required property for UpdateEventHandlerRequest and cannot be null");
             }
             this.Status = status;
-            // to ensure "eventMatchingPattern" is required (not null)
-            if (eventMatchingPattern == null)
-            {
-                throw new ArgumentNullException("eventMatchingPattern is a required property for UpdateEventHandlerRequest and cannot be null");
-            }
-            this.EventMatchingPattern = eventMatchingPattern;
             // to ensure "runAsUserId" is required (not null)
             if (runAsUserId == null)
             {
@@ -83,6 +78,8 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             this.TaskActivity = taskActivity;
             this.Description = description;
+            this.EventMatchingPattern = eventMatchingPattern;
+            this.ScheduleMatchingPattern = scheduleMatchingPattern;
             this.TaskDefinitionAsAt = taskDefinitionAsAt;
         }
 
@@ -110,8 +107,14 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <summary>
         /// Gets or Sets EventMatchingPattern
         /// </summary>
-        [DataMember(Name = "eventMatchingPattern", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "eventMatchingPattern", EmitDefaultValue = false)]
         public EventMatchingPattern EventMatchingPattern { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ScheduleMatchingPattern
+        /// </summary>
+        [DataMember(Name = "scheduleMatchingPattern", EmitDefaultValue = false)]
+        public ScheduleMatchingPattern ScheduleMatchingPattern { get; set; }
 
         /// <summary>
         /// Gets or Sets RunAsUserId
@@ -150,6 +153,7 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  EventMatchingPattern: ").Append(EventMatchingPattern).Append("\n");
+            sb.Append("  ScheduleMatchingPattern: ").Append(ScheduleMatchingPattern).Append("\n");
             sb.Append("  RunAsUserId: ").Append(RunAsUserId).Append("\n");
             sb.Append("  TaskDefinitionId: ").Append(TaskDefinitionId).Append("\n");
             sb.Append("  TaskDefinitionAsAt: ").Append(TaskDefinitionAsAt).Append("\n");
@@ -210,6 +214,11 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.EventMatchingPattern.Equals(input.EventMatchingPattern))
                 ) && 
                 (
+                    this.ScheduleMatchingPattern == input.ScheduleMatchingPattern ||
+                    (this.ScheduleMatchingPattern != null &&
+                    this.ScheduleMatchingPattern.Equals(input.ScheduleMatchingPattern))
+                ) && 
+                (
                     this.RunAsUserId == input.RunAsUserId ||
                     (this.RunAsUserId != null &&
                     this.RunAsUserId.Equals(input.RunAsUserId))
@@ -255,6 +264,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.EventMatchingPattern != null)
                 {
                     hashCode = (hashCode * 59) + this.EventMatchingPattern.GetHashCode();
+                }
+                if (this.ScheduleMatchingPattern != null)
+                {
+                    hashCode = (hashCode * 59) + this.ScheduleMatchingPattern.GetHashCode();
                 }
                 if (this.RunAsUserId != null)
                 {
