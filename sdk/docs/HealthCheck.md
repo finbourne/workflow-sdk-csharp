@@ -8,5 +8,16 @@ Name | Type | Description | Notes
 **Type** | **string** | The type of worker | 
 **Url** | **string** | The URL to check, eg: https://www.google.com/ | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+string type = "type";
+string url = "url";
+
+HealthCheck healthCheckInstance = new HealthCheck(
+    type: type,
+    url: url);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -9,5 +9,18 @@ Name | Type | Description | Notes
 **Results** | **List&lt;Dictionary&lt;string, Object&gt;&gt;** | Results | 
 **StatusDetail** | **string** | Detail on the final status | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+string workerStatus = "workerStatus";
+List<Dictionary<string, Object>> results = new List<Dictionary<string, Object>>();
+string statusDetail = "example statusDetail";
+
+GetWorkerResultResponse getWorkerResultResponseInstance = new GetWorkerResultResponse(
+    workerStatus: workerStatus,
+    results: results,
+    statusDetail: statusDetail);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

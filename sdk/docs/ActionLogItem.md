@@ -9,5 +9,17 @@ Name | Type | Description | Notes
 **LogType** | **string** | The type of log item | 
 **Details** | **string** | The details of the log item | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+string logType = "logType";
+string details = "example details";
+
+ActionLogItem actionLogItemInstance = new ActionLogItem(
+    timestamp: timestamp,
+    logType: logType,
+    details: details);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

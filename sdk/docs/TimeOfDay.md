@@ -10,5 +10,20 @@ Name | Type | Description | Notes
 **Hours** | **int** | Hours | 
 **Minutes** | **int** | Minutes | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
+```
+ [CutLabelReference](./CutLabelReference.md)See all compatible oneOf types with TimeOfDay
 
+# Example with TimeOfDay
+{
+     Type  =  "CutLabelReference"
+};
+//Create TimeOfDay Instance
+var timeOfDayInstance = new timeOfDay(cutLabelReferenceInstance)
+
+
+ * [SpecifiedTime](./SpecifiedTime.md)
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

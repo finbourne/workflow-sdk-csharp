@@ -37,7 +37,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// Initializes a new instance of the <see cref="ActionLogOrigin" /> class.
         /// </summary>
         /// <param name="taskId">The Id of the Task that created this Action.</param>
-        /// <param name="requestId">The request Id of the request that caused this Action to be triggered.  This could be the original request that caused a sequence of Actions that resulted in this Action (required).</param>
+        /// <param name="requestId">The request Id of the request that caused this Action to be triggered. This could be the original request that caused a sequence of Actions that resulted in this Action (required).</param>
         public ActionLogOrigin(Guid? taskId = default(Guid?), string requestId = default(string))
         {
             // to ensure "requestId" is required (not null)
@@ -57,9 +57,9 @@ namespace Finbourne.Workflow.Sdk.Model
         public Guid? TaskId { get; set; }
 
         /// <summary>
-        /// The request Id of the request that caused this Action to be triggered.  This could be the original request that caused a sequence of Actions that resulted in this Action
+        /// The request Id of the request that caused this Action to be triggered. This could be the original request that caused a sequence of Actions that resulted in this Action
         /// </summary>
-        /// <value>The request Id of the request that caused this Action to be triggered.  This could be the original request that caused a sequence of Actions that resulted in this Action</value>
+        /// <value>The request Id of the request that caused this Action to be triggered. This could be the original request that caused a sequence of Actions that resulted in this Action</value>
         [DataMember(Name = "requestId", IsRequired = true, EmitDefaultValue = true)]
         public string RequestId { get; set; }
 

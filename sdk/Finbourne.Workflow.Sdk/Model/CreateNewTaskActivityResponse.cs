@@ -56,7 +56,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="initialTrigger">Trigger to supply to all tasks to be made.</param>
         /// <param name="correlationIds">The event to correlation ID mappings.</param>
         /// <param name="taskFields">The event to task field mappings.</param>
-        /// <param name="scheduleDependentTaskFields">The Schedule dependent task field mappings. Only relevant if a Finbourne.Workflow.WebApi.Common.Dto.Json.EventHandlers.ScheduleMatchingPattern is  specified.</param>
+        /// <param name="scheduleDependentTaskFields">The Schedule dependent task field mappings. Only relevant if a Finbourne.Workflow.WebApi.Common.Dto.Json.EventHandlers.ScheduleMatchingPattern is specified.</param>
         public CreateNewTaskActivityResponse(TypeEnum ?type = default(TypeEnum?), string initialTrigger = default(string), List<EventHandlerMapping> correlationIds = default(List<EventHandlerMapping>), Dictionary<string, FieldMapping> taskFields = default(Dictionary<string, FieldMapping>), Dictionary<string, ScheduledTimeAdjustment> scheduleDependentTaskFields = default(Dictionary<string, ScheduledTimeAdjustment>))
         {
             this.Type = type;
@@ -88,9 +88,9 @@ namespace Finbourne.Workflow.Sdk.Model
         public Dictionary<string, FieldMapping> TaskFields { get; set; }
 
         /// <summary>
-        /// The Schedule dependent task field mappings. Only relevant if a Finbourne.Workflow.WebApi.Common.Dto.Json.EventHandlers.ScheduleMatchingPattern is  specified
+        /// The Schedule dependent task field mappings. Only relevant if a Finbourne.Workflow.WebApi.Common.Dto.Json.EventHandlers.ScheduleMatchingPattern is specified
         /// </summary>
-        /// <value>The Schedule dependent task field mappings. Only relevant if a Finbourne.Workflow.WebApi.Common.Dto.Json.EventHandlers.ScheduleMatchingPattern is  specified</value>
+        /// <value>The Schedule dependent task field mappings. Only relevant if a Finbourne.Workflow.WebApi.Common.Dto.Json.EventHandlers.ScheduleMatchingPattern is specified</value>
         [DataMember(Name = "scheduleDependentTaskFields", EmitDefaultValue = true)]
         public Dictionary<string, ScheduledTimeAdjustment> ScheduleDependentTaskFields { get; set; }
 

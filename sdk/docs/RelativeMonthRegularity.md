@@ -10,5 +10,19 @@ Name | Type | Description | Notes
 **Index** | **string** | Relative index in the month | 
 **Type** | **string** | The type of Date Regularity | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+List<string> daysOfWeek = new List<string>();
+string index = "index";
+string type = "type";
+
+RelativeMonthRegularity relativeMonthRegularityInstance = new RelativeMonthRegularity(
+    frequency: frequency,
+    daysOfWeek: daysOfWeek,
+    index: index,
+    type: type);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

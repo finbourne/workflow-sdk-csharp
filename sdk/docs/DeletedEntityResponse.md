@@ -9,5 +9,18 @@ Name | Type | Description | Notes
 **AsAt** | **DateTimeOffset** | The AsAt for this response | 
 **Links** | [**List&lt;Link&gt;**](Link.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+string href = "example href";
+List<Link> links = new List<Link>();
+
+DeletedEntityResponse deletedEntityResponseInstance = new DeletedEntityResponse(
+    href: href,
+    effectiveFrom: effectiveFrom,
+    asAt: asAt,
+    links: links);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -39,7 +39,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="id">Unique identifier of the Action (required).</param>
         /// <param name="origin">origin (required).</param>
         /// <param name="actionType">The type of the Action (required).</param>
-        /// <param name="runAsUserId">The ID of the user that the Action was performed by.  If not specified, the actions were performed by the \&quot;current user\&quot;..</param>
+        /// <param name="runAsUserId">The ID of the user that the Action was performed by. If not specified, the actions were performed by the \&quot;current user\&quot;..</param>
         /// <param name="loggedItems">The logged items for this Action (required).</param>
         public ActionLog(Guid id = default(Guid), ActionLogOrigin origin = default(ActionLogOrigin), string actionType = default(string), string runAsUserId = default(string), List<ActionLogItem> loggedItems = default(List<ActionLogItem>))
         {
@@ -86,9 +86,9 @@ namespace Finbourne.Workflow.Sdk.Model
         public string ActionType { get; set; }
 
         /// <summary>
-        /// The ID of the user that the Action was performed by.  If not specified, the actions were performed by the \&quot;current user\&quot;.
+        /// The ID of the user that the Action was performed by. If not specified, the actions were performed by the \&quot;current user\&quot;.
         /// </summary>
-        /// <value>The ID of the user that the Action was performed by.  If not specified, the actions were performed by the \&quot;current user\&quot;.</value>
+        /// <value>The ID of the user that the Action was performed by. If not specified, the actions were performed by the \&quot;current user\&quot;.</value>
         [DataMember(Name = "runAsUserId", EmitDefaultValue = true)]
         public string RunAsUserId { get; set; }
 

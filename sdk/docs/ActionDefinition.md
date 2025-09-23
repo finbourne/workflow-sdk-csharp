@@ -11,5 +11,22 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | The display name of this Action | [optional] 
 **Description** | **string** | The description of this Action | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+string name = "name";
+string runAsUserId = "example runAsUserId";
+ActionDetails actionDetails = new ActionDetails();
+string displayName = "example displayName";
+string description = "example description";
+
+ActionDefinition actionDefinitionInstance = new ActionDefinition(
+    name: name,
+    runAsUserId: runAsUserId,
+    actionDetails: actionDetails,
+    displayName: displayName,
+    description: description);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

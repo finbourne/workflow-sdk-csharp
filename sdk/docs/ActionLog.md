@@ -8,8 +8,25 @@ Name | Type | Description | Notes
 **Id** | **Guid** | Unique identifier of the Action | 
 **Origin** | [**ActionLogOrigin**](ActionLogOrigin.md) |  | 
 **ActionType** | **string** | The type of the Action | 
-**RunAsUserId** | **string** | The ID of the user that the Action was performed by.  If not specified, the actions were performed by the \&quot;current user\&quot;. | [optional] 
+**RunAsUserId** | **string** | The ID of the user that the Action was performed by. If not specified, the actions were performed by the \&quot;current user\&quot;. | [optional] 
 **LoggedItems** | [**List&lt;ActionLogItem&gt;**](ActionLogItem.md) | The logged items for this Action | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+Guid id = "id";
+ActionLogOrigin origin = new ActionLogOrigin();
+string actionType = "actionType";
+string runAsUserId = "example runAsUserId";
+List<ActionLogItem> loggedItems = new List<ActionLogItem>();
+
+ActionLog actionLogInstance = new ActionLog(
+    id: id,
+    origin: origin,
+    actionType: actionType,
+    runAsUserId: runAsUserId,
+    loggedItems: loggedItems);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

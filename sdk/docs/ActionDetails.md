@@ -14,5 +14,21 @@ Name | Type | Description | Notes
 **WorkerTimeout** | **int?** | Worker WorkerTimeout in seconds | [optional] 
 **Trigger** | **string** | Trigger on parent task to be invoked | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
+```
+ [CreateChildTasksAction](./CreateChildTasksAction.md)See all compatible oneOf types with ActionDetails
 
+# Example with ActionDetails
+{
+     Type  =  "CreateChildTasksAction"
+};
+//Create ActionDetails Instance
+var actionDetailsInstance = new actionDetails(createChildTasksActionInstance)
+
+
+ * [RunWorkerAction](./RunWorkerAction.md)
+ * [TriggerParentTaskAction](./TriggerParentTaskAction.md)
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

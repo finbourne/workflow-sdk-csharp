@@ -12,5 +12,24 @@ Name | Type | Description | Notes
 **Required** | **bool** | Required or not | 
 **DefaultValue** | **string** | DefaultValue | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+string type = "type";
+string name = "name";
+string displayName = "example displayName";
+string description = "example description";
+bool required = //"True";
+string defaultValue = "example defaultValue";
+
+Parameter varParameterInstance = new Parameter(
+    type: type,
+    name: name,
+    displayName: displayName,
+    description: description,
+    required: required,
+    defaultValue: defaultValue);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

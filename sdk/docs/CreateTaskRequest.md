@@ -10,5 +10,20 @@ Name | Type | Description | Notes
 **Fields** | [**List&lt;TaskInstanceField&gt;**](TaskInstanceField.md) | Fields and their initial values - should correspond with the Task Definition field schema | [optional] 
 **StackingKey** | **string** | The key for the Stack that this Task should be added to | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+ResourceId taskDefinitionId = new ResourceId();
+List<string> correlationIds = new List<string>();
+List<TaskInstanceField> fields = new List<TaskInstanceField>();
+string stackingKey = "example stackingKey";
+
+CreateTaskRequest createTaskRequestInstance = new CreateTaskRequest(
+    taskDefinitionId: taskDefinitionId,
+    correlationIds: correlationIds,
+    fields: fields,
+    stackingKey: stackingKey);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

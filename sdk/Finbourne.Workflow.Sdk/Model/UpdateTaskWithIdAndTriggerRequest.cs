@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Workflow.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Workflow.Sdk.Model
 {
     /// <summary>
-    /// A request to update multiple Tasks  Includes a trigger which is supplied from route in single update request
+    /// A request to update multiple Tasks Includes a trigger which is supplied from route in single update request
     /// </summary>
     [DataContract(Name = "UpdateTaskWithIdAndTriggerRequest")]
     public partial class UpdateTaskWithIdAndTriggerRequest : IEquatable<UpdateTaskWithIdAndTriggerRequest>, IValidatableObject

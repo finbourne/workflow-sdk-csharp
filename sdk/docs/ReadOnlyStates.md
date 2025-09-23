@@ -8,5 +8,16 @@ Name | Type | Description | Notes
 **StateType** | **string** | The State Type (e.g. InitialState, AllStates, TerminalState, SelectedStates) | 
 **SelectedStates** | **List&lt;string&gt;** | Named states for which the field will be readonly - This field can only be populated if StateType &#x3D; SelectedStates | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+string stateType = "stateType";
+List<string> selectedStates = new List<string>();
+
+ReadOnlyStates readOnlyStatesInstance = new ReadOnlyStates(
+    stateType: stateType,
+    selectedStates: selectedStates);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

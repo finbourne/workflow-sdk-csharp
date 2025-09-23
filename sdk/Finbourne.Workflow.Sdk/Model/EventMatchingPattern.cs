@@ -36,8 +36,8 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EventMatchingPattern" /> class.
         /// </summary>
-        /// <param name="eventType">The type of event to subscribe to. The list of available event types can be discovered  by calling the ‘List available EventTypes’ API endpoint in the Notifications service (required).</param>
-        /// <param name="filter">A filter on the event. See https://support.lusid.com/filtering-results-from-lusid for more information.  If not provided, all events will be matched..</param>
+        /// <param name="eventType">The type of event to subscribe to. The list of available event types can be discovered by calling the ‘List available EventTypes’ API endpoint in the Notifications service (required).</param>
+        /// <param name="filter">A filter on the event. See https://support.lusid.com/filtering-results-from-lusid for more information. If not provided, all events will be matched..</param>
         public EventMatchingPattern(string eventType = default(string), string filter = default(string))
         {
             // to ensure "eventType" is required (not null)
@@ -50,16 +50,16 @@ namespace Finbourne.Workflow.Sdk.Model
         }
 
         /// <summary>
-        /// The type of event to subscribe to. The list of available event types can be discovered  by calling the ‘List available EventTypes’ API endpoint in the Notifications service
+        /// The type of event to subscribe to. The list of available event types can be discovered by calling the ‘List available EventTypes’ API endpoint in the Notifications service
         /// </summary>
-        /// <value>The type of event to subscribe to. The list of available event types can be discovered  by calling the ‘List available EventTypes’ API endpoint in the Notifications service</value>
+        /// <value>The type of event to subscribe to. The list of available event types can be discovered by calling the ‘List available EventTypes’ API endpoint in the Notifications service</value>
         [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = true)]
         public string EventType { get; set; }
 
         /// <summary>
-        /// A filter on the event. See https://support.lusid.com/filtering-results-from-lusid for more information.  If not provided, all events will be matched.
+        /// A filter on the event. See https://support.lusid.com/filtering-results-from-lusid for more information. If not provided, all events will be matched.
         /// </summary>
-        /// <value>A filter on the event. See https://support.lusid.com/filtering-results-from-lusid for more information.  If not provided, all events will be matched.</value>
+        /// <value>A filter on the event. See https://support.lusid.com/filtering-results-from-lusid for more information. If not provided, all events will be matched.</value>
         [DataMember(Name = "filter", EmitDefaultValue = true)]
         public string Filter { get; set; }
 

@@ -15,5 +15,30 @@ Name | Type | Description | Notes
 **GuardDescription** | **string** | Guard description for transition | [optional] 
 **GuardConditionNotMetMessage** | **string** | Message when guard has not been met | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+string fromState = "fromState";
+string toState = "toState";
+string trigger = "trigger";
+string guard = "example guard";
+string action = "example action";
+string displayName = "example displayName";
+string description = "example description";
+string guardDescription = "example guardDescription";
+string guardConditionNotMetMessage = "example guardConditionNotMetMessage";
+
+TaskTransitionDefinition taskTransitionDefinitionInstance = new TaskTransitionDefinition(
+    fromState: fromState,
+    toState: toState,
+    trigger: trigger,
+    guard: guard,
+    action: action,
+    displayName: displayName,
+    description: description,
+    guardDescription: guardDescription,
+    guardConditionNotMetMessage: guardConditionNotMetMessage);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

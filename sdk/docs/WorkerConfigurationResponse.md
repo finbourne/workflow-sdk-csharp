@@ -10,5 +10,25 @@ Name | Type | Description | Notes
 **Name** | **string** | Name of the view in Luminesce | [optional] 
 **JobId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
+```
+ [FailResponse](./FailResponse.md)See all compatible oneOf types with WorkerConfigurationResponse
 
+# Example with WorkerConfigurationResponse
+{
+     Type  =  "FailResponse"
+};
+//Create WorkerConfigurationResponse Instance
+var workerConfigurationResponseInstance = new workerConfigurationResponse(failResponseInstance)
+
+
+ * [GroupReconciliationResponse](./GroupReconciliationResponse.md)
+ * [HealthCheckResponse](./HealthCheckResponse.md)
+ * [LibraryResponse](./LibraryResponse.md)
+ * [LuminesceViewResponse](./LuminesceViewResponse.md)
+ * [SchedulerJobResponse](./SchedulerJobResponse.md)
+ * [SleepResponse](./SleepResponse.md)
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

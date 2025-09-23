@@ -13,5 +13,26 @@ Name | Type | Description | Notes
 **ChildTaskConfigurations** | [**List&lt;ResultantChildTaskConfiguration&gt;**](ResultantChildTaskConfiguration.md) | Tasks can be generated from run worker results; this is the configuration | [optional] 
 **WorkerTimeout** | **int?** | Worker timeout in seconds | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+string type = "example type";
+ResourceId? workerId = new ResourceId();
+
+Dictionary<string, FieldMapping> workerParameters = new Dictionary<string, FieldMapping>();
+WorkerStatusTriggers? workerStatusTriggers = new WorkerStatusTriggers();
+
+List<ResultantChildTaskConfiguration> childTaskConfigurations = new List<ResultantChildTaskConfiguration>();
+
+RunWorkerActionResponse runWorkerActionResponseInstance = new RunWorkerActionResponse(
+    type: type,
+    workerId: workerId,
+    workerAsAt: workerAsAt,
+    workerParameters: workerParameters,
+    workerStatusTriggers: workerStatusTriggers,
+    childTaskConfigurations: childTaskConfigurations,
+    workerTimeout: workerTimeout);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

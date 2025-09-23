@@ -13,5 +13,23 @@ Name | Type | Description | Notes
 **RequestIdModified** | **string** | The request id of the request that last updated this entity. | [optional] 
 **AsAtVersionNumber** | **int?** | The integer version number for this entity (the entity was created at version 1). | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+string userIdCreated = "example userIdCreated";
+string requestIdCreated = "example requestIdCreated";
+string userIdModified = "example userIdModified";
+string requestIdModified = "example requestIdModified";
+
+VersionInfo versionInfoInstance = new VersionInfo(
+    asAtCreated: asAtCreated,
+    userIdCreated: userIdCreated,
+    requestIdCreated: requestIdCreated,
+    asAtModified: asAtModified,
+    userIdModified: userIdModified,
+    requestIdModified: requestIdModified,
+    asAtVersionNumber: asAtVersionNumber);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -8,5 +8,15 @@ Name | Type | Description | Notes
 **Frequency** | **int** | The frequency of the Day Regularity | 
 **Type** | **string** | The type of Date Regularity | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+string type = "type";
+
+DayRegularity dayRegularityInstance = new DayRegularity(
+    frequency: frequency,
+    type: type);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

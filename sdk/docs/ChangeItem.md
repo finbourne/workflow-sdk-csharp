@@ -14,5 +14,24 @@ Name | Type | Description | Notes
 **PreviousValue** | **Object** | The value of the attribute prior to the change | [optional] 
 **NewValue** | **Object** | The value of the attribute following the change | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+string userIdModified = "userIdModified";
+string requestIdModified = "requestIdModified";
+string action = "action";
+string attributeName = "attributeName";
+
+ChangeItem changeItemInstance = new ChangeItem(
+    asAtModified: asAtModified,
+    userIdModified: userIdModified,
+    requestIdModified: requestIdModified,
+    asAtVersionNumber: asAtVersionNumber,
+    action: action,
+    attributeName: attributeName,
+    previousValue: previousValue,
+    newValue: newValue);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

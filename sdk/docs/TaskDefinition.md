@@ -16,5 +16,33 @@ Name | Type | Description | Notes
 **Actions** | [**List&lt;ActionDefinitionResponse&gt;**](ActionDefinitionResponse.md) | The Actions of this Task - executed after a Transition completion | [optional] 
 **Transitions** | [**List&lt;TaskTransitionDefinition&gt;**](TaskTransitionDefinition.md) | The Transitions between States | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+ResourceId id = new ResourceId();
+VersionInfo? varVersion = new VersionInfo();
+
+string displayName = "displayName";
+string description = "example description";
+List<TaskStateDefinition> states = new List<TaskStateDefinition>();
+List<TaskFieldDefinition> fieldSchema = new List<TaskFieldDefinition>();
+InitialState initialState = new InitialState();
+List<TransitionTriggerDefinition> triggers = new List<TransitionTriggerDefinition>();
+List<ActionDefinitionResponse> actions = new List<ActionDefinitionResponse>();
+List<TaskTransitionDefinition> transitions = new List<TaskTransitionDefinition>();
+
+TaskDefinition taskDefinitionInstance = new TaskDefinition(
+    id: id,
+    varVersion: varVersion,
+    displayName: displayName,
+    description: description,
+    states: states,
+    fieldSchema: fieldSchema,
+    initialState: initialState,
+    triggers: triggers,
+    actions: actions,
+    transitions: transitions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

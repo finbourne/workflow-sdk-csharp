@@ -14,5 +14,24 @@ Name | Type | Description | Notes
 **LeadTaskState** | **string** | State of the Lead Task | [optional] 
 **TasksInStack** | **int** | Number of Tasks in the Stack | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Workflow.Sdk.Model;
+using System;
 
+string stackMembershipType = "example stackMembershipType";
+string stackStatus = "example stackStatus";
+Guid leadTaskId = "example leadTaskId";
+string leadTaskState = "example leadTaskState";
+
+Stack stackInstance = new Stack(
+    memberAddedAsAt: memberAddedAsAt,
+    stackOpenedAsAt: stackOpenedAsAt,
+    stackClosedAsAt: stackClosedAsAt,
+    stackMembershipType: stackMembershipType,
+    stackStatus: stackStatus,
+    leadTaskId: leadTaskId,
+    leadTaskState: leadTaskState,
+    tasksInStack: tasksInStack);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
