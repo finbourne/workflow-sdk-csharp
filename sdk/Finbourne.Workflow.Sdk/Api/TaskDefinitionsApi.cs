@@ -1003,6 +1003,7 @@ namespace Finbourne.Workflow.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
 
@@ -1223,22 +1224,27 @@ namespace Finbourne.Workflow.Sdk.Api
 
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
             if (filter != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
             if (sortBy != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
             if (limit != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
             if (page != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
 
@@ -1475,6 +1481,7 @@ namespace Finbourne.Workflow.Sdk.Api
             localVarRequestOptions.PathParameters.Add("code", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
             if (asAt != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
             }
 
