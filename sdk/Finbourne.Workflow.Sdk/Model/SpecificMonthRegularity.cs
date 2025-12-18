@@ -29,6 +29,27 @@ namespace Finbourne.Workflow.Sdk.Model
     public partial class SpecificMonthRegularity : IEquatable<SpecificMonthRegularity>, IValidatableObject
     {
         /// <summary>
+        /// The type of Date Regularity
+        /// </summary>
+        /// <value>The type of Date Regularity</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum SpecificMonth for value: SpecificMonth
+            /// </summary>
+            [EnumMember(Value = "SpecificMonth")]
+            SpecificMonth = 1
+        }
+
+
+        /// <summary>
+        /// The type of Date Regularity
+        /// </summary>
+        /// <value>The type of Date Regularity</value>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public TypeEnum Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="SpecificMonthRegularity" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -39,7 +60,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="frequency">The frequency of the Specific Month Regularity (required).</param>
         /// <param name="daysOfMonth">Days of the month (required).</param>
         /// <param name="type">The type of Date Regularity (required).</param>
-        public SpecificMonthRegularity(int frequency = default(int), List<int> daysOfMonth = default(List<int>), string type = default(string))
+        public SpecificMonthRegularity(int frequency = default(int), List<int> daysOfMonth = default(List<int>), TypeEnum type = default(TypeEnum))
         {
             this.Frequency = frequency;
             // to ensure "daysOfMonth" is required (not null)
@@ -48,11 +69,6 @@ namespace Finbourne.Workflow.Sdk.Model
                 throw new ArgumentNullException("daysOfMonth is a required property for SpecificMonthRegularity and cannot be null");
             }
             this.DaysOfMonth = daysOfMonth;
-            // to ensure "type" is required (not null)
-            if (type == null)
-            {
-                throw new ArgumentNullException("type is a required property for SpecificMonthRegularity and cannot be null");
-            }
             this.Type = type;
         }
 
@@ -69,13 +85,6 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <value>Days of the month</value>
         [DataMember(Name = "daysOfMonth", IsRequired = true, EmitDefaultValue = true)]
         public List<int> DaysOfMonth { get; set; }
-
-        /// <summary>
-        /// The type of Date Regularity
-        /// </summary>
-        /// <value>The type of Date Regularity</value>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,8 +144,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 );
         }
 
@@ -154,10 +162,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DaysOfMonth.GetHashCode();
                 }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 return hashCode;
             }
         }
@@ -179,12 +184,6 @@ namespace Finbourne.Workflow.Sdk.Model
             if (this.Frequency < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Frequency, must be a value greater than or equal to 1.", new [] { "Frequency" });
-            }
-
-            // Type (string) minLength
-            if (this.Type != null && this.Type.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }
 
             yield break;

@@ -29,6 +29,27 @@ namespace Finbourne.Workflow.Sdk.Model
     public partial class CutLabelReference : IEquatable<CutLabelReference>, IValidatableObject
     {
         /// <summary>
+        /// The type of Time of Day
+        /// </summary>
+        /// <value>The type of Time of Day</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum CutLabel for value: CutLabel
+            /// </summary>
+            [EnumMember(Value = "CutLabel")]
+            CutLabel = 1
+        }
+
+
+        /// <summary>
+        /// The type of Time of Day
+        /// </summary>
+        /// <value>The type of Time of Day</value>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public TypeEnum Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="CutLabelReference" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -38,7 +59,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// </summary>
         /// <param name="code">Code of the Cut Label (required).</param>
         /// <param name="type">The type of Time of Day (required).</param>
-        public CutLabelReference(string code = default(string), string type = default(string))
+        public CutLabelReference(string code = default(string), TypeEnum type = default(TypeEnum))
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -46,11 +67,6 @@ namespace Finbourne.Workflow.Sdk.Model
                 throw new ArgumentNullException("code is a required property for CutLabelReference and cannot be null");
             }
             this.Code = code;
-            // to ensure "type" is required (not null)
-            if (type == null)
-            {
-                throw new ArgumentNullException("type is a required property for CutLabelReference and cannot be null");
-            }
             this.Type = type;
         }
 
@@ -60,13 +76,6 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <value>Code of the Cut Label</value>
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
-
-        /// <summary>
-        /// The type of Time of Day
-        /// </summary>
-        /// <value>The type of Time of Day</value>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -120,8 +129,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 );
         }
 
@@ -138,10 +146,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Code.GetHashCode();
                 }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 return hashCode;
             }
         }
@@ -170,12 +175,6 @@ namespace Finbourne.Workflow.Sdk.Model
             if (false == regexCode.Match(this.Code).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
-            }
-
-            // Type (string) minLength
-            if (this.Type != null && this.Type.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }
 
             yield break;

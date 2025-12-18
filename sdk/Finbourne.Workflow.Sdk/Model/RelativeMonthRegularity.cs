@@ -29,6 +29,27 @@ namespace Finbourne.Workflow.Sdk.Model
     public partial class RelativeMonthRegularity : IEquatable<RelativeMonthRegularity>, IValidatableObject
     {
         /// <summary>
+        /// The type of Date Regularity
+        /// </summary>
+        /// <value>The type of Date Regularity</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum RelativeMonth for value: RelativeMonth
+            /// </summary>
+            [EnumMember(Value = "RelativeMonth")]
+            RelativeMonth = 1
+        }
+
+
+        /// <summary>
+        /// The type of Date Regularity
+        /// </summary>
+        /// <value>The type of Date Regularity</value>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public TypeEnum Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="RelativeMonthRegularity" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -40,7 +61,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="daysOfWeek">Days of the week (required).</param>
         /// <param name="index">Relative index in the month (required).</param>
         /// <param name="type">The type of Date Regularity (required).</param>
-        public RelativeMonthRegularity(int frequency = default(int), List<string> daysOfWeek = default(List<string>), string index = default(string), string type = default(string))
+        public RelativeMonthRegularity(int frequency = default(int), List<string> daysOfWeek = default(List<string>), string index = default(string), TypeEnum type = default(TypeEnum))
         {
             this.Frequency = frequency;
             // to ensure "daysOfWeek" is required (not null)
@@ -55,11 +76,6 @@ namespace Finbourne.Workflow.Sdk.Model
                 throw new ArgumentNullException("index is a required property for RelativeMonthRegularity and cannot be null");
             }
             this.Index = index;
-            // to ensure "type" is required (not null)
-            if (type == null)
-            {
-                throw new ArgumentNullException("type is a required property for RelativeMonthRegularity and cannot be null");
-            }
             this.Type = type;
         }
 
@@ -83,13 +99,6 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <value>Relative index in the month</value>
         [DataMember(Name = "index", IsRequired = true, EmitDefaultValue = true)]
         public string Index { get; set; }
-
-        /// <summary>
-        /// The type of Date Regularity
-        /// </summary>
-        /// <value>The type of Date Regularity</value>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -155,8 +164,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 );
         }
 
@@ -178,10 +186,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Index.GetHashCode();
                 }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 return hashCode;
             }
         }
@@ -209,12 +214,6 @@ namespace Finbourne.Workflow.Sdk.Model
             if (this.Index != null && this.Index.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Index, length must be greater than 1.", new [] { "Index" });
-            }
-
-            // Type (string) minLength
-            if (this.Type != null && this.Type.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }
 
             yield break;
