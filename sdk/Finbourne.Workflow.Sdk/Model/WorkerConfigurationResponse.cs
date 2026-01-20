@@ -92,6 +92,18 @@ namespace Finbourne.Workflow.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkerConfigurationResponse" /> class
+        /// with the <see cref="LusidEntityDataQualityCheckResponse" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of LusidEntityDataQualityCheckResponse.</param>
+        public WorkerConfigurationResponse(LusidEntityDataQualityCheckResponse actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkerConfigurationResponse" /> class
         /// with the <see cref="SchedulerJobResponse" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of SchedulerJobResponse.</param>
@@ -148,6 +160,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(LusidEntityDataQualityCheckResponse) || value is LusidEntityDataQualityCheckResponse)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(SchedulerJobResponse) || value is SchedulerJobResponse)
                 {
                     this._actualInstance = value;
@@ -158,7 +174,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: FailResponse, GroupReconciliationResponse, HealthCheckResponse, LibraryResponse, LuminesceViewResponse, SchedulerJobResponse, SleepResponse");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: FailResponse, GroupReconciliationResponse, HealthCheckResponse, LibraryResponse, LuminesceViewResponse, LusidEntityDataQualityCheckResponse, SchedulerJobResponse, SleepResponse");
                 }
             }
         }
@@ -211,6 +227,16 @@ namespace Finbourne.Workflow.Sdk.Model
         public LuminesceViewResponse GetLuminesceViewResponse()
         {
             return (LuminesceViewResponse)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `LusidEntityDataQualityCheckResponse`. If the actual instance is not `LusidEntityDataQualityCheckResponse`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of LusidEntityDataQualityCheckResponse</returns>
+        public LusidEntityDataQualityCheckResponse GetLusidEntityDataQualityCheckResponse()
+        {
+            return (LusidEntityDataQualityCheckResponse)this.ActualInstance;
         }
 
         /// <summary>
@@ -369,6 +395,26 @@ namespace Finbourne.Workflow.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into LuminesceViewResponse: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(LusidEntityDataQualityCheckResponse).GetProperty("AdditionalProperties") == null)
+                {
+                    newWorkerConfigurationResponse = new WorkerConfigurationResponse(JsonConvert.DeserializeObject<LusidEntityDataQualityCheckResponse>(jsonString, WorkerConfigurationResponse.SerializerSettings));
+                }
+                else
+                {
+                    newWorkerConfigurationResponse = new WorkerConfigurationResponse(JsonConvert.DeserializeObject<LusidEntityDataQualityCheckResponse>(jsonString, WorkerConfigurationResponse.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("LusidEntityDataQualityCheckResponse");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into LusidEntityDataQualityCheckResponse: {1}", jsonString, exception.ToString()));
             }
 
             try

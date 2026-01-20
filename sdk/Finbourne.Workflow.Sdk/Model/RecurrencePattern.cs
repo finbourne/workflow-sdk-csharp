@@ -38,7 +38,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// </summary>
         /// <param name="timeConstraints">timeConstraints (required).</param>
         /// <param name="dateRegularity">dateRegularity (required).</param>
-        /// <param name="businessDayAdjustment">The Business Day Adjustment (required).</param>
+        /// <param name="businessDayAdjustment">The Business Day Adjustment. One of None, Previous, Following, ModifiedPrevious, ModifiedFollowing, HalfMonthModifiedFollowing, Nearest (required).</param>
         public RecurrencePattern(TimeConstraints timeConstraints = default(TimeConstraints), DateRegularity dateRegularity = default(DateRegularity), string businessDayAdjustment = default(string))
         {
             // to ensure "timeConstraints" is required (not null)
@@ -74,9 +74,9 @@ namespace Finbourne.Workflow.Sdk.Model
         public DateRegularity DateRegularity { get; set; }
 
         /// <summary>
-        /// The Business Day Adjustment
+        /// The Business Day Adjustment. One of None, Previous, Following, ModifiedPrevious, ModifiedFollowing, HalfMonthModifiedFollowing, Nearest
         /// </summary>
-        /// <value>The Business Day Adjustment</value>
+        /// <value>The Business Day Adjustment. One of None, Previous, Following, ModifiedPrevious, ModifiedFollowing, HalfMonthModifiedFollowing, Nearest</value>
         [DataMember(Name = "businessDayAdjustment", IsRequired = true, EmitDefaultValue = true)]
         public string BusinessDayAdjustment { get; set; }
 

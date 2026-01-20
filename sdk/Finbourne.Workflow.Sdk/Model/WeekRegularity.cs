@@ -57,8 +57,8 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WeekRegularity" /> class.
         /// </summary>
-        /// <param name="frequency">The frequency of the Week Regularity (required).</param>
-        /// <param name="daysOfWeek">Days of the week (required).</param>
+        /// <param name="frequency">The frequency of the Week Regularity. For example, a value of 2 indicates every 2 weeks (required).</param>
+        /// <param name="daysOfWeek">Days of the week. One or more of - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday (required).</param>
         /// <param name="type">The type of Date Regularity (required).</param>
         public WeekRegularity(int frequency = default(int), List<string> daysOfWeek = default(List<string>), TypeEnum type = default(TypeEnum))
         {
@@ -73,16 +73,16 @@ namespace Finbourne.Workflow.Sdk.Model
         }
 
         /// <summary>
-        /// The frequency of the Week Regularity
+        /// The frequency of the Week Regularity. For example, a value of 2 indicates every 2 weeks
         /// </summary>
-        /// <value>The frequency of the Week Regularity</value>
+        /// <value>The frequency of the Week Regularity. For example, a value of 2 indicates every 2 weeks</value>
         [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = true)]
         public int Frequency { get; set; }
 
         /// <summary>
-        /// Days of the week
+        /// Days of the week. One or more of - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
         /// </summary>
-        /// <value>Days of the week</value>
+        /// <value>Days of the week. One or more of - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</value>
         [DataMember(Name = "daysOfWeek", IsRequired = true, EmitDefaultValue = true)]
         public List<string> DaysOfWeek { get; set; }
 

@@ -23,54 +23,40 @@ using OpenAPIDateConverter = Finbourne.Workflow.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Workflow.Sdk.Model
 {
     /// <summary>
-    /// Day Regularity
+    /// Readonly configuration for the Lusid Entity Data Quality Check Worker
     /// </summary>
-    [DataContract(Name = "DayRegularity")]
-    public partial class DayRegularity : IEquatable<DayRegularity>, IValidatableObject
+    [DataContract(Name = "LusidEntityDataQualityCheckResponse")]
+    public partial class LusidEntityDataQualityCheckResponse : IEquatable<LusidEntityDataQualityCheckResponse>, IValidatableObject
     {
         /// <summary>
-        /// The type of Date Regularity
+        /// The type of worker
         /// </summary>
-        /// <value>The type of Date Regularity</value>
+        /// <value>The type of worker</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
             /// <summary>
-            /// Enum Day for value: Day
+            /// Enum LusidEntityDataQualityCheck for value: LusidEntityDataQualityCheck
             /// </summary>
-            [EnumMember(Value = "Day")]
-            Day = 1
+            [EnumMember(Value = "LusidEntityDataQualityCheck")]
+            LusidEntityDataQualityCheck = 1
         }
 
 
         /// <summary>
-        /// The type of Date Regularity
+        /// The type of worker
         /// </summary>
-        /// <value>The type of Date Regularity</value>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public TypeEnum Type { get; set; }
+        /// <value>The type of worker</value>
+        [DataMember(Name = "type", EmitDefaultValue = true)]
+        public TypeEnum? Type { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="DayRegularity" /> class.
+        /// Initializes a new instance of the <see cref="LusidEntityDataQualityCheckResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected DayRegularity() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DayRegularity" /> class.
-        /// </summary>
-        /// <param name="frequency">The frequency of the Day Regularity. For example, a value of 2 indicates every 2 days (required).</param>
-        /// <param name="type">The type of Date Regularity (required).</param>
-        public DayRegularity(int frequency = default(int), TypeEnum type = default(TypeEnum))
+        /// <param name="type">The type of worker.</param>
+        public LusidEntityDataQualityCheckResponse(TypeEnum ?type = default(TypeEnum?))
         {
-            this.Frequency = frequency;
             this.Type = type;
         }
-
-        /// <summary>
-        /// The frequency of the Day Regularity. For example, a value of 2 indicates every 2 days
-        /// </summary>
-        /// <value>The frequency of the Day Regularity. For example, a value of 2 indicates every 2 days</value>
-        [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = true)]
-        public int Frequency { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,8 +65,7 @@ namespace Finbourne.Workflow.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class DayRegularity {\n");
-            sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            sb.Append("class LusidEntityDataQualityCheckResponse {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -102,25 +87,21 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DayRegularity);
+            return this.Equals(input as LusidEntityDataQualityCheckResponse);
         }
 
         /// <summary>
-        /// Returns true if DayRegularity instances are equal
+        /// Returns true if LusidEntityDataQualityCheckResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of DayRegularity to be compared</param>
+        /// <param name="input">Instance of LusidEntityDataQualityCheckResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DayRegularity input)
+        public bool Equals(LusidEntityDataQualityCheckResponse input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
-                (
-                    this.Frequency == input.Frequency ||
-                    this.Frequency.Equals(input.Frequency)
-                ) && 
                 (
                     this.Type == input.Type ||
                     this.Type.Equals(input.Type)
@@ -136,7 +117,6 @@ namespace Finbourne.Workflow.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Frequency.GetHashCode();
                 hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 return hashCode;
             }
@@ -149,18 +129,6 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Frequency (int) maximum
-            if (this.Frequency > (int)1000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Frequency, must be a value less than or equal to 1000.", new [] { "Frequency" });
-            }
-
-            // Frequency (int) minimum
-            if (this.Frequency < (int)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Frequency, must be a value greater than or equal to 1.", new [] { "Frequency" });
-            }
-
             yield break;
         }
     }

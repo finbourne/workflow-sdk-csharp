@@ -57,8 +57,8 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SpecificMonthRegularity" /> class.
         /// </summary>
-        /// <param name="frequency">The frequency of the Specific Month Regularity (required).</param>
-        /// <param name="daysOfMonth">Days of the month (required).</param>
+        /// <param name="frequency">The frequency of the Specific Month Regularity. For example, a value of 2 indicates every 2 months (required).</param>
+        /// <param name="daysOfMonth">Days of the month. For example, to specify the 1st and 15th of every month, set DaysOfMonth to [1, 15] (required).</param>
         /// <param name="type">The type of Date Regularity (required).</param>
         public SpecificMonthRegularity(int frequency = default(int), List<int> daysOfMonth = default(List<int>), TypeEnum type = default(TypeEnum))
         {
@@ -73,16 +73,16 @@ namespace Finbourne.Workflow.Sdk.Model
         }
 
         /// <summary>
-        /// The frequency of the Specific Month Regularity
+        /// The frequency of the Specific Month Regularity. For example, a value of 2 indicates every 2 months
         /// </summary>
-        /// <value>The frequency of the Specific Month Regularity</value>
+        /// <value>The frequency of the Specific Month Regularity. For example, a value of 2 indicates every 2 months</value>
         [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = true)]
         public int Frequency { get; set; }
 
         /// <summary>
-        /// Days of the month
+        /// Days of the month. For example, to specify the 1st and 15th of every month, set DaysOfMonth to [1, 15]
         /// </summary>
-        /// <value>Days of the month</value>
+        /// <value>Days of the month. For example, to specify the 1st and 15th of every month, set DaysOfMonth to [1, 15]</value>
         [DataMember(Name = "daysOfMonth", IsRequired = true, EmitDefaultValue = true)]
         public List<int> DaysOfMonth { get; set; }
 

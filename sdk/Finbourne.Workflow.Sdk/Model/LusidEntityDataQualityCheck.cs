@@ -23,59 +23,45 @@ using OpenAPIDateConverter = Finbourne.Workflow.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Workflow.Sdk.Model
 {
     /// <summary>
-    /// A reference to a Cut Label in LUSID. The time zone of the Cut Label will be used
+    /// Configuration for a Worker that calls runs a Lusid entity Data quality check in LUSID
     /// </summary>
-    [DataContract(Name = "CutLabelReference")]
-    public partial class CutLabelReference : IEquatable<CutLabelReference>, IValidatableObject
+    [DataContract(Name = "LusidEntityDataQualityCheck")]
+    public partial class LusidEntityDataQualityCheck : IEquatable<LusidEntityDataQualityCheck>, IValidatableObject
     {
         /// <summary>
-        /// The type of Time of Day
+        /// The type of worker
         /// </summary>
-        /// <value>The type of Time of Day</value>
+        /// <value>The type of worker</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
             /// <summary>
-            /// Enum CutLabel for value: CutLabel
+            /// Enum LusidEntityDataQualityCheck for value: LusidEntityDataQualityCheck
             /// </summary>
-            [EnumMember(Value = "CutLabel")]
-            CutLabel = 1
+            [EnumMember(Value = "LusidEntityDataQualityCheck")]
+            LusidEntityDataQualityCheck = 1
         }
 
 
         /// <summary>
-        /// The type of Time of Day
+        /// The type of worker
         /// </summary>
-        /// <value>The type of Time of Day</value>
+        /// <value>The type of worker</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public TypeEnum Type { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CutLabelReference" /> class.
+        /// Initializes a new instance of the <see cref="LusidEntityDataQualityCheck" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CutLabelReference() { }
+        protected LusidEntityDataQualityCheck() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CutLabelReference" /> class.
+        /// Initializes a new instance of the <see cref="LusidEntityDataQualityCheck" /> class.
         /// </summary>
-        /// <param name="code">Code of the Cut Label (required).</param>
-        /// <param name="type">The type of Time of Day (required).</param>
-        public CutLabelReference(string code = default(string), TypeEnum type = default(TypeEnum))
+        /// <param name="type">The type of worker (required).</param>
+        public LusidEntityDataQualityCheck(TypeEnum type = default(TypeEnum))
         {
-            // to ensure "code" is required (not null)
-            if (code == null)
-            {
-                throw new ArgumentNullException("code is a required property for CutLabelReference and cannot be null");
-            }
-            this.Code = code;
             this.Type = type;
         }
-
-        /// <summary>
-        /// Code of the Cut Label
-        /// </summary>
-        /// <value>Code of the Cut Label</value>
-        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
-        public string Code { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,8 +70,7 @@ namespace Finbourne.Workflow.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CutLabelReference {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("class LusidEntityDataQualityCheck {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -107,26 +92,21 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CutLabelReference);
+            return this.Equals(input as LusidEntityDataQualityCheck);
         }
 
         /// <summary>
-        /// Returns true if CutLabelReference instances are equal
+        /// Returns true if LusidEntityDataQualityCheck instances are equal
         /// </summary>
-        /// <param name="input">Instance of CutLabelReference to be compared</param>
+        /// <param name="input">Instance of LusidEntityDataQualityCheck to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CutLabelReference input)
+        public bool Equals(LusidEntityDataQualityCheck input)
         {
             if (input == null)
             {
                 return false;
             }
             return 
-                (
-                    this.Code == input.Code ||
-                    (this.Code != null &&
-                    this.Code.Equals(input.Code))
-                ) && 
                 (
                     this.Type == input.Type ||
                     this.Type.Equals(input.Type)
@@ -142,10 +122,6 @@ namespace Finbourne.Workflow.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Code != null)
-                {
-                    hashCode = (hashCode * 59) + this.Code.GetHashCode();
-                }
                 hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 return hashCode;
             }
@@ -158,25 +134,6 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Code (string) maxLength
-            if (this.Code != null && this.Code.Length > 64)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be less than 64.", new [] { "Code" });
-            }
-
-            // Code (string) minLength
-            if (this.Code != null && this.Code.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 1.", new [] { "Code" });
-            }
-
-            // Code (string) pattern
-            Regex regexCode = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexCode.Match(this.Code).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, must match a pattern of " + regexCode, new [] { "Code" });
-            }
-
             yield break;
         }
     }

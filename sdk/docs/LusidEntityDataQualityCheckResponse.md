@@ -1,22 +1,19 @@
-# Finbourne.Workflow.Sdk.Model.CutLabelReference
-A reference to a Cut Label in LUSID. The time zone of the Cut Label will be used
+# Finbourne.Workflow.Sdk.Model.LusidEntityDataQualityCheckResponse
+Readonly configuration for the Lusid Entity Data Quality Check Worker
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code** | **string** | Code of the Cut Label | 
-**Type** | **string** | The type of Time of Day | 
+**Type** | **string** | The type of worker | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;
 using System;
 
-string code = "code";
-string type = "type";
+string type = "example type";
 
-CutLabelReference cutLabelReferenceInstance = new CutLabelReference(
-    code: code,
+LusidEntityDataQualityCheckResponse lusidEntityDataQualityCheckResponseInstance = new LusidEntityDataQualityCheckResponse(
     type: type);
 ```
 

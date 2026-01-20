@@ -5,8 +5,8 @@ Week Regularity
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Frequency** | **int** | The frequency of the Week Regularity | 
-**DaysOfWeek** | **List&lt;string&gt;** | Days of the week | 
+**Frequency** | **int** | The frequency of the Week Regularity. For example, a value of 2 indicates every 2 weeks | 
+**DaysOfWeek** | **List&lt;string&gt;** | Days of the week. One or more of - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday | 
 **Type** | **string** | The type of Date Regularity | 
 
 ```csharp

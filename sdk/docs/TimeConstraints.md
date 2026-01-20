@@ -5,8 +5,8 @@ Time constraints for a Recurrence Pattern
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StartDate** | **string** | Start date of the Recurrence Pattern | 
-**EndDate** | **string** | Optional end date of the Recurrence Pattern | [optional] 
+**StartDate** | **string** | Start date of the Recurrence Pattern e.g. 2025-12-25 | 
+**EndDate** | **string** | Optional end date of the Recurrence Pattern e.g. 2025-12-31 | [optional] 
 **TimesOfDay** | [**List&lt;TimeOfDay&gt;**](TimeOfDay.md) | Times of the day to run the Recurrence Pattern | 
 
 ```csharp

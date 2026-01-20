@@ -57,9 +57,9 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RelativeMonthRegularity" /> class.
         /// </summary>
-        /// <param name="frequency">The frequency of the Relative Month Regularity (required).</param>
-        /// <param name="daysOfWeek">Days of the week (required).</param>
-        /// <param name="index">Relative index in the month (required).</param>
+        /// <param name="frequency">The frequency of the Relative Month Regularity. For example, a value of 2 indicates every 2 months (required).</param>
+        /// <param name="daysOfWeek">Days of the week. One or more of - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday (required).</param>
+        /// <param name="index">Relative index in the month. One of - First, Second, Third, Fourth, Last. For example, to specify the second Tuesday of every month, set DaysOfWeek to [\&quot;Tuesday\&quot;] and Index to \&quot;Second\&quot; (required).</param>
         /// <param name="type">The type of Date Regularity (required).</param>
         public RelativeMonthRegularity(int frequency = default(int), List<string> daysOfWeek = default(List<string>), string index = default(string), TypeEnum type = default(TypeEnum))
         {
@@ -80,23 +80,23 @@ namespace Finbourne.Workflow.Sdk.Model
         }
 
         /// <summary>
-        /// The frequency of the Relative Month Regularity
+        /// The frequency of the Relative Month Regularity. For example, a value of 2 indicates every 2 months
         /// </summary>
-        /// <value>The frequency of the Relative Month Regularity</value>
+        /// <value>The frequency of the Relative Month Regularity. For example, a value of 2 indicates every 2 months</value>
         [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = true)]
         public int Frequency { get; set; }
 
         /// <summary>
-        /// Days of the week
+        /// Days of the week. One or more of - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
         /// </summary>
-        /// <value>Days of the week</value>
+        /// <value>Days of the week. One or more of - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</value>
         [DataMember(Name = "daysOfWeek", IsRequired = true, EmitDefaultValue = true)]
         public List<string> DaysOfWeek { get; set; }
 
         /// <summary>
-        /// Relative index in the month
+        /// Relative index in the month. One of - First, Second, Third, Fourth, Last. For example, to specify the second Tuesday of every month, set DaysOfWeek to [\&quot;Tuesday\&quot;] and Index to \&quot;Second\&quot;
         /// </summary>
-        /// <value>Relative index in the month</value>
+        /// <value>Relative index in the month. One of - First, Second, Third, Fourth, Last. For example, to specify the second Tuesday of every month, set DaysOfWeek to [\&quot;Tuesday\&quot;] and Index to \&quot;Second\&quot;</value>
         [DataMember(Name = "index", IsRequired = true, EmitDefaultValue = true)]
         public string Index { get; set; }
 

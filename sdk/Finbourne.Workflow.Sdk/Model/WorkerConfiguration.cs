@@ -80,6 +80,18 @@ namespace Finbourne.Workflow.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkerConfiguration" /> class
+        /// with the <see cref="LusidEntityDataQualityCheck" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of LusidEntityDataQualityCheck.</param>
+        public WorkerConfiguration(LusidEntityDataQualityCheck actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkerConfiguration" /> class
         /// with the <see cref="SchedulerJob" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of SchedulerJob.</param>
@@ -132,6 +144,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(LusidEntityDataQualityCheck) || value is LusidEntityDataQualityCheck)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(SchedulerJob) || value is SchedulerJob)
                 {
                     this._actualInstance = value;
@@ -142,7 +158,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Fail, GroupReconciliation, HealthCheck, LuminesceView, SchedulerJob, Sleep");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Fail, GroupReconciliation, HealthCheck, LuminesceView, LusidEntityDataQualityCheck, SchedulerJob, Sleep");
                 }
             }
         }
@@ -185,6 +201,16 @@ namespace Finbourne.Workflow.Sdk.Model
         public LuminesceView GetLuminesceView()
         {
             return (LuminesceView)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `LusidEntityDataQualityCheck`. If the actual instance is not `LusidEntityDataQualityCheck`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of LusidEntityDataQualityCheck</returns>
+        public LusidEntityDataQualityCheck GetLusidEntityDataQualityCheck()
+        {
+            return (LusidEntityDataQualityCheck)this.ActualInstance;
         }
 
         /// <summary>
@@ -323,6 +349,26 @@ namespace Finbourne.Workflow.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into LuminesceView: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(LusidEntityDataQualityCheck).GetProperty("AdditionalProperties") == null)
+                {
+                    newWorkerConfiguration = new WorkerConfiguration(JsonConvert.DeserializeObject<LusidEntityDataQualityCheck>(jsonString, WorkerConfiguration.SerializerSettings));
+                }
+                else
+                {
+                    newWorkerConfiguration = new WorkerConfiguration(JsonConvert.DeserializeObject<LusidEntityDataQualityCheck>(jsonString, WorkerConfiguration.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("LusidEntityDataQualityCheck");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into LusidEntityDataQualityCheck: {1}", jsonString, exception.ToString()));
             }
 
             try

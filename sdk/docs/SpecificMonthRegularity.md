@@ -5,8 +5,8 @@ Specific Month Regularity
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Frequency** | **int** | The frequency of the Specific Month Regularity | 
-**DaysOfMonth** | **List&lt;int&gt;** | Days of the month | 
+**Frequency** | **int** | The frequency of the Specific Month Regularity. For example, a value of 2 indicates every 2 months | 
+**DaysOfMonth** | **List&lt;int&gt;** | Days of the month. For example, to specify the 1st and 15th of every month, set DaysOfMonth to [1, 15] | 
 **Type** | **string** | The type of Date Regularity | 
 
 ```csharp

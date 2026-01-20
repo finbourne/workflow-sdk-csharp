@@ -36,8 +36,8 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TimeConstraints" /> class.
         /// </summary>
-        /// <param name="startDate">Start date of the Recurrence Pattern (required).</param>
-        /// <param name="endDate">Optional end date of the Recurrence Pattern.</param>
+        /// <param name="startDate">Start date of the Recurrence Pattern e.g. 2025-12-25 (required).</param>
+        /// <param name="endDate">Optional end date of the Recurrence Pattern e.g. 2025-12-31.</param>
         /// <param name="timesOfDay">Times of the day to run the Recurrence Pattern (required).</param>
         public TimeConstraints(string startDate = default(string), string endDate = default(string), List<TimeOfDay> timesOfDay = default(List<TimeOfDay>))
         {
@@ -57,16 +57,16 @@ namespace Finbourne.Workflow.Sdk.Model
         }
 
         /// <summary>
-        /// Start date of the Recurrence Pattern
+        /// Start date of the Recurrence Pattern e.g. 2025-12-25
         /// </summary>
-        /// <value>Start date of the Recurrence Pattern</value>
+        /// <value>Start date of the Recurrence Pattern e.g. 2025-12-25</value>
         [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
         public string StartDate { get; set; }
 
         /// <summary>
-        /// Optional end date of the Recurrence Pattern
+        /// Optional end date of the Recurrence Pattern e.g. 2025-12-31
         /// </summary>
-        /// <value>Optional end date of the Recurrence Pattern</value>
+        /// <value>Optional end date of the Recurrence Pattern e.g. 2025-12-31</value>
         [DataMember(Name = "endDate", EmitDefaultValue = true)]
         public string EndDate { get; set; }
 

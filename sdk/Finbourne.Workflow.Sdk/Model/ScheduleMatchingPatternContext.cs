@@ -36,7 +36,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScheduleMatchingPatternContext" /> class.
         /// </summary>
-        /// <param name="varTimeZone">The time zone to use (required).</param>
+        /// <param name="varTimeZone">The time zone to use. A TZ Identifier e.g. \&quot;Europe/London\&quot; (required).</param>
         /// <param name="holidayCalendars">References to any Holiday Calendars to use.</param>
         public ScheduleMatchingPatternContext(string varTimeZone = default(string), List<CalendarReference> holidayCalendars = default(List<CalendarReference>))
         {
@@ -50,9 +50,9 @@ namespace Finbourne.Workflow.Sdk.Model
         }
 
         /// <summary>
-        /// The time zone to use
+        /// The time zone to use. A TZ Identifier e.g. \&quot;Europe/London\&quot;
         /// </summary>
-        /// <value>The time zone to use</value>
+        /// <value>The time zone to use. A TZ Identifier e.g. \&quot;Europe/London\&quot;</value>
         [DataMember(Name = "timeZone", IsRequired = true, EmitDefaultValue = true)]
         public string VarTimeZone { get; set; }
 

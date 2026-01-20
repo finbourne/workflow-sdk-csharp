@@ -5,7 +5,7 @@ Context for a Schedule Matching Pattern
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**VarTimeZone** | **string** | The time zone to use | 
+**VarTimeZone** | **string** | The time zone to use. A TZ Identifier e.g. \&quot;Europe/London\&quot; | 
 **HolidayCalendars** | [**List&lt;CalendarReference&gt;**](CalendarReference.md) | References to any Holiday Calendars to use | [optional] 
 
 ```csharp

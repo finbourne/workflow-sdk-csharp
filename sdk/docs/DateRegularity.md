@@ -6,10 +6,10 @@ A Date Regularity
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** | The type of Date Regularity | 
-**Frequency** | **int** | The frequency of the Week Regularity | 
-**DaysOfWeek** | **List&lt;string&gt;** | Days of the week | 
-**Index** | **string** | Relative index in the month | 
-**DaysOfMonth** | **List&lt;int&gt;** | Days of the month | 
+**Frequency** | **int** | The frequency of the Week Regularity. For example, a value of 2 indicates every 2 weeks | 
+**DaysOfWeek** | **List&lt;string&gt;** | Days of the week. One or more of - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday | 
+**Index** | **string** | Relative index in the month. One of - First, Second, Third, Fourth, Last. For example, to specify the second Tuesday of every month, set DaysOfWeek to [\&quot;Tuesday\&quot;] and Index to \&quot;Second\&quot; | 
+**DaysOfMonth** | **List&lt;int&gt;** | Days of the month. For example, to specify the 1st and 15th of every month, set DaysOfMonth to [1, 15] | 
 **Dates** | [**List&lt;DayOfYear&gt;**](DayOfYear.md) | The dates in the year | 
 
 ```csharp

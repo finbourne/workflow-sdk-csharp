@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TimeConstraints** | [**TimeConstraints**](TimeConstraints.md) |  | 
 **DateRegularity** | [**DateRegularity**](DateRegularity.md) |  | 
-**BusinessDayAdjustment** | **string** | The Business Day Adjustment | 
+**BusinessDayAdjustment** | **string** | The Business Day Adjustment. One of None, Previous, Following, ModifiedPrevious, ModifiedFollowing, HalfMonthModifiedFollowing, Nearest | 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;

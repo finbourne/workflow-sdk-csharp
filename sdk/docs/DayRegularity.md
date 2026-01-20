@@ -5,7 +5,7 @@ Day Regularity
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Frequency** | **int** | The frequency of the Day Regularity | 
+**Frequency** | **int** | The frequency of the Day Regularity. For example, a value of 2 indicates every 2 days | 
 **Type** | **string** | The type of Date Regularity | 
 
 ```csharp

@@ -5,9 +5,9 @@ Relative Month Regularity
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Frequency** | **int** | The frequency of the Relative Month Regularity | 
-**DaysOfWeek** | **List&lt;string&gt;** | Days of the week | 
-**Index** | **string** | Relative index in the month | 
+**Frequency** | **int** | The frequency of the Relative Month Regularity. For example, a value of 2 indicates every 2 months | 
+**DaysOfWeek** | **List&lt;string&gt;** | Days of the week. One or more of - Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday | 
+**Index** | **string** | Relative index in the month. One of - First, Second, Third, Fourth, Last. For example, to specify the second Tuesday of every month, set DaysOfWeek to [\&quot;Tuesday\&quot;] and Index to \&quot;Second\&quot; | 
 **Type** | **string** | The type of Date Regularity | 
 
 ```csharp
