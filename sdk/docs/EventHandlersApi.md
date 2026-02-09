@@ -4,17 +4,17 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateEventHandler**](EventHandlersApi.md#createeventhandler) | **POST** /api/eventhandlers | [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler |
-| [**DeleteEventHandler**](EventHandlersApi.md#deleteeventhandler) | **DELETE** /api/eventhandlers/{scope}/{code} | [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler |
-| [**GetEventHandler**](EventHandlersApi.md#geteventhandler) | **GET** /api/eventhandlers/{scope}/{code} | [EXPERIMENTAL] GetEventHandler: Get an Event Handler |
-| [**ListEventHandlers**](EventHandlersApi.md#listeventhandlers) | **GET** /api/eventhandlers | [EXPERIMENTAL] ListEventHandlers: List Event Handlers |
-| [**UpdateEventHandler**](EventHandlersApi.md#updateeventhandler) | **PUT** /api/eventhandlers/{scope}/{code} | [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler |
+| [**CreateEventHandler**](EventHandlersApi.md#createeventhandler) | **POST** /api/eventhandlers | CreateEventHandler: Create a new Event Handler |
+| [**DeleteEventHandler**](EventHandlersApi.md#deleteeventhandler) | **DELETE** /api/eventhandlers/{scope}/{code} | DeleteEventHandler: Delete an Event Handler |
+| [**GetEventHandler**](EventHandlersApi.md#geteventhandler) | **GET** /api/eventhandlers/{scope}/{code} | GetEventHandler: Get an Event Handler |
+| [**ListEventHandlers**](EventHandlersApi.md#listeventhandlers) | **GET** /api/eventhandlers | ListEventHandlers: List Event Handlers |
+| [**UpdateEventHandler**](EventHandlersApi.md#updateeventhandler) | **PUT** /api/eventhandlers/{scope}/{code} | UpdateEventHandler: Update an existing Event handler |
 
 <a id="createeventhandler"></a>
 # **CreateEventHandler**
 > EventHandler CreateEventHandler (CreateEventHandlerRequest createEventHandlerRequest)
 
-[EXPERIMENTAL] CreateEventHandler: Create a new Event Handler
+CreateEventHandler: Create a new Event Handler
 
 ### Example
 ```csharp
@@ -62,7 +62,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // EventHandler result = apiInstance.CreateEventHandler(createEventHandlerRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler
+                // CreateEventHandler: Create a new Event Handler
                 EventHandler result = apiInstance.CreateEventHandler(createEventHandlerRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -83,7 +83,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler
+    // CreateEventHandler: Create a new Event Handler
     ApiResponse<EventHandler> response = apiInstance.CreateEventHandlerWithHttpInfo(createEventHandlerRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -126,7 +126,7 @@ catch (ApiException e)
 # **DeleteEventHandler**
 > DeletedEntityResponse DeleteEventHandler (string scope, string code)
 
-[EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
+DeleteEventHandler: Delete an Event Handler
 
 If the Event Handler does not exist a failure will be returned
 
@@ -177,7 +177,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // DeletedEntityResponse result = apiInstance.DeleteEventHandler(scope, code, opts: opts);
 
-                // [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
+                // DeleteEventHandler: Delete an Event Handler
                 DeletedEntityResponse result = apiInstance.DeleteEventHandler(scope, code);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -198,7 +198,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
+    // DeleteEventHandler: Delete an Event Handler
     ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteEventHandlerWithHttpInfo(scope, code);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -243,7 +243,7 @@ catch (ApiException e)
 # **GetEventHandler**
 > EventHandler GetEventHandler (string scope, string code, DateTimeOffset? asAt = null)
 
-[EXPERIMENTAL] GetEventHandler: Get an Event Handler
+GetEventHandler: Get an Event Handler
 
 Will return a NotFound failure if the event handler does not exist
 
@@ -295,7 +295,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // EventHandler result = apiInstance.GetEventHandler(scope, code, asAt, opts: opts);
 
-                // [EXPERIMENTAL] GetEventHandler: Get an Event Handler
+                // GetEventHandler: Get an Event Handler
                 EventHandler result = apiInstance.GetEventHandler(scope, code, asAt);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -316,7 +316,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetEventHandler: Get an Event Handler
+    // GetEventHandler: Get an Event Handler
     ApiResponse<EventHandler> response = apiInstance.GetEventHandlerWithHttpInfo(scope, code, asAt);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -361,7 +361,7 @@ catch (ApiException e)
 # **ListEventHandlers**
 > PagedResourceListOfEventHandler ListEventHandlers (DateTimeOffset? asAt = null, string? filter = null, int? limit = null, string? page = null)
 
-[EXPERIMENTAL] ListEventHandlers: List Event Handlers
+ListEventHandlers: List Event Handlers
 
 ### Example
 ```csharp
@@ -412,7 +412,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfEventHandler result = apiInstance.ListEventHandlers(asAt, filter, limit, page, opts: opts);
 
-                // [EXPERIMENTAL] ListEventHandlers: List Event Handlers
+                // ListEventHandlers: List Event Handlers
                 PagedResourceListOfEventHandler result = apiInstance.ListEventHandlers(asAt, filter, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -433,7 +433,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListEventHandlers: List Event Handlers
+    // ListEventHandlers: List Event Handlers
     ApiResponse<PagedResourceListOfEventHandler> response = apiInstance.ListEventHandlersWithHttpInfo(asAt, filter, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -479,7 +479,7 @@ catch (ApiException e)
 # **UpdateEventHandler**
 > EventHandler UpdateEventHandler (string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest)
 
-[EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler
+UpdateEventHandler: Update an existing Event handler
 
 ### Example
 ```csharp
@@ -529,7 +529,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // EventHandler result = apiInstance.UpdateEventHandler(scope, code, updateEventHandlerRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler
+                // UpdateEventHandler: Update an existing Event handler
                 EventHandler result = apiInstance.UpdateEventHandler(scope, code, updateEventHandlerRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -550,7 +550,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler
+    // UpdateEventHandler: Update an existing Event handler
     ApiResponse<EventHandler> response = apiInstance.UpdateEventHandlerWithHttpInfo(scope, code, updateEventHandlerRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

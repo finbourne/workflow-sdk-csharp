@@ -32,7 +32,7 @@ namespace Finbourne.Workflow.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler
+        /// CreateEventHandler: Create a new Event Handler
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createEventHandlerRequest">The data to create an Event Handler</param>
@@ -42,7 +42,7 @@ namespace Finbourne.Workflow.Sdk.Api
         EventHandler CreateEventHandler(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler
+        /// CreateEventHandler: Create a new Event Handler
         /// </summary>
         /// <remarks>
         /// 
@@ -54,7 +54,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of EventHandler</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> CreateEventHandlerWithHttpInfo(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
+        /// DeleteEventHandler: Delete an Event Handler
         /// </summary>
         /// <remarks>
         /// If the Event Handler does not exist a failure will be returned
@@ -68,7 +68,7 @@ namespace Finbourne.Workflow.Sdk.Api
         DeletedEntityResponse DeleteEventHandler(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
+        /// DeleteEventHandler: Delete an Event Handler
         /// </summary>
         /// <remarks>
         /// If the Event Handler does not exist a failure will be returned
@@ -81,7 +81,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of DeletedEntityResponse</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse> DeleteEventHandlerWithHttpInfo(string scope, string code, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler
+        /// GetEventHandler: Get an Event Handler
         /// </summary>
         /// <remarks>
         /// Will return a NotFound failure if the event handler does not exist
@@ -96,7 +96,7 @@ namespace Finbourne.Workflow.Sdk.Api
         EventHandler GetEventHandler(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler
+        /// GetEventHandler: Get an Event Handler
         /// </summary>
         /// <remarks>
         /// Will return a NotFound failure if the event handler does not exist
@@ -110,7 +110,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of EventHandler</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler> GetEventHandlerWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers
+        /// ListEventHandlers: List Event Handlers
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional)</param>
@@ -123,7 +123,7 @@ namespace Finbourne.Workflow.Sdk.Api
         PagedResourceListOfEventHandler ListEventHandlers(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers
+        /// ListEventHandlers: List Event Handlers
         /// </summary>
         /// <remarks>
         /// 
@@ -138,7 +138,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfEventHandler</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfEventHandler> ListEventHandlersWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler
+        /// UpdateEventHandler: Update an existing Event handler
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies an Event Handler</param>
@@ -150,7 +150,7 @@ namespace Finbourne.Workflow.Sdk.Api
         EventHandler UpdateEventHandler(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler
+        /// UpdateEventHandler: Update an existing Event handler
         /// </summary>
         /// <remarks>
         /// 
@@ -173,7 +173,7 @@ namespace Finbourne.Workflow.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler
+        /// CreateEventHandler: Create a new Event Handler
         /// </summary>
         /// <remarks>
         /// 
@@ -187,7 +187,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<EventHandler> CreateEventHandlerAsync(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler
+        /// CreateEventHandler: Create a new Event Handler
         /// </summary>
         /// <remarks>
         /// 
@@ -200,7 +200,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (EventHandler)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler>> CreateEventHandlerWithHttpInfoAsync(CreateEventHandlerRequest createEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
+        /// DeleteEventHandler: Delete an Event Handler
         /// </summary>
         /// <remarks>
         /// If the Event Handler does not exist a failure will be returned
@@ -215,7 +215,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<DeletedEntityResponse> DeleteEventHandlerAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
+        /// DeleteEventHandler: Delete an Event Handler
         /// </summary>
         /// <remarks>
         /// If the Event Handler does not exist a failure will be returned
@@ -229,7 +229,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (DeletedEntityResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<DeletedEntityResponse>> DeleteEventHandlerWithHttpInfoAsync(string scope, string code, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler
+        /// GetEventHandler: Get an Event Handler
         /// </summary>
         /// <remarks>
         /// Will return a NotFound failure if the event handler does not exist
@@ -245,7 +245,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<EventHandler> GetEventHandlerAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler
+        /// GetEventHandler: Get an Event Handler
         /// </summary>
         /// <remarks>
         /// Will return a NotFound failure if the event handler does not exist
@@ -260,7 +260,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (EventHandler)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<EventHandler>> GetEventHandlerWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers
+        /// ListEventHandlers: List Event Handlers
         /// </summary>
         /// <remarks>
         /// 
@@ -277,7 +277,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<PagedResourceListOfEventHandler> ListEventHandlersAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers
+        /// ListEventHandlers: List Event Handlers
         /// </summary>
         /// <remarks>
         /// 
@@ -293,7 +293,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfEventHandler)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfEventHandler>> ListEventHandlersWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler
+        /// UpdateEventHandler: Update an existing Event handler
         /// </summary>
         /// <remarks>
         /// 
@@ -309,7 +309,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<EventHandler> UpdateEventHandlerAsync(string scope, string code, UpdateEventHandlerRequest updateEventHandlerRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler
+        /// UpdateEventHandler: Update an existing Event handler
         /// </summary>
         /// <remarks>
         /// 
@@ -447,7 +447,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler 
+        /// CreateEventHandler: Create a new Event Handler 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createEventHandlerRequest">The data to create an Event Handler</param>
@@ -461,7 +461,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler 
+        /// CreateEventHandler: Create a new Event Handler 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createEventHandlerRequest">The data to create an Event Handler</param>
@@ -549,7 +549,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler 
+        /// CreateEventHandler: Create a new Event Handler 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createEventHandlerRequest">The data to create an Event Handler</param>
@@ -564,7 +564,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler 
+        /// CreateEventHandler: Create a new Event Handler 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createEventHandlerRequest">The data to create an Event Handler</param>
@@ -655,7 +655,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler If the Event Handler does not exist a failure will be returned
+        /// DeleteEventHandler: Delete an Event Handler If the Event Handler does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the event handler to be deleted</param>
@@ -670,7 +670,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler If the Event Handler does not exist a failure will be returned
+        /// DeleteEventHandler: Delete an Event Handler If the Event Handler does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the event handler to be deleted</param>
@@ -762,7 +762,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler If the Event Handler does not exist a failure will be returned
+        /// DeleteEventHandler: Delete an Event Handler If the Event Handler does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the event handler to be deleted</param>
@@ -778,7 +778,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler If the Event Handler does not exist a failure will be returned
+        /// DeleteEventHandler: Delete an Event Handler If the Event Handler does not exist a failure will be returned
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the event handler to be deleted</param>
@@ -873,7 +873,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler Will return a NotFound failure if the event handler does not exist
+        /// GetEventHandler: Get an Event Handler Will return a NotFound failure if the event handler does not exist
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the event handler</param>
@@ -889,7 +889,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler Will return a NotFound failure if the event handler does not exist
+        /// GetEventHandler: Get an Event Handler Will return a NotFound failure if the event handler does not exist
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the event handler</param>
@@ -987,7 +987,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler Will return a NotFound failure if the event handler does not exist
+        /// GetEventHandler: Get an Event Handler Will return a NotFound failure if the event handler does not exist
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the event handler</param>
@@ -1004,7 +1004,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetEventHandler: Get an Event Handler Will return a NotFound failure if the event handler does not exist
+        /// GetEventHandler: Get an Event Handler Will return a NotFound failure if the event handler does not exist
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">Scope of the event handler</param>
@@ -1104,7 +1104,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers 
+        /// ListEventHandlers: List Event Handlers 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional)</param>
@@ -1121,7 +1121,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers 
+        /// ListEventHandlers: List Event Handlers 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional)</param>
@@ -1221,7 +1221,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers 
+        /// ListEventHandlers: List Event Handlers 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional)</param>
@@ -1239,7 +1239,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListEventHandlers: List Event Handlers 
+        /// ListEventHandlers: List Event Handlers 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asAt">The asAt datetime at which to list the Event Handlers. Defaults to return the latest version of each Event Handler if not specified. (optional)</param>
@@ -1338,7 +1338,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler 
+        /// UpdateEventHandler: Update an existing Event handler 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies an Event Handler</param>
@@ -1354,7 +1354,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler 
+        /// UpdateEventHandler: Update an existing Event handler 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies an Event Handler</param>
@@ -1458,7 +1458,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler 
+        /// UpdateEventHandler: Update an existing Event handler 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies an Event Handler</param>
@@ -1475,7 +1475,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler 
+        /// UpdateEventHandler: Update an existing Event handler 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="scope">The scope that identifies an Event Handler</param>

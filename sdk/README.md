@@ -7,11 +7,11 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ActionLogsApi* | [**GetActionLogs**](docs/ActionLogsApi.md#getactionlogs) | **GET** /api/actionlogs/{id} | [EXPERIMENTAL] GetActionLogs: Get the Action Logs for an Action Id
 *ApplicationMetadataApi* | [**ListAccessControlledResources**](docs/ApplicationMetadataApi.md#listaccesscontrolledresources) | **GET** /api/metadata/access/resources | ListAccessControlledResources: Get resources available for access control
-*EventHandlersApi* | [**CreateEventHandler**](docs/EventHandlersApi.md#createeventhandler) | **POST** /api/eventhandlers | [EXPERIMENTAL] CreateEventHandler: Create a new Event Handler
-*EventHandlersApi* | [**DeleteEventHandler**](docs/EventHandlersApi.md#deleteeventhandler) | **DELETE** /api/eventhandlers/{scope}/{code} | [EXPERIMENTAL] DeleteEventHandler: Delete an Event Handler
-*EventHandlersApi* | [**GetEventHandler**](docs/EventHandlersApi.md#geteventhandler) | **GET** /api/eventhandlers/{scope}/{code} | [EXPERIMENTAL] GetEventHandler: Get an Event Handler
-*EventHandlersApi* | [**ListEventHandlers**](docs/EventHandlersApi.md#listeventhandlers) | **GET** /api/eventhandlers | [EXPERIMENTAL] ListEventHandlers: List Event Handlers
-*EventHandlersApi* | [**UpdateEventHandler**](docs/EventHandlersApi.md#updateeventhandler) | **PUT** /api/eventhandlers/{scope}/{code} | [EXPERIMENTAL] UpdateEventHandler: Update an existing Event handler
+*EventHandlersApi* | [**CreateEventHandler**](docs/EventHandlersApi.md#createeventhandler) | **POST** /api/eventhandlers | CreateEventHandler: Create a new Event Handler
+*EventHandlersApi* | [**DeleteEventHandler**](docs/EventHandlersApi.md#deleteeventhandler) | **DELETE** /api/eventhandlers/{scope}/{code} | DeleteEventHandler: Delete an Event Handler
+*EventHandlersApi* | [**GetEventHandler**](docs/EventHandlersApi.md#geteventhandler) | **GET** /api/eventhandlers/{scope}/{code} | GetEventHandler: Get an Event Handler
+*EventHandlersApi* | [**ListEventHandlers**](docs/EventHandlersApi.md#listeventhandlers) | **GET** /api/eventhandlers | ListEventHandlers: List Event Handlers
+*EventHandlersApi* | [**UpdateEventHandler**](docs/EventHandlersApi.md#updateeventhandler) | **PUT** /api/eventhandlers/{scope}/{code} | UpdateEventHandler: Update an existing Event handler
 *TaskDefinitionsApi* | [**CreateTaskDefinition**](docs/TaskDefinitionsApi.md#createtaskdefinition) | **POST** /api/taskdefinitions | CreateTaskDefinition: Create a new Task Definition
 *TaskDefinitionsApi* | [**DeleteTaskDefinition**](docs/TaskDefinitionsApi.md#deletetaskdefinition) | **DELETE** /api/taskdefinitions/{scope}/{code} | DeleteTaskDefinition: Delete a Task Definition
 *TaskDefinitionsApi* | [**GetTaskDefinition**](docs/TaskDefinitionsApi.md#gettaskdefinition) | **GET** /api/taskdefinitions/{scope}/{code} | GetTaskDefinition: Get a Task Definition
