@@ -5,7 +5,8 @@ Contains required info to create a new Task
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TaskDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
+**TaskDefinitionId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**WorkflowId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **CorrelationIds** | **List&lt;string&gt;** | A set of guid identifiers that allow correlation across the application tier | [optional] 
 **Fields** | [**List&lt;TaskInstanceField&gt;**](TaskInstanceField.md) | Fields and their initial values - should correspond with the Task Definition field schema | [optional] 
 **StackingKey** | **string** | The key for the Stack that this Task should be added to | [optional] 
@@ -14,13 +15,17 @@ Name | Type | Description | Notes
 using Finbourne.Workflow.Sdk.Model;
 using System;
 
-ResourceId taskDefinitionId = new ResourceId();
+ResourceId? taskDefinitionId = new ResourceId();
+
+ResourceId? workflowId = new ResourceId();
+
 List<string> correlationIds = new List<string>();
 List<TaskInstanceField> fields = new List<TaskInstanceField>();
 string stackingKey = "example stackingKey";
 
 CreateTaskRequest createTaskRequestInstance = new CreateTaskRequest(
     taskDefinitionId: taskDefinitionId,
+    workflowId: workflowId,
     correlationIds: correlationIds,
     fields: fields,
     stackingKey: stackingKey);

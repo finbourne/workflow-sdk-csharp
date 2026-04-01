@@ -4,7 +4,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**BatchUpdateTasks**](TasksApi.md#batchupdatetasks) | **PATCH** /api/tasks/$update | [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks |
+| [**BatchUpdateTasks**](TasksApi.md#batchupdatetasks) | **PATCH** /api/tasks/$update | BatchUpdateTasks: Batch update tasks |
 | [**CreateTask**](TasksApi.md#createtask) | **POST** /api/tasks | CreateTask: Create a new Task |
 | [**DeleteTask**](TasksApi.md#deletetask) | **DELETE** /api/tasks/{id} | DeleteTask: Delete a Task |
 | [**DeleteTasks**](TasksApi.md#deletetasks) | **POST** /api/tasks/$delete | DeleteTasks: Batch Delete Tasks |
@@ -17,7 +17,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 # **BatchUpdateTasks**
 > BatchUpdateTasksResponse BatchUpdateTasks (BatchUpdateTasksRequest? batchUpdateTasksRequest = null)
 
-[EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+BatchUpdateTasks: Batch update tasks
 
 ### Example
 ```csharp
@@ -65,7 +65,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // BatchUpdateTasksResponse result = apiInstance.BatchUpdateTasks(batchUpdateTasksRequest, opts: opts);
 
-                // [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+                // BatchUpdateTasks: Batch update tasks
                 BatchUpdateTasksResponse result = apiInstance.BatchUpdateTasks(batchUpdateTasksRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -86,7 +86,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+    // BatchUpdateTasks: Batch update tasks
     ApiResponse<BatchUpdateTasksResponse> response = apiInstance.BatchUpdateTasksWithHttpInfo(batchUpdateTasksRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

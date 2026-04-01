@@ -32,7 +32,7 @@ namespace Finbourne.Workflow.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+        /// BatchUpdateTasks: Batch update tasks
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchUpdateTasksRequest">The details of the request (optional)</param>
@@ -42,7 +42,7 @@ namespace Finbourne.Workflow.Sdk.Api
         BatchUpdateTasksResponse BatchUpdateTasks(BatchUpdateTasksRequest? batchUpdateTasksRequest = default(BatchUpdateTasksRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+        /// BatchUpdateTasks: Batch update tasks
         /// </summary>
         /// <remarks>
         /// 
@@ -235,7 +235,7 @@ namespace Finbourne.Workflow.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+        /// BatchUpdateTasks: Batch update tasks
         /// </summary>
         /// <remarks>
         /// 
@@ -249,7 +249,7 @@ namespace Finbourne.Workflow.Sdk.Api
         System.Threading.Tasks.Task<BatchUpdateTasksResponse> BatchUpdateTasksAsync(BatchUpdateTasksRequest? batchUpdateTasksRequest = default(BatchUpdateTasksRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+        /// BatchUpdateTasks: Batch update tasks
         /// </summary>
         /// <remarks>
         /// 
@@ -592,7 +592,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks 
+        /// BatchUpdateTasks: Batch update tasks 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchUpdateTasksRequest">The details of the request (optional)</param>
@@ -606,7 +606,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks 
+        /// BatchUpdateTasks: Batch update tasks 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchUpdateTasksRequest">The details of the request (optional)</param>
@@ -688,7 +688,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks 
+        /// BatchUpdateTasks: Batch update tasks 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchUpdateTasksRequest">The details of the request (optional)</param>
@@ -703,7 +703,7 @@ namespace Finbourne.Workflow.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks 
+        /// BatchUpdateTasks: Batch update tasks 
         /// </summary>
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchUpdateTasksRequest">The details of the request (optional)</param>

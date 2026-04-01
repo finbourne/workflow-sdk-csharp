@@ -40,6 +40,8 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="taskDefinitionId">taskDefinitionId (required).</param>
         /// <param name="taskDefinitionVersion">taskDefinitionVersion (required).</param>
         /// <param name="taskDefinitionDisplayName">The display name of the Task Definition used by this Task (required).</param>
+        /// <param name="workflowId">workflowId.</param>
+        /// <param name="workflowDisplayName">The display name of the Workflow that this Task is a member of, if any.</param>
         /// <param name="state">Current State (required).</param>
         /// <param name="ultimateParentTask">ultimateParentTask (required).</param>
         /// <param name="parentTask">parentTask.</param>
@@ -54,7 +56,12 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="actionLogIdCreated">The Id of the Action that created this Task.</param>
         /// <param name="actionLogIdModified">The Id of the Action that last modified this Task.</param>
         /// <param name="actionLogIdSubmitted">The Id of the last Action submitted by this Task.</param>
-        public Task(Guid id = default(Guid), ResourceId taskDefinitionId = default(ResourceId), TaskDefinitionVersion taskDefinitionVersion = default(TaskDefinitionVersion), string taskDefinitionDisplayName = default(string), string state = default(string), TaskSummary ultimateParentTask = default(TaskSummary), TaskSummary parentTask = default(TaskSummary), List<TaskSummary> childTasks = default(List<TaskSummary>), List<string> correlationIds = default(List<string>), VersionInfo varVersion = default(VersionInfo), bool terminalState = default(bool), DateTimeOffset? asAtLastTransition = default(DateTimeOffset?), List<TaskInstanceField> fields = default(List<TaskInstanceField>), string stackingKey = default(string), Stack stack = default(Stack), Guid? actionLogIdCreated = default(Guid?), Guid? actionLogIdModified = default(Guid?), Guid? actionLogIdSubmitted = default(Guid?))
+        /// <param name="hierarchicalPosition">The hierarchical position of this Task: UltimateParent, IntermediateParent, Child, or Standalone.</param>
+        /// <param name="completionStatus">The completion status of this Task: NotStarted, InProgress, or Completed.</param>
+        /// <param name="openDuration">Duration in seconds since the Task was created. If the Task is Completed, this is the duration from creation to the last transition..</param>
+        /// <param name="openDurationSinceLastUpdate">Duration in seconds since the Task was last updated. 0 if the Task is Completed..</param>
+        /// <param name="openDurationSinceLastTransition">Duration in seconds since the Task last transitioned. 0 if the Task is Completed..</param>
+        public Task(Guid id = default(Guid), ResourceId taskDefinitionId = default(ResourceId), TaskDefinitionVersion taskDefinitionVersion = default(TaskDefinitionVersion), string taskDefinitionDisplayName = default(string), ResourceId workflowId = default(ResourceId), string workflowDisplayName = default(string), string state = default(string), TaskSummary ultimateParentTask = default(TaskSummary), TaskSummary parentTask = default(TaskSummary), List<TaskSummary> childTasks = default(List<TaskSummary>), List<string> correlationIds = default(List<string>), VersionInfo varVersion = default(VersionInfo), bool terminalState = default(bool), DateTimeOffset? asAtLastTransition = default(DateTimeOffset?), List<TaskInstanceField> fields = default(List<TaskInstanceField>), string stackingKey = default(string), Stack stack = default(Stack), Guid? actionLogIdCreated = default(Guid?), Guid? actionLogIdModified = default(Guid?), Guid? actionLogIdSubmitted = default(Guid?), string hierarchicalPosition = default(string), string completionStatus = default(string), long? openDuration = default(long?), long? openDurationSinceLastUpdate = default(long?), long? openDurationSinceLastTransition = default(long?))
         {
             this.Id = id;
             // to ensure "taskDefinitionId" is required (not null)
@@ -88,6 +95,8 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             this.UltimateParentTask = ultimateParentTask;
             this.TerminalState = terminalState;
+            this.WorkflowId = workflowId;
+            this.WorkflowDisplayName = workflowDisplayName;
             this.ParentTask = parentTask;
             this.ChildTasks = childTasks;
             this.CorrelationIds = correlationIds;
@@ -99,6 +108,11 @@ namespace Finbourne.Workflow.Sdk.Model
             this.ActionLogIdCreated = actionLogIdCreated;
             this.ActionLogIdModified = actionLogIdModified;
             this.ActionLogIdSubmitted = actionLogIdSubmitted;
+            this.HierarchicalPosition = hierarchicalPosition;
+            this.CompletionStatus = completionStatus;
+            this.OpenDuration = openDuration;
+            this.OpenDurationSinceLastUpdate = openDurationSinceLastUpdate;
+            this.OpenDurationSinceLastTransition = openDurationSinceLastTransition;
         }
 
         /// <summary>
@@ -126,6 +140,19 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <value>The display name of the Task Definition used by this Task</value>
         [DataMember(Name = "taskDefinitionDisplayName", IsRequired = true, EmitDefaultValue = true)]
         public string TaskDefinitionDisplayName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets WorkflowId
+        /// </summary>
+        [DataMember(Name = "workflowId", EmitDefaultValue = false)]
+        public ResourceId WorkflowId { get; set; }
+
+        /// <summary>
+        /// The display name of the Workflow that this Task is a member of, if any
+        /// </summary>
+        /// <value>The display name of the Workflow that this Task is a member of, if any</value>
+        [DataMember(Name = "workflowDisplayName", EmitDefaultValue = true)]
+        public string WorkflowDisplayName { get; set; }
 
         /// <summary>
         /// Current State
@@ -222,6 +249,41 @@ namespace Finbourne.Workflow.Sdk.Model
         public Guid? ActionLogIdSubmitted { get; set; }
 
         /// <summary>
+        /// The hierarchical position of this Task: UltimateParent, IntermediateParent, Child, or Standalone
+        /// </summary>
+        /// <value>The hierarchical position of this Task: UltimateParent, IntermediateParent, Child, or Standalone</value>
+        [DataMember(Name = "hierarchicalPosition", EmitDefaultValue = true)]
+        public string HierarchicalPosition { get; set; }
+
+        /// <summary>
+        /// The completion status of this Task: NotStarted, InProgress, or Completed
+        /// </summary>
+        /// <value>The completion status of this Task: NotStarted, InProgress, or Completed</value>
+        [DataMember(Name = "completionStatus", EmitDefaultValue = true)]
+        public string CompletionStatus { get; set; }
+
+        /// <summary>
+        /// Duration in seconds since the Task was created. If the Task is Completed, this is the duration from creation to the last transition.
+        /// </summary>
+        /// <value>Duration in seconds since the Task was created. If the Task is Completed, this is the duration from creation to the last transition.</value>
+        [DataMember(Name = "openDuration", EmitDefaultValue = true)]
+        public long? OpenDuration { get; set; }
+
+        /// <summary>
+        /// Duration in seconds since the Task was last updated. 0 if the Task is Completed.
+        /// </summary>
+        /// <value>Duration in seconds since the Task was last updated. 0 if the Task is Completed.</value>
+        [DataMember(Name = "openDurationSinceLastUpdate", EmitDefaultValue = true)]
+        public long? OpenDurationSinceLastUpdate { get; set; }
+
+        /// <summary>
+        /// Duration in seconds since the Task last transitioned. 0 if the Task is Completed.
+        /// </summary>
+        /// <value>Duration in seconds since the Task last transitioned. 0 if the Task is Completed.</value>
+        [DataMember(Name = "openDurationSinceLastTransition", EmitDefaultValue = true)]
+        public long? OpenDurationSinceLastTransition { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -233,6 +295,8 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  TaskDefinitionId: ").Append(TaskDefinitionId).Append("\n");
             sb.Append("  TaskDefinitionVersion: ").Append(TaskDefinitionVersion).Append("\n");
             sb.Append("  TaskDefinitionDisplayName: ").Append(TaskDefinitionDisplayName).Append("\n");
+            sb.Append("  WorkflowId: ").Append(WorkflowId).Append("\n");
+            sb.Append("  WorkflowDisplayName: ").Append(WorkflowDisplayName).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  UltimateParentTask: ").Append(UltimateParentTask).Append("\n");
             sb.Append("  ParentTask: ").Append(ParentTask).Append("\n");
@@ -247,6 +311,11 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  ActionLogIdCreated: ").Append(ActionLogIdCreated).Append("\n");
             sb.Append("  ActionLogIdModified: ").Append(ActionLogIdModified).Append("\n");
             sb.Append("  ActionLogIdSubmitted: ").Append(ActionLogIdSubmitted).Append("\n");
+            sb.Append("  HierarchicalPosition: ").Append(HierarchicalPosition).Append("\n");
+            sb.Append("  CompletionStatus: ").Append(CompletionStatus).Append("\n");
+            sb.Append("  OpenDuration: ").Append(OpenDuration).Append("\n");
+            sb.Append("  OpenDurationSinceLastUpdate: ").Append(OpenDurationSinceLastUpdate).Append("\n");
+            sb.Append("  OpenDurationSinceLastTransition: ").Append(OpenDurationSinceLastTransition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -301,6 +370,16 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.TaskDefinitionDisplayName == input.TaskDefinitionDisplayName ||
                     (this.TaskDefinitionDisplayName != null &&
                     this.TaskDefinitionDisplayName.Equals(input.TaskDefinitionDisplayName))
+                ) && 
+                (
+                    this.WorkflowId == input.WorkflowId ||
+                    (this.WorkflowId != null &&
+                    this.WorkflowId.Equals(input.WorkflowId))
+                ) && 
+                (
+                    this.WorkflowDisplayName == input.WorkflowDisplayName ||
+                    (this.WorkflowDisplayName != null &&
+                    this.WorkflowDisplayName.Equals(input.WorkflowDisplayName))
                 ) && 
                 (
                     this.State == input.State ||
@@ -373,6 +452,31 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.ActionLogIdSubmitted == input.ActionLogIdSubmitted ||
                     (this.ActionLogIdSubmitted != null &&
                     this.ActionLogIdSubmitted.Equals(input.ActionLogIdSubmitted))
+                ) && 
+                (
+                    this.HierarchicalPosition == input.HierarchicalPosition ||
+                    (this.HierarchicalPosition != null &&
+                    this.HierarchicalPosition.Equals(input.HierarchicalPosition))
+                ) && 
+                (
+                    this.CompletionStatus == input.CompletionStatus ||
+                    (this.CompletionStatus != null &&
+                    this.CompletionStatus.Equals(input.CompletionStatus))
+                ) && 
+                (
+                    this.OpenDuration == input.OpenDuration ||
+                    (this.OpenDuration != null &&
+                    this.OpenDuration.Equals(input.OpenDuration))
+                ) && 
+                (
+                    this.OpenDurationSinceLastUpdate == input.OpenDurationSinceLastUpdate ||
+                    (this.OpenDurationSinceLastUpdate != null &&
+                    this.OpenDurationSinceLastUpdate.Equals(input.OpenDurationSinceLastUpdate))
+                ) && 
+                (
+                    this.OpenDurationSinceLastTransition == input.OpenDurationSinceLastTransition ||
+                    (this.OpenDurationSinceLastTransition != null &&
+                    this.OpenDurationSinceLastTransition.Equals(input.OpenDurationSinceLastTransition))
                 );
         }
 
@@ -400,6 +504,14 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.TaskDefinitionDisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.TaskDefinitionDisplayName.GetHashCode();
+                }
+                if (this.WorkflowId != null)
+                {
+                    hashCode = (hashCode * 59) + this.WorkflowId.GetHashCode();
+                }
+                if (this.WorkflowDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.WorkflowDisplayName.GetHashCode();
                 }
                 if (this.State != null)
                 {
@@ -453,6 +565,26 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.ActionLogIdSubmitted != null)
                 {
                     hashCode = (hashCode * 59) + this.ActionLogIdSubmitted.GetHashCode();
+                }
+                if (this.HierarchicalPosition != null)
+                {
+                    hashCode = (hashCode * 59) + this.HierarchicalPosition.GetHashCode();
+                }
+                if (this.CompletionStatus != null)
+                {
+                    hashCode = (hashCode * 59) + this.CompletionStatus.GetHashCode();
+                }
+                if (this.OpenDuration != null)
+                {
+                    hashCode = (hashCode * 59) + this.OpenDuration.GetHashCode();
+                }
+                if (this.OpenDurationSinceLastUpdate != null)
+                {
+                    hashCode = (hashCode * 59) + this.OpenDurationSinceLastUpdate.GetHashCode();
+                }
+                if (this.OpenDurationSinceLastTransition != null)
+                {
+                    hashCode = (hashCode * 59) + this.OpenDurationSinceLastTransition.GetHashCode();
                 }
                 return hashCode;
             }

@@ -4,13 +4,13 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetActionLogs**](ActionLogsApi.md#getactionlogs) | **GET** /api/actionlogs/{id} | [EXPERIMENTAL] GetActionLogs: Get the Action Logs for an Action Id |
+| [**GetActionLogs**](ActionLogsApi.md#getactionlogs) | **GET** /api/actionlogs/{id} | GetActionLogs: Get the Action Logs for an Action Id |
 
 <a id="getactionlogs"></a>
 # **GetActionLogs**
 > ActionLog GetActionLogs (string id)
 
-[EXPERIMENTAL] GetActionLogs: Get the Action Logs for an Action Id
+GetActionLogs: Get the Action Logs for an Action Id
 
 ### Example
 ```csharp
@@ -58,7 +58,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // ActionLog result = apiInstance.GetActionLogs(id, opts: opts);
 
-                // [EXPERIMENTAL] GetActionLogs: Get the Action Logs for an Action Id
+                // GetActionLogs: Get the Action Logs for an Action Id
                 ActionLog result = apiInstance.GetActionLogs(id);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -79,7 +79,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetActionLogs: Get the Action Logs for an Action Id
+    // GetActionLogs: Get the Action Logs for an Action Id
     ApiResponse<ActionLog> response = apiInstance.GetActionLogsWithHttpInfo(id);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

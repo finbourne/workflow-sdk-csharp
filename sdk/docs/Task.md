@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **TaskDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
 **TaskDefinitionVersion** | [**TaskDefinitionVersion**](TaskDefinitionVersion.md) |  | 
 **TaskDefinitionDisplayName** | **string** | The display name of the Task Definition used by this Task | 
+**WorkflowId** | [**ResourceId**](ResourceId.md) |  | [optional] 
+**WorkflowDisplayName** | **string** | The display name of the Workflow that this Task is a member of, if any | [optional] 
 **State** | **string** | Current State | 
 **UltimateParentTask** | [**TaskSummary**](TaskSummary.md) |  | 
 **ParentTask** | [**TaskSummary**](TaskSummary.md) |  | [optional] 
@@ -23,6 +25,11 @@ Name | Type | Description | Notes
 **ActionLogIdCreated** | **Guid?** | The Id of the Action that created this Task | [optional] 
 **ActionLogIdModified** | **Guid?** | The Id of the Action that last modified this Task | [optional] 
 **ActionLogIdSubmitted** | **Guid?** | The Id of the last Action submitted by this Task | [optional] 
+**HierarchicalPosition** | **string** | The hierarchical position of this Task: UltimateParent, IntermediateParent, Child, or Standalone | [optional] 
+**CompletionStatus** | **string** | The completion status of this Task: NotStarted, InProgress, or Completed | [optional] 
+**OpenDuration** | **long?** | Duration in seconds since the Task was created. If the Task is Completed, this is the duration from creation to the last transition. | [optional] 
+**OpenDurationSinceLastUpdate** | **long?** | Duration in seconds since the Task was last updated. 0 if the Task is Completed. | [optional] 
+**OpenDurationSinceLastTransition** | **long?** | Duration in seconds since the Task last transitioned. 0 if the Task is Completed. | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;
@@ -32,6 +39,9 @@ Guid id = "id";
 ResourceId taskDefinitionId = new ResourceId();
 TaskDefinitionVersion taskDefinitionVersion = new TaskDefinitionVersion();
 string taskDefinitionDisplayName = "taskDefinitionDisplayName";
+ResourceId? workflowId = new ResourceId();
+
+string workflowDisplayName = "example workflowDisplayName";
 string state = "state";
 TaskSummary ultimateParentTask = new TaskSummary();
 TaskSummary? parentTask = new TaskSummary();
@@ -48,12 +58,16 @@ Stack? stack = new Stack();
 Guid? actionLogIdCreated = "example actionLogIdCreated";
 Guid? actionLogIdModified = "example actionLogIdModified";
 Guid? actionLogIdSubmitted = "example actionLogIdSubmitted";
+string hierarchicalPosition = "example hierarchicalPosition";
+string completionStatus = "example completionStatus";
 
 Task taskInstance = new Task(
     id: id,
     taskDefinitionId: taskDefinitionId,
     taskDefinitionVersion: taskDefinitionVersion,
     taskDefinitionDisplayName: taskDefinitionDisplayName,
+    workflowId: workflowId,
+    workflowDisplayName: workflowDisplayName,
     state: state,
     ultimateParentTask: ultimateParentTask,
     parentTask: parentTask,
@@ -67,7 +81,12 @@ Task taskInstance = new Task(
     stack: stack,
     actionLogIdCreated: actionLogIdCreated,
     actionLogIdModified: actionLogIdModified,
-    actionLogIdSubmitted: actionLogIdSubmitted);
+    actionLogIdSubmitted: actionLogIdSubmitted,
+    hierarchicalPosition: hierarchicalPosition,
+    completionStatus: completionStatus,
+    openDuration: openDuration,
+    openDurationSinceLastUpdate: openDurationSinceLastUpdate,
+    openDurationSinceLastTransition: openDurationSinceLastTransition);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

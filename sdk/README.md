@@ -5,7 +5,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ActionLogsApi* | [**GetActionLogs**](docs/ActionLogsApi.md#getactionlogs) | **GET** /api/actionlogs/{id} | [EXPERIMENTAL] GetActionLogs: Get the Action Logs for an Action Id
+*ActionLogsApi* | [**GetActionLogs**](docs/ActionLogsApi.md#getactionlogs) | **GET** /api/actionlogs/{id} | GetActionLogs: Get the Action Logs for an Action Id
 *ApplicationMetadataApi* | [**ListAccessControlledResources**](docs/ApplicationMetadataApi.md#listaccesscontrolledresources) | **GET** /api/metadata/access/resources | ListAccessControlledResources: Get resources available for access control
 *EventHandlersApi* | [**CreateEventHandler**](docs/EventHandlersApi.md#createeventhandler) | **POST** /api/eventhandlers | CreateEventHandler: Create a new Event Handler
 *EventHandlersApi* | [**DeleteEventHandler**](docs/EventHandlersApi.md#deleteeventhandler) | **DELETE** /api/eventhandlers/{scope}/{code} | DeleteEventHandler: Delete an Event Handler
@@ -18,7 +18,7 @@ Class | Method | HTTP request | Description
 *TaskDefinitionsApi* | [**ListTaskDefinitions**](docs/TaskDefinitionsApi.md#listtaskdefinitions) | **GET** /api/taskdefinitions | ListTaskDefinitions: List Task Definitions
 *TaskDefinitionsApi* | [**ListTasksForTaskDefinition**](docs/TaskDefinitionsApi.md#listtasksfortaskdefinition) | **GET** /api/taskdefinitions/{scope}/{code}/tasks | ListTasksForTaskDefinition: List Tasks for a Task Definition
 *TaskDefinitionsApi* | [**UpdateTaskDefinition**](docs/TaskDefinitionsApi.md#updatetaskdefinition) | **PUT** /api/taskdefinitions/{scope}/{code} | UpdateTaskDefinition: Update an existing Task Definition
-*TasksApi* | [**BatchUpdateTasks**](docs/TasksApi.md#batchupdatetasks) | **PATCH** /api/tasks/$update | [EXPERIMENTAL] BatchUpdateTasks: Batch update tasks
+*TasksApi* | [**BatchUpdateTasks**](docs/TasksApi.md#batchupdatetasks) | **PATCH** /api/tasks/$update | BatchUpdateTasks: Batch update tasks
 *TasksApi* | [**CreateTask**](docs/TasksApi.md#createtask) | **POST** /api/tasks | CreateTask: Create a new Task
 *TasksApi* | [**DeleteTask**](docs/TasksApi.md#deletetask) | **DELETE** /api/tasks/{id} | DeleteTask: Delete a Task
 *TasksApi* | [**DeleteTasks**](docs/TasksApi.md#deletetasks) | **POST** /api/tasks/$delete | DeleteTasks: Batch Delete Tasks
@@ -33,6 +33,9 @@ Class | Method | HTTP request | Description
 *WorkersApi* | [**ListWorkers**](docs/WorkersApi.md#listworkers) | **GET** /api/workers | ListWorkers: List Workers
 *WorkersApi* | [**RunWorker**](docs/WorkersApi.md#runworker) | **POST** /api/workers/{scope}/{code}/$run | RunWorker: Run a Worker
 *WorkersApi* | [**UpdateWorker**](docs/WorkersApi.md#updateworker) | **PUT** /api/workers/{scope}/{code} | UpdateWorker: Update a Worker
+*WorkflowsApi* | [**CreateWorkflow**](docs/WorkflowsApi.md#createworkflow) | **POST** /api/workflows | CreateWorkflow: Create a new Workflow
+*WorkflowsApi* | [**GetWorkflow**](docs/WorkflowsApi.md#getworkflow) | **GET** /api/workflows/{scope}/{code} | GetWorkflow: Get a Workflow
+*WorkflowsApi* | [**ListWorkflows**](docs/WorkflowsApi.md#listworkflows) | **GET** /api/workflows | ListWorkflows: List Workflows
 
 
 <a id="documentation-for-models"></a>
@@ -52,6 +55,7 @@ Class | Method | HTTP request | Description
  - [BatchUpdateTasksResponse](docs/BatchUpdateTasksResponse.md)
  - [CalendarReference](docs/CalendarReference.md)
  - [ChangeItem](docs/ChangeItem.md)
+ - [ChildTaskDefinitionEdge](docs/ChildTaskDefinitionEdge.md)
  - [CreateChildTaskConfiguration](docs/CreateChildTaskConfiguration.md)
  - [CreateChildTasksAction](docs/CreateChildTasksAction.md)
  - [CreateChildTasksActionResponse](docs/CreateChildTasksActionResponse.md)
@@ -61,6 +65,7 @@ Class | Method | HTTP request | Description
  - [CreateTaskDefinitionRequest](docs/CreateTaskDefinitionRequest.md)
  - [CreateTaskRequest](docs/CreateTaskRequest.md)
  - [CreateWorkerRequest](docs/CreateWorkerRequest.md)
+ - [CreateWorkflowRequest](docs/CreateWorkflowRequest.md)
  - [CutLabelReference](docs/CutLabelReference.md)
  - [DateAdjustment](docs/DateAdjustment.md)
  - [DateRegularity](docs/DateRegularity.md)
@@ -95,6 +100,7 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfTask](docs/PagedResourceListOfTask.md)
  - [PagedResourceListOfTaskDefinition](docs/PagedResourceListOfTaskDefinition.md)
  - [PagedResourceListOfWorker](docs/PagedResourceListOfWorker.md)
+ - [PagedResourceListOfWorkflowResponse](docs/PagedResourceListOfWorkflowResponse.md)
  - [Parameter](docs/Parameter.md)
  - [ParameterValue](docs/ParameterValue.md)
  - [ReadOnlyStates](docs/ReadOnlyStates.md)
@@ -147,10 +153,15 @@ Class | Method | HTTP request | Description
  - [UpdateWorkerRequest](docs/UpdateWorkerRequest.md)
  - [ValueConstraints](docs/ValueConstraints.md)
  - [VersionInfo](docs/VersionInfo.md)
+ - [VersionedTaskDefinitionId](docs/VersionedTaskDefinitionId.md)
  - [WeekRegularity](docs/WeekRegularity.md)
  - [Worker](docs/Worker.md)
  - [WorkerConfiguration](docs/WorkerConfiguration.md)
  - [WorkerConfigurationResponse](docs/WorkerConfigurationResponse.md)
  - [WorkerStatusTriggers](docs/WorkerStatusTriggers.md)
+ - [WorkflowResponse](docs/WorkflowResponse.md)
+ - [WorkflowStructure](docs/WorkflowStructure.md)
+ - [WorkflowStructureEdges](docs/WorkflowStructureEdges.md)
+ - [WorkflowStructureNodes](docs/WorkflowStructureNodes.md)
  - [YearRegularity](docs/YearRegularity.md)
 
