@@ -56,6 +56,18 @@ namespace Finbourne.Workflow.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ActionDetails" /> class
+        /// with the <see cref="TriggerChildTasksAction" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of TriggerChildTasksAction.</param>
+        public ActionDetails(TriggerChildTasksAction actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActionDetails" /> class
         /// with the <see cref="TriggerParentTaskAction" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of TriggerParentTaskAction.</param>
@@ -88,13 +100,17 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(TriggerChildTasksAction) || value is TriggerChildTasksAction)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(TriggerParentTaskAction) || value is TriggerParentTaskAction)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: CreateChildTasksAction, RunWorkerAction, TriggerParentTaskAction");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: CreateChildTasksAction, RunWorkerAction, TriggerChildTasksAction, TriggerParentTaskAction");
                 }
             }
         }
@@ -117,6 +133,16 @@ namespace Finbourne.Workflow.Sdk.Model
         public RunWorkerAction GetRunWorkerAction()
         {
             return (RunWorkerAction)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `TriggerChildTasksAction`. If the actual instance is not `TriggerChildTasksAction`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of TriggerChildTasksAction</returns>
+        public TriggerChildTasksAction GetTriggerChildTasksAction()
+        {
+            return (TriggerChildTasksAction)this.ActualInstance;
         }
 
         /// <summary>
@@ -205,6 +231,26 @@ namespace Finbourne.Workflow.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into RunWorkerAction: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(TriggerChildTasksAction).GetProperty("AdditionalProperties") == null)
+                {
+                    newActionDetails = new ActionDetails(JsonConvert.DeserializeObject<TriggerChildTasksAction>(jsonString, ActionDetails.SerializerSettings));
+                }
+                else
+                {
+                    newActionDetails = new ActionDetails(JsonConvert.DeserializeObject<TriggerChildTasksAction>(jsonString, ActionDetails.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("TriggerChildTasksAction");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TriggerChildTasksAction: {1}", jsonString, exception.ToString()));
             }
 
             try
