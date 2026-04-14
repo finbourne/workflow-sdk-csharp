@@ -5,6 +5,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CreateWorkflow**](WorkflowsApi.md#createworkflow) | **POST** /api/workflows | CreateWorkflow: Create a new Workflow |
+| [**DeleteWorkflow**](WorkflowsApi.md#deleteworkflow) | **DELETE** /api/workflows/{scope}/{code} | [EXPERIMENTAL] DeleteWorkflow: Delete a Workflow |
 | [**GetWorkflow**](WorkflowsApi.md#getworkflow) | **GET** /api/workflows/{scope}/{code} | GetWorkflow: Get a Workflow |
 | [**ListWorkflows**](WorkflowsApi.md#listworkflows) | **GET** /api/workflows | ListWorkflows: List Workflows |
 
@@ -117,6 +118,121 @@ catch (ApiException e)
 | **201** | Created |  -  |
 | **400** | The details of the input related failure |  -  |
 | **409** | Workflow already exists. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="deleteworkflow"></a>
+# **DeleteWorkflow**
+> DeletedEntityResponse DeleteWorkflow (string scope, string code)
+
+[EXPERIMENTAL] DeleteWorkflow: Delete a Workflow
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Workflow.Sdk.Api;
+using Finbourne.Workflow.Sdk.Client;
+using Finbourne.Workflow.Sdk.Extensions;
+using Finbourne.Workflow.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""workflowUrl"": ""https://<your-domain>.lusid.com/workflow"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkflowsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkflowsApi>();
+            var scope = "scope_example";  // string | The scope that identifies a Workflow
+            var code = "code_example";  // string | The code that identifies a Workflow
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // DeletedEntityResponse result = apiInstance.DeleteWorkflow(scope, code, opts: opts);
+
+                // [EXPERIMENTAL] DeleteWorkflow: Delete a Workflow
+                DeletedEntityResponse result = apiInstance.DeleteWorkflow(scope, code);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling WorkflowsApi.DeleteWorkflow: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteWorkflowWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] DeleteWorkflow: Delete a Workflow
+    ApiResponse<DeletedEntityResponse> response = apiInstance.DeleteWorkflowWithHttpInfo(scope, code);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling WorkflowsApi.DeleteWorkflowWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope that identifies a Workflow |  |
+| **code** | **string** | The code that identifies a Workflow |  |
+
+### Return type
+
+[**DeletedEntityResponse**](DeletedEntityResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | Workflow not found. |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)

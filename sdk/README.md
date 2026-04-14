@@ -34,6 +34,7 @@ Class | Method | HTTP request | Description
 *WorkersApi* | [**RunWorker**](docs/WorkersApi.md#runworker) | **POST** /api/workers/{scope}/{code}/$run | RunWorker: Run a Worker
 *WorkersApi* | [**UpdateWorker**](docs/WorkersApi.md#updateworker) | **PUT** /api/workers/{scope}/{code} | UpdateWorker: Update a Worker
 *WorkflowsApi* | [**CreateWorkflow**](docs/WorkflowsApi.md#createworkflow) | **POST** /api/workflows | CreateWorkflow: Create a new Workflow
+*WorkflowsApi* | [**DeleteWorkflow**](docs/WorkflowsApi.md#deleteworkflow) | **DELETE** /api/workflows/{scope}/{code} | [EXPERIMENTAL] DeleteWorkflow: Delete a Workflow
 *WorkflowsApi* | [**GetWorkflow**](docs/WorkflowsApi.md#getworkflow) | **GET** /api/workflows/{scope}/{code} | GetWorkflow: Get a Workflow
 *WorkflowsApi* | [**ListWorkflows**](docs/WorkflowsApi.md#listworkflows) | **GET** /api/workflows | ListWorkflows: List Workflows
 
