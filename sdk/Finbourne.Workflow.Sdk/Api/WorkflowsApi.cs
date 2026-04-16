@@ -133,6 +133,32 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfWorkflowResponse</returns>
         Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfWorkflowResponse> ListWorkflowsWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] UpdateWorkflow: Update an existing Workflow
+        /// </summary>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope that identifies a Workflow</param>
+        /// <param name="code">The code that identifies a Workflow</param>
+        /// <param name="updateWorkflowRequest">The data to update a Workflow</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>WorkflowResponse</returns>
+        WorkflowResponse UpdateWorkflow(string scope, string code, UpdateWorkflowRequest updateWorkflowRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpdateWorkflow: Update an existing Workflow
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope that identifies a Workflow</param>
+        /// <param name="code">The code that identifies a Workflow</param>
+        /// <param name="updateWorkflowRequest">The data to update a Workflow</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of WorkflowResponse</returns>
+        Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowResponse> UpdateWorkflowWithHttpInfo(string scope, string code, UpdateWorkflowRequest updateWorkflowRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -264,6 +290,37 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfWorkflowResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfWorkflowResponse>> ListWorkflowsWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
+        /// [EXPERIMENTAL] UpdateWorkflow: Update an existing Workflow
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope that identifies a Workflow</param>
+        /// <param name="code">The code that identifies a Workflow</param>
+        /// <param name="updateWorkflowRequest">The data to update a Workflow</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of WorkflowResponse</returns>
+        System.Threading.Tasks.Task<WorkflowResponse> UpdateWorkflowAsync(string scope, string code, UpdateWorkflowRequest updateWorkflowRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpdateWorkflow: Update an existing Workflow
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope that identifies a Workflow</param>
+        /// <param name="code">The code that identifies a Workflow</param>
+        /// <param name="updateWorkflowRequest">The data to update a Workflow</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (WorkflowResponse)</returns>
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowResponse>> UpdateWorkflowWithHttpInfoAsync(string scope, string code, UpdateWorkflowRequest updateWorkflowRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -1282,6 +1339,250 @@ namespace Finbourne.Workflow.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListWorkflows", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpdateWorkflow: Update an existing Workflow 
+        /// </summary>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope that identifies a Workflow</param>
+        /// <param name="code">The code that identifies a Workflow</param>
+        /// <param name="updateWorkflowRequest">The data to update a Workflow</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>WorkflowResponse</returns>
+        public WorkflowResponse UpdateWorkflow(string scope, string code, UpdateWorkflowRequest updateWorkflowRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowResponse> localVarResponse = UpdateWorkflowWithHttpInfo(scope, code, updateWorkflowRequest, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpdateWorkflow: Update an existing Workflow 
+        /// </summary>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope that identifies a Workflow</param>
+        /// <param name="code">The code that identifies a Workflow</param>
+        /// <param name="updateWorkflowRequest">The data to update a Workflow</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of WorkflowResponse</returns>
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowResponse> UpdateWorkflowWithHttpInfo(string scope, string code, UpdateWorkflowRequest updateWorkflowRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling WorkflowsApi->UpdateWorkflow");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling WorkflowsApi->UpdateWorkflow");
+            }
+
+            // verify the required parameter 'updateWorkflowRequest' is set
+            if (updateWorkflowRequest == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'updateWorkflowRequest' when calling WorkflowsApi->UpdateWorkflow");
+            }
+
+            Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Workflow.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Workflow.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = updateWorkflowRequest;
+
+            localVarRequestOptions.Operation = "WorkflowsApi.UpdateWorkflow";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<WorkflowResponse>("/api/workflows/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateWorkflow", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpdateWorkflow: Update an existing Workflow 
+        /// </summary>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope that identifies a Workflow</param>
+        /// <param name="code">The code that identifies a Workflow</param>
+        /// <param name="updateWorkflowRequest">The data to update a Workflow</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of WorkflowResponse</returns>
+        public async System.Threading.Tasks.Task<WorkflowResponse> UpdateWorkflowAsync(string scope, string code, UpdateWorkflowRequest updateWorkflowRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowResponse> localVarResponse = await UpdateWorkflowWithHttpInfoAsync(scope, code, updateWorkflowRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] UpdateWorkflow: Update an existing Workflow 
+        /// </summary>
+        /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scope">The scope that identifies a Workflow</param>
+        /// <param name="code">The code that identifies a Workflow</param>
+        /// <param name="updateWorkflowRequest">The data to update a Workflow</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (WorkflowResponse)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowResponse>> UpdateWorkflowWithHttpInfoAsync(string scope, string code, UpdateWorkflowRequest updateWorkflowRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'scope' is set
+            if (scope == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'scope' when calling WorkflowsApi->UpdateWorkflow");
+            }
+
+            // verify the required parameter 'code' is set
+            if (code == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'code' when calling WorkflowsApi->UpdateWorkflow");
+            }
+
+            // verify the required parameter 'updateWorkflowRequest' is set
+            if (updateWorkflowRequest == null)
+            {
+                throw new Finbourne.Workflow.Sdk.Client.ApiException(400, "Missing required parameter 'updateWorkflowRequest' when calling WorkflowsApi->UpdateWorkflow");
+            }
+
+
+            Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Workflow.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Workflow.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("scope", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(scope)); // path parameter
+            localVarRequestOptions.PathParameters.Add("code", Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToString(code)); // path parameter
+            localVarRequestOptions.Data = updateWorkflowRequest;
+
+            localVarRequestOptions.Operation = "WorkflowsApi.UpdateWorkflow";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<WorkflowResponse>("/api/workflows/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateWorkflow", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

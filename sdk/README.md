@@ -37,6 +37,7 @@ Class | Method | HTTP request | Description
 *WorkflowsApi* | [**DeleteWorkflow**](docs/WorkflowsApi.md#deleteworkflow) | **DELETE** /api/workflows/{scope}/{code} | [EXPERIMENTAL] DeleteWorkflow: Delete a Workflow
 *WorkflowsApi* | [**GetWorkflow**](docs/WorkflowsApi.md#getworkflow) | **GET** /api/workflows/{scope}/{code} | GetWorkflow: Get a Workflow
 *WorkflowsApi* | [**ListWorkflows**](docs/WorkflowsApi.md#listworkflows) | **GET** /api/workflows | ListWorkflows: List Workflows
+*WorkflowsApi* | [**UpdateWorkflow**](docs/WorkflowsApi.md#updateworkflow) | **PUT** /api/workflows/{scope}/{code} | [EXPERIMENTAL] UpdateWorkflow: Update an existing Workflow
 
 
 <a id="documentation-for-models"></a>
@@ -154,6 +155,7 @@ Class | Method | HTTP request | Description
  - [UpdateTaskRequest](docs/UpdateTaskRequest.md)
  - [UpdateTaskWithIdAndTriggerRequest](docs/UpdateTaskWithIdAndTriggerRequest.md)
  - [UpdateWorkerRequest](docs/UpdateWorkerRequest.md)
+ - [UpdateWorkflowRequest](docs/UpdateWorkflowRequest.md)
  - [ValueConstraints](docs/ValueConstraints.md)
  - [VersionInfo](docs/VersionInfo.md)
  - [VersionedTaskDefinitionId](docs/VersionedTaskDefinitionId.md)
