@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **WorkerStatusTriggers** | [**WorkerStatusTriggers**](WorkerStatusTriggers.md) |  | [optional] 
 **WorkerTimeout** | **int?** | Worker timeout in seconds | [optional] 
 **Trigger** | **string** | Trigger on parent task to be invoked | [optional] 
+**Filter** | **string** | Optional LUSID filter expression to limit the action to a subset of the child tasks | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;

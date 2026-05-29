@@ -59,7 +59,8 @@ namespace Finbourne.Workflow.Sdk.Model
         /// </summary>
         /// <param name="type">Type name for this Action (required).</param>
         /// <param name="trigger">Trigger on child tasks to be invoked (required).</param>
-        public TriggerChildTasksAction(TypeEnum type = default(TypeEnum), string trigger = default(string))
+        /// <param name="filter">Optional LUSID filter expression to limit the action to a subset of the child tasks.</param>
+        public TriggerChildTasksAction(TypeEnum type = default(TypeEnum), string trigger = default(string), string filter = default(string))
         {
             this.Type = type;
             // to ensure "trigger" is required (not null)
@@ -68,6 +69,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 throw new ArgumentNullException("trigger is a required property for TriggerChildTasksAction and cannot be null");
             }
             this.Trigger = trigger;
+            this.Filter = filter;
         }
 
         /// <summary>
@@ -76,6 +78,13 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <value>Trigger on child tasks to be invoked</value>
         [DataMember(Name = "trigger", IsRequired = true, EmitDefaultValue = true)]
         public string Trigger { get; set; }
+
+        /// <summary>
+        /// Optional LUSID filter expression to limit the action to a subset of the child tasks
+        /// </summary>
+        /// <value>Optional LUSID filter expression to limit the action to a subset of the child tasks</value>
+        [DataMember(Name = "filter", EmitDefaultValue = true)]
+        public string Filter { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -87,6 +96,7 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("class TriggerChildTasksAction {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Trigger: ").Append(Trigger).Append("\n");
+            sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,6 +140,11 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.Trigger == input.Trigger ||
                     (this.Trigger != null &&
                     this.Trigger.Equals(input.Trigger))
+                ) && 
+                (
+                    this.Filter == input.Filter ||
+                    (this.Filter != null &&
+                    this.Filter.Equals(input.Filter))
                 );
         }
 
@@ -146,6 +161,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.Trigger != null)
                 {
                     hashCode = (hashCode * 59) + this.Trigger.GetHashCode();
+                }
+                if (this.Filter != null)
+                {
+                    hashCode = (hashCode * 59) + this.Filter.GetHashCode();
                 }
                 return hashCode;
             }
@@ -175,6 +194,12 @@ namespace Finbourne.Workflow.Sdk.Model
             if (false == regexTrigger.Match(this.Trigger).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Trigger, must match a pattern of " + regexTrigger, new [] { "Trigger" });
+            }
+
+            // Filter (string) maxLength
+            if (this.Filter != null && this.Filter.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, length must be less than 1024.", new [] { "Filter" });
             }
 
             yield break;
