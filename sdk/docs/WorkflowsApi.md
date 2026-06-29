@@ -9,6 +9,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 | [**GetWorkflow**](WorkflowsApi.md#getworkflow) | **GET** /api/workflows/{scope}/{code} | GetWorkflow: Get a Workflow |
 | [**ListWorkflows**](WorkflowsApi.md#listworkflows) | **GET** /api/workflows | ListWorkflows: List Workflows |
 | [**UpdateWorkflow**](WorkflowsApi.md#updateworkflow) | **PUT** /api/workflows/{scope}/{code} | [EXPERIMENTAL] UpdateWorkflow: Update an existing Workflow |
+| [**UpsertWorkflowProperties**](WorkflowsApi.md#upsertworkflowproperties) | **POST** /api/workflows/{scope}/{code}/properties | [EXPERIMENTAL] UpsertWorkflowProperties: Add, update and remove properties on an existing Workflow in bulk. |
 
 <a id="createworkflow"></a>
 # **CreateWorkflow**
@@ -576,6 +577,125 @@ catch (ApiException e)
 ### Return type
 
 [**WorkflowResponse**](WorkflowResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | Workflow not found. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="upsertworkflowproperties"></a>
+# **UpsertWorkflowProperties**
+> BatchUpsertWorkflowPropertiesResponse UpsertWorkflowProperties (string scope, string code, Dictionary<string, PerpetualProperty> requestBody, string? successMode = null)
+
+[EXPERIMENTAL] UpsertWorkflowProperties: Add, update and remove properties on an existing Workflow in bulk.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Workflow.Sdk.Api;
+using Finbourne.Workflow.Sdk.Client;
+using Finbourne.Workflow.Sdk.Extensions;
+using Finbourne.Workflow.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""workflowUrl"": ""https://<your-domain>.lusid.com/workflow"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<WorkflowsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<WorkflowsApi>();
+            var scope = "scope_example";  // string | The scope that identifies a Workflow
+            var code = "code_example";  // string | The code that identifies a Workflow
+            var requestBody = new Dictionary<string, PerpetualProperty>(); // Dictionary<string, PerpetualProperty> | The properties to upsert, keyed by property key. A null value deletes the property.
+            var successMode = "\"Partial\"";  // string? | Whether the batch should fail Atomically or Partially. Defaults to Partial. (optional)  (default to "Partial")
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // BatchUpsertWorkflowPropertiesResponse result = apiInstance.UpsertWorkflowProperties(scope, code, requestBody, successMode, opts: opts);
+
+                // [EXPERIMENTAL] UpsertWorkflowProperties: Add, update and remove properties on an existing Workflow in bulk.
+                BatchUpsertWorkflowPropertiesResponse result = apiInstance.UpsertWorkflowProperties(scope, code, requestBody, successMode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling WorkflowsApi.UpsertWorkflowProperties: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpsertWorkflowPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] UpsertWorkflowProperties: Add, update and remove properties on an existing Workflow in bulk.
+    ApiResponse<BatchUpsertWorkflowPropertiesResponse> response = apiInstance.UpsertWorkflowPropertiesWithHttpInfo(scope, code, requestBody, successMode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling WorkflowsApi.UpsertWorkflowPropertiesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope that identifies a Workflow |  |
+| **code** | **string** | The code that identifies a Workflow |  |
+| **requestBody** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The properties to upsert, keyed by property key. A null value deletes the property. |  |
+| **successMode** | **string?** | Whether the batch should fail Atomically or Partially. Defaults to Partial. | [optional] [default to &quot;Partial&quot;] |
+
+### Return type
+
+[**BatchUpsertWorkflowPropertiesResponse**](BatchUpsertWorkflowPropertiesResponse.md)
 
 ### HTTP request headers
 
