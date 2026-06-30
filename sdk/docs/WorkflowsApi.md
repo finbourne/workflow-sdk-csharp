@@ -241,7 +241,7 @@ catch (ApiException e)
 
 <a id="getworkflow"></a>
 # **GetWorkflow**
-> WorkflowResponse GetWorkflow (string scope, string code, DateTimeOffset? asAt = null)
+> WorkflowResponse GetWorkflow (string scope, string code, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
 GetWorkflow: Get a Workflow
 
@@ -287,14 +287,15 @@ namespace Examples
             var scope = "scope_example";  // string | The scope that identifies a Workflow
             var code = "code_example";  // string | The code that identifies a Workflow
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Workflow. Defaults to returning the latest version if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | The property keys (in the Workflow or TaskDefinition domain) whose values to return on the Workflow. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // WorkflowResponse result = apiInstance.GetWorkflow(scope, code, asAt, opts: opts);
+                // WorkflowResponse result = apiInstance.GetWorkflow(scope, code, asAt, propertyKeys, opts: opts);
 
                 // GetWorkflow: Get a Workflow
-                WorkflowResponse result = apiInstance.GetWorkflow(scope, code, asAt);
+                WorkflowResponse result = apiInstance.GetWorkflow(scope, code, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -315,7 +316,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetWorkflow: Get a Workflow
-    ApiResponse<WorkflowResponse> response = apiInstance.GetWorkflowWithHttpInfo(scope, code, asAt);
+    ApiResponse<WorkflowResponse> response = apiInstance.GetWorkflowWithHttpInfo(scope, code, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -335,6 +336,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope that identifies a Workflow |  |
 | **code** | **string** | The code that identifies a Workflow |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Workflow. Defaults to returning the latest version if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys (in the Workflow or TaskDefinition domain) whose values to return on the Workflow. | [optional]  |
 
 ### Return type
 

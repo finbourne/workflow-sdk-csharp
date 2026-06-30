@@ -42,7 +42,8 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="description">Human readable description.</param>
         /// <param name="rootTaskDefinitionId">rootTaskDefinitionId (required).</param>
         /// <param name="workflowStructure">workflowStructure.</param>
-        public WorkflowResponse(ResourceId id = default(ResourceId), VersionInfo varVersion = default(VersionInfo), string displayName = default(string), string description = default(string), ResourceId rootTaskDefinitionId = default(ResourceId), WorkflowStructure workflowStructure = default(WorkflowStructure))
+        /// <param name="properties">The properties of the Workflow, keyed by property key..</param>
+        public WorkflowResponse(ResourceId id = default(ResourceId), VersionInfo varVersion = default(VersionInfo), string displayName = default(string), string description = default(string), ResourceId rootTaskDefinitionId = default(ResourceId), WorkflowStructure workflowStructure = default(WorkflowStructure), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -65,6 +66,7 @@ namespace Finbourne.Workflow.Sdk.Model
             this.VarVersion = varVersion;
             this.Description = description;
             this.WorkflowStructure = workflowStructure;
+            this.Properties = properties;
         }
 
         /// <summary>
@@ -106,6 +108,13 @@ namespace Finbourne.Workflow.Sdk.Model
         public WorkflowStructure WorkflowStructure { get; set; }
 
         /// <summary>
+        /// The properties of the Workflow, keyed by property key.
+        /// </summary>
+        /// <value>The properties of the Workflow, keyed by property key.</value>
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
+        public Dictionary<string, PerpetualProperty> Properties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -119,6 +128,7 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  RootTaskDefinitionId: ").Append(RootTaskDefinitionId).Append("\n");
             sb.Append("  WorkflowStructure: ").Append(WorkflowStructure).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -183,6 +193,12 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.WorkflowStructure == input.WorkflowStructure ||
                     (this.WorkflowStructure != null &&
                     this.WorkflowStructure.Equals(input.WorkflowStructure))
+                ) && 
+                (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
                 );
         }
 
@@ -218,6 +234,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.WorkflowStructure != null)
                 {
                     hashCode = (hashCode * 59) + this.WorkflowStructure.GetHashCode();
+                }
+                if (this.Properties != null)
+                {
+                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 return hashCode;
             }
