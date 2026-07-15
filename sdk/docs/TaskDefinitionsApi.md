@@ -360,7 +360,7 @@ catch (ApiException e)
 
 <a id="listtaskdefinitions"></a>
 # **ListTaskDefinitions**
-> PagedResourceListOfTaskDefinition ListTaskDefinitions (DateTimeOffset? asAt = null, string? filter = null, List<string>? sortBy = null, int? limit = null, string? page = null)
+> PagedResourceListOfTaskDefinition ListTaskDefinitions (DateTimeOffset? asAt = null, string? filter = null, List<string>? sortBy = null, int? limit = null, string? page = null, List<string>? propertyKeys = null)
 
 ListTaskDefinitions: List Task Definitions
 
@@ -408,14 +408,15 @@ namespace Examples
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\" (optional) 
             var limit = 10;  // int? | When paginating, limit the number of returned results to this many. (optional)  (default to 10)
             var page = "page_example";  // string? | The pagination token to use to continue listing task definitions from a previous call to list task definitions. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | The property keys whose values to return on each Task Definition. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfTaskDefinition result = apiInstance.ListTaskDefinitions(asAt, filter, sortBy, limit, page, opts: opts);
+                // PagedResourceListOfTaskDefinition result = apiInstance.ListTaskDefinitions(asAt, filter, sortBy, limit, page, propertyKeys, opts: opts);
 
                 // ListTaskDefinitions: List Task Definitions
-                PagedResourceListOfTaskDefinition result = apiInstance.ListTaskDefinitions(asAt, filter, sortBy, limit, page);
+                PagedResourceListOfTaskDefinition result = apiInstance.ListTaskDefinitions(asAt, filter, sortBy, limit, page, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -436,7 +437,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListTaskDefinitions: List Task Definitions
-    ApiResponse<PagedResourceListOfTaskDefinition> response = apiInstance.ListTaskDefinitionsWithHttpInfo(asAt, filter, sortBy, limit, page);
+    ApiResponse<PagedResourceListOfTaskDefinition> response = apiInstance.ListTaskDefinitionsWithHttpInfo(asAt, filter, sortBy, limit, page, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -458,6 +459,7 @@ catch (ApiException e)
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional] [default to 10] |
 | **page** | **string?** | The pagination token to use to continue listing task definitions from a previous call to list task definitions. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys whose values to return on each Task Definition. | [optional]  |
 
 ### Return type
 
