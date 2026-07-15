@@ -467,7 +467,7 @@ catch (ApiException e)
 
 <a id="gettask"></a>
 # **GetTask**
-> Task GetTask (string id, DateTimeOffset? asAt = null)
+> Task GetTask (string id, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
 GetTask: Get a Task
 
@@ -512,14 +512,15 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TasksApi>();
             var id = "id_example";  // string | Id of the Task to retrieve
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Task result = apiInstance.GetTask(id, asAt, opts: opts);
+                // Task result = apiInstance.GetTask(id, asAt, propertyKeys, opts: opts);
 
                 // GetTask: Get a Task
-                Task result = apiInstance.GetTask(id, asAt);
+                Task result = apiInstance.GetTask(id, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -540,7 +541,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetTask: Get a Task
-    ApiResponse<Task> response = apiInstance.GetTaskWithHttpInfo(id, asAt);
+    ApiResponse<Task> response = apiInstance.GetTaskWithHttpInfo(id, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -559,6 +560,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | Id of the Task to retrieve |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. | [optional]  |
 
 ### Return type
 
@@ -697,7 +699,7 @@ catch (ApiException e)
 
 <a id="listtasks"></a>
 # **ListTasks**
-> PagedResourceListOfTask ListTasks (DateTimeOffset? asAt = null, string? filter = null, List<string>? sortBy = null, int? limit = null, string? page = null)
+> PagedResourceListOfTask ListTasks (DateTimeOffset? asAt = null, string? filter = null, List<string>? sortBy = null, List<string>? propertyKeys = null, int? limit = null, string? page = null)
 
 ListTasks: List Tasks
 
@@ -743,16 +745,17 @@ namespace Examples
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each optionally suffixed by \" ASC\" or \" DESC\" (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional) 
             var limit = 10;  // int? | When paginating, limit the number of returned results to this many. (optional)  (default to 10)
             var page = "page_example";  // string? | The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfTask result = apiInstance.ListTasks(asAt, filter, sortBy, limit, page, opts: opts);
+                // PagedResourceListOfTask result = apiInstance.ListTasks(asAt, filter, sortBy, propertyKeys, limit, page, opts: opts);
 
                 // ListTasks: List Tasks
-                PagedResourceListOfTask result = apiInstance.ListTasks(asAt, filter, sortBy, limit, page);
+                PagedResourceListOfTask result = apiInstance.ListTasks(asAt, filter, sortBy, propertyKeys, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -773,7 +776,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListTasks: List Tasks
-    ApiResponse<PagedResourceListOfTask> response = apiInstance.ListTasksWithHttpInfo(asAt, filter, sortBy, limit, page);
+    ApiResponse<PagedResourceListOfTask> response = apiInstance.ListTasksWithHttpInfo(asAt, filter, sortBy, propertyKeys, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -793,6 +796,7 @@ catch (ApiException e)
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional] [default to 10] |
 | **page** | **string?** | The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. | [optional]  |
 

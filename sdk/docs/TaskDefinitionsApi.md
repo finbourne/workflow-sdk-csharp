@@ -10,6 +10,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/workflow*
 | [**ListTaskDefinitions**](TaskDefinitionsApi.md#listtaskdefinitions) | **GET** /api/taskdefinitions | ListTaskDefinitions: List Task Definitions |
 | [**ListTasksForTaskDefinition**](TaskDefinitionsApi.md#listtasksfortaskdefinition) | **GET** /api/taskdefinitions/{scope}/{code}/tasks | ListTasksForTaskDefinition: List Tasks for a Task Definition |
 | [**UpdateTaskDefinition**](TaskDefinitionsApi.md#updatetaskdefinition) | **PUT** /api/taskdefinitions/{scope}/{code} | UpdateTaskDefinition: Update an existing Task Definition |
+| [**UpsertTaskDefinitionProperties**](TaskDefinitionsApi.md#upserttaskdefinitionproperties) | **POST** /api/taskdefinitions/{scope}/{code}/properties | [EXPERIMENTAL] UpsertTaskDefinitionProperties: Add, update and remove properties on an existing Task Definition in bulk. |
 
 <a id="createtaskdefinition"></a>
 # **CreateTaskDefinition**
@@ -240,7 +241,7 @@ catch (ApiException e)
 
 <a id="gettaskdefinition"></a>
 # **GetTaskDefinition**
-> TaskDefinition GetTaskDefinition (string scope, string code, DateTimeOffset? asAt = null)
+> TaskDefinition GetTaskDefinition (string scope, string code, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
 GetTaskDefinition: Get a Task Definition
 
@@ -286,14 +287,15 @@ namespace Examples
             var scope = "scope_example";  // string | The scope that identifies a Task Definition
             var code = "code_example";  // string | The code that identifies a Task Definition
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Task Definition. Defaults to returning the latest version of the Task Definition if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | The property keys whose values to return on the Task Definition. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // TaskDefinition result = apiInstance.GetTaskDefinition(scope, code, asAt, opts: opts);
+                // TaskDefinition result = apiInstance.GetTaskDefinition(scope, code, asAt, propertyKeys, opts: opts);
 
                 // GetTaskDefinition: Get a Task Definition
-                TaskDefinition result = apiInstance.GetTaskDefinition(scope, code, asAt);
+                TaskDefinition result = apiInstance.GetTaskDefinition(scope, code, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -314,7 +316,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetTaskDefinition: Get a Task Definition
-    ApiResponse<TaskDefinition> response = apiInstance.GetTaskDefinitionWithHttpInfo(scope, code, asAt);
+    ApiResponse<TaskDefinition> response = apiInstance.GetTaskDefinitionWithHttpInfo(scope, code, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -334,6 +336,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope that identifies a Task Definition |  |
 | **code** | **string** | The code that identifies a Task Definition |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Task Definition. Defaults to returning the latest version of the Task Definition if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys whose values to return on the Task Definition. | [optional]  |
 
 ### Return type
 
@@ -478,7 +481,7 @@ catch (ApiException e)
 
 <a id="listtasksfortaskdefinition"></a>
 # **ListTasksForTaskDefinition**
-> ResourceListOfTask ListTasksForTaskDefinition (string scope, string code, DateTimeOffset? asAt = null)
+> ResourceListOfTask ListTasksForTaskDefinition (string scope, string code, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
 ListTasksForTaskDefinition: List Tasks for a Task Definition
 
@@ -524,14 +527,15 @@ namespace Examples
             var scope = "scope_example";  // string | The scope that identifies a Task Definition
             var code = "code_example";  // string | The code that identifies a Task Definition
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ResourceListOfTask result = apiInstance.ListTasksForTaskDefinition(scope, code, asAt, opts: opts);
+                // ResourceListOfTask result = apiInstance.ListTasksForTaskDefinition(scope, code, asAt, propertyKeys, opts: opts);
 
                 // ListTasksForTaskDefinition: List Tasks for a Task Definition
-                ResourceListOfTask result = apiInstance.ListTasksForTaskDefinition(scope, code, asAt);
+                ResourceListOfTask result = apiInstance.ListTasksForTaskDefinition(scope, code, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -552,7 +556,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // ListTasksForTaskDefinition: List Tasks for a Task Definition
-    ApiResponse<ResourceListOfTask> response = apiInstance.ListTasksForTaskDefinitionWithHttpInfo(scope, code, asAt);
+    ApiResponse<ResourceListOfTask> response = apiInstance.ListTasksForTaskDefinitionWithHttpInfo(scope, code, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -572,6 +576,7 @@ catch (ApiException e)
 | **scope** | **string** | The scope that identifies a Task Definition |  |
 | **code** | **string** | The code that identifies a Task Definition |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. | [optional]  |
 
 ### Return type
 
@@ -693,6 +698,125 @@ catch (ApiException e)
 ### Return type
 
 [**TaskDefinition**](TaskDefinition.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | Task Definition not found. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="upserttaskdefinitionproperties"></a>
+# **UpsertTaskDefinitionProperties**
+> BatchUpsertTaskDefinitionPropertiesResponse UpsertTaskDefinitionProperties (string scope, string code, Dictionary<string, PerpetualProperty> requestBody, string? successMode = null)
+
+[EXPERIMENTAL] UpsertTaskDefinitionProperties: Add, update and remove properties on an existing Task Definition in bulk.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Workflow.Sdk.Api;
+using Finbourne.Workflow.Sdk.Client;
+using Finbourne.Workflow.Sdk.Extensions;
+using Finbourne.Workflow.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""workflowUrl"": ""https://<your-domain>.lusid.com/workflow"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TaskDefinitionsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TaskDefinitionsApi>();
+            var scope = "scope_example";  // string | The scope that identifies a Task Definition
+            var code = "code_example";  // string | The code that identifies a Task Definition
+            var requestBody = new Dictionary<string, PerpetualProperty>(); // Dictionary<string, PerpetualProperty> | The properties to upsert, keyed by property key. A null value deletes the property.
+            var successMode = "\"Partial\"";  // string? | Whether the batch should fail Atomically or Partially. Defaults to Partial. (optional)  (default to "Partial")
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // BatchUpsertTaskDefinitionPropertiesResponse result = apiInstance.UpsertTaskDefinitionProperties(scope, code, requestBody, successMode, opts: opts);
+
+                // [EXPERIMENTAL] UpsertTaskDefinitionProperties: Add, update and remove properties on an existing Task Definition in bulk.
+                BatchUpsertTaskDefinitionPropertiesResponse result = apiInstance.UpsertTaskDefinitionProperties(scope, code, requestBody, successMode);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TaskDefinitionsApi.UpsertTaskDefinitionProperties: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpsertTaskDefinitionPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] UpsertTaskDefinitionProperties: Add, update and remove properties on an existing Task Definition in bulk.
+    ApiResponse<BatchUpsertTaskDefinitionPropertiesResponse> response = apiInstance.UpsertTaskDefinitionPropertiesWithHttpInfo(scope, code, requestBody, successMode);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TaskDefinitionsApi.UpsertTaskDefinitionPropertiesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **scope** | **string** | The scope that identifies a Task Definition |  |
+| **code** | **string** | The code that identifies a Task Definition |  |
+| **requestBody** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The properties to upsert, keyed by property key. A null value deletes the property. |  |
+| **successMode** | **string?** | Whether the batch should fail Atomically or Partially. Defaults to Partial. | [optional] [default to &quot;Partial&quot;] |
+
+### Return type
+
+[**BatchUpsertTaskDefinitionPropertiesResponse**](BatchUpsertTaskDefinitionPropertiesResponse.md)
 
 ### HTTP request headers
 

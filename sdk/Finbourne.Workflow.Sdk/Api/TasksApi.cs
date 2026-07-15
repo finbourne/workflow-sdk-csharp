@@ -127,10 +127,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task</returns>
-        Task GetTask(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Task GetTask(string id, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetTask: Get a Task
@@ -141,10 +142,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Task</returns>
-        Finbourne.Workflow.Sdk.Client.ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// GetTaskHistory: Get the history of a Task
         /// </summary>
@@ -176,12 +178,13 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTask</returns>
-        PagedResourceListOfTask ListTasks(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PagedResourceListOfTask ListTasks(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListTasks: List Tasks
@@ -193,12 +196,13 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTask</returns>
-        Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> ListTasksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> ListTasksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// UpdateTask: Update a Task
         /// </summary>
@@ -353,11 +357,12 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Task</returns>
-        System.Threading.Tasks.Task<Task> GetTaskAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Task> GetTaskAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetTask: Get a Task
@@ -368,11 +373,12 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Task)</returns>
-        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// GetTaskHistory: Get the history of a Task
         /// </summary>
@@ -412,13 +418,14 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfTask</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfTask> ListTasksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PagedResourceListOfTask> ListTasksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// ListTasks: List Tasks
@@ -430,13 +437,14 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTask)</returns>
-        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask>> ListTasksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask>> ListTasksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// UpdateTask: Update a Task
         /// </summary>
@@ -1410,12 +1418,13 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task</returns>
-        public Task GetTask(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Task GetTask(string id, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = GetTaskWithHttpInfo(id, asAt, opts: opts);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = GetTaskWithHttpInfo(id, asAt, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1425,10 +1434,11 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Task</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<Task> GetTaskWithHttpInfo(string id, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1473,6 +1483,11 @@ namespace Finbourne.Workflow.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (propertyKeys != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "TasksApi.GetTask";
@@ -1515,13 +1530,14 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Task</returns>
-        public async System.Threading.Tasks.Task<Task> GetTaskAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Task> GetTaskAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = await GetTaskWithHttpInfoAsync(id, asAt, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<Task> localVarResponse = await GetTaskWithHttpInfoAsync(id, asAt, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1531,11 +1547,12 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Task)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<Task>> GetTaskWithHttpInfoAsync(string id, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1580,6 +1597,10 @@ namespace Finbourne.Workflow.Sdk.Api
             if (asAt != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("", "asAt", asAt));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
 
             localVarRequestOptions.Operation = "TasksApi.GetTask";
@@ -1837,14 +1858,15 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTask</returns>
-        public PagedResourceListOfTask ListTasks(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PagedResourceListOfTask ListTasks(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> localVarResponse = ListTasksWithHttpInfo(asAt, filter, sortBy, limit, page, opts: opts);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> localVarResponse = ListTasksWithHttpInfo(asAt, filter, sortBy, propertyKeys, limit, page, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1855,12 +1877,13 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTask</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> ListTasksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> ListTasksWithHttpInfo(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
 
@@ -1908,6 +1931,11 @@ namespace Finbourne.Workflow.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+            if (propertyKeys != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
             if (limit != null)
             {
@@ -1961,15 +1989,16 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfTask</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfTask> ListTasksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PagedResourceListOfTask> ListTasksAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> localVarResponse = await ListTasksWithHttpInfoAsync(asAt, filter, sortBy, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask> localVarResponse = await ListTasksWithHttpInfoAsync(asAt, filter, sortBy, propertyKeys, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1980,13 +2009,14 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTask)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask>> ListTasksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<PagedResourceListOfTask>> ListTasksWithHttpInfoAsync(DateTimeOffset? asAt = default(DateTimeOffset?), string? filter = default(string?), List<string>? sortBy = default(List<string>?), List<string>? propertyKeys = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Workflow.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Workflow.Sdk.Client.RequestOptions();
@@ -2032,6 +2062,10 @@ namespace Finbourne.Workflow.Sdk.Api
             if (sortBy != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
+            }
+            if (propertyKeys != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Workflow.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "propertyKeys", propertyKeys));
             }
             if (limit != null)
             {

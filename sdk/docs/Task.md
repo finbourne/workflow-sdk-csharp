@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **WorkflowId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **WorkflowDisplayName** | **string** | The display name of the Workflow that this Task is a member of, if any | [optional] 
 **State** | **string** | Current State | 
+**StateDisplayName** | **string** | The display name of the current State, from the Task Definition, if one is provided | [optional] 
 **UltimateParentTask** | [**TaskSummary**](TaskSummary.md) |  | 
 **ParentTask** | [**TaskSummary**](TaskSummary.md) |  | [optional] 
 **ChildTasks** | [**List&lt;TaskSummary&gt;**](TaskSummary.md) | This Task&#39;s child tasks | [optional] 
@@ -30,6 +31,7 @@ Name | Type | Description | Notes
 **OpenDuration** | **long?** | Duration in seconds since the Task was created. If the Task is Completed, this is the duration from creation to the last transition. | [optional] 
 **OpenDurationSinceLastUpdate** | **long?** | Duration in seconds since the Task was last updated. 0 if the Task is Completed. | [optional] 
 **OpenDurationSinceLastTransition** | **long?** | Duration in seconds since the Task last transitioned. 0 if the Task is Completed. | [optional] 
+**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The requested TaskDefinition and Workflow properties decorated onto this Task, keyed by property key. Only populated when property keys were requested. | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;
@@ -43,6 +45,7 @@ ResourceId? workflowId = new ResourceId();
 
 string workflowDisplayName = "example workflowDisplayName";
 string state = "state";
+string stateDisplayName = "example stateDisplayName";
 TaskSummary ultimateParentTask = new TaskSummary();
 TaskSummary? parentTask = new TaskSummary();
 
@@ -60,6 +63,7 @@ Guid? actionLogIdModified = "example actionLogIdModified";
 Guid? actionLogIdSubmitted = "example actionLogIdSubmitted";
 string hierarchicalPosition = "example hierarchicalPosition";
 string completionStatus = "example completionStatus";
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 
 Task taskInstance = new Task(
     id: id,
@@ -69,6 +73,7 @@ Task taskInstance = new Task(
     workflowId: workflowId,
     workflowDisplayName: workflowDisplayName,
     state: state,
+    stateDisplayName: stateDisplayName,
     ultimateParentTask: ultimateParentTask,
     parentTask: parentTask,
     childTasks: childTasks,
@@ -86,7 +91,8 @@ Task taskInstance = new Task(
     completionStatus: completionStatus,
     openDuration: openDuration,
     openDurationSinceLastUpdate: openDurationSinceLastUpdate,
-    openDurationSinceLastTransition: openDurationSinceLastTransition);
+    openDurationSinceLastTransition: openDurationSinceLastTransition,
+    properties: properties);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
