@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Triggers** | [**List&lt;TransitionTriggerDefinition&gt;**](TransitionTriggerDefinition.md) | Triggers | [optional] 
 **Transitions** | [**List&lt;TaskTransitionDefinition&gt;**](TaskTransitionDefinition.md) | Transitions | [optional] 
 **Actions** | [**List&lt;ActionDefinition&gt;**](ActionDefinition.md) | Actions | [optional] 
+**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The properties to set on the Task Definition, keyed by property key. Optional. A null property value deletes the property. | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;
@@ -26,6 +27,7 @@ InitialState initialState = new InitialState();
 List<TransitionTriggerDefinition> triggers = new List<TransitionTriggerDefinition>();
 List<TaskTransitionDefinition> transitions = new List<TaskTransitionDefinition>();
 List<ActionDefinition> actions = new List<ActionDefinition>();
+Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 
 UpdateTaskDefinitionRequest updateTaskDefinitionRequestInstance = new UpdateTaskDefinitionRequest(
     displayName: displayName,
@@ -35,7 +37,8 @@ UpdateTaskDefinitionRequest updateTaskDefinitionRequestInstance = new UpdateTask
     initialState: initialState,
     triggers: triggers,
     transitions: transitions,
-    actions: actions);
+    actions: actions,
+    properties: properties);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

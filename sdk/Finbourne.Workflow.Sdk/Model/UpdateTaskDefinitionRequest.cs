@@ -44,7 +44,8 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="triggers">Triggers.</param>
         /// <param name="transitions">Transitions.</param>
         /// <param name="actions">Actions.</param>
-        public UpdateTaskDefinitionRequest(string displayName = default(string), string description = default(string), List<TaskStateDefinition> states = default(List<TaskStateDefinition>), List<TaskFieldDefinition> fieldSchema = default(List<TaskFieldDefinition>), InitialState initialState = default(InitialState), List<TransitionTriggerDefinition> triggers = default(List<TransitionTriggerDefinition>), List<TaskTransitionDefinition> transitions = default(List<TaskTransitionDefinition>), List<ActionDefinition> actions = default(List<ActionDefinition>))
+        /// <param name="properties">The properties to set on the Task Definition, keyed by property key. Optional. A null property value deletes the property..</param>
+        public UpdateTaskDefinitionRequest(string displayName = default(string), string description = default(string), List<TaskStateDefinition> states = default(List<TaskStateDefinition>), List<TaskFieldDefinition> fieldSchema = default(List<TaskFieldDefinition>), InitialState initialState = default(InitialState), List<TransitionTriggerDefinition> triggers = default(List<TransitionTriggerDefinition>), List<TaskTransitionDefinition> transitions = default(List<TaskTransitionDefinition>), List<ActionDefinition> actions = default(List<ActionDefinition>), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
         {
             // to ensure "displayName" is required (not null)
             if (displayName == null)
@@ -69,6 +70,7 @@ namespace Finbourne.Workflow.Sdk.Model
             this.Triggers = triggers;
             this.Transitions = transitions;
             this.Actions = actions;
+            this.Properties = properties;
         }
 
         /// <summary>
@@ -127,6 +129,13 @@ namespace Finbourne.Workflow.Sdk.Model
         public List<ActionDefinition> Actions { get; set; }
 
         /// <summary>
+        /// The properties to set on the Task Definition, keyed by property key. Optional. A null property value deletes the property.
+        /// </summary>
+        /// <value>The properties to set on the Task Definition, keyed by property key. Optional. A null property value deletes the property.</value>
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
+        public Dictionary<string, PerpetualProperty> Properties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -142,6 +151,7 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  Triggers: ").Append(Triggers).Append("\n");
             sb.Append("  Transitions: ").Append(Transitions).Append("\n");
             sb.Append("  Actions: ").Append(Actions).Append("\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -221,6 +231,12 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.Actions != null &&
                     input.Actions != null &&
                     this.Actions.SequenceEqual(input.Actions)
+                ) && 
+                (
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    input.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
                 );
         }
 
@@ -264,6 +280,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.Actions != null)
                 {
                     hashCode = (hashCode * 59) + this.Actions.GetHashCode();
+                }
+                if (this.Properties != null)
+                {
+                    hashCode = (hashCode * 59) + this.Properties.GetHashCode();
                 }
                 return hashCode;
             }
