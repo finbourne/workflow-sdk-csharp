@@ -127,7 +127,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. These values are a snapshot copied from the TaskDefinition and Workflow when the Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task</returns>
@@ -142,7 +142,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. These values are a snapshot copied from the TaskDefinition and Workflow when the Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Task</returns>
@@ -178,7 +178,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. These values are a snapshot copied from the TaskDefinition and Workflow when each Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -196,7 +196,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. These values are a snapshot copied from the TaskDefinition and Workflow when each Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -357,7 +357,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. These values are a snapshot copied from the TaskDefinition and Workflow when the Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -373,7 +373,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. These values are a snapshot copied from the TaskDefinition and Workflow when the Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -418,7 +418,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. These values are a snapshot copied from the TaskDefinition and Workflow when each Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -437,7 +437,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. These values are a snapshot copied from the TaskDefinition and Workflow when each Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1418,7 +1418,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. These values are a snapshot copied from the TaskDefinition and Workflow when the Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task</returns>
@@ -1434,7 +1434,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. These values are a snapshot copied from the TaskDefinition and Workflow when the Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Task</returns>
@@ -1530,7 +1530,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. These values are a snapshot copied from the TaskDefinition and Workflow when the Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1547,7 +1547,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <exception cref="Finbourne.Workflow.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the Task to retrieve</param>
         /// <param name="asAt">The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. These values are a snapshot copied from the TaskDefinition and Workflow when the Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1858,7 +1858,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. These values are a snapshot copied from the TaskDefinition and Workflow when each Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1877,7 +1877,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. These values are a snapshot copied from the TaskDefinition and Workflow when each Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1989,7 +1989,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. These values are a snapshot copied from the TaskDefinition and Workflow when each Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2009,7 +2009,7 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="asAt">The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional)</param>
         /// <param name="filter">Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; (optional)</param>
-        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional)</param>
+        /// <param name="propertyKeys">The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. These values are a snapshot copied from the TaskDefinition and Workflow when each Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional)</param>
         /// <param name="limit">When paginating, limit the number of returned results to this many. (optional, default to 10)</param>
         /// <param name="page">The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>

@@ -512,7 +512,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TasksApi>();
             var id = "id_example";  // string | Id of the Task to retrieve
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. These values are a snapshot copied from the TaskDefinition and Workflow when the Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional) 
 
             try
             {
@@ -560,7 +560,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **id** | **string** | Id of the Task to retrieve |  |
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to retrieve the Task. Defaults to returning the latest version of the Task if not specified. | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys (in the TaskDefinition or Workflow domain) whose values to return on the Task. These values are a snapshot copied from the TaskDefinition and Workflow when the Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. | [optional]  |
 
 ### Return type
 
@@ -745,7 +745,7 @@ namespace Examples
             var asAt = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. (optional) 
             var filter = "filter_example";  // string? | Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each optionally suffixed by \" ASC\" or \" DESC\" (optional) 
-            var propertyKeys = new List<string>?(); // List<string>? | The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. (optional) 
+            var propertyKeys = new List<string>?(); // List<string>? | The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. These values are a snapshot copied from the TaskDefinition and Workflow when each Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. (optional) 
             var limit = 10;  // int? | When paginating, limit the number of returned results to this many. (optional)  (default to 10)
             var page = "page_example";  // string? | The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. (optional) 
 
@@ -796,7 +796,7 @@ catch (ApiException e)
 | **asAt** | **DateTimeOffset?** | The asAt datetime at which to list the Tasks. Defaults to return the latest version of each Task if not specified. | [optional]  |
 | **filter** | **string?** | Expression to filter the result set. Read more about filtering results from LUSID here: https://support.lusid.com/filtering-results-from-lusid. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each optionally suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot; | [optional]  |
-| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. | [optional]  |
+| **propertyKeys** | [**List&lt;string&gt;?**](string.md) | The property keys (in the TaskDefinition or Workflow domain) whose values to return on each Task. These values are a snapshot copied from the TaskDefinition and Workflow when each Task was created, so they reflect the state at creation time and are not affected by subsequent changes to the TaskDefinition or Workflow. | [optional]  |
 | **limit** | **int?** | When paginating, limit the number of returned results to this many. | [optional] [default to 10] |
 | **page** | **string?** | The pagination token to use to continue listing tasks from a previous call to list tasks. This value is returned from the previous call. If a pagination token is provided the sortBy, filter, effectiveAt, and asAt fields must not have changed since the original request. | [optional]  |
 
