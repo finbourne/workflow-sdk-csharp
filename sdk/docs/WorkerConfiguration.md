@@ -26,6 +26,7 @@ var workerConfigurationInstance = new workerConfiguration(failInstance)
 
  * [GroupReconciliation](./GroupReconciliation.md)
  * [HealthCheck](./HealthCheck.md)
+ * [HorizonIntegration](./HorizonIntegration.md)
  * [LuminesceView](./LuminesceView.md)
  * [LusidEntityDataQualityCheck](./LusidEntityDataQualityCheck.md)
  * [SchedulerJob](./SchedulerJob.md)
