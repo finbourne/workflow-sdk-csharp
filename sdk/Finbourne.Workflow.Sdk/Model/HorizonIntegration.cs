@@ -58,10 +58,24 @@ namespace Finbourne.Workflow.Sdk.Model
         /// Initializes a new instance of the <see cref="HorizonIntegration" /> class.
         /// </summary>
         /// <param name="type">The type of worker (required).</param>
-        public HorizonIntegration(TypeEnum type = default(TypeEnum))
+        /// <param name="integrationInstanceId">The id of the Horizon integration instance the worker executes. (required).</param>
+        public HorizonIntegration(TypeEnum type = default(TypeEnum), string integrationInstanceId = default(string))
         {
             this.Type = type;
+            // to ensure "integrationInstanceId" is required (not null)
+            if (integrationInstanceId == null)
+            {
+                throw new ArgumentNullException("integrationInstanceId is a required property for HorizonIntegration and cannot be null");
+            }
+            this.IntegrationInstanceId = integrationInstanceId;
         }
+
+        /// <summary>
+        /// The id of the Horizon integration instance the worker executes.
+        /// </summary>
+        /// <value>The id of the Horizon integration instance the worker executes.</value>
+        [DataMember(Name = "integrationInstanceId", IsRequired = true, EmitDefaultValue = true)]
+        public string IntegrationInstanceId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,6 +86,7 @@ namespace Finbourne.Workflow.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class HorizonIntegration {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  IntegrationInstanceId: ").Append(IntegrationInstanceId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -110,6 +125,11 @@ namespace Finbourne.Workflow.Sdk.Model
                 (
                     this.Type == input.Type ||
                     this.Type.Equals(input.Type)
+                ) && 
+                (
+                    this.IntegrationInstanceId == input.IntegrationInstanceId ||
+                    (this.IntegrationInstanceId != null &&
+                    this.IntegrationInstanceId.Equals(input.IntegrationInstanceId))
                 );
         }
 
@@ -123,6 +143,10 @@ namespace Finbourne.Workflow.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Type.GetHashCode();
+                if (this.IntegrationInstanceId != null)
+                {
+                    hashCode = (hashCode * 59) + this.IntegrationInstanceId.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -134,6 +158,25 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // IntegrationInstanceId (string) maxLength
+            if (this.IntegrationInstanceId != null && this.IntegrationInstanceId.Length > 512)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationInstanceId, length must be less than 512.", new [] { "IntegrationInstanceId" });
+            }
+
+            // IntegrationInstanceId (string) minLength
+            if (this.IntegrationInstanceId != null && this.IntegrationInstanceId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationInstanceId, length must be greater than 1.", new [] { "IntegrationInstanceId" });
+            }
+
+            // IntegrationInstanceId (string) pattern
+            Regex regexIntegrationInstanceId = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexIntegrationInstanceId.Match(this.IntegrationInstanceId).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationInstanceId, must match a pattern of " + regexIntegrationInstanceId, new [] { "IntegrationInstanceId" });
+            }
+
             yield break;
         }
     }
