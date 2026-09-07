@@ -31,6 +31,7 @@ var workerConfigurationResponseInstance = new workerConfigurationResponse(failRe
  * [LibraryResponse](./LibraryResponse.md)
  * [LuminesceViewResponse](./LuminesceViewResponse.md)
  * [LusidEntityDataQualityCheckResponse](./LusidEntityDataQualityCheckResponse.md)
+ * [PortfolioHoldingDataQualityCheckResponse](./PortfolioHoldingDataQualityCheckResponse.md)
  * [SchedulerJobResponse](./SchedulerJobResponse.md)
  * [SleepResponse](./SleepResponse.md)
 

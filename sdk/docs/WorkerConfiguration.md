@@ -30,6 +30,7 @@ var workerConfigurationInstance = new workerConfiguration(failInstance)
  * [HorizonIntegration](./HorizonIntegration.md)
  * [LuminesceView](./LuminesceView.md)
  * [LusidEntityDataQualityCheck](./LusidEntityDataQualityCheck.md)
+ * [PortfolioHoldingDataQualityCheck](./PortfolioHoldingDataQualityCheck.md)
  * [SchedulerJob](./SchedulerJob.md)
  * [Sleep](./Sleep.md)
 
