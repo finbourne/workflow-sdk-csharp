@@ -1,5 +1,5 @@
-# Finbourne.Workflow.Sdk.Model.WorkflowResponse
-A Workflow
+# Finbourne.Workflow.Sdk.Model.WorkflowWithStructureResponse
+A Workflow, including its structure
 
 ## Properties
 
@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **DisplayName** | **string** | Human readable name | 
 **Description** | **string** | Human readable description | [optional] 
 **RootTaskDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
-**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The properties of the Workflow, keyed by property key. | [optional] 
+**WorkflowStructure** | [**WorkflowStructure**](WorkflowStructure.md) |  | 
+**Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The properties of the Workflow, keyed by property key | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;
@@ -22,14 +23,16 @@ VersionInfo? varVersion = new VersionInfo();
 string displayName = "displayName";
 string description = "example description";
 ResourceId rootTaskDefinitionId = new ResourceId();
+WorkflowStructure workflowStructure = new WorkflowStructure();
 Dictionary<string, PerpetualProperty> properties = new Dictionary<string, PerpetualProperty>();
 
-WorkflowResponse workflowResponseInstance = new WorkflowResponse(
+WorkflowWithStructureResponse workflowWithStructureResponseInstance = new WorkflowWithStructureResponse(
     id: id,
     varVersion: varVersion,
     displayName: displayName,
     description: description,
     rootTaskDefinitionId: rootTaskDefinitionId,
+    workflowStructure: workflowStructure,
     properties: properties);
 ```
 

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Workflow.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Workflow.Sdk.Model
 {
     /// <summary>
-    /// Describes the structure of a Workflow as a graph of Task Definitions
+    /// Describes the structure of a Workflow as a graph of Task Definitions. Only populated in GetWorkflow responses.
     /// </summary>
     [DataContract(Name = "WorkflowStructure")]
     public partial class WorkflowStructure : IEquatable<WorkflowStructure>, IValidatableObject

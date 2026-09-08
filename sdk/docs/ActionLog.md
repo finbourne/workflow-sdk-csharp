@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Origin** | [**ActionLogOrigin**](ActionLogOrigin.md) |  | 
 **ActionType** | **string** | The type of the Action | 
 **RunAsUserId** | **string** | The ID of the user that the Action was performed by. If not specified, the actions were performed by the \&quot;current user\&quot;. | [optional] 
-**LoggedItems** | [**List&lt;ActionLogItem&gt;**](ActionLogItem.md) | The logged items for this Action | 
+**LoggedItems** | [**List&lt;ActionLogItem&gt;**](ActionLogItem.md) | The logged items for this Action, ordered by timestamp with the earliest item first | 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;

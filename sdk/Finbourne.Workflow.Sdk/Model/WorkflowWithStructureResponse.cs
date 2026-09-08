@@ -23,45 +23,52 @@ using OpenAPIDateConverter = Finbourne.Workflow.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Workflow.Sdk.Model
 {
     /// <summary>
-    /// A Workflow
+    /// A Workflow, including its structure
     /// </summary>
-    [DataContract(Name = "WorkflowResponse")]
-    public partial class WorkflowResponse : IEquatable<WorkflowResponse>, IValidatableObject
+    [DataContract(Name = "WorkflowWithStructureResponse")]
+    public partial class WorkflowWithStructureResponse : IEquatable<WorkflowWithStructureResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="WorkflowResponse" /> class.
+        /// Initializes a new instance of the <see cref="WorkflowWithStructureResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected WorkflowResponse() { }
+        protected WorkflowWithStructureResponse() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="WorkflowResponse" /> class.
+        /// Initializes a new instance of the <see cref="WorkflowWithStructureResponse" /> class.
         /// </summary>
         /// <param name="id">id (required).</param>
         /// <param name="varVersion">varVersion.</param>
         /// <param name="displayName">Human readable name (required).</param>
         /// <param name="description">Human readable description.</param>
         /// <param name="rootTaskDefinitionId">rootTaskDefinitionId (required).</param>
-        /// <param name="properties">The properties of the Workflow, keyed by property key..</param>
-        public WorkflowResponse(ResourceId id = default(ResourceId), VersionInfo varVersion = default(VersionInfo), string displayName = default(string), string description = default(string), ResourceId rootTaskDefinitionId = default(ResourceId), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
+        /// <param name="workflowStructure">workflowStructure (required).</param>
+        /// <param name="properties">The properties of the Workflow, keyed by property key.</param>
+        public WorkflowWithStructureResponse(ResourceId id = default(ResourceId), VersionInfo varVersion = default(VersionInfo), string displayName = default(string), string description = default(string), ResourceId rootTaskDefinitionId = default(ResourceId), WorkflowStructure workflowStructure = default(WorkflowStructure), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
             {
-                throw new ArgumentNullException("id is a required property for WorkflowResponse and cannot be null");
+                throw new ArgumentNullException("id is a required property for WorkflowWithStructureResponse and cannot be null");
             }
             this.Id = id;
             // to ensure "displayName" is required (not null)
             if (displayName == null)
             {
-                throw new ArgumentNullException("displayName is a required property for WorkflowResponse and cannot be null");
+                throw new ArgumentNullException("displayName is a required property for WorkflowWithStructureResponse and cannot be null");
             }
             this.DisplayName = displayName;
             // to ensure "rootTaskDefinitionId" is required (not null)
             if (rootTaskDefinitionId == null)
             {
-                throw new ArgumentNullException("rootTaskDefinitionId is a required property for WorkflowResponse and cannot be null");
+                throw new ArgumentNullException("rootTaskDefinitionId is a required property for WorkflowWithStructureResponse and cannot be null");
             }
             this.RootTaskDefinitionId = rootTaskDefinitionId;
+            // to ensure "workflowStructure" is required (not null)
+            if (workflowStructure == null)
+            {
+                throw new ArgumentNullException("workflowStructure is a required property for WorkflowWithStructureResponse and cannot be null");
+            }
+            this.WorkflowStructure = workflowStructure;
             this.VarVersion = varVersion;
             this.Description = description;
             this.Properties = properties;
@@ -100,9 +107,15 @@ namespace Finbourne.Workflow.Sdk.Model
         public ResourceId RootTaskDefinitionId { get; set; }
 
         /// <summary>
-        /// The properties of the Workflow, keyed by property key.
+        /// Gets or Sets WorkflowStructure
         /// </summary>
-        /// <value>The properties of the Workflow, keyed by property key.</value>
+        [DataMember(Name = "workflowStructure", IsRequired = true, EmitDefaultValue = true)]
+        public WorkflowStructure WorkflowStructure { get; set; }
+
+        /// <summary>
+        /// The properties of the Workflow, keyed by property key
+        /// </summary>
+        /// <value>The properties of the Workflow, keyed by property key</value>
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public Dictionary<string, PerpetualProperty> Properties { get; set; }
 
@@ -113,12 +126,13 @@ namespace Finbourne.Workflow.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class WorkflowResponse {\n");
+            sb.Append("class WorkflowWithStructureResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  RootTaskDefinitionId: ").Append(RootTaskDefinitionId).Append("\n");
+            sb.Append("  WorkflowStructure: ").Append(WorkflowStructure).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -140,15 +154,15 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as WorkflowResponse);
+            return this.Equals(input as WorkflowWithStructureResponse);
         }
 
         /// <summary>
-        /// Returns true if WorkflowResponse instances are equal
+        /// Returns true if WorkflowWithStructureResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of WorkflowResponse to be compared</param>
+        /// <param name="input">Instance of WorkflowWithStructureResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(WorkflowResponse input)
+        public bool Equals(WorkflowWithStructureResponse input)
         {
             if (input == null)
             {
@@ -179,6 +193,11 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.RootTaskDefinitionId == input.RootTaskDefinitionId ||
                     (this.RootTaskDefinitionId != null &&
                     this.RootTaskDefinitionId.Equals(input.RootTaskDefinitionId))
+                ) && 
+                (
+                    this.WorkflowStructure == input.WorkflowStructure ||
+                    (this.WorkflowStructure != null &&
+                    this.WorkflowStructure.Equals(input.WorkflowStructure))
                 ) && 
                 (
                     this.Properties == input.Properties ||
@@ -216,6 +235,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.RootTaskDefinitionId != null)
                 {
                     hashCode = (hashCode * 59) + this.RootTaskDefinitionId.GetHashCode();
+                }
+                if (this.WorkflowStructure != null)
+                {
+                    hashCode = (hashCode * 59) + this.WorkflowStructure.GetHashCode();
                 }
                 if (this.Properties != null)
                 {

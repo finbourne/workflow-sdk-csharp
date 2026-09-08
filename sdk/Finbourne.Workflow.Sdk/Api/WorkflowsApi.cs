@@ -87,8 +87,8 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="propertyKeys">The property keys (in the Workflow or TaskDefinition domain) whose values to return on the Workflow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>WorkflowResponse</returns>
-        WorkflowResponse GetWorkflow(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>WorkflowWithStructureResponse</returns>
+        WorkflowWithStructureResponse GetWorkflow(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetWorkflow: Get a Workflow
@@ -103,8 +103,8 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="propertyKeys">The property keys (in the Workflow or TaskDefinition domain) whose values to return on the Workflow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of WorkflowResponse</returns>
-        Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowResponse> GetWorkflowWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of WorkflowWithStructureResponse</returns>
+        Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowWithStructureResponse> GetWorkflowWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// ListWorkflows: List Workflows
         /// </summary>
@@ -270,8 +270,8 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of WorkflowResponse</returns>
-        System.Threading.Tasks.Task<WorkflowResponse> GetWorkflowAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of WorkflowWithStructureResponse</returns>
+        System.Threading.Tasks.Task<WorkflowWithStructureResponse> GetWorkflowAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// GetWorkflow: Get a Workflow
@@ -287,8 +287,8 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (WorkflowResponse)</returns>
-        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowResponse>> GetWorkflowWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (WorkflowWithStructureResponse)</returns>
+        System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowWithStructureResponse>> GetWorkflowWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// ListWorkflows: List Workflows
         /// </summary>
@@ -949,10 +949,10 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="propertyKeys">The property keys (in the Workflow or TaskDefinition domain) whose values to return on the Workflow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>WorkflowResponse</returns>
-        public WorkflowResponse GetWorkflow(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>WorkflowWithStructureResponse</returns>
+        public WorkflowWithStructureResponse GetWorkflow(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowResponse> localVarResponse = GetWorkflowWithHttpInfo(scope, code, asAt, propertyKeys, opts: opts);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowWithStructureResponse> localVarResponse = GetWorkflowWithHttpInfo(scope, code, asAt, propertyKeys, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -966,8 +966,8 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="propertyKeys">The property keys (in the Workflow or TaskDefinition domain) whose values to return on the Workflow. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of WorkflowResponse</returns>
-        public Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowResponse> GetWorkflowWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of WorkflowWithStructureResponse</returns>
+        public Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowWithStructureResponse> GetWorkflowWithHttpInfo(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1047,7 +1047,7 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<WorkflowResponse>("/api/workflows/{scope}/{code}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<WorkflowWithStructureResponse>("/api/workflows/{scope}/{code}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetWorkflow", localVarResponse);
@@ -1071,10 +1071,10 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of WorkflowResponse</returns>
-        public async System.Threading.Tasks.Task<WorkflowResponse> GetWorkflowAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of WorkflowWithStructureResponse</returns>
+        public async System.Threading.Tasks.Task<WorkflowWithStructureResponse> GetWorkflowAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowResponse> localVarResponse = await GetWorkflowWithHttpInfoAsync(scope, code, asAt, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowWithStructureResponse> localVarResponse = await GetWorkflowWithHttpInfoAsync(scope, code, asAt, propertyKeys, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1089,8 +1089,8 @@ namespace Finbourne.Workflow.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (WorkflowResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowResponse>> GetWorkflowWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (WorkflowWithStructureResponse)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Workflow.Sdk.Client.ApiResponse<WorkflowWithStructureResponse>> GetWorkflowWithHttpInfoAsync(string scope, string code, DateTimeOffset? asAt = default(DateTimeOffset?), List<string>? propertyKeys = default(List<string>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'scope' is set
             if (scope == null)
@@ -1169,7 +1169,7 @@ namespace Finbourne.Workflow.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<WorkflowResponse>("/api/workflows/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<WorkflowWithStructureResponse>("/api/workflows/{scope}/{code}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

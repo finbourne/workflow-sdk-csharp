@@ -241,7 +241,7 @@ catch (ApiException e)
 
 <a id="getworkflow"></a>
 # **GetWorkflow**
-> WorkflowResponse GetWorkflow (string scope, string code, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
+> WorkflowWithStructureResponse GetWorkflow (string scope, string code, DateTimeOffset? asAt = null, List<string>? propertyKeys = null)
 
 GetWorkflow: Get a Workflow
 
@@ -292,10 +292,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // WorkflowResponse result = apiInstance.GetWorkflow(scope, code, asAt, propertyKeys, opts: opts);
+                // WorkflowWithStructureResponse result = apiInstance.GetWorkflow(scope, code, asAt, propertyKeys, opts: opts);
 
                 // GetWorkflow: Get a Workflow
-                WorkflowResponse result = apiInstance.GetWorkflow(scope, code, asAt, propertyKeys);
+                WorkflowWithStructureResponse result = apiInstance.GetWorkflow(scope, code, asAt, propertyKeys);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -316,7 +316,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // GetWorkflow: Get a Workflow
-    ApiResponse<WorkflowResponse> response = apiInstance.GetWorkflowWithHttpInfo(scope, code, asAt, propertyKeys);
+    ApiResponse<WorkflowWithStructureResponse> response = apiInstance.GetWorkflowWithHttpInfo(scope, code, asAt, propertyKeys);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -340,7 +340,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**WorkflowResponse**](WorkflowResponse.md)
+[**WorkflowWithStructureResponse**](WorkflowWithStructureResponse.md)
 
 ### HTTP request headers
 

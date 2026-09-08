@@ -1,5 +1,5 @@
 # Finbourne.Workflow.Sdk.Model.WorkflowStructure
-Describes the structure of a Workflow as a graph of Task Definitions
+Describes the structure of a Workflow as a graph of Task Definitions. Only populated in GetWorkflow responses.
 
 ## Properties
 
