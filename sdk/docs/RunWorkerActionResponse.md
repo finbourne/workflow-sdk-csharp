@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **WorkerParameters** | [**Dictionary&lt;string, FieldMapping&gt;**](FieldMapping.md) | Parameters for this Worker | [optional] 
 **WorkerStatusTriggers** | [**WorkerStatusTriggers**](WorkerStatusTriggers.md) |  | [optional] 
 **ChildTaskConfigurations** | [**List&lt;ResultantChildTaskConfiguration&gt;**](ResultantChildTaskConfiguration.md) | Tasks can be generated from run worker results; this is the configuration | [optional] 
+**ReRunConfigurations** | [**List&lt;ReRunConfiguration&gt;**](ReRunConfiguration.md) | Configuration governing how re-run results are reconciled against existing child tasks from a previous run of this action against the same parent Task instance | [optional] 
 **WorkerTimeout** | **int?** | Worker timeout in seconds | [optional] 
 
 ```csharp
@@ -24,6 +25,7 @@ Dictionary<string, FieldMapping> workerParameters = new Dictionary<string, Field
 WorkerStatusTriggers? workerStatusTriggers = new WorkerStatusTriggers();
 
 List<ResultantChildTaskConfiguration> childTaskConfigurations = new List<ResultantChildTaskConfiguration>();
+List<ReRunConfiguration> reRunConfigurations = new List<ReRunConfiguration>();
 
 RunWorkerActionResponse runWorkerActionResponseInstance = new RunWorkerActionResponse(
     type: type,
@@ -32,6 +34,7 @@ RunWorkerActionResponse runWorkerActionResponseInstance = new RunWorkerActionRes
     workerParameters: workerParameters,
     workerStatusTriggers: workerStatusTriggers,
     childTaskConfigurations: childTaskConfigurations,
+    reRunConfigurations: reRunConfigurations,
     workerTimeout: workerTimeout);
 ```
 

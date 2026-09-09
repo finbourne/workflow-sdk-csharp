@@ -23,33 +23,26 @@ using OpenAPIDateConverter = Finbourne.Workflow.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Workflow.Sdk.Model
 {
     /// <summary>
-    /// Describes the structure of a Workflow as a graph of Task Definitions
+    /// Behaviour applied to an existing (non-terminal) child task whose stacking key is not matched by any new child task candidate (i.e. it did not recur on this run)
     /// </summary>
-    [DataContract(Name = "WorkflowStructure")]
-    public partial class WorkflowStructure : IEquatable<WorkflowStructure>, IValidatableObject
+    [DataContract(Name = "ExistingTasksNotRecurringConfiguration")]
+    public partial class ExistingTasksNotRecurringConfiguration : IEquatable<ExistingTasksNotRecurringConfiguration>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="WorkflowStructure" /> class.
+        /// Initializes a new instance of the <see cref="ExistingTasksNotRecurringConfiguration" /> class.
         /// </summary>
-        /// <param name="nodes">nodes.</param>
-        /// <param name="edges">edges.</param>
-        public WorkflowStructure(WorkflowStructureNodes nodes = default(WorkflowStructureNodes), WorkflowStructureEdges edges = default(WorkflowStructureEdges))
+        /// <param name="trigger">The existing task receives this trigger.</param>
+        public ExistingTasksNotRecurringConfiguration(string trigger = default(string))
         {
-            this.Nodes = nodes;
-            this.Edges = edges;
+            this.Trigger = trigger;
         }
 
         /// <summary>
-        /// Gets or Sets Nodes
+        /// The existing task receives this trigger
         /// </summary>
-        [DataMember(Name = "nodes", EmitDefaultValue = false)]
-        public WorkflowStructureNodes Nodes { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Edges
-        /// </summary>
-        [DataMember(Name = "edges", EmitDefaultValue = false)]
-        public WorkflowStructureEdges Edges { get; set; }
+        /// <value>The existing task receives this trigger</value>
+        [DataMember(Name = "trigger", EmitDefaultValue = true)]
+        public string Trigger { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,9 +51,8 @@ namespace Finbourne.Workflow.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class WorkflowStructure {\n");
-            sb.Append("  Nodes: ").Append(Nodes).Append("\n");
-            sb.Append("  Edges: ").Append(Edges).Append("\n");
+            sb.Append("class ExistingTasksNotRecurringConfiguration {\n");
+            sb.Append("  Trigger: ").Append(Trigger).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,15 +73,15 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as WorkflowStructure);
+            return this.Equals(input as ExistingTasksNotRecurringConfiguration);
         }
 
         /// <summary>
-        /// Returns true if WorkflowStructure instances are equal
+        /// Returns true if ExistingTasksNotRecurringConfiguration instances are equal
         /// </summary>
-        /// <param name="input">Instance of WorkflowStructure to be compared</param>
+        /// <param name="input">Instance of ExistingTasksNotRecurringConfiguration to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(WorkflowStructure input)
+        public bool Equals(ExistingTasksNotRecurringConfiguration input)
         {
             if (input == null)
             {
@@ -97,14 +89,9 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             return 
                 (
-                    this.Nodes == input.Nodes ||
-                    (this.Nodes != null &&
-                    this.Nodes.Equals(input.Nodes))
-                ) && 
-                (
-                    this.Edges == input.Edges ||
-                    (this.Edges != null &&
-                    this.Edges.Equals(input.Edges))
+                    this.Trigger == input.Trigger ||
+                    (this.Trigger != null &&
+                    this.Trigger.Equals(input.Trigger))
                 );
         }
 
@@ -117,13 +104,9 @@ namespace Finbourne.Workflow.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Nodes != null)
+                if (this.Trigger != null)
                 {
-                    hashCode = (hashCode * 59) + this.Nodes.GetHashCode();
-                }
-                if (this.Edges != null)
-                {
-                    hashCode = (hashCode * 59) + this.Edges.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Trigger.GetHashCode();
                 }
                 return hashCode;
             }
@@ -136,6 +119,19 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Trigger (string) maxLength
+            if (this.Trigger != null && this.Trigger.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Trigger, length must be less than 1024.", new [] { "Trigger" });
+            }
+
+            // Trigger (string) pattern
+            Regex regexTrigger = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexTrigger.Match(this.Trigger).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Trigger, must match a pattern of " + regexTrigger, new [] { "Trigger" });
+            }
+
             yield break;
         }
     }

@@ -23,33 +23,35 @@ using OpenAPIDateConverter = Finbourne.Workflow.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Workflow.Sdk.Model
 {
     /// <summary>
-    /// Describes the structure of a Workflow as a graph of Task Definitions
+    /// Behaviour applied when a new child task candidate&#39;s stacking key does not match any existing (non-terminal) child task, and to an existing child task whose stacking key is not matched by any new candidate
     /// </summary>
-    [DataContract(Name = "WorkflowStructure")]
-    public partial class WorkflowStructure : IEquatable<WorkflowStructure>, IValidatableObject
+    [DataContract(Name = "ResultsNotRecurringConfiguration")]
+    public partial class ResultsNotRecurringConfiguration : IEquatable<ResultsNotRecurringConfiguration>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="WorkflowStructure" /> class.
+        /// Initializes a new instance of the <see cref="ResultsNotRecurringConfiguration" /> class.
         /// </summary>
-        /// <param name="nodes">nodes.</param>
-        /// <param name="edges">edges.</param>
-        public WorkflowStructure(WorkflowStructureNodes nodes = default(WorkflowStructureNodes), WorkflowStructureEdges edges = default(WorkflowStructureEdges))
+        [JsonConstructorAttribute]
+        protected ResultsNotRecurringConfiguration() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResultsNotRecurringConfiguration" /> class.
+        /// </summary>
+        /// <param name="existingTasks">existingTasks (required).</param>
+        public ResultsNotRecurringConfiguration(ExistingTasksNotRecurringConfiguration existingTasks = default(ExistingTasksNotRecurringConfiguration))
         {
-            this.Nodes = nodes;
-            this.Edges = edges;
+            // to ensure "existingTasks" is required (not null)
+            if (existingTasks == null)
+            {
+                throw new ArgumentNullException("existingTasks is a required property for ResultsNotRecurringConfiguration and cannot be null");
+            }
+            this.ExistingTasks = existingTasks;
         }
 
         /// <summary>
-        /// Gets or Sets Nodes
+        /// Gets or Sets ExistingTasks
         /// </summary>
-        [DataMember(Name = "nodes", EmitDefaultValue = false)]
-        public WorkflowStructureNodes Nodes { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Edges
-        /// </summary>
-        [DataMember(Name = "edges", EmitDefaultValue = false)]
-        public WorkflowStructureEdges Edges { get; set; }
+        [DataMember(Name = "existingTasks", IsRequired = true, EmitDefaultValue = true)]
+        public ExistingTasksNotRecurringConfiguration ExistingTasks { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,9 +60,8 @@ namespace Finbourne.Workflow.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class WorkflowStructure {\n");
-            sb.Append("  Nodes: ").Append(Nodes).Append("\n");
-            sb.Append("  Edges: ").Append(Edges).Append("\n");
+            sb.Append("class ResultsNotRecurringConfiguration {\n");
+            sb.Append("  ExistingTasks: ").Append(ExistingTasks).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,15 +82,15 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as WorkflowStructure);
+            return this.Equals(input as ResultsNotRecurringConfiguration);
         }
 
         /// <summary>
-        /// Returns true if WorkflowStructure instances are equal
+        /// Returns true if ResultsNotRecurringConfiguration instances are equal
         /// </summary>
-        /// <param name="input">Instance of WorkflowStructure to be compared</param>
+        /// <param name="input">Instance of ResultsNotRecurringConfiguration to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(WorkflowStructure input)
+        public bool Equals(ResultsNotRecurringConfiguration input)
         {
             if (input == null)
             {
@@ -97,14 +98,9 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             return 
                 (
-                    this.Nodes == input.Nodes ||
-                    (this.Nodes != null &&
-                    this.Nodes.Equals(input.Nodes))
-                ) && 
-                (
-                    this.Edges == input.Edges ||
-                    (this.Edges != null &&
-                    this.Edges.Equals(input.Edges))
+                    this.ExistingTasks == input.ExistingTasks ||
+                    (this.ExistingTasks != null &&
+                    this.ExistingTasks.Equals(input.ExistingTasks))
                 );
         }
 
@@ -117,13 +113,9 @@ namespace Finbourne.Workflow.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Nodes != null)
+                if (this.ExistingTasks != null)
                 {
-                    hashCode = (hashCode * 59) + this.Nodes.GetHashCode();
-                }
-                if (this.Edges != null)
-                {
-                    hashCode = (hashCode * 59) + this.Edges.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ExistingTasks.GetHashCode();
                 }
                 return hashCode;
             }
