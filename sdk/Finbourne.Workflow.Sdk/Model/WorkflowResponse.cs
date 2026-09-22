@@ -42,8 +42,9 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="description">Human readable description.</param>
         /// <param name="rootTaskDefinitionId">rootTaskDefinitionId (required).</param>
         /// <param name="workflowStructure">workflowStructure (required).</param>
+        /// <param name="runCount">The number of times this Workflow has been run. Starts at 0 and increments by 1 each time a new run is instantiated. (required).</param>
         /// <param name="properties">The properties of the Workflow, keyed by property key..</param>
-        public WorkflowResponse(ResourceId id = default(ResourceId), VersionInfo varVersion = default(VersionInfo), string displayName = default(string), string description = default(string), ResourceId rootTaskDefinitionId = default(ResourceId), WorkflowStructure workflowStructure = default(WorkflowStructure), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
+        public WorkflowResponse(ResourceId id = default(ResourceId), VersionInfo varVersion = default(VersionInfo), string displayName = default(string), string description = default(string), ResourceId rootTaskDefinitionId = default(ResourceId), WorkflowStructure workflowStructure = default(WorkflowStructure), int runCount = default(int), Dictionary<string, PerpetualProperty> properties = default(Dictionary<string, PerpetualProperty>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -69,6 +70,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 throw new ArgumentNullException("workflowStructure is a required property for WorkflowResponse and cannot be null");
             }
             this.WorkflowStructure = workflowStructure;
+            this.RunCount = runCount;
             this.VarVersion = varVersion;
             this.Description = description;
             this.Properties = properties;
@@ -113,6 +115,13 @@ namespace Finbourne.Workflow.Sdk.Model
         public WorkflowStructure WorkflowStructure { get; set; }
 
         /// <summary>
+        /// The number of times this Workflow has been run. Starts at 0 and increments by 1 each time a new run is instantiated.
+        /// </summary>
+        /// <value>The number of times this Workflow has been run. Starts at 0 and increments by 1 each time a new run is instantiated.</value>
+        [DataMember(Name = "runCount", IsRequired = true, EmitDefaultValue = true)]
+        public int RunCount { get; set; }
+
+        /// <summary>
         /// The properties of the Workflow, keyed by property key.
         /// </summary>
         /// <value>The properties of the Workflow, keyed by property key.</value>
@@ -133,6 +142,7 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  RootTaskDefinitionId: ").Append(RootTaskDefinitionId).Append("\n");
             sb.Append("  WorkflowStructure: ").Append(WorkflowStructure).Append("\n");
+            sb.Append("  RunCount: ").Append(RunCount).Append("\n");
             sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -200,6 +210,10 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.WorkflowStructure.Equals(input.WorkflowStructure))
                 ) && 
                 (
+                    this.RunCount == input.RunCount ||
+                    this.RunCount.Equals(input.RunCount)
+                ) && 
+                (
                     this.Properties == input.Properties ||
                     this.Properties != null &&
                     input.Properties != null &&
@@ -240,6 +254,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.WorkflowStructure.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.RunCount.GetHashCode();
                 if (this.Properties != null)
                 {
                     hashCode = (hashCode * 59) + this.Properties.GetHashCode();

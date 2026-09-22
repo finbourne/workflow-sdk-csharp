@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Description** | **string** | Human readable description | [optional] 
 **RootTaskDefinitionId** | [**ResourceId**](ResourceId.md) |  | 
 **WorkflowStructure** | [**WorkflowStructure**](WorkflowStructure.md) |  | 
+**RunCount** | **int** | The number of times this Workflow has been run. Starts at 0 and increments by 1 each time a new run is instantiated. | 
 **Properties** | [**Dictionary&lt;string, PerpetualProperty&gt;**](PerpetualProperty.md) | The properties of the Workflow, keyed by property key. | [optional] 
 
 ```csharp
@@ -33,6 +34,7 @@ WorkflowResponse workflowResponseInstance = new WorkflowResponse(
     description: description,
     rootTaskDefinitionId: rootTaskDefinitionId,
     workflowStructure: workflowStructure,
+    runCount: runCount,
     properties: properties);
 ```
 

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **TaskDefinitionDisplayName** | **string** | The display name of the Task Definition used by this Task | 
 **WorkflowId** | [**ResourceId**](ResourceId.md) |  | [optional] 
 **WorkflowDisplayName** | **string** | The display name of the Workflow that this Task is a member of, if any | [optional] 
+**WorkflowRun** | [**WorkflowRun**](WorkflowRun.md) |  | [optional] 
 **State** | **string** | Current State | 
 **StateDisplayName** | **string** | The display name of the current State, from the Task Definition, if one is provided | [optional] 
 **UltimateParentTask** | [**TaskSummary**](TaskSummary.md) |  | 
@@ -44,6 +45,8 @@ string taskDefinitionDisplayName = "taskDefinitionDisplayName";
 ResourceId? workflowId = new ResourceId();
 
 string workflowDisplayName = "example workflowDisplayName";
+WorkflowRun? workflowRun = new WorkflowRun();
+
 string state = "state";
 string stateDisplayName = "example stateDisplayName";
 TaskSummary ultimateParentTask = new TaskSummary();
@@ -72,6 +75,7 @@ Task taskInstance = new Task(
     taskDefinitionDisplayName: taskDefinitionDisplayName,
     workflowId: workflowId,
     workflowDisplayName: workflowDisplayName,
+    workflowRun: workflowRun,
     state: state,
     stateDisplayName: stateDisplayName,
     ultimateParentTask: ultimateParentTask,
