@@ -116,6 +116,18 @@ namespace Finbourne.Workflow.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkerConfiguration" /> class
+        /// with the <see cref="PortfolioTransactionDataQualityCheck" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of PortfolioTransactionDataQualityCheck.</param>
+        public WorkerConfiguration(PortfolioTransactionDataQualityCheck actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkerConfiguration" /> class
         /// with the <see cref="SchedulerJob" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of SchedulerJob.</param>
@@ -180,6 +192,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(PortfolioTransactionDataQualityCheck) || value is PortfolioTransactionDataQualityCheck)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(SchedulerJob) || value is SchedulerJob)
                 {
                     this._actualInstance = value;
@@ -190,7 +206,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Fail, GroupReconciliation, HealthCheck, HorizonIntegration, LuminesceView, LusidEntityDataQualityCheck, PortfolioHoldingDataQualityCheck, SchedulerJob, Sleep");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Fail, GroupReconciliation, HealthCheck, HorizonIntegration, LuminesceView, LusidEntityDataQualityCheck, PortfolioHoldingDataQualityCheck, PortfolioTransactionDataQualityCheck, SchedulerJob, Sleep");
                 }
             }
         }
@@ -263,6 +279,16 @@ namespace Finbourne.Workflow.Sdk.Model
         public PortfolioHoldingDataQualityCheck GetPortfolioHoldingDataQualityCheck()
         {
             return (PortfolioHoldingDataQualityCheck)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `PortfolioTransactionDataQualityCheck`. If the actual instance is not `PortfolioTransactionDataQualityCheck`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of PortfolioTransactionDataQualityCheck</returns>
+        public PortfolioTransactionDataQualityCheck GetPortfolioTransactionDataQualityCheck()
+        {
+            return (PortfolioTransactionDataQualityCheck)this.ActualInstance;
         }
 
         /// <summary>
@@ -461,6 +487,26 @@ namespace Finbourne.Workflow.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PortfolioHoldingDataQualityCheck: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(PortfolioTransactionDataQualityCheck).GetProperty("AdditionalProperties") == null)
+                {
+                    newWorkerConfiguration = new WorkerConfiguration(JsonConvert.DeserializeObject<PortfolioTransactionDataQualityCheck>(jsonString, WorkerConfiguration.SerializerSettings));
+                }
+                else
+                {
+                    newWorkerConfiguration = new WorkerConfiguration(JsonConvert.DeserializeObject<PortfolioTransactionDataQualityCheck>(jsonString, WorkerConfiguration.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("PortfolioTransactionDataQualityCheck");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into PortfolioTransactionDataQualityCheck: {1}", jsonString, exception.ToString()));
             }
 
             try
