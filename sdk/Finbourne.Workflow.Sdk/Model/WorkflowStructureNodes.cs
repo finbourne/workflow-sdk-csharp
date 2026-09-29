@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Workflow.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Workflow.Sdk.Model
 {
     /// <summary>
-    /// The nodes of a Workflow structure graph — the Task Definitions involved
+    /// The nodes of a Workflow structure graph — the Task Definitions and the Launchers involved
     /// </summary>
     [DataContract(Name = "WorkflowStructureNodes")]
     public partial class WorkflowStructureNodes : IEquatable<WorkflowStructureNodes>, IValidatableObject
@@ -32,9 +32,11 @@ namespace Finbourne.Workflow.Sdk.Model
         /// Initializes a new instance of the <see cref="WorkflowStructureNodes" /> class.
         /// </summary>
         /// <param name="taskDefinitions">The Task Definitions that make up the nodes of this Workflow.</param>
-        public WorkflowStructureNodes(List<TaskDefinition> taskDefinitions = default(List<TaskDefinition>))
+        /// <param name="launchers">The Launchers of this Workflow, as full Launcher objects. At most the first 10 by launcher id are returned, in the same order as ListLaunchers gives by default. Inactive Launchers are included. When the Workflow has more, launchersTruncated is true and ListLaunchers returns the full set.</param>
+        public WorkflowStructureNodes(List<TaskDefinition> taskDefinitions = default(List<TaskDefinition>), List<LauncherResponse> launchers = default(List<LauncherResponse>))
         {
             this.TaskDefinitions = taskDefinitions;
+            this.Launchers = launchers;
         }
 
         /// <summary>
@@ -45,6 +47,13 @@ namespace Finbourne.Workflow.Sdk.Model
         public List<TaskDefinition> TaskDefinitions { get; set; }
 
         /// <summary>
+        /// The Launchers of this Workflow, as full Launcher objects. At most the first 10 by launcher id are returned, in the same order as ListLaunchers gives by default. Inactive Launchers are included. When the Workflow has more, launchersTruncated is true and ListLaunchers returns the full set
+        /// </summary>
+        /// <value>The Launchers of this Workflow, as full Launcher objects. At most the first 10 by launcher id are returned, in the same order as ListLaunchers gives by default. Inactive Launchers are included. When the Workflow has more, launchersTruncated is true and ListLaunchers returns the full set</value>
+        [DataMember(Name = "launchers", EmitDefaultValue = true)]
+        public List<LauncherResponse> Launchers { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -53,6 +62,7 @@ namespace Finbourne.Workflow.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class WorkflowStructureNodes {\n");
             sb.Append("  TaskDefinitions: ").Append(TaskDefinitions).Append("\n");
+            sb.Append("  Launchers: ").Append(Launchers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,6 +103,12 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.TaskDefinitions != null &&
                     input.TaskDefinitions != null &&
                     this.TaskDefinitions.SequenceEqual(input.TaskDefinitions)
+                ) && 
+                (
+                    this.Launchers == input.Launchers ||
+                    this.Launchers != null &&
+                    input.Launchers != null &&
+                    this.Launchers.SequenceEqual(input.Launchers)
                 );
         }
 
@@ -108,6 +124,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.TaskDefinitions != null)
                 {
                     hashCode = (hashCode * 59) + this.TaskDefinitions.GetHashCode();
+                }
+                if (this.Launchers != null)
+                {
+                    hashCode = (hashCode * 59) + this.Launchers.GetHashCode();
                 }
                 return hashCode;
             }

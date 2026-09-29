@@ -23,35 +23,34 @@ using OpenAPIDateConverter = Finbourne.Workflow.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Workflow.Sdk.Model
 {
     /// <summary>
-    /// The edges of a Workflow structure graph — the parent-child relationships between Task Definitions and the relationships between Launchers and the Task Definitions they start
+    /// Represents the relationship between a Launcher of a Workflow and the Task Definition it starts a run of
     /// </summary>
-    [DataContract(Name = "WorkflowStructureEdges")]
-    public partial class WorkflowStructureEdges : IEquatable<WorkflowStructureEdges>, IValidatableObject
+    [DataContract(Name = "LauncherEdge")]
+    public partial class LauncherEdge : IEquatable<LauncherEdge>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="WorkflowStructureEdges" /> class.
+        /// Initializes a new instance of the <see cref="LauncherEdge" /> class.
         /// </summary>
-        /// <param name="childTaskDefinitions">The child Task Definition relationships.</param>
-        /// <param name="launchers">The Launcher relationships. There is one entry per Launcher in nodes.launchers, in the same order.</param>
-        public WorkflowStructureEdges(List<ChildTaskDefinitionEdge> childTaskDefinitions = default(List<ChildTaskDefinitionEdge>), List<LauncherEdge> launchers = default(List<LauncherEdge>))
+        /// <param name="launcherId">The identifier of the Launcher inside its Workflow.</param>
+        /// <param name="targetTaskDefinition">targetTaskDefinition.</param>
+        public LauncherEdge(string launcherId = default(string), VersionedTaskDefinitionId targetTaskDefinition = default(VersionedTaskDefinitionId))
         {
-            this.ChildTaskDefinitions = childTaskDefinitions;
-            this.Launchers = launchers;
+            this.LauncherId = launcherId;
+            this.TargetTaskDefinition = targetTaskDefinition;
         }
 
         /// <summary>
-        /// The child Task Definition relationships
+        /// The identifier of the Launcher inside its Workflow
         /// </summary>
-        /// <value>The child Task Definition relationships</value>
-        [DataMember(Name = "childTaskDefinitions", EmitDefaultValue = true)]
-        public List<ChildTaskDefinitionEdge> ChildTaskDefinitions { get; set; }
+        /// <value>The identifier of the Launcher inside its Workflow</value>
+        [DataMember(Name = "launcherId", EmitDefaultValue = true)]
+        public string LauncherId { get; set; }
 
         /// <summary>
-        /// The Launcher relationships. There is one entry per Launcher in nodes.launchers, in the same order
+        /// Gets or Sets TargetTaskDefinition
         /// </summary>
-        /// <value>The Launcher relationships. There is one entry per Launcher in nodes.launchers, in the same order</value>
-        [DataMember(Name = "launchers", EmitDefaultValue = true)]
-        public List<LauncherEdge> Launchers { get; set; }
+        [DataMember(Name = "targetTaskDefinition", EmitDefaultValue = false)]
+        public VersionedTaskDefinitionId TargetTaskDefinition { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +59,9 @@ namespace Finbourne.Workflow.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class WorkflowStructureEdges {\n");
-            sb.Append("  ChildTaskDefinitions: ").Append(ChildTaskDefinitions).Append("\n");
-            sb.Append("  Launchers: ").Append(Launchers).Append("\n");
+            sb.Append("class LauncherEdge {\n");
+            sb.Append("  LauncherId: ").Append(LauncherId).Append("\n");
+            sb.Append("  TargetTaskDefinition: ").Append(TargetTaskDefinition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,15 +82,15 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as WorkflowStructureEdges);
+            return this.Equals(input as LauncherEdge);
         }
 
         /// <summary>
-        /// Returns true if WorkflowStructureEdges instances are equal
+        /// Returns true if LauncherEdge instances are equal
         /// </summary>
-        /// <param name="input">Instance of WorkflowStructureEdges to be compared</param>
+        /// <param name="input">Instance of LauncherEdge to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(WorkflowStructureEdges input)
+        public bool Equals(LauncherEdge input)
         {
             if (input == null)
             {
@@ -99,16 +98,14 @@ namespace Finbourne.Workflow.Sdk.Model
             }
             return 
                 (
-                    this.ChildTaskDefinitions == input.ChildTaskDefinitions ||
-                    this.ChildTaskDefinitions != null &&
-                    input.ChildTaskDefinitions != null &&
-                    this.ChildTaskDefinitions.SequenceEqual(input.ChildTaskDefinitions)
+                    this.LauncherId == input.LauncherId ||
+                    (this.LauncherId != null &&
+                    this.LauncherId.Equals(input.LauncherId))
                 ) && 
                 (
-                    this.Launchers == input.Launchers ||
-                    this.Launchers != null &&
-                    input.Launchers != null &&
-                    this.Launchers.SequenceEqual(input.Launchers)
+                    this.TargetTaskDefinition == input.TargetTaskDefinition ||
+                    (this.TargetTaskDefinition != null &&
+                    this.TargetTaskDefinition.Equals(input.TargetTaskDefinition))
                 );
         }
 
@@ -121,13 +118,13 @@ namespace Finbourne.Workflow.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ChildTaskDefinitions != null)
+                if (this.LauncherId != null)
                 {
-                    hashCode = (hashCode * 59) + this.ChildTaskDefinitions.GetHashCode();
+                    hashCode = (hashCode * 59) + this.LauncherId.GetHashCode();
                 }
-                if (this.Launchers != null)
+                if (this.TargetTaskDefinition != null)
                 {
-                    hashCode = (hashCode * 59) + this.Launchers.GetHashCode();
+                    hashCode = (hashCode * 59) + this.TargetTaskDefinition.GetHashCode();
                 }
                 return hashCode;
             }

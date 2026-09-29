@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Workflow.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Workflow.Sdk.Model
 {
     /// <summary>
-    /// Describes the structure of a Workflow as a graph of Task Definitions
+    /// Describes the structure of a Workflow as a graph of its Task Definitions and its Launchers
     /// </summary>
     [DataContract(Name = "WorkflowStructure")]
     public partial class WorkflowStructure : IEquatable<WorkflowStructure>, IValidatableObject
@@ -33,10 +33,12 @@ namespace Finbourne.Workflow.Sdk.Model
         /// </summary>
         /// <param name="nodes">nodes.</param>
         /// <param name="edges">edges.</param>
-        public WorkflowStructure(WorkflowStructureNodes nodes = default(WorkflowStructureNodes), WorkflowStructureEdges edges = default(WorkflowStructureEdges))
+        /// <param name="launchersTruncated">True when the Workflow has more Launchers than were returned inline in nodes.launchers. Call ListLaunchers for the full set.</param>
+        public WorkflowStructure(WorkflowStructureNodes nodes = default(WorkflowStructureNodes), WorkflowStructureEdges edges = default(WorkflowStructureEdges), bool launchersTruncated = default(bool))
         {
             this.Nodes = nodes;
             this.Edges = edges;
+            this.LaunchersTruncated = launchersTruncated;
         }
 
         /// <summary>
@@ -52,6 +54,13 @@ namespace Finbourne.Workflow.Sdk.Model
         public WorkflowStructureEdges Edges { get; set; }
 
         /// <summary>
+        /// True when the Workflow has more Launchers than were returned inline in nodes.launchers. Call ListLaunchers for the full set
+        /// </summary>
+        /// <value>True when the Workflow has more Launchers than were returned inline in nodes.launchers. Call ListLaunchers for the full set</value>
+        [DataMember(Name = "launchersTruncated", EmitDefaultValue = true)]
+        public bool LaunchersTruncated { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,6 +70,7 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("class WorkflowStructure {\n");
             sb.Append("  Nodes: ").Append(Nodes).Append("\n");
             sb.Append("  Edges: ").Append(Edges).Append("\n");
+            sb.Append("  LaunchersTruncated: ").Append(LaunchersTruncated).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,6 +115,10 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.Edges == input.Edges ||
                     (this.Edges != null &&
                     this.Edges.Equals(input.Edges))
+                ) && 
+                (
+                    this.LaunchersTruncated == input.LaunchersTruncated ||
+                    this.LaunchersTruncated.Equals(input.LaunchersTruncated)
                 );
         }
 
@@ -125,6 +139,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Edges.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.LaunchersTruncated.GetHashCode();
                 return hashCode;
             }
         }
