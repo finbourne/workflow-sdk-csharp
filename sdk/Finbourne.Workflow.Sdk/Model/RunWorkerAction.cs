@@ -65,7 +65,8 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="childTaskConfigurations">Tasks can be generated from run worker results; this is the configuration.</param>
         /// <param name="reRunConfigurations">Configuration governing how re-run results are reconciled against existing child tasks from a previous run of this action against the same parent Task instance.</param>
         /// <param name="workerTimeout">Worker WorkerTimeout in seconds.</param>
-        public RunWorkerAction(TypeEnum type = default(TypeEnum), ResourceId workerId = default(ResourceId), DateTimeOffset? workerAsAt = default(DateTimeOffset?), Dictionary<string, FieldMapping> workerParameters = default(Dictionary<string, FieldMapping>), WorkerStatusTriggers workerStatusTriggers = default(WorkerStatusTriggers), List<ResultantChildTaskConfiguration> childTaskConfigurations = default(List<ResultantChildTaskConfiguration>), List<ReRunConfiguration> reRunConfigurations = default(List<ReRunConfiguration>), int? workerTimeout = default(int?))
+        /// <param name="ordering">How the created child tasks are ordered for execution: Parallel (default), Series, or ParallelSeries.</param>
+        public RunWorkerAction(TypeEnum type = default(TypeEnum), ResourceId workerId = default(ResourceId), DateTimeOffset? workerAsAt = default(DateTimeOffset?), Dictionary<string, FieldMapping> workerParameters = default(Dictionary<string, FieldMapping>), WorkerStatusTriggers workerStatusTriggers = default(WorkerStatusTriggers), List<ResultantChildTaskConfiguration> childTaskConfigurations = default(List<ResultantChildTaskConfiguration>), List<ReRunConfiguration> reRunConfigurations = default(List<ReRunConfiguration>), int? workerTimeout = default(int?), string ordering = default(string))
         {
             this.Type = type;
             // to ensure "workerId" is required (not null)
@@ -80,6 +81,7 @@ namespace Finbourne.Workflow.Sdk.Model
             this.ChildTaskConfigurations = childTaskConfigurations;
             this.ReRunConfigurations = reRunConfigurations;
             this.WorkerTimeout = workerTimeout;
+            this.Ordering = ordering;
         }
 
         /// <summary>
@@ -130,6 +132,13 @@ namespace Finbourne.Workflow.Sdk.Model
         public int? WorkerTimeout { get; set; }
 
         /// <summary>
+        /// How the created child tasks are ordered for execution: Parallel (default), Series, or ParallelSeries
+        /// </summary>
+        /// <value>How the created child tasks are ordered for execution: Parallel (default), Series, or ParallelSeries</value>
+        [DataMember(Name = "ordering", EmitDefaultValue = true)]
+        public string Ordering { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -145,6 +154,7 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  ChildTaskConfigurations: ").Append(ChildTaskConfigurations).Append("\n");
             sb.Append("  ReRunConfigurations: ").Append(ReRunConfigurations).Append("\n");
             sb.Append("  WorkerTimeout: ").Append(WorkerTimeout).Append("\n");
+            sb.Append("  Ordering: ").Append(Ordering).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -221,6 +231,11 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.WorkerTimeout == input.WorkerTimeout ||
                     (this.WorkerTimeout != null &&
                     this.WorkerTimeout.Equals(input.WorkerTimeout))
+                ) && 
+                (
+                    this.Ordering == input.Ordering ||
+                    (this.Ordering != null &&
+                    this.Ordering.Equals(input.Ordering))
                 );
         }
 
@@ -261,6 +276,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.WorkerTimeout != null)
                 {
                     hashCode = (hashCode * 59) + this.WorkerTimeout.GetHashCode();
+                }
+                if (this.Ordering != null)
+                {
+                    hashCode = (hashCode * 59) + this.Ordering.GetHashCode();
                 }
                 return hashCode;
             }

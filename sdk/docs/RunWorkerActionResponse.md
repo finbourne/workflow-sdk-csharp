@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **ChildTaskConfigurations** | [**List&lt;ResultantChildTaskConfiguration&gt;**](ResultantChildTaskConfiguration.md) | Tasks can be generated from run worker results; this is the configuration | [optional] 
 **ReRunConfigurations** | [**List&lt;ReRunConfiguration&gt;**](ReRunConfiguration.md) | Configuration governing how re-run results are reconciled against existing child tasks from a previous run of this action against the same parent Task instance | [optional] 
 **WorkerTimeout** | **int?** | Worker timeout in seconds | [optional] 
+**Ordering** | **string** | How the created child tasks are ordered for execution: Parallel (default), Series, or ParallelSeries | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;
@@ -26,6 +27,7 @@ WorkerStatusTriggers? workerStatusTriggers = new WorkerStatusTriggers();
 
 List<ResultantChildTaskConfiguration> childTaskConfigurations = new List<ResultantChildTaskConfiguration>();
 List<ReRunConfiguration> reRunConfigurations = new List<ReRunConfiguration>();
+string ordering = "example ordering";
 
 RunWorkerActionResponse runWorkerActionResponseInstance = new RunWorkerActionResponse(
     type: type,
@@ -35,7 +37,8 @@ RunWorkerActionResponse runWorkerActionResponseInstance = new RunWorkerActionRes
     workerStatusTriggers: workerStatusTriggers,
     childTaskConfigurations: childTaskConfigurations,
     reRunConfigurations: reRunConfigurations,
-    workerTimeout: workerTimeout);
+    workerTimeout: workerTimeout,
+    ordering: ordering);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

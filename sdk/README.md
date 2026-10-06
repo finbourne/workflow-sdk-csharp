@@ -7,6 +7,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ActionLogsApi* | [**GetActionLogs**](docs/ActionLogsApi.md#getactionlogs) | **GET** /api/actionlogs/{id} | GetActionLogs: Get the Action Logs for an Action Id
 *ApplicationMetadataApi* | [**ListAccessControlledResources**](docs/ApplicationMetadataApi.md#listaccesscontrolledresources) | **GET** /api/metadata/access/resources | ListAccessControlledResources: Get resources available for access control
+*ApplicationMetadataApi* | [**ListApiEndpoints**](docs/ApplicationMetadataApi.md#listapiendpoints) | **GET** /api/metadata/endpoints | ListApiEndpoints: Get the API endpoints available
 *EventHandlersApi* | [**CreateEventHandler**](docs/EventHandlersApi.md#createeventhandler) | **POST** /api/eventhandlers | CreateEventHandler: Create a new Event Handler
 *EventHandlersApi* | [**DeleteEventHandler**](docs/EventHandlersApi.md#deleteeventhandler) | **DELETE** /api/eventhandlers/{scope}/{code} | DeleteEventHandler: Delete an Event Handler
 *EventHandlersApi* | [**GetEventHandler**](docs/EventHandlersApi.md#geteventhandler) | **GET** /api/eventhandlers/{scope}/{code} | GetEventHandler: Get an Event Handler
@@ -60,6 +61,7 @@ Class | Method | HTTP request | Description
  - [ActionLog](docs/ActionLog.md)
  - [ActionLogItem](docs/ActionLogItem.md)
  - [ActionLogOrigin](docs/ActionLogOrigin.md)
+ - [ApiEndpoint](docs/ApiEndpoint.md)
  - [BatchUpdateTasksRequest](docs/BatchUpdateTasksRequest.md)
  - [BatchUpdateTasksResponse](docs/BatchUpdateTasksResponse.md)
  - [BatchUpsertTaskDefinitionPropertiesResponse](docs/BatchUpsertTaskDefinitionPropertiesResponse.md)
@@ -168,6 +170,7 @@ Class | Method | HTTP request | Description
  - [ScheduledTimeAdjustment](docs/ScheduledTimeAdjustment.md)
  - [SchedulerJob](docs/SchedulerJob.md)
  - [SchedulerJobResponse](docs/SchedulerJobResponse.md)
+ - [ServiceApiEndpoints](docs/ServiceApiEndpoints.md)
  - [Sleep](docs/Sleep.md)
  - [SleepResponse](docs/SleepResponse.md)
  - [SpecificMonthRegularity](docs/SpecificMonthRegularity.md)

@@ -17,6 +17,9 @@ Name | Type | Description | Notes
 **UltimateParentTask** | [**TaskSummary**](TaskSummary.md) |  | 
 **ParentTask** | [**TaskSummary**](TaskSummary.md) |  | [optional] 
 **ChildTasks** | [**List&lt;TaskSummary&gt;**](TaskSummary.md) | This Task&#39;s child tasks | [optional] 
+**PreviousTask** | [**TaskSummary**](TaskSummary.md) |  | [optional] 
+**NextTask** | [**TaskSummary**](TaskSummary.md) |  | [optional] 
+**NextTaskInitialTrigger** | **string** | The trigger this Task&#39;s next Task should receive when this Task completes, if any | [optional] 
 **CorrelationIds** | **List&lt;string&gt;** | User-provided ID used to link entities and tasks | [optional] 
 **VarVersion** | [**VersionInfo**](VersionInfo.md) |  | [optional] 
 **TerminalState** | **bool** | True if no onward transitions are possible | 
@@ -53,6 +56,11 @@ TaskSummary ultimateParentTask = new TaskSummary();
 TaskSummary? parentTask = new TaskSummary();
 
 List<TaskSummary> childTasks = new List<TaskSummary>();
+TaskSummary? previousTask = new TaskSummary();
+
+TaskSummary? nextTask = new TaskSummary();
+
+string nextTaskInitialTrigger = "example nextTaskInitialTrigger";
 List<string> correlationIds = new List<string>();
 VersionInfo? varVersion = new VersionInfo();
 
@@ -81,6 +89,9 @@ Task taskInstance = new Task(
     ultimateParentTask: ultimateParentTask,
     parentTask: parentTask,
     childTasks: childTasks,
+    previousTask: previousTask,
+    nextTask: nextTask,
+    nextTaskInitialTrigger: nextTaskInitialTrigger,
     correlationIds: correlationIds,
     varVersion: varVersion,
     terminalState: terminalState,
