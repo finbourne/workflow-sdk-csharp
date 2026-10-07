@@ -28,6 +28,7 @@ var workerConfigurationResponseInstance = new workerConfigurationResponse(failRe
  * [GroupReconciliationResponse](./GroupReconciliationResponse.md)
  * [HealthCheckResponse](./HealthCheckResponse.md)
  * [HorizonIntegrationResponse](./HorizonIntegrationResponse.md)
+ * [InstantiateRecResponse](./InstantiateRecResponse.md)
  * [LibraryResponse](./LibraryResponse.md)
  * [LuminesceViewResponse](./LuminesceViewResponse.md)
  * [LusidEntityDataQualityCheckResponse](./LusidEntityDataQualityCheckResponse.md)

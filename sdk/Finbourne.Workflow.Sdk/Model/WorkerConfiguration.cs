@@ -80,6 +80,18 @@ namespace Finbourne.Workflow.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkerConfiguration" /> class
+        /// with the <see cref="InstantiateRec" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of InstantiateRec.</param>
+        public WorkerConfiguration(InstantiateRec actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkerConfiguration" /> class
         /// with the <see cref="LuminesceView" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of LuminesceView.</param>
@@ -180,6 +192,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(InstantiateRec) || value is InstantiateRec)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(LuminesceView) || value is LuminesceView)
                 {
                     this._actualInstance = value;
@@ -206,7 +222,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Fail, GroupReconciliation, HealthCheck, HorizonIntegration, LuminesceView, LusidEntityDataQualityCheck, PortfolioHoldingDataQualityCheck, PortfolioTransactionDataQualityCheck, SchedulerJob, Sleep");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Fail, GroupReconciliation, HealthCheck, HorizonIntegration, InstantiateRec, LuminesceView, LusidEntityDataQualityCheck, PortfolioHoldingDataQualityCheck, PortfolioTransactionDataQualityCheck, SchedulerJob, Sleep");
                 }
             }
         }
@@ -249,6 +265,16 @@ namespace Finbourne.Workflow.Sdk.Model
         public HorizonIntegration GetHorizonIntegration()
         {
             return (HorizonIntegration)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `InstantiateRec`. If the actual instance is not `InstantiateRec`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of InstantiateRec</returns>
+        public InstantiateRec GetInstantiateRec()
+        {
+            return (InstantiateRec)this.ActualInstance;
         }
 
         /// <summary>
@@ -427,6 +453,26 @@ namespace Finbourne.Workflow.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into HorizonIntegration: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(InstantiateRec).GetProperty("AdditionalProperties") == null)
+                {
+                    newWorkerConfiguration = new WorkerConfiguration(JsonConvert.DeserializeObject<InstantiateRec>(jsonString, WorkerConfiguration.SerializerSettings));
+                }
+                else
+                {
+                    newWorkerConfiguration = new WorkerConfiguration(JsonConvert.DeserializeObject<InstantiateRec>(jsonString, WorkerConfiguration.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("InstantiateRec");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InstantiateRec: {1}", jsonString, exception.ToString()));
             }
 
             try

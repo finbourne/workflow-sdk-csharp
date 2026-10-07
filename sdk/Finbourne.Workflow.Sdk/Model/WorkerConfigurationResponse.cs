@@ -80,6 +80,18 @@ namespace Finbourne.Workflow.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WorkerConfigurationResponse" /> class
+        /// with the <see cref="InstantiateRecResponse" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of InstantiateRecResponse.</param>
+        public WorkerConfigurationResponse(InstantiateRecResponse actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkerConfigurationResponse" /> class
         /// with the <see cref="LibraryResponse" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of LibraryResponse.</param>
@@ -192,6 +204,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(InstantiateRecResponse) || value is InstantiateRecResponse)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(LibraryResponse) || value is LibraryResponse)
                 {
                     this._actualInstance = value;
@@ -222,7 +238,7 @@ namespace Finbourne.Workflow.Sdk.Model
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: FailResponse, GroupReconciliationResponse, HealthCheckResponse, HorizonIntegrationResponse, LibraryResponse, LuminesceViewResponse, LusidEntityDataQualityCheckResponse, PortfolioHoldingDataQualityCheckResponse, PortfolioTransactionDataQualityCheckResponse, SchedulerJobResponse, SleepResponse");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: FailResponse, GroupReconciliationResponse, HealthCheckResponse, HorizonIntegrationResponse, InstantiateRecResponse, LibraryResponse, LuminesceViewResponse, LusidEntityDataQualityCheckResponse, PortfolioHoldingDataQualityCheckResponse, PortfolioTransactionDataQualityCheckResponse, SchedulerJobResponse, SleepResponse");
                 }
             }
         }
@@ -265,6 +281,16 @@ namespace Finbourne.Workflow.Sdk.Model
         public HorizonIntegrationResponse GetHorizonIntegrationResponse()
         {
             return (HorizonIntegrationResponse)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `InstantiateRecResponse`. If the actual instance is not `InstantiateRecResponse`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of InstantiateRecResponse</returns>
+        public InstantiateRecResponse GetInstantiateRecResponse()
+        {
+            return (InstantiateRecResponse)this.ActualInstance;
         }
 
         /// <summary>
@@ -453,6 +479,26 @@ namespace Finbourne.Workflow.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into HorizonIntegrationResponse: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(InstantiateRecResponse).GetProperty("AdditionalProperties") == null)
+                {
+                    newWorkerConfigurationResponse = new WorkerConfigurationResponse(JsonConvert.DeserializeObject<InstantiateRecResponse>(jsonString, WorkerConfigurationResponse.SerializerSettings));
+                }
+                else
+                {
+                    newWorkerConfigurationResponse = new WorkerConfigurationResponse(JsonConvert.DeserializeObject<InstantiateRecResponse>(jsonString, WorkerConfigurationResponse.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("InstantiateRecResponse");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InstantiateRecResponse: {1}", jsonString, exception.ToString()));
             }
 
             try
