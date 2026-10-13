@@ -162,6 +162,18 @@ namespace Finbourne.Workflow.Sdk.Model
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkerConfiguration" /> class
+        /// with the <see cref="StructuredResultDataQualityCheck" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of StructuredResultDataQualityCheck.</param>
+        public WorkerConfiguration(StructuredResultDataQualityCheck actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -220,9 +232,13 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(StructuredResultDataQualityCheck) || value is StructuredResultDataQualityCheck)
+                {
+                    this._actualInstance = value;
+                }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Fail, GroupReconciliation, HealthCheck, HorizonIntegration, InstantiateRec, LuminesceView, LusidEntityDataQualityCheck, PortfolioHoldingDataQualityCheck, PortfolioTransactionDataQualityCheck, SchedulerJob, Sleep");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: Fail, GroupReconciliation, HealthCheck, HorizonIntegration, InstantiateRec, LuminesceView, LusidEntityDataQualityCheck, PortfolioHoldingDataQualityCheck, PortfolioTransactionDataQualityCheck, SchedulerJob, Sleep, StructuredResultDataQualityCheck");
                 }
             }
         }
@@ -335,6 +351,16 @@ namespace Finbourne.Workflow.Sdk.Model
         public Sleep GetSleep()
         {
             return (Sleep)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `StructuredResultDataQualityCheck`. If the actual instance is not `StructuredResultDataQualityCheck`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of StructuredResultDataQualityCheck</returns>
+        public StructuredResultDataQualityCheck GetStructuredResultDataQualityCheck()
+        {
+            return (StructuredResultDataQualityCheck)this.ActualInstance;
         }
 
         /// <summary>
@@ -593,6 +619,26 @@ namespace Finbourne.Workflow.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Sleep: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(StructuredResultDataQualityCheck).GetProperty("AdditionalProperties") == null)
+                {
+                    newWorkerConfiguration = new WorkerConfiguration(JsonConvert.DeserializeObject<StructuredResultDataQualityCheck>(jsonString, WorkerConfiguration.SerializerSettings));
+                }
+                else
+                {
+                    newWorkerConfiguration = new WorkerConfiguration(JsonConvert.DeserializeObject<StructuredResultDataQualityCheck>(jsonString, WorkerConfiguration.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("StructuredResultDataQualityCheck");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into StructuredResultDataQualityCheck: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)

@@ -8,17 +8,21 @@ Name | Type | Description | Notes
 **Id** | **int** | The id of this run of the Workflow. Assigned once, when the run is instantiated. | 
 **AsAtCreated** | **DateTimeOffset** | The version.asAtCreated of the root/ultimate parent Task of this run. | 
 **CompletionStatus** | **string** | The completion status of the root/ultimate parent Task of this run: NotStarted, InProgress, or Completed. | 
+**LaunchedBy** | [**LaunchedBy**](LaunchedBy.md) |  | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;
 using System;
 
 string completionStatus = "completionStatus";
+LaunchedBy? launchedBy = new LaunchedBy();
+
 
 WorkflowRun workflowRunInstance = new WorkflowRun(
     id: id,
     asAtCreated: asAtCreated,
-    completionStatus: completionStatus);
+    completionStatus: completionStatus,
+    launchedBy: launchedBy);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

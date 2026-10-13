@@ -174,6 +174,18 @@ namespace Finbourne.Workflow.Sdk.Model
             this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkerConfigurationResponse" /> class
+        /// with the <see cref="StructuredResultDataQualityCheckResponse" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of StructuredResultDataQualityCheckResponse.</param>
+        public WorkerConfigurationResponse(StructuredResultDataQualityCheckResponse actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
 
         private Object _actualInstance;
 
@@ -236,9 +248,13 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(StructuredResultDataQualityCheckResponse) || value is StructuredResultDataQualityCheckResponse)
+                {
+                    this._actualInstance = value;
+                }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: FailResponse, GroupReconciliationResponse, HealthCheckResponse, HorizonIntegrationResponse, InstantiateRecResponse, LibraryResponse, LuminesceViewResponse, LusidEntityDataQualityCheckResponse, PortfolioHoldingDataQualityCheckResponse, PortfolioTransactionDataQualityCheckResponse, SchedulerJobResponse, SleepResponse");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: FailResponse, GroupReconciliationResponse, HealthCheckResponse, HorizonIntegrationResponse, InstantiateRecResponse, LibraryResponse, LuminesceViewResponse, LusidEntityDataQualityCheckResponse, PortfolioHoldingDataQualityCheckResponse, PortfolioTransactionDataQualityCheckResponse, SchedulerJobResponse, SleepResponse, StructuredResultDataQualityCheckResponse");
                 }
             }
         }
@@ -361,6 +377,16 @@ namespace Finbourne.Workflow.Sdk.Model
         public SleepResponse GetSleepResponse()
         {
             return (SleepResponse)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `StructuredResultDataQualityCheckResponse`. If the actual instance is not `StructuredResultDataQualityCheckResponse`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of StructuredResultDataQualityCheckResponse</returns>
+        public StructuredResultDataQualityCheckResponse GetStructuredResultDataQualityCheckResponse()
+        {
+            return (StructuredResultDataQualityCheckResponse)this.ActualInstance;
         }
 
         /// <summary>
@@ -639,6 +665,26 @@ namespace Finbourne.Workflow.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into SleepResponse: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(StructuredResultDataQualityCheckResponse).GetProperty("AdditionalProperties") == null)
+                {
+                    newWorkerConfigurationResponse = new WorkerConfigurationResponse(JsonConvert.DeserializeObject<StructuredResultDataQualityCheckResponse>(jsonString, WorkerConfigurationResponse.SerializerSettings));
+                }
+                else
+                {
+                    newWorkerConfigurationResponse = new WorkerConfigurationResponse(JsonConvert.DeserializeObject<StructuredResultDataQualityCheckResponse>(jsonString, WorkerConfigurationResponse.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("StructuredResultDataQualityCheckResponse");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into StructuredResultDataQualityCheckResponse: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)
