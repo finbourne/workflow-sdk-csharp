@@ -68,6 +68,18 @@ namespace Finbourne.Workflow.Sdk.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ActionDetailsResponse" /> class
+        /// with the <see cref="TriggerNextTaskActionResponse" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of TriggerNextTaskActionResponse.</param>
+        public ActionDetailsResponse(TriggerNextTaskActionResponse actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActionDetailsResponse" /> class
         /// with the <see cref="TriggerParentTaskActionResponse" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of TriggerParentTaskActionResponse.</param>
@@ -104,13 +116,17 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(TriggerNextTaskActionResponse) || value is TriggerNextTaskActionResponse)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(TriggerParentTaskActionResponse) || value is TriggerParentTaskActionResponse)
                 {
                     this._actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: CreateChildTasksActionResponse, RunWorkerActionResponse, TriggerChildTasksActionResponse, TriggerParentTaskActionResponse");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: CreateChildTasksActionResponse, RunWorkerActionResponse, TriggerChildTasksActionResponse, TriggerNextTaskActionResponse, TriggerParentTaskActionResponse");
                 }
             }
         }
@@ -143,6 +159,16 @@ namespace Finbourne.Workflow.Sdk.Model
         public TriggerChildTasksActionResponse GetTriggerChildTasksActionResponse()
         {
             return (TriggerChildTasksActionResponse)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `TriggerNextTaskActionResponse`. If the actual instance is not `TriggerNextTaskActionResponse`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of TriggerNextTaskActionResponse</returns>
+        public TriggerNextTaskActionResponse GetTriggerNextTaskActionResponse()
+        {
+            return (TriggerNextTaskActionResponse)this.ActualInstance;
         }
 
         /// <summary>
@@ -251,6 +277,26 @@ namespace Finbourne.Workflow.Sdk.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TriggerChildTasksActionResponse: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(TriggerNextTaskActionResponse).GetProperty("AdditionalProperties") == null)
+                {
+                    newActionDetailsResponse = new ActionDetailsResponse(JsonConvert.DeserializeObject<TriggerNextTaskActionResponse>(jsonString, ActionDetailsResponse.SerializerSettings));
+                }
+                else
+                {
+                    newActionDetailsResponse = new ActionDetailsResponse(JsonConvert.DeserializeObject<TriggerNextTaskActionResponse>(jsonString, ActionDetailsResponse.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("TriggerNextTaskActionResponse");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TriggerNextTaskActionResponse: {1}", jsonString, exception.ToString()));
             }
 
             try

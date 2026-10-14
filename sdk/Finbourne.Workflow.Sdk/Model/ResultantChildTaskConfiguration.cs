@@ -42,7 +42,8 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="initialTrigger">The Initial Trigger for automatic start.</param>
         /// <param name="childTaskFields">Field Mappings (required).</param>
         /// <param name="mapStackingKeyFrom">The field to be mapped as the ChildTasks Stacking Key.</param>
-        public ResultantChildTaskConfiguration(ResultMatchingPattern resultMatchingPattern = default(ResultMatchingPattern), ResourceId taskDefinitionId = default(ResourceId), DateTimeOffset? taskDefinitionAsAt = default(DateTimeOffset?), string initialTrigger = default(string), Dictionary<string, FieldMapping> childTaskFields = default(Dictionary<string, FieldMapping>), string mapStackingKeyFrom = default(string))
+        /// <param name="displayName">An optional display name, to tell apart child task configurations that use the same Task Definition.</param>
+        public ResultantChildTaskConfiguration(ResultMatchingPattern resultMatchingPattern = default(ResultMatchingPattern), ResourceId taskDefinitionId = default(ResourceId), DateTimeOffset? taskDefinitionAsAt = default(DateTimeOffset?), string initialTrigger = default(string), Dictionary<string, FieldMapping> childTaskFields = default(Dictionary<string, FieldMapping>), string mapStackingKeyFrom = default(string), string displayName = default(string))
         {
             // to ensure "taskDefinitionId" is required (not null)
             if (taskDefinitionId == null)
@@ -60,6 +61,7 @@ namespace Finbourne.Workflow.Sdk.Model
             this.TaskDefinitionAsAt = taskDefinitionAsAt;
             this.InitialTrigger = initialTrigger;
             this.MapStackingKeyFrom = mapStackingKeyFrom;
+            this.DisplayName = displayName;
         }
 
         /// <summary>
@@ -103,6 +105,13 @@ namespace Finbourne.Workflow.Sdk.Model
         public string MapStackingKeyFrom { get; set; }
 
         /// <summary>
+        /// An optional display name, to tell apart child task configurations that use the same Task Definition
+        /// </summary>
+        /// <value>An optional display name, to tell apart child task configurations that use the same Task Definition</value>
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        public string DisplayName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -116,6 +125,7 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  InitialTrigger: ").Append(InitialTrigger).Append("\n");
             sb.Append("  ChildTaskFields: ").Append(ChildTaskFields).Append("\n");
             sb.Append("  MapStackingKeyFrom: ").Append(MapStackingKeyFrom).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -181,6 +191,11 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.MapStackingKeyFrom == input.MapStackingKeyFrom ||
                     (this.MapStackingKeyFrom != null &&
                     this.MapStackingKeyFrom.Equals(input.MapStackingKeyFrom))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 );
         }
 
@@ -217,6 +232,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.MapStackingKeyFrom.GetHashCode();
                 }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -239,6 +258,25 @@ namespace Finbourne.Workflow.Sdk.Model
             if (false == regexInitialTrigger.Match(this.InitialTrigger).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InitialTrigger, must match a pattern of " + regexInitialTrigger, new [] { "InitialTrigger" });
+            }
+
+            // DisplayName (string) maxLength
+            if (this.DisplayName != null && this.DisplayName.Length > 150)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be less than 150.", new [] { "DisplayName" });
+            }
+
+            // DisplayName (string) minLength
+            if (this.DisplayName != null && this.DisplayName.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, length must be greater than 1.", new [] { "DisplayName" });
+            }
+
+            // DisplayName (string) pattern
+            Regex regexDisplayName = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexDisplayName.Match(this.DisplayName).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayName, must match a pattern of " + regexDisplayName, new [] { "DisplayName" });
             }
 
             yield break;

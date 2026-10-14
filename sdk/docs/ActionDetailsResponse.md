@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **Ordering** | **string** | How the created child tasks are ordered for execution: Parallel (default), Series, or ParallelSeries | [optional] 
 **Trigger** | **string** | Trigger on parent task to be invoked | [optional] 
 **Filter** | **string** | Optional LUSID filter expression to limit the action to a subset of the child tasks | [optional] 
+**DefaultTrigger** | **string** | Trigger sent to the next task when this task has no nextTaskInitialTrigger of its own | [optional] 
+**FallbackActions** | [**TriggerNextTaskFallbackActionsResponse**](TriggerNextTaskFallbackActionsResponse.md) |  | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;
@@ -33,6 +35,7 @@ var actionDetailsResponseInstance = new actionDetailsResponse(createChildTasksAc
 
  * [RunWorkerActionResponse](./RunWorkerActionResponse.md)
  * [TriggerChildTasksActionResponse](./TriggerChildTasksActionResponse.md)
+ * [TriggerNextTaskActionResponse](./TriggerNextTaskActionResponse.md)
  * [TriggerParentTaskActionResponse](./TriggerParentTaskActionResponse.md)
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
