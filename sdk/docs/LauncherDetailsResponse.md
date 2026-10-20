@@ -11,10 +11,10 @@ Name | Type | Description | Notes
 **SetCorrelationIds** | **List&lt;string&gt;** | Correlation IDs put on the root task as given | [optional] 
 **InitialTrigger** | **string** | The trigger given to the root task once it is made and all of its fields are filled, or null when the root task is left in its initial state | [optional] 
 **EventMatchingPattern** | [**LauncherEventMatchingPattern**](LauncherEventMatchingPattern.md) |  | [optional] 
+**CalendarContexts** | [**List&lt;CalendarContext&gt;**](CalendarContext.md) | The named time zones and holiday calendars this Launcher works in | [optional] 
 **MapTaskFields** | [**Dictionary&lt;string, ScheduleTaskFieldMapping&gt;**](ScheduleTaskFieldMapping.md) | Fields of the root task filled from the instant the schedule fired, keyed by the field name on the root task definition | [optional] 
 **MapCorrelationIds** | [**List&lt;CorrelationIdMapping&gt;**](CorrelationIdMapping.md) | Correlation IDs of the root task filled from the event | [optional] 
 **Schedule** | [**LauncherSchedule**](LauncherSchedule.md) |  | [optional] 
-**CalendarContexts** | [**List&lt;CalendarContext&gt;**](CalendarContext.md) | The named time zones and holiday calendars this Launcher works in.              Only a Schedule Launcher works in a calendar context | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;

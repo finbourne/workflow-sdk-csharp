@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LauncherType** | **string** |  | 
 **EventMatchingPattern** | [**LauncherEventMatchingPattern**](LauncherEventMatchingPattern.md) |  | 
+**CalendarContexts** | [**List&lt;CalendarContext&gt;**](CalendarContext.md) | The named time zones and holiday calendars the date time adjustments of this Launcher work in.              Required when any mapped field has a dateTimeAdjustment | [optional] 
 **MapTaskFields** | [**Dictionary&lt;string, EventTaskFieldMapping&gt;**](EventTaskFieldMapping.md) | Fields of the root task filled from the event, keyed by the field name on the root task definition | [optional] 
 **MapCorrelationIds** | [**List&lt;CorrelationIdMapping&gt;**](CorrelationIdMapping.md) | Correlation IDs of the root task filled from the event | [optional] 
 **RunAsUserId** | [**LauncherMapping**](LauncherMapping.md) |  | 
@@ -20,6 +21,7 @@ using System;
 
 string launcherType = "launcherType";
 LauncherEventMatchingPattern eventMatchingPattern = new LauncherEventMatchingPattern();
+List<CalendarContext> calendarContexts = new List<CalendarContext>();
 Dictionary<string, EventTaskFieldMapping> mapTaskFields = new Dictionary<string, EventTaskFieldMapping>();
 List<CorrelationIdMapping> mapCorrelationIds = new List<CorrelationIdMapping>();
 LauncherMapping runAsUserId = new LauncherMapping();
@@ -30,6 +32,7 @@ string initialTrigger = "example initialTrigger";
 EventLauncherDetails eventLauncherDetailsInstance = new EventLauncherDetails(
     launcherType: launcherType,
     eventMatchingPattern: eventMatchingPattern,
+    calendarContexts: calendarContexts,
     mapTaskFields: mapTaskFields,
     mapCorrelationIds: mapCorrelationIds,
     runAsUserId: runAsUserId,
