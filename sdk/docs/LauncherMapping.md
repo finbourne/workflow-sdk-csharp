@@ -6,7 +6,7 @@ A value a Launcher either gives as it is or takes from somewhere.              E
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **SetTo** | **string** | The value to use, given as it is | [optional] 
-**MapFrom** | **string** | The path the value is taken from, for example header.userId | [optional] 
+**MapFrom** | **string** | The path the value is taken from. A runAsUserId can only be taken from header.userId, and not for an event type whose header has no user ID | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;
