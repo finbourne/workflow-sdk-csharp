@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **ChildTaskFields** | [**Dictionary&lt;string, FieldMapping&gt;**](FieldMapping.md) | Field Mappings | [optional] 
 **MapStackingKeyFrom** | **string** | If present, the value of this field on the parent task will be the Stacking Key on any created child tasks | [optional] 
 **DisplayName** | **string** | An optional display name, to tell apart child task configurations that use the same Task Definition | [optional] 
+**Condition** | **string** | A filter expression over the parent Task, in the same form as a transition Guard. If present, the child Task is only created when it evaluates to true, after the field changes of the update that made the transition | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;
@@ -21,6 +22,7 @@ string initialTrigger = "example initialTrigger";
 Dictionary<string, FieldMapping> childTaskFields = new Dictionary<string, FieldMapping>();
 string mapStackingKeyFrom = "example mapStackingKeyFrom";
 string displayName = "example displayName";
+string condition = "example condition";
 
 CreateChildTaskConfiguration createChildTaskConfigurationInstance = new CreateChildTaskConfiguration(
     taskDefinitionId: taskDefinitionId,
@@ -28,7 +30,8 @@ CreateChildTaskConfiguration createChildTaskConfigurationInstance = new CreateCh
     initialTrigger: initialTrigger,
     childTaskFields: childTaskFields,
     mapStackingKeyFrom: mapStackingKeyFrom,
-    displayName: displayName);
+    displayName: displayName,
+    condition: condition);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
