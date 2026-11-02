@@ -5,7 +5,7 @@ Contains required info to delete Tasks
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TaskIds** | **List&lt;string&gt;** | The Ids of the Tasks to delete | [optional] 
+**TaskIds** | **List&lt;string&gt;** | The Ids of the Tasks to delete | 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;
