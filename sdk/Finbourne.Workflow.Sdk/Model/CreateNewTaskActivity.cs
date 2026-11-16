@@ -42,7 +42,6 @@ namespace Finbourne.Workflow.Sdk.Model
             CreateNewTask = 1
         }
 
-
         /// <summary>
         /// The type of task activity
         /// </summary>

@@ -42,7 +42,6 @@ namespace Finbourne.Workflow.Sdk.Model
             RunWorker = 1
         }
 
-
         /// <summary>
         /// Type name for this Action
         /// </summary>

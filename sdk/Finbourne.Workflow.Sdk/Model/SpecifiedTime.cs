@@ -42,7 +42,6 @@ namespace Finbourne.Workflow.Sdk.Model
             Specified = 1
         }
 
-
         /// <summary>
         /// The type of Time of Day
         /// </summary>

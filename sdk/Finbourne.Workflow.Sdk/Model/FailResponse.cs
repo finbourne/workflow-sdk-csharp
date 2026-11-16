@@ -42,7 +42,6 @@ namespace Finbourne.Workflow.Sdk.Model
             Fail = 1
         }
 
-
         /// <summary>
         /// The type of worker
         /// </summary>

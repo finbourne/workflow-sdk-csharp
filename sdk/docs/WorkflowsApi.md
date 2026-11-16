@@ -77,7 +77,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateWorkflowWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -191,7 +190,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteWorkflowWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -308,7 +306,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetWorkflowWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -429,7 +426,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListWorkflowsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -549,7 +545,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateWorkflowWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -667,7 +662,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpsertWorkflowPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

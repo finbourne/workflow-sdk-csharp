@@ -42,7 +42,6 @@ namespace Finbourne.Workflow.Sdk.Model
             LuminesceMultiQuery = 1
         }
 
-
         /// <summary>
         /// The type of worker
         /// </summary>

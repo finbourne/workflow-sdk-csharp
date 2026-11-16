@@ -76,7 +76,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateEventHandlerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -191,7 +190,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteEventHandlerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -309,7 +307,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetEventHandlerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -426,7 +423,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListEventHandlersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -543,7 +539,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateEventHandlerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

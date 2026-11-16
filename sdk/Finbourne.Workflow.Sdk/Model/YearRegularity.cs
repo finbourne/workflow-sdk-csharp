@@ -42,7 +42,6 @@ namespace Finbourne.Workflow.Sdk.Model
             Year = 1
         }
 
-
         /// <summary>
         /// The type of Date Regularity
         /// </summary>

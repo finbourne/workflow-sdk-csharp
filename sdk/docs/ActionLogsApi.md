@@ -72,7 +72,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetActionLogsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

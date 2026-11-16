@@ -80,7 +80,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateWorkerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -195,7 +194,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteWorkerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -313,7 +311,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetWorkerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -427,7 +424,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetWorkerResultWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -543,7 +539,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListWorkersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -662,7 +657,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RunWorkerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -781,7 +775,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateWorkerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

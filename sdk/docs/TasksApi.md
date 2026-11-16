@@ -79,7 +79,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the BatchUpdateTasksWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -192,7 +191,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateTaskWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -305,7 +303,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteTaskWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -418,7 +415,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteTasksWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -533,7 +529,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTaskWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -649,7 +644,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTaskHistoryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -768,7 +762,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListTasksWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -888,7 +881,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateTaskWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

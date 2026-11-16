@@ -42,7 +42,6 @@ namespace Finbourne.Workflow.Sdk.Model
             UpdateMatchingTasks = 1
         }
 
-
         /// <summary>
         /// The type of task activity
         /// </summary>

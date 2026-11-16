@@ -41,7 +41,6 @@ namespace Finbourne.Workflow.Sdk.Model
             Event = 1
         }
 
-
         /// <summary>
         /// Gets or Sets LauncherType
         /// </summary>

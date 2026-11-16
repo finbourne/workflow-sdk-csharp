@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateLauncherWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -198,7 +197,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteLauncherWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -316,7 +314,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetLauncherWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -438,7 +435,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListLaunchersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -562,7 +558,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateLauncherWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
