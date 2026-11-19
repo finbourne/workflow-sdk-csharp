@@ -11,8 +11,9 @@ Name | Type | Description | Notes
 **ValueConstraints** | [**ValueConstraints**](ValueConstraints.md) |  | [optional] 
 **DisplayName** | **string** | Display name for field definition | [optional] 
 **Description** | **string** | Description for field definition | [optional] 
-**Category** | **string** | Category for field definition | [optional] 
+**Category** | **string** | Display group for the field. Fields sharing a category are presented together in the UI | [optional] 
 **ContainsUrl** | **bool?** | Field contains url | [optional] 
+**Multiline** | **bool?** | Whether the field should be rendered as a multi-line text area | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;
@@ -28,6 +29,7 @@ string displayName = "example displayName";
 string description = "example description";
 string category = "example category";
 bool? containsUrl = //"True";
+bool? multiline = //"True";
 
 TaskFieldDefinition taskFieldDefinitionInstance = new TaskFieldDefinition(
     name: name,
@@ -37,7 +39,8 @@ TaskFieldDefinition taskFieldDefinitionInstance = new TaskFieldDefinition(
     displayName: displayName,
     description: description,
     category: category,
-    containsUrl: containsUrl);
+    containsUrl: containsUrl,
+    multiline: multiline);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

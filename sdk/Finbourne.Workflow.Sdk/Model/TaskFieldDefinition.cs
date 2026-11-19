@@ -42,9 +42,10 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="valueConstraints">valueConstraints.</param>
         /// <param name="displayName">Display name for field definition.</param>
         /// <param name="description">Description for field definition.</param>
-        /// <param name="category">Category for field definition.</param>
+        /// <param name="category">Display group for the field. Fields sharing a category are presented together in the UI.</param>
         /// <param name="containsUrl">Field contains url.</param>
-        public TaskFieldDefinition(string name = default(string), string type = default(string), ReadOnlyStates readOnlyStates = default(ReadOnlyStates), ValueConstraints valueConstraints = default(ValueConstraints), string displayName = default(string), string description = default(string), string category = default(string), bool? containsUrl = default(bool?))
+        /// <param name="multiline">Whether the field should be rendered as a multi-line text area.</param>
+        public TaskFieldDefinition(string name = default(string), string type = default(string), ReadOnlyStates readOnlyStates = default(ReadOnlyStates), ValueConstraints valueConstraints = default(ValueConstraints), string displayName = default(string), string description = default(string), string category = default(string), bool? containsUrl = default(bool?), bool? multiline = default(bool?))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -64,6 +65,7 @@ namespace Finbourne.Workflow.Sdk.Model
             this.Description = description;
             this.Category = category;
             this.ContainsUrl = containsUrl;
+            this.Multiline = multiline;
         }
 
         /// <summary>
@@ -107,9 +109,9 @@ namespace Finbourne.Workflow.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Category for field definition
+        /// Display group for the field. Fields sharing a category are presented together in the UI
         /// </summary>
-        /// <value>Category for field definition</value>
+        /// <value>Display group for the field. Fields sharing a category are presented together in the UI</value>
         [DataMember(Name = "category", EmitDefaultValue = true)]
         public string Category { get; set; }
 
@@ -119,6 +121,13 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <value>Field contains url</value>
         [DataMember(Name = "containsUrl", EmitDefaultValue = true)]
         public bool? ContainsUrl { get; set; }
+
+        /// <summary>
+        /// Whether the field should be rendered as a multi-line text area
+        /// </summary>
+        /// <value>Whether the field should be rendered as a multi-line text area</value>
+        [DataMember(Name = "multiline", EmitDefaultValue = true)]
+        public bool? Multiline { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -136,6 +145,7 @@ namespace Finbourne.Workflow.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  ContainsUrl: ").Append(ContainsUrl).Append("\n");
+            sb.Append("  Multiline: ").Append(Multiline).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -210,6 +220,11 @@ namespace Finbourne.Workflow.Sdk.Model
                     this.ContainsUrl == input.ContainsUrl ||
                     (this.ContainsUrl != null &&
                     this.ContainsUrl.Equals(input.ContainsUrl))
+                ) && 
+                (
+                    this.Multiline == input.Multiline ||
+                    (this.Multiline != null &&
+                    this.Multiline.Equals(input.Multiline))
                 );
         }
 
@@ -253,6 +268,10 @@ namespace Finbourne.Workflow.Sdk.Model
                 if (this.ContainsUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.ContainsUrl.GetHashCode();
+                }
+                if (this.Multiline != null)
+                {
+                    hashCode = (hashCode * 59) + this.Multiline.GetHashCode();
                 }
                 return hashCode;
             }
@@ -319,6 +338,18 @@ namespace Finbourne.Workflow.Sdk.Model
             if (false == regexDescription.Match(this.Description).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
+            }
+
+            // Category (string) maxLength
+            if (this.Category != null && this.Category.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Category, length must be less than 1024.", new [] { "Category" });
+            }
+
+            // Category (string) minLength
+            if (this.Category != null && this.Category.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Category, length must be greater than 1.", new [] { "Category" });
             }
 
             yield break;

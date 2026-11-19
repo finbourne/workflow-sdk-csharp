@@ -39,7 +39,7 @@ namespace Finbourne.Workflow.Sdk.Model
         /// <param name="name">The Name of this State (required).</param>
         /// <param name="displayName">The display name of this State.</param>
         /// <param name="description">The description of this State.</param>
-        /// <param name="category">The category of this State.</param>
+        /// <param name="category">The category of this State. Free text; categories understood by the LUSID web app are: NotStarted, Waiting, Warning, Exceptions, InProgress, Error, CompletedSuccess, CompletedFail, AwaitingApproval, Critical, HighPriority, MediumPriority, LowPriority, Other.</param>
         public TaskStateDefinition(string name = default(string), string displayName = default(string), string description = default(string), string category = default(string))
         {
             // to ensure "name" is required (not null)
@@ -75,9 +75,9 @@ namespace Finbourne.Workflow.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The category of this State
+        /// The category of this State. Free text; categories understood by the LUSID web app are: NotStarted, Waiting, Warning, Exceptions, InProgress, Error, CompletedSuccess, CompletedFail, AwaitingApproval, Critical, HighPriority, MediumPriority, LowPriority, Other
         /// </summary>
-        /// <value>The category of this State</value>
+        /// <value>The category of this State. Free text; categories understood by the LUSID web app are: NotStarted, Waiting, Warning, Exceptions, InProgress, Error, CompletedSuccess, CompletedFail, AwaitingApproval, Critical, HighPriority, MediumPriority, LowPriority, Other</value>
         [DataMember(Name = "category", EmitDefaultValue = true)]
         public string Category { get; set; }
 
@@ -234,6 +234,18 @@ namespace Finbourne.Workflow.Sdk.Model
             if (false == regexDescription.Match(this.Description).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, must match a pattern of " + regexDescription, new [] { "Description" });
+            }
+
+            // Category (string) maxLength
+            if (this.Category != null && this.Category.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Category, length must be less than 1024.", new [] { "Category" });
+            }
+
+            // Category (string) minLength
+            if (this.Category != null && this.Category.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Category, length must be greater than 0.", new [] { "Category" });
             }
 
             yield break;

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The Name of this State | 
 **DisplayName** | **string** | The display name of this State | [optional] 
 **Description** | **string** | The description of this State | [optional] 
-**Category** | **string** | The category of this State | [optional] 
+**Category** | **string** | The category of this State. Free text; categories understood by the LUSID web app are: NotStarted, Waiting, Warning, Exceptions, InProgress, Error, CompletedSuccess, CompletedFail, AwaitingApproval, Critical, HighPriority, MediumPriority, LowPriority, Other | [optional] 
 
 ```csharp
 using Finbourne.Workflow.Sdk.Model;
